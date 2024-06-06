@@ -12,10 +12,10 @@
 #define FREE_MYSTERY_GIFT                   FALSE   // Frees up Mystery Gift data (876 bytes).
                                             // SaveBlock1 total: 2516 bytes
 // SaveBlock2 configs
-#define FREE_BATTLE_TOWER_E_READER          FALSE   // Frees up Battle Tower E-Reader data (188 bytes).
-#define FREE_POKEMON_JUMP                   FALSE   // Frees up Pokémon Jump data (16 bytes).
-#define FREE_RECORD_MIXING_HALL_RECORDS     FALSE   // Frees up hall records for record mixing (1032 bytes).
-#define FREE_EXTRA_SEEN_FLAGS_SAVEBLOCK2    FALSE   // Free up unused Pokédex seen flags (108 bytes).
+#define FREE_BATTLE_TOWER_E_READER          TRUE    // Frees up Battle Tower E-Reader data (188 bytes).
+#define FREE_POKEMON_JUMP                   TRUE    // Frees up Pokémon Jump data (16 bytes).
+#define FREE_RECORD_MIXING_HALL_RECORDS     TRUE    // Frees up hall records for record mixing (1032 bytes).
+#define FREE_EXTRA_SEEN_FLAGS_SAVEBLOCK2    TRUE    // Free up unused Pokédex seen flags (108 bytes).
                                             // SaveBlock2 total: 1274 bytes
 
                                             // Grand Total: 3790
