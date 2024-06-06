@@ -3267,10 +3267,11 @@ bool8 IsPokemonStorageFull(void)
 
 const u8 *GetSpeciesName(u16 species)
 {
+    int numDex;
+
     species = SanitizeSpeciesId(species);
-    if (gSpeciesInfo[species].speciesName[0] == 0)
-        return gSpeciesInfo[SPECIES_NONE].speciesName;
-    return gSpeciesInfo[species].speciesName;
+    numDex = gSpeciesInfo[species].natDexNum;
+    return kSpeciesNames[numDex];
 }
 
 const u8 *GetSpeciesCategory(u16 species)

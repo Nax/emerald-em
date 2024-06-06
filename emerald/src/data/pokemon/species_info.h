@@ -25,7 +25,6 @@ const struct SpeciesInfo gSpeciesInfo[] =
 {
     [SPECIES_NONE] =
     {
-        .speciesName = _("??????????"),
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_NONE,
         .categoryName = _("Unknown"),
@@ -106,7 +105,6 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_NONE, ABILITY_CURSED_BODY, ABILITY_DAMP },
         .bodyColor = BODY_COLOR_BLACK,
-        .speciesName = _("??????????"),
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_NONE,
         .categoryName = _("Unknown"),

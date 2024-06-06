@@ -379,7 +379,6 @@ struct SpeciesInfo /*0x8C*/
  /* 0x1E */ u8 safariZoneFleeRate;
             // Pokédex data
  /* 0x1F */ u8 categoryName[13];
- /* 0x1F */ u8 speciesName[POKEMON_NAME_LENGTH + 1];
  /* 0x2C */ u16 cryId;
  /* 0x2E */ u16 natDexNum;
  /* 0x30 */ u16 height; //in decimeters

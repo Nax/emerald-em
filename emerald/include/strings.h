@@ -3061,4 +3061,7 @@ extern const u8 gText_BasePointsResetToZero[];
 extern const u8 gText_Fertilize[];
 extern const u8 gText_PlantBerry[];
 
+/* Pokemon names */
+extern const u8 kSpeciesNames[][POKEMON_NAME_LENGTH + 1];
+
 #endif // GUARD_STRINGS_H
