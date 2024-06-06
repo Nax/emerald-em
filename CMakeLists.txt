@@ -16,3 +16,29 @@ add_custom_target(
     USES_TERMINAL
     VERBATIM
 )
+
+add_custom_target(data-langs ALL)
+
+function(build_lang lang)
+  set(TARGET "data-lang-${lang}")
+  set(TARGET_OUTPUT "${CMAKE_BINARY_DIR}/data/${lang}.bin")
+  file(GLOB_RECURSE LANG_SOURCES "${CMAKE_SOURCE_DIR}/data/text/${lang}/*")
+  add_custom_command(
+    OUTPUT ${TARGET_OUTPUT}
+    COMMAND python3 ${CMAKE_SOURCE_DIR}/scripts/make_lang.py ${lang}
+    DEPENDS emerald ${LANG_SOURCES} ${CMAKE_SOURCE_DIR}/scripts/make_lang.py
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    COMMENT "Building ${lang} data"
+    VERBATIM
+  )
+  add_custom_target(
+    ${TARGET}
+    DEPENDS ${TARGET_OUTPUT}
+  )
+  add_dependencies(data-langs ${TARGET})
+endfunction()
+
+build_lang("fr_FR")
+
+include_directories(src)
+add_subdirectory(src)
