@@ -93,6 +93,7 @@ TEST_OBJ_DIR_NAME := build/modern-test
 endif
 TESTELF = $(ROM:.gba=-test.elf)
 HEADLESSELF = $(ROM:.gba=-test-headless.elf)
+LIBAGBSYSCALL := libagbsyscall/libagbsyscall.a
 
 C_SUBDIR = src
 GFLIB_SUBDIR = gflib
@@ -187,7 +188,7 @@ MAKEFLAGS += --no-print-directory
 # Secondary expansion is required for dependency variables in object rules.
 .SECONDEXPANSION:
 
-.PHONY: all rom clean compare tidy tools check-tools mostlyclean clean-tools clean-check-tools $(TOOLDIRS) $(CHECKTOOLDIRS) libagbsyscall agbcc modern tidymodern tidynonmodern check history
+.PHONY: all rom clean compare tidy tools check-tools mostlyclean clean-tools clean-check-tools $(TOOLDIRS) $(CHECKTOOLDIRS) agbcc modern tidymodern tidynonmodern check history
 
 infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst __SPACE__, ,$(line))))
 
@@ -488,7 +489,7 @@ $(OBJ_DIR)/ld_script.ld: $(LD_SCRIPT) $(LD_SCRIPT_DEPS)
 	cd $(OBJ_DIR) && sed "s#tools/#../../tools/#g" ../../$(LD_SCRIPT) > ld_script.ld
 
 LDFLAGS = -Map ../../$(MAP)
-$(ELF): $(OBJ_DIR)/ld_script.ld $(OBJS) libagbsyscall
+$(ELF): $(OBJ_DIR)/ld_script.ld $(OBJS) $(LIBAGBSYSCALL)
 	@echo "cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -T ld_script.ld -o ../../$@ <objects> <lib>"
 	@cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -T ld_script.ld --print-memory-usage -o ../../$@ $(OBJS_REL) $(LIB) | cat
 	$(FIX) $@ -t"$(TITLE)" -c$(GAME_CODE) -m$(MAKER_CODE) -r$(REVISION) --silent
@@ -506,7 +507,7 @@ LD_SCRIPT_TEST := ld_script_test.ld
 $(OBJ_DIR)/ld_script_test.ld: $(LD_SCRIPT_TEST) $(LD_SCRIPT_DEPS)
 	cd $(OBJ_DIR) && sed "s#tools/#../../tools/#g" ../../$(LD_SCRIPT_TEST) > ld_script_test.ld
 
-$(TESTELF): $(OBJ_DIR)/ld_script_test.ld $(OBJS) $(TEST_OBJS) libagbsyscall tools check-tools
+$(TESTELF): $(OBJ_DIR)/ld_script_test.ld $(OBJS) $(TEST_OBJS) $(LIBAGBSYSCALL) tools check-tools
 	@echo "cd $(OBJ_DIR) && $(LD) -T ld_script_test.ld -o ../../$@ <objects> <test-objects> <lib>"
 	@cd $(OBJ_DIR) && $(LD) $(TESTLDFLAGS) -T ld_script_test.ld -o ../../$@ $(OBJS_REL) $(TEST_OBJS_REL) $(LIB)
 	$(FIX) $@ -t"$(TITLE)" -c$(GAME_CODE) -m$(MAKER_CODE) -r$(REVISION) -d0 --silent
@@ -523,8 +524,10 @@ check: $(TESTELF)
 	$(PATCHELF) $(HEADLESSELF) gTestRunnerHeadless '\x01' gTestRunnerSkipIsFail "$(TEST_SKIP_IS_FAIL)"
 	$(ROMTESTHYDRA) $(ROMTEST) $(OBJCOPY) $(HEADLESSELF)
 
-libagbsyscall:
+$(LIBAGBSYSCALL): FORCE
 	@$(MAKE) -C libagbsyscall TOOLCHAIN=$(TOOLCHAIN) MODERN=$(MODERN)
+
+FORCE: ;
 
 ###################
 ### Symbol file ###
