@@ -495,6 +495,7 @@ $(ELF): $(OBJ_DIR)/ld_script.ld $(OBJS) $(LIBAGBSYSCALL)
 	$(FIX) $@ -t"$(TITLE)" -c$(GAME_CODE) -m$(MAKER_CODE) -r$(REVISION) --silent
 
 $(ROM): $(ELF)
+	nm -n $< | grep " R " > pokeemerald.sym
 	$(OBJCOPY) -O binary $< $@
 	$(FIX) $@ -p --silent
 
