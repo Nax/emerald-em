@@ -1,6 +1,6 @@
 file(GLOB_RECURSE SOURCES "*.cpp")
 add_executable(shuffler ${SOURCES})
-add_dependencies(shuffler emerald data-langs)
+add_dependencies(shuffler emerald data)
 
 add_custom_command(
   TARGET shuffler POST_BUILD

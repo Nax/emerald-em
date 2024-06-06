@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <cstdint>
+#include <cstring>
 #include <shuffler/Shuffler.h>
 
 Shuffler::Shuffler()
@@ -27,8 +28,14 @@ int Shuffler::run(const std::string& out)
     if (!loadRom())
         return 1;
 
+    if (!loadOffsets())
+        return 1;
+
     if (!applyLang("fr_FR"))
         return 1;
+
+    _random.seed();
+    shuffle();
 
     outFilename = out;
     outFilename.append("/emerald-em.gba");
@@ -57,6 +64,40 @@ bool Shuffler::loadRom()
 
     _rom = std::make_unique<char[]>(32 * 1024 * 1024);
     file.read(_rom.get(), 32 * 1024 * 1024);
+    return true;
+}
+
+bool Shuffler::loadOffsets()
+{
+    std::uint32_t count;
+    std::uint32_t offset;
+    std::uint32_t nameSize;
+    std::string name;
+
+    std::fstream file;
+
+    file = dataFile("offsets.bin");
+    if (!file.good())
+    {
+        std::fprintf(stderr, "Failed to open offsets.bin\n");
+        return false;
+    }
+
+    /* Read count */
+    file.read(reinterpret_cast<char*>(&count), sizeof(count));
+    for (std::uint32_t i = 0; i < count; i++)
+    {
+        /* Read offset */
+        file.read(reinterpret_cast<char*>(&offset), sizeof(offset));
+
+        /* Read name */
+        file.read(reinterpret_cast<char*>(&nameSize), sizeof(nameSize));
+        name.resize(nameSize);
+        file.read(&name[0], nameSize);
+
+        _offsets[name] = offset;
+    }
+
     return true;
 }
 
@@ -102,4 +143,35 @@ bool Shuffler::applyLang(const char* lang)
     }
 
     return true;
+}
+
+static std::uint16_t randomPokemon(Random& rand)
+{
+    std::uint16_t value;
+
+    for (;;)
+    {
+        value = rand.next() % 2048;
+        if (value == 0 || value > 1025)
+            continue;
+        return value;
+    }
+}
+
+void Shuffler::patchSymbol(const char* sym, const void* data, std::size_t size)
+{
+    std::uint32_t offset;
+
+    offset = _offsets[sym];
+    memcpy(_rom.get() + offset, data, size);
+}
+
+void Shuffler::shuffle()
+{
+    std::uint16_t starters[3];
+
+    /* Shuffle starters */
+    for (int i = 0; i < 3; i++)
+        starters[i] = randomPokemon(_random);
+    patchSymbol("kStarterMons", starters, sizeof(starters));
 }

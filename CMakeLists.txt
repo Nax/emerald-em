@@ -17,7 +17,7 @@ add_custom_target(
     VERBATIM
 )
 
-add_custom_target(data-langs ALL)
+add_custom_target(data ALL)
 
 function(build_lang lang)
   set(TARGET "data-lang-${lang}")
@@ -35,10 +35,26 @@ function(build_lang lang)
     ${TARGET}
     DEPENDS ${TARGET_OUTPUT}
   )
-  add_dependencies(data-langs ${TARGET})
+  add_dependencies(data ${TARGET})
 endfunction()
 
 build_lang("fr_FR")
+
+# Offsets
+set(OFFSETS_FILE "${CMAKE_BINARY_DIR}/data/offsets.bin")
+add_custom_command(
+  OUTPUT ${OFFSETS_FILE}
+  COMMAND python3 ${CMAKE_SOURCE_DIR}/scripts/make_offsets.py
+  DEPENDS emerald ${CMAKE_SOURCE_DIR}/scripts/make_offsets.py
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+  COMMENT "Building offsets"
+  VERBATIM
+)
+add_custom_target(
+  data-offsets
+  DEPENDS ${OFFSETS_FILE}
+)
+add_dependencies(data data-offsets)
 
 include_directories(src)
 add_subdirectory(src)

@@ -95,7 +95,6 @@ class LangBuilder:
     self.parse_symbols()
     self.entries_blocks(self.symbol('kSpeciesNames'), 13, 'pokemons.txt')
     self.output_data()
-    pass
 
 builder = LangBuilder(sys.argv[1])
 builder.build()
