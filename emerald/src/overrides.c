@@ -1,5 +1,7 @@
 #include "global.h"
-#include "strings.h"
+#include "overrides.h"
+
+const u16 kFirstBattlePokemon = SPECIES_ZIGZAGOON;
 
 const u8 kSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     _("??????????"),

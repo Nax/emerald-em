@@ -22,6 +22,7 @@
 #include "test_runner.h"
 #include "util.h"
 #include "text.h"
+#include "overrides.h"
 #include "constants/abilities.h"
 #include "constants/songs.h"
 
@@ -42,8 +43,6 @@ static void Task_HandleCopyReceivedLinkBuffersData(u8 taskId);
 static void Task_StartSendOutAnim(u8 taskId);
 static void SpriteCB_FreePlayerSpriteLoadMonSprite(struct Sprite *sprite);
 static void SpriteCB_FreeOpponentSprite(struct Sprite *sprite);
-
-const volatile u16 kFirstBattlePokemon = SPECIES_ZIGZAGOON;
 
 void HandleLinkBattleSetup(void)
 {
