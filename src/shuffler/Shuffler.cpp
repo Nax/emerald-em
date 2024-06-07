@@ -160,6 +160,6 @@ void Shuffler::shuffle()
 
     /* Shuffle starters */
     for (int i = 0; i < 3; i++)
-        starters[i] = Pokemon::randPokemon(_random);
+        starters[i] = Pokemon::randVisiblePokemon(_random);
     patchSymbol("kStarterMons", starters, sizeof(starters));
 }
