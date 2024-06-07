@@ -11,6 +11,9 @@ insert_final_newline = true
 [*.{c,cpp,h}]
 indent_size = 4
 
+[CMakelists.txt]
+indent_size = 2
+
 [*.s]
 indent_size = 4
 

@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <cstring>
 #include <shuffler/Shuffler.h>
+#include <shuffler/Pokemon.h>
 
 Shuffler::Shuffler()
 {
@@ -145,19 +146,6 @@ bool Shuffler::applyLang(const char* lang)
     return true;
 }
 
-static std::uint16_t randomPokemon(Random& rand)
-{
-    std::uint16_t value;
-
-    for (;;)
-    {
-        value = rand.next() % 2048;
-        if (value == 0 || value > 1025)
-            continue;
-        return value;
-    }
-}
-
 void Shuffler::patchSymbol(const char* sym, const void* data, std::size_t size)
 {
     std::uint32_t offset;
@@ -172,6 +160,6 @@ void Shuffler::shuffle()
 
     /* Shuffle starters */
     for (int i = 0; i < 3; i++)
-        starters[i] = randomPokemon(_random);
+        starters[i] = Pokemon::randPokemon(_random);
     patchSymbol("kStarterMons", starters, sizeof(starters));
 }
