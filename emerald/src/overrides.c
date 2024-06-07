@@ -3,6 +3,13 @@
 
 const u16 kFirstBattlePokemon = SPECIES_ZIGZAGOON;
 
+const u16 kStarterMons[] =
+{
+    SPECIES_TREECKO,
+    SPECIES_TORCHIC,
+    SPECIES_MUDKIP,
+};
+
 const u8 kSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     _("??????????"),
     _("Bulbasaur"),

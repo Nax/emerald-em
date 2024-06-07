@@ -21,6 +21,7 @@
 #include "trainer_pokemon_sprites.h"
 #include "trig.h"
 #include "window.h"
+#include "overrides.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
 
@@ -108,13 +109,6 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
     {0, 9},
     {16, 10},
     {8, 4},
-};
-
-const volatile u16 kStarterMons[STARTER_MON_COUNT] =
-{
-    SPECIES_TREECKO,
-    SPECIES_TORCHIC,
-    SPECIES_MUDKIP,
 };
 
 static const struct BgTemplate sBgTemplates[3] =

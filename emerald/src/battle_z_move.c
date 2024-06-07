@@ -142,7 +142,7 @@ static const struct SpriteTemplate sSpriteTemplate_ZMoveTrigger =
 // Functions
 bool8 IsZMove(u16 move)
 {
-    return move >= FIRST_Z_MOVE && move <= LAST_Z_MOVE;
+    return IS_Z_MOVE(move);
 }
 
 void QueueZMove(u8 battler, u16 baseMove)

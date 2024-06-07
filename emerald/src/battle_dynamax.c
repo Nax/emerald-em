@@ -460,7 +460,7 @@ static u8 GetMaxPowerTier(u16 move)
 // Returns whether a move is a Max Move or not.
 bool32 IsMaxMove(u16 move)
 {
-    return move >= FIRST_MAX_MOVE && move <= LAST_MAX_MOVE;
+    return IS_MAX_MOVE(move);
 }
 
 // Assigns the multistring to use for the "Damage Non- Types" G-Max effect.
