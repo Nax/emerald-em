@@ -129,11 +129,6 @@ static const uint16_t kFormsBasculegion[] = {
     SPECIES_BASCULEGION_FEMALE,
 };
 
-static const uint16_t kFormsDarmanitan[] = {
-    SPECIES_DARMANITAN_STANDARD_MODE,
-    SPECIES_DARMANITAN_ZEN_MODE,
-};
-
 static const uint16_t kFormsDeerling[] = {
     SPECIES_DEERLING_SPRING,
     SPECIES_DEERLING_SUMMER,
@@ -435,6 +430,272 @@ static const std::uint16_t kFormsSinistcha[] = {
     SPECIES_SINISTCHA_MASTERPIECE,
 };
 
+static const std::uint16_t kFormsRattata[] = {
+    SPECIES_RATTATA,
+    SPECIES_RATTATA_ALOLAN,
+};
+
+static const std::uint16_t kFormsRaticate[] = {
+    SPECIES_RATICATE,
+    SPECIES_RATICATE_ALOLAN,
+};
+
+static const std::uint16_t kFormsRaichu[] = {
+    SPECIES_RAICHU,
+    SPECIES_RAICHU_ALOLAN,
+};
+
+static const std::uint16_t kFormsSandshrew[] = {
+    SPECIES_SANDSHREW,
+    SPECIES_SANDSHREW_ALOLAN,
+};
+
+static const std::uint16_t kFormsSandslash[] = {
+    SPECIES_SANDSLASH,
+    SPECIES_SANDSLASH_ALOLAN,
+};
+
+static const std::uint16_t kFormsVulpix[] = {
+    SPECIES_VULPIX,
+    SPECIES_VULPIX_ALOLAN,
+};
+
+static const std::uint16_t kFormsNinetales[] = {
+    SPECIES_NINETALES,
+    SPECIES_NINETALES_ALOLAN,
+};
+
+static const std::uint16_t kFormsDiglett[] = {
+    SPECIES_DIGLETT,
+    SPECIES_DIGLETT_ALOLAN,
+};
+
+static const std::uint16_t kFormsDugtrio[] = {
+    SPECIES_DUGTRIO,
+    SPECIES_DUGTRIO_ALOLAN,
+};
+
+static const std::uint16_t kFormsMeowth[] = {
+    SPECIES_MEOWTH,
+    SPECIES_MEOWTH_ALOLAN,
+    SPECIES_MEOWTH_GALARIAN,
+};
+
+static const std::uint16_t kFormsPersian[] = {
+    SPECIES_PERSIAN,
+    SPECIES_PERSIAN_ALOLAN,
+};
+
+static const std::uint16_t kFormsGrowlithe[] = {
+    SPECIES_GROWLITHE,
+    SPECIES_GROWLITHE_HISUIAN,
+};
+
+static const std::uint16_t kFormsArcanine[] = {
+    SPECIES_ARCANINE,
+    SPECIES_ARCANINE_HISUIAN,
+};
+
+static const std::uint16_t kFormsGeodude[] = {
+    SPECIES_GEODUDE,
+    SPECIES_GEODUDE_ALOLAN,
+};
+
+static const std::uint16_t kFormsGraveler[] = {
+    SPECIES_GRAVELER,
+    SPECIES_GRAVELER_ALOLAN,
+};
+
+static const std::uint16_t kFormsGolem[] = {
+    SPECIES_GOLEM,
+    SPECIES_GOLEM_ALOLAN,
+};
+
+static const std::uint16_t kFormsPonyta[] = {
+    SPECIES_PONYTA,
+    SPECIES_PONYTA_GALARIAN,
+};
+
+static const std::uint16_t kFormsRapidash[] = {
+    SPECIES_RAPIDASH,
+    SPECIES_RAPIDASH_GALARIAN,
+};
+
+static const std::uint16_t kFormsSlowpoke[] = {
+    SPECIES_SLOWPOKE,
+    SPECIES_SLOWPOKE_GALARIAN,
+};
+
+static const std::uint16_t kFormsSlowbro[] = {
+    SPECIES_SLOWBRO,
+    SPECIES_SLOWBRO_GALARIAN,
+};
+
+static const std::uint16_t kFormsfarfetchd[] = {
+    SPECIES_FARFETCHD,
+    SPECIES_FARFETCHD_GALARIAN,
+};
+
+static const std::uint16_t kFormsGrimer[] = {
+    SPECIES_GRIMER,
+    SPECIES_GRIMER_ALOLAN,
+};
+
+static const std::uint16_t kFormsMuk[] = {
+    SPECIES_MUK,
+    SPECIES_MUK_ALOLAN,
+};
+
+static const std::uint16_t kFormsVoltorb[] = {
+    SPECIES_VOLTORB,
+    SPECIES_VOLTORB_HISUIAN,
+};
+
+static const std::uint16_t kFormsElectrode[] = {
+    SPECIES_ELECTRODE,
+    SPECIES_ELECTRODE_HISUIAN,
+};
+
+static const std::uint16_t kFormsExeggutor[] = {
+    SPECIES_EXEGGUTOR,
+    SPECIES_EXEGGUTOR_ALOLAN,
+};
+
+static const std::uint16_t kFormsMarowak[] = {
+    SPECIES_MAROWAK,
+    SPECIES_MAROWAK_ALOLAN,
+};
+
+static const std::uint16_t kFormsWeezing[] = {
+    SPECIES_WEEZING,
+    SPECIES_WEEZING_GALARIAN,
+};
+
+static const std::uint16_t kFormsMrMime[] = {
+    SPECIES_MR_MIME,
+    SPECIES_MR_MIME_GALARIAN,
+};
+
+static const std::uint16_t kFormsArticuno[] = {
+    SPECIES_ARTICUNO,
+    SPECIES_ARTICUNO_GALARIAN,
+};
+
+static const std::uint16_t kFormsZapdos[] = {
+    SPECIES_ZAPDOS,
+    SPECIES_ZAPDOS_GALARIAN,
+};
+
+static const std::uint16_t kFormsMoltres[] = {
+    SPECIES_MOLTRES,
+    SPECIES_MOLTRES_GALARIAN,
+};
+
+static const std::uint16_t kFormsTyphlosion[] = {
+    SPECIES_TYPHLOSION,
+    SPECIES_TYPHLOSION_HISUIAN,
+};
+
+static const std::uint16_t kFormsWooper[] = {
+    SPECIES_WOOPER,
+    SPECIES_WOOPER_PALDEAN,
+};
+
+static const std::uint16_t kFormsSlowking[] = {
+    SPECIES_SLOWKING,
+    SPECIES_SLOWKING_GALARIAN,
+};
+
+static const std::uint16_t kFormsQwilfish[] = {
+    SPECIES_QWILFISH,
+    SPECIES_QWILFISH_HISUIAN,
+};
+
+static const std::uint16_t kFormsSneasel[] = {
+    SPECIES_SNEASEL,
+    SPECIES_SNEASEL_HISUIAN,
+};
+
+static const std::uint16_t kFormsCorsola[] = {
+    SPECIES_CORSOLA,
+    SPECIES_CORSOLA_GALARIAN,
+};
+
+static const std::uint16_t kFormsZigzagoon[] = {
+    SPECIES_ZIGZAGOON,
+    SPECIES_ZIGZAGOON_GALARIAN,
+};
+
+static const std::uint16_t kFormsLinoone[] = {
+    SPECIES_LINOONE,
+    SPECIES_LINOONE_GALARIAN,
+};
+
+static const std::uint16_t kFormsSamurott[] = {
+    SPECIES_SAMUROTT,
+    SPECIES_SAMUROTT_HISUIAN,
+};
+
+static const std::uint16_t kFormsLiligant[] = {
+    SPECIES_LILLIGANT,
+    SPECIES_LILLIGANT_HISUIAN,
+};
+
+static const std::uint16_t kFormsDarumaka[] = {
+    SPECIES_DARUMAKA,
+    SPECIES_DARUMAKA_GALARIAN,
+};
+
+static const uint16_t kFormsDarmanitan[] = {
+    SPECIES_DARMANITAN,
+    SPECIES_DARMANITAN_GALARIAN,
+};
+
+static const std::uint16_t kFormsYamask[] = {
+    SPECIES_YAMASK,
+    SPECIES_YAMASK_GALARIAN,
+};
+
+static const std::uint16_t kFormsZorua[] = {
+    SPECIES_ZORUA,
+    SPECIES_ZORUA_HISUIAN,
+};
+
+static const std::uint16_t kFormsZoroark[] = {
+    SPECIES_ZOROARK,
+    SPECIES_ZOROARK_HISUIAN,
+};
+
+static const std::uint16_t kFormsStunfisk[] = {
+    SPECIES_STUNFISK,
+    SPECIES_STUNFISK_GALARIAN,
+};
+
+static const std::uint16_t kFormsBraviary[] = {
+    SPECIES_BRAVIARY,
+    SPECIES_BRAVIARY_HISUIAN,
+};
+
+static const std::uint16_t kFormsSliggoo[] = {
+    SPECIES_SLIGGOO,
+    SPECIES_SLIGGOO_HISUIAN,
+};
+
+static const std::uint16_t kFormsGoodra[] = {
+    SPECIES_GOODRA,
+    SPECIES_GOODRA_HISUIAN,
+};
+
+static const std::uint16_t kFormsAvalugg[] = {
+    SPECIES_AVALUGG,
+    SPECIES_AVALUGG_HISUIAN,
+};
+
+static const std::uint16_t kFormsDecidueye[] = {
+    SPECIES_DECIDUEYE,
+    SPECIES_DECIDUEYE_HISUIAN,
+};
+
 std::uint16_t Pokemon::randPokemon(Random& rng)
 {
     std::uint16_t value;
@@ -454,7 +715,6 @@ std::uint16_t Pokemon::randPokemon(Random& rng)
     case SPECIES_SHAYMIN: return SAMPLE(rng, kFormsShaymin);
     case SPECIES_BASCULIN: return SAMPLE(rng, kFormsBasculin);
     case SPECIES_BASCULEGION: return SAMPLE(rng, kFormsBasculegion);
-    case SPECIES_DARMANITAN: return SAMPLE(rng, kFormsDarmanitan);
     case SPECIES_DEERLING: return SAMPLE(rng, kFormsDeerling);
     case SPECIES_SAWSBUCK: return SAMPLE(rng, kFormsSawsbuck);
     case SPECIES_TORNADUS: return SAMPLE(rng, kFormsTornadus);
@@ -473,7 +733,6 @@ std::uint16_t Pokemon::randPokemon(Random& rng)
     case SPECIES_ZYGARDE: return SAMPLE(rng, kFormsZygarde);
     case SPECIES_HOOPA: return SAMPLE(rng, kFormsHoopa);
     case SPECIES_ORICORIO: return SAMPLE(rng, kFormsOricorio);
-    case SPECIES_ROCKRUFF: return SPECIES_ROCKRUFF_OWN_TEMPO;
     case SPECIES_LYCANROC: return SAMPLE(rng, kFormsLycanroc);
     case SPECIES_MINIOR: return SAMPLE(rng, kFormsMinior);
     case SPECIES_MAGEARNA: return SAMPLE(rng, kFormsMagearna);
@@ -493,6 +752,59 @@ std::uint16_t Pokemon::randPokemon(Random& rng)
     case SPECIES_GIMMIGHOUL: return SAMPLE(rng, kFormsGimmighoul);
     case SPECIES_POLTCHAGEIST: return SAMPLE(rng, kFormsPoltchageist);
     case SPECIES_SINISTCHA: return SAMPLE(rng, kFormsSinistcha);
+    case SPECIES_RATTATA: return SAMPLE(rng, kFormsRattata);
+    case SPECIES_RATICATE: return SAMPLE(rng, kFormsRaticate);
+    case SPECIES_RAICHU: return SAMPLE(rng, kFormsRaichu);
+    case SPECIES_SANDSHREW: return SAMPLE(rng, kFormsSandshrew);
+    case SPECIES_SANDSLASH: return SAMPLE(rng, kFormsSandslash);
+    case SPECIES_VULPIX: return SAMPLE(rng, kFormsVulpix);
+    case SPECIES_NINETALES: return SAMPLE(rng, kFormsNinetales);
+    case SPECIES_DIGLETT: return SAMPLE(rng, kFormsDiglett);
+    case SPECIES_DUGTRIO: return SAMPLE(rng, kFormsDugtrio);
+    case SPECIES_MEOWTH: return SAMPLE(rng, kFormsMeowth);
+    case SPECIES_PERSIAN: return SAMPLE(rng, kFormsPersian);
+    case SPECIES_GROWLITHE: return SAMPLE(rng, kFormsGrowlithe);
+    case SPECIES_ARCANINE: return SAMPLE(rng, kFormsArcanine);
+    case SPECIES_GEODUDE: return SAMPLE(rng, kFormsGeodude);
+    case SPECIES_GRAVELER: return SAMPLE(rng, kFormsGraveler);
+    case SPECIES_GOLEM: return SAMPLE(rng, kFormsGolem);
+    case SPECIES_PONYTA: return SAMPLE(rng, kFormsPonyta);
+    case SPECIES_RAPIDASH: return SAMPLE(rng, kFormsRapidash);
+    case SPECIES_SLOWPOKE: return SAMPLE(rng, kFormsSlowpoke);
+    case SPECIES_SLOWBRO: return SAMPLE(rng, kFormsSlowbro);
+    case SPECIES_FARFETCHD: return SAMPLE(rng, kFormsfarfetchd);
+    case SPECIES_GRIMER: return SAMPLE(rng, kFormsGrimer);
+    case SPECIES_MUK: return SAMPLE(rng, kFormsMuk);
+    case SPECIES_VOLTORB: return SAMPLE(rng, kFormsVoltorb);
+    case SPECIES_ELECTRODE: return SAMPLE(rng, kFormsElectrode);
+    case SPECIES_EXEGGUTOR: return SAMPLE(rng, kFormsExeggutor);
+    case SPECIES_MAROWAK: return SAMPLE(rng, kFormsMarowak);
+    case SPECIES_WEEZING: return SAMPLE(rng, kFormsWeezing);
+    case SPECIES_MR_MIME: return SAMPLE(rng, kFormsMrMime);
+    case SPECIES_ARTICUNO: return SAMPLE(rng, kFormsArticuno);
+    case SPECIES_ZAPDOS: return SAMPLE(rng, kFormsZapdos);
+    case SPECIES_MOLTRES: return SAMPLE(rng, kFormsMoltres);
+    case SPECIES_TYPHLOSION: return SAMPLE(rng, kFormsTyphlosion);
+    case SPECIES_WOOPER: return SAMPLE(rng, kFormsWooper);
+    case SPECIES_SLOWKING: return SAMPLE(rng, kFormsSlowking);
+    case SPECIES_QWILFISH: return SAMPLE(rng, kFormsQwilfish);
+    case SPECIES_SNEASEL: return SAMPLE(rng, kFormsSneasel);
+    case SPECIES_CORSOLA: return SAMPLE(rng, kFormsCorsola);
+    case SPECIES_ZIGZAGOON: return SAMPLE(rng, kFormsZigzagoon);
+    case SPECIES_LINOONE: return SAMPLE(rng, kFormsLinoone);
+    case SPECIES_SAMUROTT: return SAMPLE(rng, kFormsSamurott);
+    case SPECIES_LILLIGANT: return SAMPLE(rng, kFormsLiligant);
+    case SPECIES_DARUMAKA: return SAMPLE(rng, kFormsDarumaka);
+    case SPECIES_DARMANITAN: return SAMPLE(rng, kFormsDarmanitan);
+    case SPECIES_YAMASK: return SAMPLE(rng, kFormsYamask);
+    case SPECIES_ZORUA: return SAMPLE(rng, kFormsZorua);
+    case SPECIES_ZOROARK: return SAMPLE(rng, kFormsZoroark);
+    case SPECIES_STUNFISK: return SAMPLE(rng, kFormsStunfisk);
+    case SPECIES_BRAVIARY: return SAMPLE(rng, kFormsBraviary);
+    case SPECIES_SLIGGOO: return SAMPLE(rng, kFormsSliggoo);
+    case SPECIES_GOODRA: return SAMPLE(rng, kFormsGoodra);
+    case SPECIES_AVALUGG: return SAMPLE(rng, kFormsAvalugg);
+    case SPECIES_DECIDUEYE: return SAMPLE(rng, kFormsDecidueye);
     }
 
     return value;
