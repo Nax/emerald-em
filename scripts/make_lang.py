@@ -16,7 +16,11 @@ class LangBuilder:
         line = line.split('@')[0].strip()
         if len(line) == 0 or line[0] != "'":
           continue
-        splits = line.split("'")
+        splits = []
+        if line[0] == "'" and line[1] == "\\" and line[2] == "'":
+          splits = ['', "'", line[4:]]
+        else:
+          splits = line.split("'")
         if len(splits) < 3:
           continue
         char = unicodedata.normalize('NFC', splits[1])
@@ -37,7 +41,7 @@ class LangBuilder:
         name = splits[2].strip()
         self.symbols[name] = addr
 
-  def transform_string(self, str, size):
+  def transform_string(self, str):
     chars = []
     for c in str:
       if c in self.chars:
@@ -45,14 +49,17 @@ class LangBuilder:
       else:
         raise ValueError('Unknown character: ' + c)
     chars.append(0xff)
-    if (len(chars) > size):
-      raise ValueError('String too long: ' + str)
-    while len(chars) < size:
-      chars.append(0)
     return bytes(chars)
 
+  def transform_string_pad(self, str, size):
+    data = self.transform_string(str)
+    data_size = len(data)
+    if data_size > size:
+      raise ValueError('String too long: ' + str)
+    return data + bytes([0xff] * (size - data_size))
+
   def emit_entry(self, base, id, size, data):
-    d = self.transform_string(data, size)
+    d = self.transform_string_pad(data, size)
     addr = base + id * size
     self.entries.append({ 'addr': addr, 'data': d })
 
@@ -68,6 +75,30 @@ class LangBuilder:
         id = int(splits[0])
         str = unicodedata.normalize('NFC', splits[1]).strip()
         self.emit_entry(base, id, size, str)
+
+  def entries_table(self, sym_oftable, sym_buffer, filename, buffer_size):
+    filename = os.path.join(os.path.dirname(__file__), '..', 'data', 'text', self.lang, filename)
+    total_size = 0
+    off_oftable = self.symbol(sym_oftable)
+    off_buffer = self.symbol(sym_buffer)
+    if not os.path.exists(filename):
+      return
+    with open(filename, 'r') as f:
+      for line in f:
+        splits = line.split('|')
+        if len(splits) < 2:
+          continue
+        id = int(splits[0])
+        str = unicodedata.normalize('NFC', splits[1]).strip()
+        str_transformed = self.transform_string(str)
+        str_transformed_size = len(str_transformed)
+        new_offset = total_size
+        total_size += str_transformed_size
+        if total_size > buffer_size:
+          raise ValueError('Buffer overflow: ' + filename)
+        # Append data
+        self.entries.append({ 'addr': off_buffer + new_offset, 'data': str_transformed })
+        self.entries.append({ 'addr': off_oftable + id * 4, 'data': new_offset.to_bytes(4, byteorder='little') })
 
   def output_data(self):
     dir = os.path.join(os.path.dirname(__file__), '..', 'build', 'data')
@@ -94,6 +125,7 @@ class LangBuilder:
     self.parse_charmap()
     self.parse_symbols()
     self.entries_blocks(self.symbol('kSpeciesNames'), 13, 'pokemons.txt')
+    self.entries_table('kMovesNamesOffsets', 'kMovesNamesBuffer', 'moves.txt', 16384)
     self.output_data()
 
 builder = LangBuilder(sys.argv[1])

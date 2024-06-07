@@ -6567,5 +6567,5 @@ u16 GetSpeciesPreEvolution(u16 species)
 
 const u8 *GetMoveName(u16 moveId)
 {
-    return gMovesInfo[moveId].name;
+    return kMovesNamesBuffer + kMovesNamesOffsets[moveId];
 }

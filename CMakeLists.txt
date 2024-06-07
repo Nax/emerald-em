@@ -9,6 +9,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 # Build the ROM
 set(EMERALD_ROM "${CMAKE_SOURCE_DIR}/emerald/pokeemerald.gba")
 set(EMERALD_SYM "${CMAKE_SOURCE_DIR}/emerald/pokeemerald.sym")
+set(DATA_FILES "")
 
 add_custom_target(
   emerald ALL
@@ -20,27 +21,22 @@ add_custom_target(
   VERBATIM
 )
 
-add_custom_target(data ALL)
+macro(build_lang lang)
+  file(GLOB_RECURSE _lang_sources "${CMAKE_SOURCE_DIR}/data/text/${lang}/*.txt")
+  set(_lang_output "${CMAKE_BINARY_DIR}/data/${lang}.bin")
 
-function(build_lang lang)
-  set(TARGET "data-lang-${lang}")
-  set(TARGET_OUTPUT "${CMAKE_BINARY_DIR}/data/${lang}.bin")
-  file(GLOB_RECURSE LANG_SOURCES "${CMAKE_SOURCE_DIR}/data/text/${lang}/*")
   add_custom_command(
-    OUTPUT ${TARGET_OUTPUT}
+    OUTPUT ${_lang_output}
     COMMAND python3 ${CMAKE_SOURCE_DIR}/scripts/make_lang.py ${lang}
-    DEPENDS ${EMERALD_SYM} ${LANG_SOURCES} ${CMAKE_SOURCE_DIR}/scripts/make_lang.py
+    DEPENDS ${EMERALD_SYM} ${_lang_sources} ${CMAKE_SOURCE_DIR}/scripts/make_lang.py
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     COMMENT "Building ${lang} data"
     VERBATIM
   )
-  add_custom_target(
-    ${TARGET}
-    DEPENDS ${TARGET_OUTPUT}
-  )
-  add_dependencies(data ${TARGET})
-endfunction()
+  list(APPEND DATA_FILES ${_lang_output})
+endmacro()
 
+build_lang("en_US")
 build_lang("fr_FR")
 
 # Offsets
@@ -53,11 +49,17 @@ add_custom_command(
   COMMENT "Building offsets"
   VERBATIM
 )
-add_custom_target(
-  data-offsets
-  DEPENDS ${OFFSETS_FILE}
-)
-add_dependencies(data data-offsets)
+list(APPEND DATA_FILES ${OFFSETS_FILE})
 
 include_directories(src)
 add_subdirectory(src)
+
+# Copy data
+add_custom_target(
+  data ALL
+  DEPENDS ${DATA_FILES} ${EMERALD_ROM}
+  COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_BINARY_DIR}/data ${CMAKE_BINARY_DIR}/bin/data
+  COMMAND ${CMAKE_COMMAND} -E copy ${EMERALD_ROM} ${CMAKE_BINARY_DIR}/bin/data/rom.gba
+  COMMENT "Copying data files"
+  VERBATIM
+)

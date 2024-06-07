@@ -1,5 +1,10 @@
 #include "global.h"
 #include "overrides.h"
+#include "constants/moves.h"
+
+/* Moves */
+const u32 kMovesNamesOffsets[MOVES_COUNT_ALL];
+const u8 kMovesNamesBuffer[16384] = { 0xff };
 
 const u16 kFirstBattlePokemon = SPECIES_ZIGZAGOON;
 
