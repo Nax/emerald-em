@@ -448,7 +448,6 @@ struct SpeciesInfo /*0x8C*/
 
 struct MoveInfo
 {
-    const u8 *name;
     const u8 *description;
     u16 effect;
     u16 type:5;
