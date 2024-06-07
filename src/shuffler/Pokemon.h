@@ -9,7 +9,8 @@ namespace Pokemon
 {
 
 std::uint16_t randPokemon(Random& rng);
-std::uint16_t randVisiblePokemon(Random& rng);
+std::uint16_t visibleForm(std::uint16_t pokemon);
+bool          isLegendary(std::uint16_t pokemon);
 
 }
 

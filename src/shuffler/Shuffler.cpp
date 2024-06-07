@@ -155,6 +155,104 @@ void Shuffler::patchSymbol(const char* sym, const void* data, std::size_t size)
     printf("Patched %s at 0x%08X\n", sym, offset);
 }
 
+void Shuffler::shuffleWildList(uint32_t offset, int count)
+{
+    std::uint16_t tmp;
+    std::uint16_t originalWilds[12];
+    std::uint16_t replacedWilds[12];
+    int countOriginal = 0;
+    int countReplaced = 0;
+    bool match;
+
+    /* Deref */
+    if (!offset)
+        return;
+    offset = romRead<uint32_t>(offset + 4);
+    if (!offset)
+        return;
+
+    /* Scan for the original list */
+    for (int i = 0; i < count; ++i)
+    {
+        match = false;
+        tmp = romRead<uint16_t>(offset + i * 4 + 2);
+        for (int j = 0; j < countOriginal; ++j)
+        {
+            if (originalWilds[j] == tmp)
+            {
+                match = true;
+                break;
+            }
+        }
+        if (!match)
+        {
+            originalWilds[countOriginal++] = tmp;
+        }
+    }
+
+    /* Build a custom list of replacement */
+    for (int i = 0; i < countOriginal; ++i)
+    {
+        for (;;)
+        {
+            tmp = Pokemon::randPokemon(_random);
+            if (Pokemon::isLegendary(tmp))
+                continue;
+            match = false;
+            for (int j = 0; j < countReplaced; ++j)
+            {
+                if (replacedWilds[j] == tmp)
+                {
+                    match = true;
+                    break;
+                }
+            }
+            if (!match)
+            {
+                replacedWilds[countReplaced++] = tmp;
+                break;
+            }
+        }
+    }
+
+    /* Replace */
+    for (int i = 0; i < count; ++i)
+    {
+        tmp = romRead<uint16_t>(offset + i * 4 + 2);
+        for (int j = 0; j < countOriginal; ++j)
+        {
+            if (originalWilds[j] == tmp)
+            {
+                romWrite<uint16_t>(offset + i * 4 + 2, replacedWilds[j]);
+                break;
+            }
+        }
+    }
+}
+
+void Shuffler::shuffleWild()
+{
+    uint32_t offset;
+    uint32_t land;
+    uint32_t water;
+    uint32_t rock;
+    uint32_t fish;
+
+    offset = _offsets["gWildMonHeaders"];
+    for (int i = 0; i < 125; ++i)
+    {
+        land = romRead<uint32_t>(offset + i * 20 + 4);
+        water = romRead<uint32_t>(offset + i * 20 + 8);
+        rock = romRead<uint32_t>(offset + i * 20 + 12);
+        fish = romRead<uint32_t>(offset + i * 20 + 16);
+
+        shuffleWildList(land, 12);
+        shuffleWildList(water, 5);
+        shuffleWildList(rock, 5);
+        shuffleWildList(fish, 10);
+    }
+}
+
 void Shuffler::shuffle()
 {
     std::uint16_t starters[3];
@@ -162,8 +260,11 @@ void Shuffler::shuffle()
 
     /* Shuffle starters */
     for (int i = 0; i < 3; i++)
-        starters[i] = Pokemon::randVisiblePokemon(_random);
+        starters[i] = Pokemon::visibleForm(Pokemon::randPokemon(_random));
     patchSymbol("kStarterMons", starters, sizeof(starters));
     tmp = Pokemon::randPokemon(_random);
     patchSymbol("kFirstBattlePokemon", &tmp, sizeof(tmp));
+
+    /* Shuffle wild encounters */
+    shuffleWild();
 }

@@ -23,6 +23,11 @@ private:
     bool         loadOffsets();
     void         patchSymbol(const char* sym, const void* data, std::size_t size);
     void         shuffle();
+    void         shuffleWild();
+    void         shuffleWildList(uint32_t offset, int count);
+
+    template <typename T> T romRead(uint32_t offset) { return *reinterpret_cast<T*>(_rom.get() + (offset & 0x1ffffff)); }
+    template <typename T> void romWrite(uint32_t offset, T value) { *reinterpret_cast<T*>(_rom.get() + (offset & 0x1ffffff)) = value; }
 
     Random                                  _random;
     std::string                             _dataDir;

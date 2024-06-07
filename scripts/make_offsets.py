@@ -3,6 +3,7 @@ import os
 SYMBOLS = [
   'kStarterMons',
   'kFirstBattlePokemon',
+  'gWildMonHeaders',
 ]
 
 class OffsetsBuilder:
