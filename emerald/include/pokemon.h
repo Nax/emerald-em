@@ -542,7 +542,6 @@ struct AdditionalEffect
 
 struct Ability
 {
-    u8 name[ABILITY_NAME_LENGTH + 1];
     const u8 *description;
     s8 aiRating;
     u8 cantBeCopied:1; // cannot be copied by Role Play or Doodle
@@ -801,5 +800,6 @@ u16 GetSpeciesPreEvolution(u16 species);
 void HealPokemon(struct Pokemon *mon);
 void HealBoxPokemon(struct BoxPokemon *boxMon);
 const u8 *GetMoveName(u16 moveId);
+const u8 *GetAbilityName(u16 abilityId);
 
 #endif // GUARD_POKEMON_H

@@ -126,6 +126,7 @@ class LangBuilder:
     self.parse_symbols()
     self.entries_blocks(self.symbol('kSpeciesNames'), 13, 'pokemons.txt')
     self.entries_table('kMovesNamesOffsets', 'kMovesNamesBuffer', 'moves.txt', 16384)
+    self.entries_table('kAbilitiesNamesOffsets', 'kAbilitiesNamesBuffer', 'abilities.txt', 8192)
     self.output_data()
 
 builder = LangBuilder(sys.argv[1])

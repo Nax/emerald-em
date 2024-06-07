@@ -6569,3 +6569,8 @@ const u8 *GetMoveName(u16 moveId)
 {
     return kMovesNamesBuffer + kMovesNamesOffsets[moveId];
 }
+
+const u8 *GetAbilityName(u16 moveId)
+{
+    return kAbilitiesNamesBuffer + kAbilitiesNamesOffsets[moveId];
+}
