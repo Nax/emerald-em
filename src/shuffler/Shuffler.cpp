@@ -152,14 +152,18 @@ void Shuffler::patchSymbol(const char* sym, const void* data, std::size_t size)
 
     offset = _offsets[sym];
     memcpy(_rom.get() + offset, data, size);
+    printf("Patched %s at 0x%08X\n", sym, offset);
 }
 
 void Shuffler::shuffle()
 {
     std::uint16_t starters[3];
+    std::uint16_t tmp;
 
     /* Shuffle starters */
     for (int i = 0; i < 3; i++)
         starters[i] = Pokemon::randVisiblePokemon(_random);
     patchSymbol("kStarterMons", starters, sizeof(starters));
+    tmp = Pokemon::randPokemon(_random);
+    patchSymbol("kFirstBattlePokemon", &tmp, sizeof(tmp));
 }

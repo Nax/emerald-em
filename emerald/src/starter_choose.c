@@ -110,7 +110,7 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
     {8, 4},
 };
 
-const u16 kStarterMons[STARTER_MON_COUNT] =
+const volatile u16 kStarterMons[STARTER_MON_COUNT] =
 {
     SPECIES_TREECKO,
     SPECIES_TORCHIC,

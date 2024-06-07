@@ -1,8 +1,8 @@
-import sys
 import os
 
 SYMBOLS = [
   'kStarterMons',
+  'kFirstBattlePokemon',
 ]
 
 class OffsetsBuilder:
