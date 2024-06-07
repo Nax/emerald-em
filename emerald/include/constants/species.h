@@ -202,7 +202,8 @@
 #define SPECIES_MURKROW                                 198
 #define SPECIES_SLOWKING                                199
 #define SPECIES_MISDREAVUS                              200
-#define SPECIES_UNOWN                                   201
+#define SPECIES_UNOWN                                   SPECIES_UNOWN_A
+#define SPECIES_UNOWN_A                                 201
 #define SPECIES_WOBBUFFET                               202
 #define SPECIES_GIRAFARIG                               203
 #define SPECIES_PINECO                                  204
