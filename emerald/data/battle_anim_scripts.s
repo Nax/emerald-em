@@ -375,7 +375,6 @@ gBattleAnims_Moves::
 	.4byte Move_WATER_PULSE
 	.4byte Move_DOOM_DESIRE
 	.4byte Move_PSYCHO_BOOST
-@@@@@@@@@@@@ GEN 4 @@@@@@@@@@@@
 	.4byte Move_ROOST
 	.4byte Move_GRAVITY
 	.4byte Move_MIRACLE_EYE
@@ -489,7 +488,6 @@ gBattleAnims_Moves::
 	.4byte Move_SEED_FLARE
 	.4byte Move_OMINOUS_WIND
 	.4byte Move_SHADOW_FORCE
-@@@@@@@@@@@@ GEN 5 @@@@@@@@@@@@
 	.4byte Move_HONE_CLAWS
 	.4byte Move_WIDE_GUARD
 	.4byte Move_GUARD_SPLIT
@@ -582,7 +580,6 @@ gBattleAnims_Moves::
 	.4byte Move_V_CREATE
 	.4byte Move_FUSION_FLARE
 	.4byte Move_FUSION_BOLT
-@@@@@@@@@@@@ GEN 6 @@@@@@@@@@@@
 	.4byte Move_FLYING_PRESS
 	.4byte Move_MAT_BLOCK
 	.4byte Move_BELCH
@@ -645,7 +642,43 @@ gBattleAnims_Moves::
 	.4byte Move_PRECIPICE_BLADES
 	.4byte Move_DRAGON_ASCENT
 	.4byte Move_HYPERSPACE_FURY
-@@@@@@@@@@@@ GEN 7 @@@@@@@@@@@@
+    .4byte Move_BREAKNECK_BLITZ
+    .4byte Move_BREAKNECK_BLITZ
+    .4byte Move_ALL_OUT_PUMMELING
+    .4byte Move_ALL_OUT_PUMMELING
+    .4byte Move_SUPERSONIC_SKYSTRIKE
+    .4byte Move_SUPERSONIC_SKYSTRIKE
+    .4byte Move_ACID_DOWNPOUR
+    .4byte Move_ACID_DOWNPOUR
+    .4byte Move_TECTONIC_RAGE
+    .4byte Move_TECTONIC_RAGE
+    .4byte Move_CONTINENTAL_CRUSH
+    .4byte Move_CONTINENTAL_CRUSH
+    .4byte Move_SAVAGE_SPIN_OUT
+    .4byte Move_SAVAGE_SPIN_OUT
+    .4byte Move_NEVER_ENDING_NIGHTMARE
+    .4byte Move_NEVER_ENDING_NIGHTMARE
+    .4byte Move_CORKSCREW_CRASH
+    .4byte Move_CORKSCREW_CRASH
+    .4byte Move_INFERNO_OVERDRIVE
+    .4byte Move_INFERNO_OVERDRIVE
+    .4byte Move_HYDRO_VORTEX
+    .4byte Move_HYDRO_VORTEX
+    .4byte Move_BLOOM_DOOM
+    .4byte Move_BLOOM_DOOM
+    .4byte Move_GIGAVOLT_HAVOC
+    .4byte Move_GIGAVOLT_HAVOC
+    .4byte Move_SHATTERED_PSYCHE
+    .4byte Move_SHATTERED_PSYCHE
+    .4byte Move_SUBZERO_SLAMMER
+    .4byte Move_SUBZERO_SLAMMER
+    .4byte Move_DEVASTATING_DRAKE
+    .4byte Move_DEVASTATING_DRAKE
+    .4byte Move_BLACK_HOLE_ECLIPSE
+    .4byte Move_BLACK_HOLE_ECLIPSE
+    .4byte Move_TWINKLE_TACKLE
+    .4byte Move_TWINKLE_TACKLE
+    .4byte Move_CATASTROPIKA
 	.4byte Move_SHORE_UP
 	.4byte Move_FIRST_IMPRESSION
 	.4byte Move_BANEFUL_BUNKER
@@ -682,6 +715,15 @@ gBattleAnims_Moves::
 	.4byte Move_DRAGON_HAMMER
 	.4byte Move_BRUTAL_SWING
 	.4byte Move_AURORA_VEIL
+    .4byte Move_SINISTER_ARROW_RAID
+    .4byte Move_MALICIOUS_MOONSAULT
+    .4byte Move_OCEANIC_OPERETTA
+    .4byte Move_GUARDIAN_OF_ALOLA
+    .4byte Move_SOUL_STEALING_7_STAR_STRIKE
+    .4byte Move_STOKED_SPARKSURFER
+    .4byte Move_PULVERIZING_PANCAKE
+    .4byte Move_EXTREME_EVOBOOST
+    .4byte Move_GENESIS_SUPERNOVA
 	.4byte Move_SHELL_TRAP
 	.4byte Move_FLEUR_CANNON
 	.4byte Move_PSYCHIC_FANGS
@@ -697,9 +739,16 @@ gBattleAnims_Moves::
 	.4byte Move_ZING_ZAP
 	.4byte Move_NATURES_MADNESS
 	.4byte Move_MULTI_ATTACK
+    .4byte Move_10000000_VOLT_THUNDERBOLT
 	.4byte Move_MIND_BLOWN
 	.4byte Move_PLASMA_FISTS
 	.4byte Move_PHOTON_GEYSER
+    .4byte Move_LIGHT_THAT_BURNS_THE_SKY
+    .4byte Move_SEARING_SUNRAZE_SMASH
+    .4byte Move_MENACING_MOONRAZE_MAELSTROM
+    .4byte Move_LETS_SNUGGLE_FOREVER
+    .4byte Move_SPLINTERED_STORMSHARDS
+    .4byte Move_CLANGOROUS_SOULBLAZE
 	.4byte Move_ZIPPY_ZAP
 	.4byte Move_SPLISHY_SPLASH
 	.4byte Move_FLOATY_FALL
@@ -714,7 +763,7 @@ gBattleAnims_Moves::
 	.4byte Move_SPARKLY_SWIRL
 	.4byte Move_VEEVEE_VOLLEY
 	.4byte Move_DOUBLE_IRON_BASH
-@@@@@@@@@@@@ GEN 8 @@@@@@@@@@@@
+    .4byte Move_MAX_GUARD
 	.4byte Move_DYNAMAX_CANNON
 	.4byte Move_SNIPE_SHOT
 	.4byte Move_JAW_LOCK
@@ -728,6 +777,24 @@ gBattleAnims_Moves::
 	.4byte Move_BOLT_BEAK
 	.4byte Move_FISHIOUS_REND
 	.4byte Move_COURT_CHANGE
+    .4byte Move_MAX_FLARE
+    .4byte Move_MAX_FLUTTERBY
+    .4byte Move_MAX_LIGHTNING
+    .4byte Move_MAX_STRIKE
+    .4byte Move_MAX_KNUCKLE
+    .4byte Move_MAX_PHANTASM
+    .4byte Move_MAX_HAILSTORM
+    .4byte Move_MAX_OOZE
+    .4byte Move_MAX_GEYSER
+    .4byte Move_MAX_AIRSTREAM
+    .4byte Move_MAX_STARFALL
+    .4byte Move_MAX_WYRMWIND
+    .4byte Move_MAX_MINDSTORM
+    .4byte Move_MAX_ROCKFALL
+    .4byte Move_MAX_QUAKE
+    .4byte Move_MAX_DARKNESS
+    .4byte Move_MAX_OVERGROWTH
+    .4byte Move_MAX_STEELSPIKE
 	.4byte Move_CLANGOROUS_SOUL
 	.4byte Move_BODY_PRESS
 	.4byte Move_DECORATE
@@ -780,7 +847,6 @@ gBattleAnims_Moves::
 	.4byte Move_GLACIAL_LANCE
 	.4byte Move_ASTRAL_BARRAGE
 	.4byte Move_EERIE_SPELL
-@@@@ LA MOVES
 	.4byte Move_DIRE_CLAW
 	.4byte Move_PSYSHIELD_BASH
 	.4byte Move_POWER_SHIFT
@@ -805,7 +871,6 @@ gBattleAnims_Moves::
 	.4byte Move_SANDSEAR_STORM
 	.4byte Move_LUNAR_BLESSING
 	.4byte Move_TAKE_HEART
-@@@@@@@@@@@@ GEN 9 @@@@@@@@@@@@
 	.4byte Move_TERA_BLAST
 	.4byte Move_SILK_TRAP
 	.4byte Move_AXE_KICK
@@ -830,6 +895,8 @@ gBattleAnims_Moves::
 	.4byte Move_AQUA_STEP
 	.4byte Move_RAGING_BULL
 	.4byte Move_MAKE_IT_RAIN
+    .4byte Move_PSYBLADE
+	.4byte Move_HYDRO_STEAM
 	.4byte Move_RUINATION
 	.4byte Move_COLLISION_COURSE
 	.4byte Move_ELECTRO_DRIFT
@@ -854,8 +921,6 @@ gBattleAnims_Moves::
 	.4byte Move_NOXIOUS_TORQUE
 	.4byte Move_COMBAT_TORQUE
 	.4byte Move_MAGICAL_TORQUE
-	.4byte Move_PSYBLADE
-	.4byte Move_HYDRO_STEAM
 	.4byte Move_BLOOD_MOON
 	.4byte Move_MATCHA_GOTCHA
 	.4byte Move_SYRUP_BOMB
@@ -875,63 +940,6 @@ gBattleAnims_Moves::
 	.4byte Move_PSYCHIC_NOISE
 	.4byte Move_UPPER_HAND
 	.4byte Move_MALIGNANT_CHAIN
-@@@@ Z MOVES
-	.4byte Move_BREAKNECK_BLITZ
-	.4byte Move_ALL_OUT_PUMMELING
-	.4byte Move_SUPERSONIC_SKYSTRIKE
-	.4byte Move_ACID_DOWNPOUR
-	.4byte Move_TECTONIC_RAGE
-	.4byte Move_CONTINENTAL_CRUSH
-	.4byte Move_SAVAGE_SPIN_OUT
-	.4byte Move_NEVER_ENDING_NIGHTMARE
-	.4byte Move_CORKSCREW_CRASH
-	.4byte Move_INFERNO_OVERDRIVE
-	.4byte Move_HYDRO_VORTEX
-	.4byte Move_BLOOM_DOOM
-	.4byte Move_GIGAVOLT_HAVOC
-	.4byte Move_SHATTERED_PSYCHE
-	.4byte Move_SUBZERO_SLAMMER
-	.4byte Move_DEVASTATING_DRAKE
-	.4byte Move_BLACK_HOLE_ECLIPSE
-	.4byte Move_TWINKLE_TACKLE
-	.4byte Move_CATASTROPIKA
-	.4byte Move_10000000_VOLT_THUNDERBOLT
-	.4byte Move_STOKED_SPARKSURFER
-	.4byte Move_EXTREME_EVOBOOST
-	.4byte Move_PULVERIZING_PANCAKE
-	.4byte Move_GENESIS_SUPERNOVA
-	.4byte Move_SINISTER_ARROW_RAID
-	.4byte Move_MALICIOUS_MOONSAULT
-	.4byte Move_OCEANIC_OPERETTA
-	.4byte Move_SPLINTERED_STORMSHARDS
-	.4byte Move_LETS_SNUGGLE_FOREVER
-	.4byte Move_CLANGOROUS_SOULBLAZE
-	.4byte Move_GUARDIAN_OF_ALOLA
-	.4byte Move_SEARING_SUNRAZE_SMASH
-	.4byte Move_MENACING_MOONRAZE_MAELSTROM
-	.4byte Move_LIGHT_THAT_BURNS_THE_SKY
-	.4byte Move_SOUL_STEALING_7_STAR_STRIKE
-@@@@ MAX MOVES
-	.4byte Move_MAX_GUARD
-	.4byte Move_MAX_STRIKE
-	.4byte Move_MAX_KNUCKLE
-	.4byte Move_MAX_AIRSTREAM
-	.4byte Move_MAX_OOZE
-	.4byte Move_MAX_QUAKE
-	.4byte Move_MAX_ROCKFALL
-	.4byte Move_MAX_FLUTTERBY
-	.4byte Move_MAX_PHANTASM
-	.4byte Move_MAX_STEELSPIKE
-	.4byte Move_MAX_FLARE
-	.4byte Move_MAX_GEYSER
-	.4byte Move_MAX_OVERGROWTH
-	.4byte Move_MAX_LIGHTNING
-	.4byte Move_MAX_MINDSTORM
-	.4byte Move_MAX_HAILSTORM
-	.4byte Move_MAX_WYRMWIND
-	.4byte Move_MAX_DARKNESS
-	.4byte Move_MAX_STARFALL
-@@@@ G-MAX MOVES
 	.4byte Move_G_MAX_VINE_LASH
 	.4byte Move_G_MAX_WILDFIRE
 	.4byte Move_G_MAX_CANNONADE
@@ -965,7 +973,6 @@ gBattleAnims_Moves::
 	.4byte Move_G_MAX_DEPLETION
 	.4byte Move_G_MAX_ONE_BLOW
 	.4byte Move_G_MAX_RAPID_FLOW
-@@@ Last Move - cannot be reached
 	.4byte Move_COUNT
 
 	.align 2
