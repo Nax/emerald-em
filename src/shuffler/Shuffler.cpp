@@ -28,11 +28,17 @@ int Shuffler::run(const std::string& out)
     std::string outFilename;
     std::fstream outFile;
 
-    if (!loadRom())
+    if (!_rom.open(dataPath("rom.gba")))
+    {
+        std::fprintf(stderr, "Failed to open ROM\n");
         return 1;
+    }
 
-    if (!loadOffsets())
+    if (!_rom.loadSymbols(dataPath("offsets.bin")))
+    {
+        std::fprintf(stderr, "Failed to open offsets.bin\n");
         return 1;
+    }
 
     if (!applyLang("fr_FR"))
         return 1;
@@ -42,79 +48,24 @@ int Shuffler::run(const std::string& out)
 
     outFilename = out;
     outFilename.append("/emerald-em.gba");
-    outFile = std::fstream(outFilename, std::ios::out | std::ios::binary);
-    if (!outFile.good())
+    if (!_rom.save(outFilename))
     {
-        std::fprintf(stderr, "Failed to open output file: %s\n", outFilename.c_str());
+        std::fprintf(stderr, "Failed to save ROM\n");
         return 1;
     }
-
-    outFile.write(_rom.get(), 32 * 1024 * 1024);
 
     return 0;
 }
 
-bool Shuffler::loadRom()
-{
-    std::fstream file;
-
-    file = dataFile("rom.gba");
-    if (!file.good())
-    {
-        std::fprintf(stderr, "Failed to open ROM\n");
-        return false;
-    }
-
-    _rom = std::make_unique<char[]>(32 * 1024 * 1024);
-    file.read(_rom.get(), 32 * 1024 * 1024);
-    return true;
-}
-
-bool Shuffler::loadOffsets()
-{
-    std::uint32_t count;
-    std::uint32_t offset;
-    std::uint32_t nameSize;
-    std::string name;
-
-    std::fstream file;
-
-    file = dataFile("offsets.bin");
-    if (!file.good())
-    {
-        std::fprintf(stderr, "Failed to open offsets.bin\n");
-        return false;
-    }
-
-    /* Read count */
-    file.read(reinterpret_cast<char*>(&count), sizeof(count));
-    for (std::uint32_t i = 0; i < count; i++)
-    {
-        /* Read offset */
-        file.read(reinterpret_cast<char*>(&offset), sizeof(offset));
-
-        /* Read name */
-        file.read(reinterpret_cast<char*>(&nameSize), sizeof(nameSize));
-        name.resize(nameSize);
-        file.read(&name[0], nameSize);
-
-        _offsets[name] = offset;
-    }
-
-    return true;
-}
-
-std::fstream Shuffler::dataFile(const std::string& name)
+std::string Shuffler::dataPath(const char* name)
 {
     std::string fname;
-    std::fstream file;
 
     fname = _dataDir;
     fname.append("/");
     fname.append(name);
 
-    file.open(fname, std::ios::in | std::ios::binary);
-    return file;
+    return fname;
 }
 
 bool Shuffler::applyLang(const char* lang)
@@ -128,7 +79,7 @@ bool Shuffler::applyLang(const char* lang)
 
     langFileName = lang;
     langFileName.append(".bin");
-    file = dataFile(langFileName);
+    file.open(dataPath(langFileName.c_str()), std::ios::in | std::ios::binary);
     if (!file.good())
     {
         std::fprintf(stderr, "Failed to open language file: %s\n", langFileName.c_str());
@@ -142,19 +93,10 @@ bool Shuffler::applyLang(const char* lang)
         /* Apply */
         file.read(reinterpret_cast<char*>(&offset), sizeof(offset));
         file.read(reinterpret_cast<char*>(&size), sizeof(size));
-        file.read(_rom.get() + offset, size);
+        file.read((char*)_rom.ptr(offset), size);
     }
 
     return true;
-}
-
-void Shuffler::patchSymbol(const char* sym, const void* data, std::size_t size)
-{
-    std::uint32_t offset;
-
-    offset = _offsets[sym];
-    memcpy(_rom.get() + offset, data, size);
-    printf("Patched %s at 0x%08X\n", sym, offset);
 }
 
 void Shuffler::shuffleWildList(uint32_t offset, int count)
@@ -169,7 +111,7 @@ void Shuffler::shuffleWildList(uint32_t offset, int count)
     /* Deref */
     if (!offset)
         return;
-    offset = romRead<uint32_t>(offset + 4);
+    offset = _rom.readU32(offset + 4);
     if (!offset)
         return;
 
@@ -177,7 +119,7 @@ void Shuffler::shuffleWildList(uint32_t offset, int count)
     for (int i = 0; i < count; ++i)
     {
         match = false;
-        tmp = romRead<uint16_t>(offset + i * 4 + 2);
+        tmp = _rom.readU16(offset + i * 4 + 2);
         for (int j = 0; j < countOriginal; ++j)
         {
             if (originalWilds[j] == tmp)
@@ -220,12 +162,12 @@ void Shuffler::shuffleWildList(uint32_t offset, int count)
     /* Replace */
     for (int i = 0; i < count; ++i)
     {
-        tmp = romRead<uint16_t>(offset + i * 4 + 2);
+        tmp = _rom.readU16(offset + i * 4 + 2);
         for (int j = 0; j < countOriginal; ++j)
         {
             if (originalWilds[j] == tmp)
             {
-                romWrite<uint16_t>(offset + i * 4 + 2, replacedWilds[j]);
+                _rom.writeU16(offset + i * 4 + 2, replacedWilds[j]);
                 break;
             }
         }
@@ -240,13 +182,13 @@ void Shuffler::shuffleWild()
     uint32_t rock;
     uint32_t fish;
 
-    offset = _offsets["gWildMonHeaders"];
+    offset = _rom.sym("gWildMonHeaders");
     for (int i = 0; i < 125; ++i)
     {
-        land = romRead<uint32_t>(offset + i * 20 + 4);
-        water = romRead<uint32_t>(offset + i * 20 + 8);
-        rock = romRead<uint32_t>(offset + i * 20 + 12);
-        fish = romRead<uint32_t>(offset + i * 20 + 16);
+        land = _rom.readU32(offset + i * 20 + 4);
+        water = _rom.readU32(offset + i * 20 + 8);
+        rock = _rom.readU32(offset + i * 20 + 12);
+        fish = _rom.readU32(offset + i * 20 + 16);
 
         shuffleWildList(land, 12);
         shuffleWildList(water, 5);
@@ -269,8 +211,8 @@ void Shuffler::shuffleLearnset(uint32_t offset)
     count = 0;
     for (;;)
     {
-        move = romRead<uint16_t>(offset + count * 4 + 0);
-        level = romRead<uint16_t>(offset + count * 4 + 2);
+        move = _rom.readU16(offset + count * 4 + 0);
+        level = _rom.readU16(offset + count * 4 + 2);
 
         if (move == 0xffff)
             break;
@@ -315,7 +257,7 @@ void Shuffler::shuffleLearnset(uint32_t offset)
 
     /* Write */
     for (int i = 0; i < count; ++i)
-        romWrite<uint16_t>(offset + i * 4 + 0, moves[i]);
+        _rom.writeU16(offset + i * 4 + 0, moves[i]);
 }
 
 void Shuffler::shuffleLearnsets()
@@ -324,10 +266,10 @@ void Shuffler::shuffleLearnsets()
     uint32_t base;
     uint32_t tmp;
 
-    base = _offsets["gSpeciesInfo"];
+    base = _rom.sym("gSpeciesInfo");
     for (int i = 1; i < 1524; ++i)
     {
-        tmp = romRead<uint32_t>(base + 0x94 * i + 0x80);
+        tmp = _rom.readU32(base + 0x94 * i + 0x80);
         if (tmp)
             offsets.insert(tmp);
     }
@@ -344,9 +286,8 @@ void Shuffler::shuffle()
     /* Shuffle starters */
     for (int i = 0; i < 3; i++)
         starters[i] = Pokemon::randPokemon(_random);
-    patchSymbol("kStarterMons", starters, sizeof(starters));
-    tmp = Pokemon::randPokemon(_random);
-    patchSymbol("kFirstBattlePokemon", &tmp, sizeof(tmp));
+    _rom.write(_rom.sym("kStarterMons"), starters, sizeof(starters));
+    _rom.writeU16(_rom.sym("kFirstBattlePokemon"), Pokemon::randPokemon(_random));
 
     /* Shuffle things */
     shuffleWild();
