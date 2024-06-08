@@ -343,7 +343,7 @@ void Shuffler::shuffle()
 
     /* Shuffle starters */
     for (int i = 0; i < 3; i++)
-        starters[i] = Pokemon::visibleForm(Pokemon::randPokemon(_random));
+        starters[i] = Pokemon::randPokemon(_random);
     patchSymbol("kStarterMons", starters, sizeof(starters));
     tmp = Pokemon::randPokemon(_random);
     patchSymbol("kFirstBattlePokemon", &tmp, sizeof(tmp));

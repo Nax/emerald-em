@@ -924,21 +924,6 @@ std::uint16_t Pokemon::randPokemon(Random& rng)
     return value;
 }
 
-std::uint16_t Pokemon::visibleForm(std::uint16_t pokemon)
-{
-    switch (pokemon)
-    {
-    case SPECIES_MINIOR_RED: return SPECIES_MINIOR_CORE_RED;
-    case SPECIES_MINIOR_ORANGE: return SPECIES_MINIOR_CORE_ORANGE;
-    case SPECIES_MINIOR_YELLOW: return SPECIES_MINIOR_CORE_YELLOW;
-    case SPECIES_MINIOR_GREEN: return SPECIES_MINIOR_CORE_GREEN;
-    case SPECIES_MINIOR_BLUE: return SPECIES_MINIOR_CORE_BLUE;
-    case SPECIES_MINIOR_INDIGO: return SPECIES_MINIOR_CORE_INDIGO;
-    case SPECIES_MINIOR_VIOLET: return SPECIES_MINIOR_CORE_VIOLET;
-    default: return pokemon;
-    }
-}
-
 bool Pokemon::isLegendary(std::uint16_t pokemon)
 {
     for (int i = 0; i < ARRAY_SIZE(kLegendaries); i++)
