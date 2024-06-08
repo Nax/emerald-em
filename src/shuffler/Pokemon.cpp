@@ -164,11 +164,6 @@ static const uint16_t kFormsEnamorus[] = {
     SPECIES_ENAMORUS_THERIAN,
 };
 
-static const uint16_t kFormsGreninja[] = {
-    SPECIES_GRENINJA,
-    SPECIES_GRENINJA_ASH,
-};
-
 static const uint16_t kFormsVivillion[] = {
     SPECIES_VIVILLON_MEADOW,
     SPECIES_VIVILLON_ARCHIPELAGO,
@@ -815,7 +810,12 @@ std::uint16_t Pokemon::randPokemon(Random& rng)
 {
     std::uint16_t value;
 
-    value = randInt(rng, 1025) + 1;
+    for (;;)
+    {
+        value = randInt(rng, 1025) + 1;
+        if (value != SPECIES_TERAPAGOS)
+            break;
+    }
 
     switch (value)
     {
@@ -836,7 +836,6 @@ std::uint16_t Pokemon::randPokemon(Random& rng)
     case SPECIES_THUNDURUS: return SAMPLE(rng, kFormsThundurus);
     case SPECIES_LANDORUS: return SAMPLE(rng, kFormsLandorus);
     case SPECIES_ENAMORUS: return SAMPLE(rng, kFormsEnamorus);
-    case SPECIES_GRENINJA: return SAMPLE(rng, kFormsGreninja);
     case SPECIES_VIVILLON: return SAMPLE(rng, kFormsVivillion);
     case SPECIES_FLABEBE: return SAMPLE(rng, kFormsFlabebe);
     case SPECIES_FLOETTE: return SAMPLE(rng, kFormsFloette);
