@@ -17,7 +17,7 @@ public:
 
     void* ptr(uint32_t offset);
 
-    void        read(void* dst, size_t size, uint32_t offset) const;
+    void        read(void* dst, uint32_t offset, size_t size) const;
     uint8_t     readU8(uint32_t offset) const;
     uint16_t    readU16(uint32_t offset) const;
     uint32_t    readU32(uint32_t offset) const;

@@ -12,6 +12,7 @@ uint32_t Rom::sym(const std::string& name) const
     auto it = _symbols.find(name);
     if (it == _symbols.end())
     {
+        fprintf(stderr, "Symbol not found: %s\n", name.c_str());
         return 0xffffffff;
     }
 
@@ -86,7 +87,7 @@ void* Rom::ptr(uint32_t offset)
     return _data.get() + romAddr(offset);
 }
 
-void Rom::read(void* dst, size_t size, uint32_t offset) const
+void Rom::read(void* dst, uint32_t offset, size_t size) const
 {
     memcpy(dst, _data.get() + romAddr(offset), size);
 }
@@ -95,7 +96,7 @@ uint8_t Rom::readU8(uint32_t offset) const
 {
     uint8_t tmp;
 
-    read(&tmp, sizeof(tmp), offset);
+    read(&tmp, offset, sizeof(tmp));
     return tmp;
 }
 
@@ -103,7 +104,7 @@ uint16_t Rom::readU16(uint32_t offset) const
 {
     uint16_t tmp;
 
-    read(&tmp, sizeof(tmp), offset);
+    read(&tmp, offset, sizeof(tmp));
     return tmp;
 }
 
@@ -111,7 +112,7 @@ uint32_t Rom::readU32(uint32_t offset) const
 {
     uint32_t tmp;
 
-    read(&tmp, sizeof(tmp), offset);
+    read(&tmp, offset, sizeof(tmp));
     return tmp;
 }
 

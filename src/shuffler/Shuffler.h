@@ -33,6 +33,4 @@ private:
     Rom             _rom;
 };
 
-void shuffleAbilities(Shuffler& shuffler);
-
 #endif

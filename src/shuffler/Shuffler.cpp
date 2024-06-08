@@ -278,6 +278,9 @@ void Shuffler::shuffleLearnsets()
         shuffleLearnset(o);
 }
 
+void shuffleAbilities(Shuffler& shuffler);
+void shuffleStats(Shuffler& shuffler);
+
 void Shuffler::shuffle()
 {
     std::uint16_t starters[3];
@@ -293,4 +296,5 @@ void Shuffler::shuffle()
     shuffleWild();
     shuffleLearnsets();
     shuffleAbilities(*this);
+    shuffleStats(*this);
 }
