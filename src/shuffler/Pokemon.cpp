@@ -1,6 +1,7 @@
 #include <shuffler/Random.h>
 #include <shuffler/Pokemon.h>
 #include "../../emerald/include/constants/species.h"
+#include "../../emerald/include/constants/moves.h"
 
 #define ARRAY_SIZE(n)   (sizeof((n)) / sizeof((n)[0]))
 #define SAMPLE(rng, x)  (sample((rng), (x), ARRAY_SIZE((x))))
@@ -948,4 +949,37 @@ bool Pokemon::isLegendary(std::uint16_t pokemon)
     }
 
     return false;
+}
+
+uint16_t Pokemon::randMove(Random& rng)
+{
+    uint16_t move;
+    bool valid;
+
+    for (;;)
+    {
+        move = randInt(rng, MOVES_COUNT);
+
+        valid = true;
+        if (IS_Z_MOVE(move) || IS_MAX_MOVE(move))
+            valid = false;
+        else
+        {
+            switch (move)
+            {
+            case MOVE_NONE:
+            case MOVE_STRUGGLE:
+            case MOVE_BLAZING_TORQUE:
+            case MOVE_WICKED_TORQUE:
+            case MOVE_NOXIOUS_TORQUE:
+            case MOVE_COMBAT_TORQUE:
+            case MOVE_MAGICAL_TORQUE:
+                valid = false;
+                break;
+            }
+        }
+
+        if (valid)
+            return move;
+    }
 }

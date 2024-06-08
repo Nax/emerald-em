@@ -25,6 +25,8 @@ private:
     void         shuffle();
     void         shuffleWild();
     void         shuffleWildList(uint32_t offset, int count);
+    void         shuffleLearnset(uint32_t offset);
+    void         shuffleLearnsets();
 
     template <typename T> T romRead(uint32_t offset) { return *reinterpret_cast<T*>(_rom.get() + (offset & 0x1ffffff)); }
     template <typename T> void romWrite(uint32_t offset, T value) { *reinterpret_cast<T*>(_rom.get() + (offset & 0x1ffffff)) = value; }

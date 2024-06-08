@@ -349,7 +349,7 @@ struct Evolution
     u16 targetSpecies;
 };
 
-struct SpeciesInfo /*0x8C*/
+struct SpeciesInfo /* 0x94 */
 {
  /* 0x00 */ u8 baseHP;
  /* 0x01 */ u8 baseAttack;
@@ -442,8 +442,8 @@ struct SpeciesInfo /*0x8C*/
  /* 0x80 */ const struct LevelUpMove *levelUpLearnset;
  /* 0x84 */ const u16 *teachableLearnset;
  /* 0x88 */ const struct Evolution *evolutions;
- /* 0x84 */ const u16 *formSpeciesIdTable;
- /* 0x84 */ const struct FormChange *formChangeTable;
+ /* 0x8c */ const u16 *formSpeciesIdTable;
+ /* 0x90 */ const struct FormChange *formChangeTable;
 };
 
 struct MoveInfo

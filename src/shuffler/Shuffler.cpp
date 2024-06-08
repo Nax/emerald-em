@@ -1,6 +1,8 @@
 #include <unistd.h>
 #include <cstdint>
 #include <cstring>
+#include <vector>
+#include <set>
 #include <shuffler/Shuffler.h>
 #include <shuffler/Pokemon.h>
 
@@ -253,6 +255,87 @@ void Shuffler::shuffleWild()
     }
 }
 
+void Shuffler::shuffleLearnset(uint32_t offset)
+{
+    std::vector<uint16_t> moves;
+    std::vector<uint16_t> levels;
+    std::map<int, int> aliases;
+    std::set<uint16_t> uniqueMoves;
+    int count;
+    uint16_t move;
+    uint16_t level;
+
+    /* Load */
+    count = 0;
+    for (;;)
+    {
+        move = romRead<uint16_t>(offset + count * 4 + 0);
+        level = romRead<uint16_t>(offset + count * 4 + 2);
+
+        if (move == 0xffff)
+            break;
+
+        moves.push_back(move);
+        levels.push_back(level);
+        count++;
+    }
+
+    /* Check for level 0 aliases */
+    for (int i = 0; i < count; ++i)
+    {
+        for (int j = i + 1; j < count; ++j)
+        {
+            if (levels[i] == 0 && levels[j] == 1 && moves[i] == moves[j])
+            {
+                aliases[i] = j;
+                break;
+            }
+        }
+    }
+
+    /* Shuffle moves */
+    for (int i = 0; i < count; ++i)
+    {
+        if (aliases.find(i) != aliases.end())
+            continue;
+
+        for (;;)
+        {
+            move = Pokemon::randMove(_random);
+            if (uniqueMoves.find(move) == uniqueMoves.end())
+                break;
+        }
+        uniqueMoves.insert(move);
+        moves[i] = move;
+    }
+
+    /* Resolve aliases */
+    for (auto a : aliases)
+        moves[a.first] = moves[a.second];
+
+    /* Write */
+    for (int i = 0; i < count; ++i)
+        romWrite<uint16_t>(offset + i * 4 + 0, moves[i]);
+}
+
+void Shuffler::shuffleLearnsets()
+{
+    std::set<uint32_t> offsets;
+    uint32_t base;
+    uint32_t tmp;
+
+    base = _offsets["gSpeciesInfo"];
+    for (int i = 1; i < 1524; ++i)
+    {
+        tmp = romRead<uint32_t>(base + 0x94 * i + 0x80);
+        if (tmp)
+            offsets.insert(tmp);
+    }
+
+    for (auto o : offsets)
+        shuffleLearnset(o);
+}
+
 void Shuffler::shuffle()
 {
     std::uint16_t starters[3];
@@ -265,6 +348,7 @@ void Shuffler::shuffle()
     tmp = Pokemon::randPokemon(_random);
     patchSymbol("kFirstBattlePokemon", &tmp, sizeof(tmp));
 
-    /* Shuffle wild encounters */
+    /* Shuffle things */
     shuffleWild();
+    shuffleLearnsets();
 }
