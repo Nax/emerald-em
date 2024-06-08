@@ -15,6 +15,8 @@ public:
     Shuffler();
     ~Shuffler();
 
+    Rom& rom() { return _rom; }
+    Random& random() { return _random; }
     int run(const std::string& out);
 
 private:
@@ -30,5 +32,7 @@ private:
     Random          _random;
     Rom             _rom;
 };
+
+void shuffleAbilities(Shuffler& shuffler);
 
 #endif

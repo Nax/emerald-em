@@ -17,4 +17,6 @@ private:
     std::uint32_t _counter;
 };
 
+uint32_t randInt(Random& rng, uint32_t max);
+
 #endif

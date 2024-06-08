@@ -45,3 +45,28 @@ std::uint32_t Random::next()
     _counter = (_counter + 362437);
     return (t + _counter);
 }
+
+
+uint32_t randInt(Random& rng, uint32_t max)
+{
+    uint32_t mask;
+    uint32_t value;
+
+    if (max == 0 || max == 1)
+        return 0;
+
+    /* Build the mask */
+    mask = max - 1;
+    mask |= mask >> 1;
+    mask |= mask >> 2;
+    mask |= mask >> 4;
+    mask |= mask >> 8;
+    mask |= mask >> 16;
+
+    for (;;)
+    {
+        value = rng.next() & mask;
+        if (value < max)
+            return value;
+    }
+}

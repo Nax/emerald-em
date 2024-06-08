@@ -292,4 +292,5 @@ void Shuffler::shuffle()
     /* Shuffle things */
     shuffleWild();
     shuffleLearnsets();
+    shuffleAbilities(*this);
 }
