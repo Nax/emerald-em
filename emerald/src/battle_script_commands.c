@@ -2098,7 +2098,7 @@ static void Cmd_adjustdamage(void)
         gLastUsedItem = gBattleMons[gBattlerTarget].item;
         gSpecialStatuses[gBattlerTarget].focusBanded = FALSE;
         gSpecialStatuses[gBattlerTarget].focusSashed = FALSE;
-        
+
     }
     else if (gSpecialStatuses[gBattlerTarget].sturdied)
     {
@@ -3217,8 +3217,8 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                 {
                     gBattleMons[gEffectBattler].status2 |= sStatusFlagsForMoveEffects[gBattleScripting.moveEffect];
                     gBattlescriptCurrInstr++;
-                } 
-                else 
+                }
+                else
                 {
                     gBattlescriptCurrInstr++;
                 }
@@ -10398,7 +10398,11 @@ static void Cmd_various(void)
     case VARIOUS_TRY_ACTIVATE_BATTLE_BOND:
     {
         VARIOUS_ARGS();
-        if (gBattleMons[gBattlerAttacker].species == SPECIES_GRENINJA_BATTLE_BOND
+        if ((gBattleMons[gBattlerAttacker].species == SPECIES_GRENINJA_BATTLE_BOND
+#if RANDO
+            || gBattleMons[gBattlerAttacker].species == SPECIES_GRENINJA
+#endif
+            )
             && HasAttackerFaintedTarget()
             && CalculateBattlerPartyCount(gBattlerTarget) > 1
             && !(gBattleStruct->battleBondTransformed[GetBattlerSide(gBattlerAttacker)] & gBitTable[gBattlerPartyIndexes[gBattlerAttacker]]))
