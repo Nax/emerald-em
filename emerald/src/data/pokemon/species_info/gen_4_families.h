@@ -1411,7 +1411,11 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .formSpeciesIdTable = sBurmyFormSpeciesIdTable,
         .formChangeTable = sBurmyFormChangeTable,
         .evolutions = EVOLUTION({EVO_LEVEL_FEMALE, 20, SPECIES_WORMADAM_SANDY_CLOAK},
+#if RANDO
+                                {EVO_LEVEL_MALE, 20, SPECIES_MOTHIM}),
+#else
                                 {EVO_LEVEL_MALE, 20, SPECIES_MOTHIM_SANDY_CLOAK}),
+#endif
     },
 
     [SPECIES_BURMY_TRASH_CLOAK] =
@@ -1468,7 +1472,11 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .formSpeciesIdTable = sBurmyFormSpeciesIdTable,
         .formChangeTable = sBurmyFormChangeTable,
         .evolutions = EVOLUTION({EVO_LEVEL_FEMALE, 20, SPECIES_WORMADAM_TRASH_CLOAK},
+#if RANDO
+                                {EVO_LEVEL_MALE, 20, SPECIES_MOTHIM}),
+#else
                                 {EVO_LEVEL_MALE, 20, SPECIES_MOTHIM_TRASH_CLOAK}),
+#endif
     },
 
     [SPECIES_WORMADAM_PLANT_CLOAK] =

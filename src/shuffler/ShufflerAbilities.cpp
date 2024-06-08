@@ -1,6 +1,65 @@
 #include <shuffler/Shuffler.h>
+#include <shuffler/SpeciesGroups.h>
 #include <emerald/include/constants/abilities.h>
 #include <emerald/include/constants/species.h>
+
+static const uint16_t* kSpeciesSharedAbilities[] = {
+    SpeciesGroups::Unown,
+    SpeciesGroups::Castform,
+    SpeciesGroups::Deoxys,
+    SpeciesGroups::Burmy,
+    SpeciesGroups::Wormadam,
+    SpeciesGroups::Cherrim,
+    SpeciesGroups::Shellos,
+    SpeciesGroups::Gastrodon,
+    SpeciesGroups::Rotom,
+    SpeciesGroups::Dialga,
+    SpeciesGroups::Palkia,
+    SpeciesGroups::Arceus,
+    SpeciesGroups::Basculegion,
+    SpeciesGroups::DarmanitanNormal,
+    SpeciesGroups::DarmanitanGalarian,
+    SpeciesGroups::Deerling,
+    SpeciesGroups::Sawsbuck,
+    SpeciesGroups::Keldeo,
+    SpeciesGroups::Meloetta,
+    SpeciesGroups::Genesect,
+    SpeciesGroups::Greninja,
+    SpeciesGroups::Vivillon,
+    SpeciesGroups::Flabebe,
+    SpeciesGroups::Floette,
+    SpeciesGroups::Florges,
+    SpeciesGroups::Furfrou,
+    SpeciesGroups::Aegislash,
+    SpeciesGroups::Pumpkaboo,
+    SpeciesGroups::Gourgeist,
+    SpeciesGroups::Xerneas,
+    SpeciesGroups::Zygarde,
+    SpeciesGroups::Hoopa,
+    SpeciesGroups::Oricorio,
+    SpeciesGroups::Wishiwashi,
+    SpeciesGroups::Silvally,
+    SpeciesGroups::Minior,
+    SpeciesGroups::Mimikyu,
+    SpeciesGroups::Magearna,
+    SpeciesGroups::Cramorant,
+    SpeciesGroups::Sinistea,
+    SpeciesGroups::Polteageist,
+    SpeciesGroups::Alcremie,
+    SpeciesGroups::Eiscue,
+    SpeciesGroups::Morpeko,
+    SpeciesGroups::Zacian,
+    SpeciesGroups::Zamazenta,
+    SpeciesGroups::Urshifru,
+    SpeciesGroups::Zarude,
+    SpeciesGroups::Maushold,
+    SpeciesGroups::Squawkabilly,
+    SpeciesGroups::Palafin,
+    SpeciesGroups::Tatsugiri,
+    SpeciesGroups::Dudunsparce,
+    SpeciesGroups::Poltchageist,
+    SpeciesGroups::Sinistcha,
+};
 
 static uint16_t randAbility(Random& rand)
 {
@@ -63,9 +122,10 @@ reroll:
     return ability;
 }
 
-static void shuffleAbility(Shuffler& shuffler, uint32_t base, int speciesId)
+static void shuffleAbilityImpl(Shuffler& shuffler, uint32_t base, uint16_t speciesId, const uint16_t* group)
 {
     uint16_t abilities[3];
+    int i;
 
     if (speciesId == SPECIES_SHEDINJA)
         return;
@@ -78,7 +138,52 @@ static void shuffleAbility(Shuffler& shuffler, uint32_t base, int speciesId)
         abilities[1] = ABILITY_NONE;
     abilities[2] = ABILITY_NONE;
 
+    /* Patch the specie */
     shuffler.rom().write(base + 0x94 * speciesId + 0x18, abilities, sizeof(abilities));
+
+    /* Patch the group */
+    if (group)
+    {
+        i = 1;
+        for (;;)
+        {
+            if (group[i] == SPECIES_NONE)
+                break;
+            shuffler.rom().write(base + 0x94 * group[i] + 0x18, abilities, sizeof(abilities));
+            i++;
+        }
+    }
+}
+
+static const uint16_t* findGroup(uint16_t speciesId)
+{
+    int j;
+    const uint16_t* group;
+
+    for (int i = 0; i < sizeof(kSpeciesSharedAbilities) / sizeof(kSpeciesSharedAbilities[0]); ++i)
+    {
+        group = kSpeciesSharedAbilities[i];
+        j = 0;
+        for (;;)
+        {
+            if (group[j] == SPECIES_NONE)
+                break;
+            if (group[j] == speciesId)
+                return kSpeciesSharedAbilities[i];
+            ++j;
+        }
+    }
+
+    return nullptr;
+}
+
+static void shuffleAbility(Shuffler& shuffler, uint32_t base, uint16_t speciesId)
+{
+    const uint16_t* group;
+
+    group = findGroup(speciesId);
+    if (group == nullptr || (group[0] == speciesId))
+        shuffleAbilityImpl(shuffler, base, speciesId, group);
 }
 
 void shuffleAbilities(Shuffler& shuffler)
