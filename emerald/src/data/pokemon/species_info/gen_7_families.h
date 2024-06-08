@@ -1585,8 +1585,16 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .levelUpLearnset = sRockruffLevelUpLearnset,
         .teachableLearnset = sRockruffTeachableLearnset,
         .formSpeciesIdTable = sRockruffFormSpeciesIdTable,
+#if defined(RANDO)
+        .evolutions = EVOLUTION(
+            {EVO_LEVEL_DAY,     25, SPECIES_LYCANROC_MIDDAY},
+            {EVO_LEVEL_NIGHT,   25, SPECIES_LYCANROC_MIDNIGHT},
+            {EVO_LEVEL_DUSK,    25, SPECIES_LYCANROC_DUSK}
+        ),
+#else
         .evolutions = EVOLUTION({EVO_LEVEL_DAY, 25, SPECIES_LYCANROC_MIDDAY},
                                 {EVO_LEVEL_NIGHT, 25, SPECIES_LYCANROC_MIDNIGHT}),
+#endif
     },
 
     [SPECIES_ROCKRUFF_OWN_TEMPO] =
@@ -1635,7 +1643,15 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .levelUpLearnset = sRockruffLevelUpLearnset,
         .teachableLearnset = sRockruffTeachableLearnset,
         .formSpeciesIdTable = sRockruffFormSpeciesIdTable,
+#if defined(RANDO)
+        .evolutions = EVOLUTION(
+            {EVO_LEVEL_DAY,     25, SPECIES_LYCANROC_MIDDAY},
+            {EVO_LEVEL_NIGHT,   25, SPECIES_LYCANROC_MIDNIGHT},
+            {EVO_LEVEL_DUSK,    25, SPECIES_LYCANROC_DUSK}
+        ),
+#else
         .evolutions = EVOLUTION({EVO_LEVEL_DUSK, 25, SPECIES_LYCANROC_DUSK}),
+#endif
     },
 
     [SPECIES_LYCANROC_MIDDAY] =
