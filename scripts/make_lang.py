@@ -63,26 +63,13 @@ class LangBuilder:
     addr = base + id * size
     self.entries.append({ 'addr': addr, 'data': d })
 
-  def entries_blocks(self, base, size, filename):
-    f = os.path.join(os.path.dirname(__file__), '..', 'data', 'text', self.lang, filename)
-    if not os.path.exists(f):
-      return
-    with open(f, 'r') as f:
-      for line in f:
-        splits = line.split('|')
-        if len(splits) < 2:
-          continue
-        id = int(splits[0])
-        str = unicodedata.normalize('NFC', splits[1]).strip()
-        self.emit_entry(base, id, size, str)
-
   def entries_table(self, sym_oftable, sym_buffer, filename, buffer_size):
     filename = os.path.join(os.path.dirname(__file__), '..', 'data', 'text', self.lang, filename)
     total_size = 0
     off_oftable = self.symbol(sym_oftable)
     off_buffer = self.symbol(sym_buffer)
     if not os.path.exists(filename):
-      return
+      raise ValueError('File not found: ' + filename)
     with open(filename, 'r') as f:
       for line in f:
         splits = line.split('|')
@@ -124,9 +111,9 @@ class LangBuilder:
   def build(self):
     self.parse_charmap()
     self.parse_symbols()
-    self.entries_blocks(self.symbol('kSpeciesNames'), 13, 'pokemons.txt')
     self.entries_table('kMovesNamesOffsets', 'kMovesNamesBuffer', 'moves.txt', 16384)
     self.entries_table('kAbilitiesNamesOffsets', 'kAbilitiesNamesBuffer', 'abilities.txt', 8192)
+    self.entries_table('kSpeciesNamesOffsets', 'kSpeciesNamesBuffer', 'pokemons.txt', 16384)
     self.output_data()
 
 builder = LangBuilder(sys.argv[1])

@@ -5,7 +5,9 @@
 
 extern const u16 kFirstBattlePokemon;
 extern const u16 kStarterMons[];
-extern const u8 kSpeciesNames[][POKEMON_NAME_LENGTH + 1];
+
+extern const u32 kSpeciesNamesOffsets[];
+extern const u8 kSpeciesNamesBuffer[];
 
 extern const u32 kMovesNamesOffsets[];
 extern const u8 kMovesNamesBuffer[];

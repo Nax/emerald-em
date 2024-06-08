@@ -3272,7 +3272,7 @@ const u8 *GetSpeciesName(u16 species)
 
     species = SanitizeSpeciesId(species);
     numDex = gSpeciesInfo[species].natDexNum;
-    return kSpeciesNames[numDex];
+    return kSpeciesNamesBuffer + kSpeciesNamesOffsets[numDex];
 }
 
 const u8 *GetSpeciesCategory(u16 species)
