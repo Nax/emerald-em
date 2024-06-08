@@ -4759,7 +4759,11 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .levelUpLearnset = sZygardeLevelUpLearnset,
         .teachableLearnset = sZygardeTeachableLearnset,
         .formSpeciesIdTable = sZygardeFormSpeciesIdTable,
+#if RANDO
+        .formChangeTable = sZygardeFormChangeTable,
+#else
         .formChangeTable = sZygarde50AuraBreakFormChangeTable,
+#endif
     },
     [SPECIES_ZYGARDE_50_POWER_CONSTRUCT] =
     {
@@ -4809,7 +4813,11 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .levelUpLearnset = sZygardeLevelUpLearnset,
         .teachableLearnset = sZygardeTeachableLearnset,
         .formSpeciesIdTable = sZygardeFormSpeciesIdTable,
+#if RANDO
+        .formChangeTable = sZygardeFormChangeTable,
+#else
         .formChangeTable = sZygarde50PowerConstructFormChangeTable,
+#endif
     },
     [SPECIES_ZYGARDE_10_AURA_BREAK]      =
     {
@@ -4859,7 +4867,11 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .levelUpLearnset = sZygardeLevelUpLearnset,
         .teachableLearnset = sZygardeTeachableLearnset,
         .formSpeciesIdTable = sZygardeFormSpeciesIdTable,
+#if RANDO
+        .formChangeTable = sZygardeFormChangeTable,
+#else
         .formChangeTable = sZygarde10AuraBreakFormChangeTable,
+#endif
     },
 
     [SPECIES_ZYGARDE_10_POWER_CONSTRUCT] =
@@ -4910,7 +4922,11 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .levelUpLearnset = sZygardeLevelUpLearnset,
         .teachableLearnset = sZygardeTeachableLearnset,
         .formSpeciesIdTable = sZygardeFormSpeciesIdTable,
+#if RANDO
+        .formChangeTable = sZygardeFormChangeTable,
+#else
         .formChangeTable = sZygarde10PowerConstructFormChangeTable,
+#endif
     },
 
     [SPECIES_ZYGARDE_COMPLETE] =

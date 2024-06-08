@@ -802,6 +802,14 @@ static const struct FormChange sXerneasFormChangeTable[] = {
 #endif //P_FAMILY_XERNEAS
 
 #if P_FAMILY_ZYGARDE
+#if RANDO
+static const struct FormChange sZygardeFormChangeTable[] = {
+    {FORM_CHANGE_ITEM_USE,      SPECIES_ZYGARDE_10, ITEM_ZYGARDE_CUBE },
+    {FORM_CHANGE_ITEM_USE,      SPECIES_ZYGARDE_50, ITEM_ZYGARDE_CUBE },
+    {FORM_CHANGE_BATTLE_HP_PERCENT,     SPECIES_ZYGARDE_COMPLETE, ABILITY_POWER_CONSTRUCT, HP_LOWER_EQ_THAN, 50},
+    {FORM_CHANGE_TERMINATOR},
+};
+#else
 static const struct FormChange sZygarde50AuraBreakFormChangeTable[] = {
     {FORM_CHANGE_ITEM_USE_MULTICHOICE, SPECIES_ZYGARDE_10_AURA_BREAK,      ITEM_ZYGARDE_CUBE, 0},
     {FORM_CHANGE_ITEM_USE_MULTICHOICE, SPECIES_ZYGARDE_50_POWER_CONSTRUCT, ITEM_ZYGARDE_CUBE, 1},
@@ -827,6 +835,7 @@ static const struct FormChange sZygarde10PowerConstructFormChangeTable[] = {
     {FORM_CHANGE_BATTLE_HP_PERCENT,    SPECIES_ZYGARDE_COMPLETE, ABILITY_POWER_CONSTRUCT, HP_LOWER_EQ_THAN, 50},
     {FORM_CHANGE_TERMINATOR},
 };
+#endif
 
 static const struct FormChange sZygardeCompleteFormChangeTable[] = {
     {FORM_CHANGE_FAINT},
