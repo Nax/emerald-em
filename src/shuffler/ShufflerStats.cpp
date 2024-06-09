@@ -52,6 +52,11 @@ static const uint16_t* kSpeciesSharedStats[] = {
     nullptr,
 };
 
+static const uint16_t* kSpeciesSharedHp[] = {
+    SpeciesGroups::Minior,
+    nullptr,
+};
+
 static bool genStatsOnce(Random& rng, uint8_t* dst, int count, int bst)
 {
     int bstCopy;
@@ -124,17 +129,21 @@ public:
     : _shuffler(shuffler)
     {
         _base = shuffler.rom().sym("gSpeciesInfo");
+        _fixedHp[SPECIES_SHEDINJA] = 1;
     }
 
     void run()
     {
         const uint16_t* group;
 
-        /* Index shared stats */
+        /* Index sharing tables */
         for (int i = 1; i < NUM_SPECIES; ++i)
         {
             group = SpeciesGroups::find(kSpeciesSharedStats, i);
             _speciesSharedStats[i] = group;
+
+            group = SpeciesGroups::find(kSpeciesSharedHp, i);
+            _speciesSharedHP[i] = group;
         }
 
         for (int i = 1; i < NUM_SPECIES; ++i)
@@ -155,13 +164,19 @@ private:
     void shuffleStats(uint16_t speciesId)
     {
         const uint16_t* sameStatsGroup;
+        const uint16_t* sameHpGroup;
         int bst;
         uint8_t stats[6];
+
+        /* Skip if already shuffled */
+        if (_shuffled.find(speciesId) != _shuffled.end())
+            return;
 
         /* Get the group */
         sameStatsGroup = _speciesSharedStats[speciesId];
         if (sameStatsGroup && sameStatsGroup[0] != speciesId)
             return;
+        sameHpGroup = _speciesSharedHP[speciesId];
 
         /* Read the stats */
         readStats(stats, speciesId);
@@ -174,10 +189,11 @@ private:
             return;
 
         /* Shuffle */
-        if (speciesId == SPECIES_SHEDINJA)
+        auto it = _fixedHp.find(speciesId);
+        if (it != _fixedHp.end())
         {
-            stats[0] = 1;
-            bst -= 1;
+            stats[0] = it->second;
+            bst -= it->second;
             genStats(_shuffler.random(), stats + 1, 5, bst);
         }
         else
@@ -187,16 +203,32 @@ private:
 
         /* Patch the stats */
         writeStats(speciesId, stats);
+        _shuffled.insert(speciesId);
         if (sameStatsGroup)
         {
             for (int i = 1; sameStatsGroup[i] != SPECIES_NONE; ++i)
+            {
                 writeStats(sameStatsGroup[i], stats);
+                _shuffled.insert(sameStatsGroup[i]);
+            }
+        }
+
+        /* Write hp */
+        if (sameHpGroup)
+        {
+            for (int i = 0; sameHpGroup[i] != SPECIES_NONE; ++i)
+            {
+                _fixedHp[sameHpGroup[i]] = stats[0];
+            }
         }
     }
 
     Shuffler&                           _shuffler;
     std::map<uint16_t, const uint16_t*> _speciesSharedStats;
+    std::map<uint16_t, const uint16_t*> _speciesSharedHP;
     uint32_t                            _base;
+    std::map<uint16_t, uint8_t>         _fixedHp;
+    std::set<uint16_t>                  _shuffled;
 };
 
 void shuffleStats(Shuffler& shuffler)
