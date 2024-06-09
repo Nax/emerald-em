@@ -1,6 +1,13 @@
 #include <shuffler/SpeciesGroups.h>
 #include <emerald/include/constants/species.h>
 
+const uint16_t SpeciesGroups::TaurosPaldean[] = {
+    SPECIES_TAUROS_PALDEAN_COMBAT_BREED,
+    SPECIES_TAUROS_PALDEAN_AQUA_BREED,
+    SPECIES_TAUROS_PALDEAN_BLAZE_BREED,
+    SPECIES_NONE,
+};
+
 const uint16_t SpeciesGroups::Unown[] = {
     SPECIES_UNOWN_A, SPECIES_UNOWN_B, SPECIES_UNOWN_C, SPECIES_UNOWN_D, SPECIES_UNOWN_E,
     SPECIES_UNOWN_F, SPECIES_UNOWN_G, SPECIES_UNOWN_H, SPECIES_UNOWN_I, SPECIES_UNOWN_J,
@@ -51,6 +58,11 @@ const uint16_t SpeciesGroups::Rotom[] = {
     SPECIES_NONE
 };
 
+const uint16_t SpeciesGroups::RotomAppliances[] = {
+    SPECIES_ROTOM_HEAT, SPECIES_ROTOM_WASH, SPECIES_ROTOM_FROST, SPECIES_ROTOM_FAN, SPECIES_ROTOM_MOW,
+    SPECIES_NONE
+};
+
 const uint16_t SpeciesGroups::Dialga[] = {
     SPECIES_DIALGA, SPECIES_DIALGA_ORIGIN,
     SPECIES_NONE
@@ -66,6 +78,11 @@ const uint16_t SpeciesGroups::Arceus[] = {
     SPECIES_ARCEUS_ICE, SPECIES_ARCEUS_FIGHTING, SPECIES_ARCEUS_POISON, SPECIES_ARCEUS_GROUND, SPECIES_ARCEUS_FLYING,
     SPECIES_ARCEUS_PSYCHIC, SPECIES_ARCEUS_BUG, SPECIES_ARCEUS_ROCK, SPECIES_ARCEUS_GHOST, SPECIES_ARCEUS_DRAGON,
     SPECIES_ARCEUS_DARK, SPECIES_ARCEUS_STEEL, SPECIES_ARCEUS_FAIRY,
+    SPECIES_NONE
+};
+
+const uint16_t SpeciesGroups::Basculin[] = {
+    SPECIES_BASCULIN_BLUE_STRIPED, SPECIES_BASCULIN_RED_STRIPED, SPECIES_BASCULIN_WHITE_STRIPED,
     SPECIES_NONE
 };
 
@@ -159,6 +176,11 @@ const uint16_t SpeciesGroups::Furfrou[] = {
     SPECIES_NONE
 };
 
+const uint16_t SpeciesGroups::Meowstic[] = {
+    SPECIES_MEOWSTIC_MALE, SPECIES_MEOWSTIC_FEMALE,
+    SPECIES_NONE
+};
+
 const uint16_t SpeciesGroups::Aegislash[] = {
     SPECIES_AEGISLASH_SHIELD, SPECIES_AEGISLASH_BLADE,
     SPECIES_NONE
@@ -215,6 +237,18 @@ const uint16_t SpeciesGroups::Minior[] = {
     SPECIES_NONE
 };
 
+const uint16_t SpeciesGroups::MiniorCore[] = {
+    SPECIES_MINIOR_CORE_RED, SPECIES_MINIOR_CORE_BLUE, SPECIES_MINIOR_CORE_ORANGE,
+    SPECIES_MINIOR_CORE_YELLOW, SPECIES_MINIOR_CORE_INDIGO, SPECIES_MINIOR_CORE_GREEN, SPECIES_MINIOR_CORE_VIOLET,
+    SPECIES_NONE
+};
+
+const uint16_t SpeciesGroups::MiniorMeteor[] = {
+    SPECIES_MINIOR_METEOR_RED, SPECIES_MINIOR_METEOR_BLUE, SPECIES_MINIOR_METEOR_ORANGE,
+    SPECIES_MINIOR_METEOR_YELLOW, SPECIES_MINIOR_METEOR_INDIGO, SPECIES_MINIOR_METEOR_GREEN, SPECIES_MINIOR_METEOR_VIOLET,
+    SPECIES_NONE
+};
+
 const uint16_t SpeciesGroups::Mimikyu[] = {
     SPECIES_MIMIKYU, SPECIES_MIMIKYU_BUSTED,
     SPECIES_NONE
@@ -227,6 +261,11 @@ const uint16_t SpeciesGroups::Magearna[] = {
 
 const uint16_t SpeciesGroups::Cramorant[] = {
     SPECIES_CRAMORANT, SPECIES_CRAMORANT_GULPING, SPECIES_CRAMORANT_GORGING,
+    SPECIES_NONE
+};
+
+const uint16_t SpeciesGroups::Toxtricity[] = {
+    SPECIES_TOXTRICITY_AMPED, SPECIES_TOXTRICITY_LOW_KEY,
     SPECIES_NONE
 };
 
@@ -371,3 +410,25 @@ const uint16_t SpeciesGroups::Sinistcha[] = {
     SPECIES_SINISTCHA_UNREMARKABLE, SPECIES_SINISTCHA_MASTERPIECE,
     SPECIES_NONE
 };
+
+const uint16_t SpeciesGroups::Ogerpon[] = {
+    SPECIES_OGERPON_TEAL_MASK, SPECIES_OGERPON_WELLSPRING_MASK, SPECIES_OGERPON_HEARTHFLAME_MASK, SPECIES_OGERPON_CORNERSTONE_MASK,
+    SPECIES_NONE
+};
+
+const uint16_t* SpeciesGroups::find(const uint16_t** groups, uint16_t species)
+{
+    int i;
+    const uint16_t* group;
+
+    for (i = 0; (group = groups[i]) != nullptr; i++)
+    {
+        for (int j = 0; group[j] != SPECIES_NONE; j++)
+        {
+            if (group[j] == species)
+                return group;
+        }
+    }
+
+    return nullptr;
+}

@@ -59,6 +59,7 @@ static const uint16_t* kSpeciesSharedAbilities[] = {
     SpeciesGroups::Dudunsparce,
     SpeciesGroups::Poltchageist,
     SpeciesGroups::Sinistcha,
+    nullptr,
 };
 
 static uint16_t randAbility(Random& rand)
@@ -89,7 +90,6 @@ static bool isAbilityAssignable(uint16_t ability, uint16_t species)
     switch (ability)
     {
     case ABILITY_FORECAST: return species == SPECIES_CASTFORM;
-    case ABILITY_FLOWER_GIFT: return species == SPECIES_CHERRIM;
     case ABILITY_MULTITYPE: return species == SPECIES_ARCEUS;
     case ABILITY_ZEN_MODE: return species == SPECIES_DARMANITAN || species == SPECIES_DARMANITAN_GALARIAN;
     case ABILITY_BATTLE_BOND: return species == SPECIES_GRENINJA;
@@ -155,33 +155,11 @@ static void shuffleAbilityImpl(Shuffler& shuffler, uint32_t base, uint16_t speci
     }
 }
 
-static const uint16_t* findGroup(uint16_t speciesId)
-{
-    int j;
-    const uint16_t* group;
-
-    for (int i = 0; i < sizeof(kSpeciesSharedAbilities) / sizeof(kSpeciesSharedAbilities[0]); ++i)
-    {
-        group = kSpeciesSharedAbilities[i];
-        j = 0;
-        for (;;)
-        {
-            if (group[j] == SPECIES_NONE)
-                break;
-            if (group[j] == speciesId)
-                return kSpeciesSharedAbilities[i];
-            ++j;
-        }
-    }
-
-    return nullptr;
-}
-
 static void shuffleAbility(Shuffler& shuffler, uint32_t base, uint16_t speciesId)
 {
     const uint16_t* group;
 
-    group = findGroup(speciesId);
+    group = SpeciesGroups::find(kSpeciesSharedAbilities, speciesId);
     if (group == nullptr || (group[0] == speciesId))
         shuffleAbilityImpl(shuffler, base, speciesId, group);
 }
