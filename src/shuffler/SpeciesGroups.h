@@ -8,6 +8,8 @@ struct SpeciesGroups
     static const uint16_t TaurosPaldean[];
     static const uint16_t Unown[];
     static const uint16_t Castform[];
+    static const uint16_t Kyogre[];
+    static const uint16_t Groudon[];
     static const uint16_t Deoxys[];
     static const uint16_t Burmy[];
     static const uint16_t Wormadam[];
@@ -18,6 +20,8 @@ struct SpeciesGroups
     static const uint16_t RotomAppliances[];
     static const uint16_t Dialga[];
     static const uint16_t Palkia[];
+    static const uint16_t Giratina[];
+    static const uint16_t Shaymin[];
     static const uint16_t Arceus[];
     static const uint16_t Basculin[];
     static const uint16_t Basculegion[];
@@ -25,6 +29,10 @@ struct SpeciesGroups
     static const uint16_t DarmanitanGalarian[];
     static const uint16_t Deerling[];
     static const uint16_t Sawsbuck[];
+    static const uint16_t Tornadus[];
+    static const uint16_t Thundurus[];
+    static const uint16_t Landorus[];
+    static const uint16_t Enamorus[];
     static const uint16_t Keldeo[];
     static const uint16_t Meloetta[];
     static const uint16_t Genesect[];

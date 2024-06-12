@@ -54,6 +54,23 @@ static const uint16_t* kSpeciesSharedStats[] = {
 
 static const uint16_t* kSpeciesSharedHp[] = {
     SpeciesGroups::Minior,
+    SpeciesGroups::Kyogre,
+    SpeciesGroups::Groudon,
+    SpeciesGroups::Deoxys,
+    SpeciesGroups::Rotom,
+    SpeciesGroups::Dialga,
+    SpeciesGroups::Palkia,
+    SpeciesGroups::Giratina,
+    SpeciesGroups::Shaymin,
+    SpeciesGroups::Basculegion,
+    SpeciesGroups::DarmanitanNormal,
+    SpeciesGroups::DarmanitanGalarian,
+    SpeciesGroups::Tornadus,
+    SpeciesGroups::Thundurus,
+    SpeciesGroups::Landorus,
+    SpeciesGroups::Enamorus,
+    SpeciesGroups::Greninja,
+    SpeciesGroups::Aegislash,
     nullptr,
 };
 

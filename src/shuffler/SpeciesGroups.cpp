@@ -23,6 +23,16 @@ const uint16_t SpeciesGroups::Castform[] = {
     SPECIES_NONE
 };
 
+const uint16_t SpeciesGroups::Kyogre[] = {
+    SPECIES_KYOGRE, SPECIES_KYOGRE_PRIMAL,
+    SPECIES_NONE
+};
+
+const uint16_t SpeciesGroups::Groudon[] = {
+    SPECIES_GROUDON, SPECIES_GROUDON_PRIMAL,
+    SPECIES_NONE
+};
+
 const uint16_t SpeciesGroups::Deoxys[] = {
     SPECIES_DEOXYS, SPECIES_DEOXYS_ATTACK, SPECIES_DEOXYS_DEFENSE, SPECIES_DEOXYS_SPEED,
     SPECIES_NONE
@@ -73,6 +83,16 @@ const uint16_t SpeciesGroups::Palkia[] = {
     SPECIES_NONE
 };
 
+const uint16_t SpeciesGroups::Giratina[] = {
+    SPECIES_GIRATINA_ALTERED, SPECIES_GIRATINA_ORIGIN,
+    SPECIES_NONE
+};
+
+const uint16_t SpeciesGroups::Shaymin[] = {
+    SPECIES_SHAYMIN_LAND, SPECIES_SHAYMIN_SKY,
+    SPECIES_NONE
+};
+
 const uint16_t SpeciesGroups::Arceus[] = {
     SPECIES_ARCEUS_NORMAL, SPECIES_ARCEUS_FIRE, SPECIES_ARCEUS_WATER, SPECIES_ARCEUS_ELECTRIC, SPECIES_ARCEUS_GRASS,
     SPECIES_ARCEUS_ICE, SPECIES_ARCEUS_FIGHTING, SPECIES_ARCEUS_POISON, SPECIES_ARCEUS_GROUND, SPECIES_ARCEUS_FLYING,
@@ -108,6 +128,26 @@ const uint16_t SpeciesGroups::Deerling[] = {
 
 const uint16_t SpeciesGroups::Sawsbuck[] = {
     SPECIES_SAWSBUCK_SPRING, SPECIES_SAWSBUCK_SUMMER, SPECIES_SAWSBUCK_AUTUMN, SPECIES_SAWSBUCK_WINTER,
+    SPECIES_NONE
+};
+
+const uint16_t SpeciesGroups::Tornadus[] = {
+    SPECIES_TORNADUS_INCARNATE, SPECIES_TORNADUS_THERIAN,
+    SPECIES_NONE
+};
+
+const uint16_t SpeciesGroups::Thundurus[] = {
+    SPECIES_THUNDURUS_INCARNATE, SPECIES_THUNDURUS_THERIAN,
+    SPECIES_NONE
+};
+
+const uint16_t SpeciesGroups::Landorus[] = {
+    SPECIES_LANDORUS_INCARNATE, SPECIES_LANDORUS_THERIAN,
+    SPECIES_NONE
+};
+
+const uint16_t SpeciesGroups::Enamorus[] = {
+    SPECIES_ENAMORUS_INCARNATE, SPECIES_ENAMORUS_THERIAN,
     SPECIES_NONE
 };
 
