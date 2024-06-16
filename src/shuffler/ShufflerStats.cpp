@@ -29,7 +29,6 @@ static const uint16_t* kSpeciesSharedStats[] = {
     SpeciesGroups::Meowstic,
     SpeciesGroups::Xerneas,
     SpeciesGroups::Oricorio,
-    SpeciesGroups::Wishiwashi,
     SpeciesGroups::MiniorCore,
     SpeciesGroups::MiniorMeteor,
     SpeciesGroups::Mimikyu,
@@ -53,7 +52,6 @@ static const uint16_t* kSpeciesSharedStats[] = {
 };
 
 static const uint16_t* kSpeciesSharedHp[] = {
-    SpeciesGroups::Minior,
     SpeciesGroups::Kyogre,
     SpeciesGroups::Groudon,
     SpeciesGroups::Deoxys,
@@ -71,6 +69,13 @@ static const uint16_t* kSpeciesSharedHp[] = {
     SpeciesGroups::Enamorus,
     SpeciesGroups::Greninja,
     SpeciesGroups::Aegislash,
+    SpeciesGroups::Hoopa,
+    SpeciesGroups::Wishiwashi,
+    SpeciesGroups::Minior,
+    SpeciesGroups::Eiscue,
+    SpeciesGroups::Zacian,
+    SpeciesGroups::Zamazenta,
+    SpeciesGroups::Palafin,
     nullptr,
 };
 
