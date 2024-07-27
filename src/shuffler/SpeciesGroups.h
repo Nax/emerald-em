@@ -394,7 +394,7 @@ struct SpeciesGroups
         SPECIES_OGERPON_TEAL_MASK, SPECIES_OGERPON_WELLSPRING_MASK, SPECIES_OGERPON_HEARTHFLAME_MASK, SPECIES_OGERPON_CORNERSTONE_MASK,
     };
 
-    static const SpeciesSet* find(const std::vector<SpeciesSet>& groups, uint16_t species);
+    static const SpeciesSet* find(const std::vector<const SpeciesSet*>& groups, uint16_t species);
 };
 
 #endif

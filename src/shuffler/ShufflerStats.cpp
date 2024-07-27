@@ -7,76 +7,76 @@
 #include <shuffler/SpeciesGroups.h>
 #include <emerald/include/constants/species.h>
 
-static const std::vector<SpeciesSet> kSpeciesSharedStats = {
-    SpeciesGroups::TaurosPaldean,
-    SpeciesGroups::Unown,
-    SpeciesGroups::Castform,
-    SpeciesGroups::Burmy,
-    SpeciesGroups::Wormadam,
-    SpeciesGroups::Cherrim,
-    SpeciesGroups::Shellos,
-    SpeciesGroups::Gastrodon,
-    SpeciesGroups::RotomAppliances,
-    SpeciesGroups::Arceus,
-    SpeciesGroups::Basculin,
-    SpeciesGroups::Deerling,
-    SpeciesGroups::Sawsbuck,
-    SpeciesGroups::Keldeo,
-    SpeciesGroups::Genesect,
-    SpeciesGroups::Vivillon,
-    SpeciesGroups::Flabebe,
-    SpeciesGroups::Floette,
-    SpeciesGroups::Florges,
-    SpeciesGroups::Furfrou,
-    SpeciesGroups::Meowstic,
-    SpeciesGroups::Xerneas,
-    SpeciesGroups::Oricorio,
-    SpeciesGroups::MiniorCore,
-    SpeciesGroups::MiniorMeteor,
-    SpeciesGroups::Mimikyu,
-    SpeciesGroups::Magearna,
-    SpeciesGroups::Cramorant,
-    SpeciesGroups::Toxtricity,
-    SpeciesGroups::Sinistea,
-    SpeciesGroups::Polteageist,
-    SpeciesGroups::Alcremie,
-    SpeciesGroups::Morpeko,
-    SpeciesGroups::Urshifru,
-    SpeciesGroups::Zarude,
-    SpeciesGroups::Maushold,
-    SpeciesGroups::Squawkabilly,
-    SpeciesGroups::Tatsugiri,
-    SpeciesGroups::Dudunsparce,
-    SpeciesGroups::Poltchageist,
-    SpeciesGroups::Sinistcha,
-    SpeciesGroups::Ogerpon,
+static const std::vector<const SpeciesSet*> kSpeciesSharedStats = {
+    &SpeciesGroups::TaurosPaldean,
+    &SpeciesGroups::Unown,
+    &SpeciesGroups::Castform,
+    &SpeciesGroups::Burmy,
+    &SpeciesGroups::Wormadam,
+    &SpeciesGroups::Cherrim,
+    &SpeciesGroups::Shellos,
+    &SpeciesGroups::Gastrodon,
+    &SpeciesGroups::RotomAppliances,
+    &SpeciesGroups::Arceus,
+    &SpeciesGroups::Basculin,
+    &SpeciesGroups::Deerling,
+    &SpeciesGroups::Sawsbuck,
+    &SpeciesGroups::Keldeo,
+    &SpeciesGroups::Genesect,
+    &SpeciesGroups::Vivillon,
+    &SpeciesGroups::Flabebe,
+    &SpeciesGroups::Floette,
+    &SpeciesGroups::Florges,
+    &SpeciesGroups::Furfrou,
+    &SpeciesGroups::Meowstic,
+    &SpeciesGroups::Xerneas,
+    &SpeciesGroups::Oricorio,
+    &SpeciesGroups::MiniorCore,
+    &SpeciesGroups::MiniorMeteor,
+    &SpeciesGroups::Mimikyu,
+    &SpeciesGroups::Magearna,
+    &SpeciesGroups::Cramorant,
+    &SpeciesGroups::Toxtricity,
+    &SpeciesGroups::Sinistea,
+    &SpeciesGroups::Polteageist,
+    &SpeciesGroups::Alcremie,
+    &SpeciesGroups::Morpeko,
+    &SpeciesGroups::Urshifru,
+    &SpeciesGroups::Zarude,
+    &SpeciesGroups::Maushold,
+    &SpeciesGroups::Squawkabilly,
+    &SpeciesGroups::Tatsugiri,
+    &SpeciesGroups::Dudunsparce,
+    &SpeciesGroups::Poltchageist,
+    &SpeciesGroups::Sinistcha,
+    &SpeciesGroups::Ogerpon,
 };
 
-static const std::vector<SpeciesSet> kSpeciesSharedHp = {
-    SpeciesGroups::Kyogre,
-    SpeciesGroups::Groudon,
-    SpeciesGroups::Deoxys,
-    SpeciesGroups::Rotom,
-    SpeciesGroups::Dialga,
-    SpeciesGroups::Palkia,
-    SpeciesGroups::Giratina,
-    SpeciesGroups::Shaymin,
-    SpeciesGroups::Basculegion,
-    SpeciesGroups::DarmanitanNormal,
-    SpeciesGroups::DarmanitanGalarian,
-    SpeciesGroups::Tornadus,
-    SpeciesGroups::Thundurus,
-    SpeciesGroups::Landorus,
-    SpeciesGroups::Enamorus,
-    SpeciesGroups::Greninja,
-    SpeciesGroups::Aegislash,
-    SpeciesGroups::Hoopa,
-    SpeciesGroups::Wishiwashi,
-    SpeciesGroups::Minior,
-    SpeciesGroups::Eiscue,
-    SpeciesGroups::Zacian,
-    SpeciesGroups::Zamazenta,
-    SpeciesGroups::Palafin,
+static const std::vector<const SpeciesSet*> kSpeciesSharedHp = {
+    &SpeciesGroups::Kyogre,
+    &SpeciesGroups::Groudon,
+    &SpeciesGroups::Deoxys,
+    &SpeciesGroups::Rotom,
+    &SpeciesGroups::Dialga,
+    &SpeciesGroups::Palkia,
+    &SpeciesGroups::Giratina,
+    &SpeciesGroups::Shaymin,
+    &SpeciesGroups::Basculegion,
+    &SpeciesGroups::DarmanitanNormal,
+    &SpeciesGroups::DarmanitanGalarian,
+    &SpeciesGroups::Tornadus,
+    &SpeciesGroups::Thundurus,
+    &SpeciesGroups::Landorus,
+    &SpeciesGroups::Enamorus,
+    &SpeciesGroups::Greninja,
+    &SpeciesGroups::Aegislash,
+    &SpeciesGroups::Hoopa,
+    &SpeciesGroups::Wishiwashi,
+    &SpeciesGroups::Minior,
+    &SpeciesGroups::Eiscue,
+    &SpeciesGroups::Zacian,
+    &SpeciesGroups::Zamazenta,
+    &SpeciesGroups::Palafin,
 };
 
 static bool genStatsOnce(Random& rng, uint8_t* dst, int count, int bst)
@@ -162,16 +162,16 @@ public:
         /* Index sharing tables */
         for (auto& g : kSpeciesSharedStats)
         {
-            for (auto s : g)
+            for (auto s : *g)
             {
-                _speciesSharedStats[s] = &g;
+                _speciesSharedStats[s] = g;
             }
         }
 
         for (auto& g : kSpeciesSharedHp)
         {
-            for (auto s : g)
-                _speciesSharedHP[s] = &g;
+            for (auto s : *g)
+                _speciesSharedHP[s] = g;
         }
 
         for (int i = 1; i < NUM_SPECIES; ++i)
