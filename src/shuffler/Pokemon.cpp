@@ -786,13 +786,7 @@ std::uint16_t Pokemon::randPokemon(Random& rng)
 {
     std::uint16_t value;
 
-    for (;;)
-    {
-        value = randInt(rng, 1025) + 1;
-        if (value != SPECIES_TERAPAGOS)
-            break;
-    }
-
+    value = randInt(rng, 1025) + 1;
     switch (value)
     {
     case SPECIES_TAUROS: if (randInt(rng, 2) == 0) return SAMPLE(rng, kFormsTaurosPaldea); break;
