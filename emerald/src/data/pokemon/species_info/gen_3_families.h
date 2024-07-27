@@ -701,7 +701,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_RUN_AWAY, ABILITY_QUICK_FEET, ABILITY_RATTLED },
+    #else
+        .abilities = { ABILITY_RUN_AWAY, ABILITY_NONE, ABILITY_RATTLED },
+    #endif
         .bodyColor = BODY_COLOR_GRAY,
         .cryId = CRY_POOCHYENA,
         .natDexNum = NATIONAL_DEX_POOCHYENA,
@@ -753,7 +757,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_INTIMIDATE, ABILITY_QUICK_FEET, ABILITY_MOXIE },
+    #else
+        .abilities = { ABILITY_INTIMIDATE, ABILITY_NONE, ABILITY_MOXIE },
+    #endif
         .bodyColor = BODY_COLOR_GRAY,
         .cryId = CRY_MIGHTYENA,
         .natDexNum = NATIONAL_DEX_MIGHTYENA,
@@ -816,7 +824,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_PICKUP, ABILITY_GLUTTONY, ABILITY_QUICK_FEET },
+    #else
+        .abilities = { ABILITY_PICKUP, ABILITY_NONE, ABILITY_QUICK_FEET },
+    #endif
         .bodyColor = BODY_COLOR_BROWN,
         .cryId = CRY_ZIGZAGOON,
         .natDexNum = NATIONAL_DEX_ZIGZAGOON,
@@ -871,7 +883,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_PICKUP, ABILITY_GLUTTONY, ABILITY_QUICK_FEET },
+    #else
+        .abilities = { ABILITY_PICKUP, ABILITY_NONE, ABILITY_QUICK_FEET },
+    #endif
         .bodyColor = BODY_COLOR_WHITE,
         .cryId = CRY_LINOONE,
         .natDexNum = NATIONAL_DEX_LINOONE,
@@ -1854,7 +1870,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_FLYING),
+    #if P_UPDATED_ABILITIES >= GEN_7
         .abilities = { ABILITY_KEEN_EYE, ABILITY_HYDRATION, ABILITY_RAIN_DISH },
+    #else
+        .abilities = { ABILITY_KEEN_EYE, ABILITY_NONE, ABILITY_RAIN_DISH },
+    #endif
         .bodyColor = BODY_COLOR_WHITE,
         .cryId = CRY_WINGULL,
         .natDexNum = NATIONAL_DEX_WINGULL,
@@ -1914,7 +1934,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_FLYING),
+    #if P_UPDATED_ABILITIES >= GEN_7
         .abilities = { ABILITY_KEEN_EYE, ABILITY_DRIZZLE, ABILITY_RAIN_DISH },
+    #else
+        .abilities = { ABILITY_KEEN_EYE, ABILITY_NONE, ABILITY_RAIN_DISH },
+    #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .cryId = CRY_PELIPPER,
         .natDexNum = NATIONAL_DEX_PELIPPER,
@@ -2436,7 +2460,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_FLUCTUATING,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY, EGG_GROUP_GRASS),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_EFFECT_SPORE, ABILITY_POISON_HEAL, ABILITY_QUICK_FEET },
+    #else
+        .abilities = { ABILITY_EFFECT_SPORE, ABILITY_NONE, ABILITY_QUICK_FEET },
+    #endif
         .bodyColor = BODY_COLOR_BROWN,
         .cryId = CRY_SHROOMISH,
         .natDexNum = NATIONAL_DEX_SHROOMISH,
@@ -2490,7 +2518,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_FLUCTUATING,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY, EGG_GROUP_GRASS),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_EFFECT_SPORE, ABILITY_POISON_HEAL, ABILITY_TECHNICIAN },
+    #else
+        .abilities = { ABILITY_EFFECT_SPORE, ABILITY_NONE, ABILITY_TECHNICIAN },
+    #endif
         .bodyColor = BODY_COLOR_GREEN,
         .cryId = CRY_BRELOOM,
         .natDexNum = NATIONAL_DEX_BRELOOM,
@@ -3250,7 +3282,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_FAIRY),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_CUTE_CHARM, ABILITY_NORMALIZE, ABILITY_WONDER_SKIN },
+    #else
+        .abilities = { ABILITY_CUTE_CHARM, ABILITY_NONE, ABILITY_WONDER_SKIN },
+    #endif
         .bodyColor = BODY_COLOR_PINK,
         .cryId = CRY_SKITTY,
         .natDexNum = NATIONAL_DEX_SKITTY,
@@ -3309,7 +3345,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_FAIRY),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_CUTE_CHARM, ABILITY_NORMALIZE, ABILITY_WONDER_SKIN },
+    #else
+        .abilities = { ABILITY_CUTE_CHARM, ABILITY_NONE, ABILITY_WONDER_SKIN },
+    #endif
         .bodyColor = BODY_COLOR_PURPLE,
         .cryId = CRY_DELCATTY,
         .natDexNum = NATIONAL_DEX_DELCATTY,
@@ -3364,7 +3404,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = 35,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_KEEN_EYE, ABILITY_STALL, ABILITY_PRANKSTER },
+    #else
+        .abilities = { ABILITY_KEEN_EYE, ABILITY_NONE, ABILITY_PRANKSTER },
+    #endif
         .bodyColor = BODY_COLOR_PURPLE,
         .cryId = CRY_SABLEYE,
         .natDexNum = NATIONAL_DEX_SABLEYE,
@@ -4154,7 +4198,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY),
+    #if P_UPDATED_ABILITIES >= GEN_6
         .abilities = { ABILITY_PLUS, ABILITY_NONE, ABILITY_LIGHTNING_ROD },
+    #else
+        .abilities = { ABILITY_PLUS, ABILITY_NONE, ABILITY_NONE },
+    #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .cryId = CRY_PLUSLE,
         .natDexNum = NATIONAL_DEX_PLUSLE,
@@ -4208,7 +4256,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY),
+    #if P_UPDATED_ABILITIES >= GEN_6
         .abilities = { ABILITY_MINUS, ABILITY_NONE, ABILITY_VOLT_ABSORB },
+    #else
+        .abilities = { ABILITY_MINUS, ABILITY_NONE, ABILITY_NONE },
+    #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .cryId = CRY_MINUN,
         .natDexNum = NATIONAL_DEX_MINUN,
@@ -4326,7 +4378,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_FLUCTUATING,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_BUG, EGG_GROUP_HUMAN_LIKE),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_OBLIVIOUS, ABILITY_TINTED_LENS, ABILITY_PRANKSTER },
+    #else
+        .abilities = { ABILITY_OBLIVIOUS, ABILITY_NONE, ABILITY_PRANKSTER },
+    #endif
         .bodyColor = BODY_COLOR_PURPLE,
         .cryId = CRY_ILLUMISE,
         .natDexNum = NATIONAL_DEX_ILLUMISE,
@@ -4952,7 +5008,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_OBLIVIOUS, ABILITY_SIMPLE, ABILITY_OWN_TEMPO },
+    #else
+        .abilities = { ABILITY_OBLIVIOUS, ABILITY_NONE, ABILITY_OWN_TEMPO },
+    #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .cryId = CRY_NUMEL,
         .natDexNum = NATIONAL_DEX_NUMEL,
@@ -5009,7 +5069,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_MAGMA_ARMOR, ABILITY_SOLID_ROCK, ABILITY_ANGER_POINT },
+    #else
+        .abilities = { ABILITY_MAGMA_ARMOR, ABILITY_NONE, ABILITY_ANGER_POINT },
+    #endif
         .bodyColor = BODY_COLOR_RED,
         .cryId = CRY_CAMERUPT,
         .natDexNum = NATIONAL_DEX_CAMERUPT,
@@ -5126,7 +5190,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+    #if P_UPDATED_ABILITIES >= GEN_7
         .abilities = { ABILITY_WHITE_SMOKE, ABILITY_DROUGHT, ABILITY_SHELL_ARMOR },
+    #else
+        .abilities = { ABILITY_WHITE_SMOKE, ABILITY_NONE, ABILITY_SHELL_ARMOR },
+    #endif
         .bodyColor = BODY_COLOR_BROWN,
         .cryId = CRY_TORKOAL,
         .natDexNum = NATIONAL_DEX_TORKOAL,
@@ -5285,7 +5353,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_OWN_TEMPO, ABILITY_TANGLED_FEET, ABILITY_CONTRARY },
+    #else
+        .abilities = { ABILITY_OWN_TEMPO, ABILITY_NONE, ABILITY_CONTRARY },
+    #endif
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = TRUE,
         .cryId = CRY_SPINDA,
@@ -6027,7 +6099,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_2),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_OBLIVIOUS, ABILITY_ANTICIPATION, ABILITY_HYDRATION },
+    #else
+        .abilities = { ABILITY_OBLIVIOUS, ABILITY_NONE, ABILITY_HYDRATION },
+    #endif
         .bodyColor = BODY_COLOR_GRAY,
         .cryId = CRY_BARBOACH,
         .natDexNum = NATIONAL_DEX_BARBOACH,
@@ -6080,7 +6156,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_2),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_OBLIVIOUS, ABILITY_ANTICIPATION, ABILITY_HYDRATION },
+    #else
+        .abilities = { ABILITY_OBLIVIOUS, ABILITY_NONE, ABILITY_HYDRATION },
+    #endif
         .bodyColor = BODY_COLOR_BLUE,
         .cryId = CRY_WHISCASH,
         .natDexNum = NATIONAL_DEX_WHISCASH,
@@ -6583,7 +6663,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_ERRATIC,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_DRAGON),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_SWIFT_SWIM, ABILITY_OBLIVIOUS, ABILITY_ADAPTABILITY },
+    #else
+        .abilities = { ABILITY_SWIFT_SWIM, ABILITY_NONE, ABILITY_ADAPTABILITY },
+    #endif
         .bodyColor = BODY_COLOR_BROWN,
         .cryId = CRY_FEEBAS,
         .natDexNum = NATIONAL_DEX_FEEBAS,
@@ -6637,7 +6721,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_ERRATIC,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_DRAGON),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_MARVEL_SCALE, ABILITY_COMPETITIVE, ABILITY_CUTE_CHARM },
+    #else
+        .abilities = { ABILITY_MARVEL_SCALE, ABILITY_NONE, ABILITY_CUTE_CHARM },
+    #endif
         .bodyColor = BODY_COLOR_PINK,
         .cryId = CRY_MILOTIC,
         .natDexNum = NATIONAL_DEX_MILOTIC,
@@ -6921,7 +7009,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+    #if P_UPDATED_ABILITIES >= GEN_6
         .abilities = { ABILITY_COLOR_CHANGE, ABILITY_NONE, ABILITY_PROTEAN },
+    #else
+        .abilities = { ABILITY_COLOR_CHANGE, ABILITY_NONE, ABILITY_NONE },
+    #endif
         .bodyColor = BODY_COLOR_GREEN,
         .cryId = CRY_KECLEON,
         .natDexNum = NATIONAL_DEX_KECLEON,
@@ -6976,7 +7068,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = 35,
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_INSOMNIA, ABILITY_FRISK, ABILITY_CURSED_BODY },
+    #else
+        .abilities = { ABILITY_INSOMNIA, ABILITY_NONE, ABILITY_CURSED_BODY },
+    #endif
         .bodyColor = BODY_COLOR_BLACK,
         .cryId = CRY_SHUPPET,
         .natDexNum = NATIONAL_DEX_SHUPPET,
@@ -7030,7 +7126,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = 35,
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_INSOMNIA, ABILITY_FRISK, ABILITY_CURSED_BODY },
+    #else
+        .abilities = { ABILITY_INSOMNIA, ABILITY_NONE, ABILITY_CURSED_BODY },
+    #endif
         .bodyColor = BODY_COLOR_BLACK,
         .cryId = CRY_BANETTE,
         .natDexNum = NATIONAL_DEX_BANETTE,
@@ -7144,7 +7244,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = 35,
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
+    #if P_UPDATED_ABILITIES >= GEN_6
         .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_FRISK },
+    #else
+        .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_NONE },
+    #endif
         .bodyColor = BODY_COLOR_BLACK,
         .cryId = CRY_DUSKULL,
         .natDexNum = NATIONAL_DEX_DUSKULL,
@@ -7199,7 +7303,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = 35,
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
+    #if P_UPDATED_ABILITIES >= GEN_6
         .abilities = { ABILITY_PRESSURE, ABILITY_NONE, ABILITY_FRISK },
+    #else
+        .abilities = { ABILITY_PRESSURE, ABILITY_NONE, ABILITY_NONE },
+    #endif
         .bodyColor = BODY_COLOR_BLACK,
         .cryId = CRY_DUSCLOPS,
         .natDexNum = NATIONAL_DEX_DUSCLOPS,
@@ -7262,7 +7370,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = 35,
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
+    #if P_UPDATED_ABILITIES >= GEN_6
         .abilities = { ABILITY_PRESSURE, ABILITY_NONE, ABILITY_FRISK },
+    #else
+        .abilities = { ABILITY_PRESSURE, ABILITY_NONE, ABILITY_NONE },
+    #endif
         .bodyColor = BODY_COLOR_BLACK,
         .cryId = CRY_DUSKNOIR,
         .natDexNum = NATIONAL_DEX_DUSKNOIR,
@@ -7317,7 +7429,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_GRASS),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_CHLOROPHYLL, ABILITY_SOLAR_POWER, ABILITY_HARVEST },
+    #else
+        .abilities = { ABILITY_CHLOROPHYLL, ABILITY_NONE, ABILITY_HARVEST },
+    #endif
         .bodyColor = BODY_COLOR_GREEN,
         .cryId = CRY_TROPIUS,
         .natDexNum = NATIONAL_DEX_TROPIUS,
@@ -7487,7 +7603,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = 35,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_PRESSURE, ABILITY_SUPER_LUCK, ABILITY_JUSTIFIED },
+    #else
+        .abilities = { ABILITY_PRESSURE, ABILITY_NONE, ABILITY_JUSTIFIED },
+    #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = TRUE,
         .cryId = CRY_ABSOL,
@@ -7602,7 +7722,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY, EGG_GROUP_MINERAL),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_INNER_FOCUS, ABILITY_ICE_BODY, ABILITY_MOODY },
+    #else
+        .abilities = { ABILITY_INNER_FOCUS, ABILITY_NONE, ABILITY_MOODY },
+    #endif
         .bodyColor = BODY_COLOR_GRAY,
         .cryId = CRY_SNORUNT,
         .natDexNum = NATIONAL_DEX_SNORUNT,
@@ -7656,7 +7780,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY, EGG_GROUP_MINERAL),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_INNER_FOCUS, ABILITY_ICE_BODY, ABILITY_MOODY },
+    #else
+        .abilities = { ABILITY_INNER_FOCUS, ABILITY_NONE, ABILITY_MOODY },
+    #endif
         .bodyColor = BODY_COLOR_GRAY,
         .cryId = CRY_GLALIE,
         .natDexNum = NATIONAL_DEX_GLALIE,
@@ -7822,7 +7950,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_FIELD),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_THICK_FAT, ABILITY_ICE_BODY, ABILITY_OBLIVIOUS },
+    #else
+        .abilities = { ABILITY_THICK_FAT, ABILITY_NONE, ABILITY_OBLIVIOUS },
+    #endif
         .bodyColor = BODY_COLOR_BLUE,
         .cryId = CRY_SPHEAL,
         .natDexNum = NATIONAL_DEX_SPHEAL,
@@ -7875,7 +8007,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_FIELD),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_THICK_FAT, ABILITY_ICE_BODY, ABILITY_OBLIVIOUS },
+    #else
+        .abilities = { ABILITY_THICK_FAT, ABILITY_NONE, ABILITY_OBLIVIOUS },
+    #endif
         .bodyColor = BODY_COLOR_BLUE,
         .cryId = CRY_SEALEO,
         .natDexNum = NATIONAL_DEX_SEALEO,
@@ -7933,7 +8069,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_FIELD),
+    #if P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_THICK_FAT, ABILITY_ICE_BODY, ABILITY_OBLIVIOUS },
+    #else
+        .abilities = { ABILITY_THICK_FAT, ABILITY_NONE, ABILITY_OBLIVIOUS },
+    #endif
         .bodyColor = BODY_COLOR_BLUE,
         .cryId = CRY_WALREIN,
         .natDexNum = NATIONAL_DEX_WALREIN,

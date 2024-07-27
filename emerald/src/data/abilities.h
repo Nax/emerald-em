@@ -1356,6 +1356,7 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     {
         .description = COMPOUND_STRING("Decoy protects it once."),
         .aiRating = 8,
+        .breakable = TRUE,
         .cantBeCopied = TRUE,
         .cantBeSwapped = TRUE,
         .cantBeTraced = TRUE,
@@ -2048,7 +2049,7 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
 
     [ABILITY_SUPERSWEET_SYRUP] =
     {
-        .description = COMPOUND_STRING("Lowers the foe's Speed."),
+        .description = COMPOUND_STRING("Lowers the foe's Evasion."),
         .aiRating = 5,
     },
 
