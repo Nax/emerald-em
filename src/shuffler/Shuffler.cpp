@@ -283,13 +283,29 @@ void shuffleStats(Shuffler& shuffler);
 
 void Shuffler::shuffle()
 {
+    bool valid;
     std::uint16_t starters[3];
     std::uint16_t tmp;
 
     /* Shuffle starters */
     for (int i = 0; i < 3; i++)
-        starters[i] = Pokemon::randPokemon(_random);
+    {
+        for (;;)
+        {
+            valid = true;
+            tmp = Pokemon::randPokemon(_random);
+            for (int j = 0; j < i; ++j)
+            {
+                if (starters[j] == tmp)
+                    valid = false;
+            }
+            if (valid)
+                break;
+        }
+        starters[i] = tmp;
+    }
     _rom.write(_rom.sym("kStarterMons"), starters, sizeof(starters));
+
     _rom.writeU16(_rom.sym("kFirstBattlePokemon"), Pokemon::randPokemon(_random));
 
     /* Shuffle things */
