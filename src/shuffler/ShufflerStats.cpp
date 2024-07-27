@@ -1,11 +1,13 @@
 #include <set>
 #include <map>
+#include <array>
+#include <cstring>
 #include <shuffler/Shuffler.h>
 #include <shuffler/Random.h>
 #include <shuffler/SpeciesGroups.h>
 #include <emerald/include/constants/species.h>
 
-static const uint16_t* kSpeciesSharedStats[] = {
+static const std::vector<SpeciesSet> kSpeciesSharedStats = {
     SpeciesGroups::TaurosPaldean,
     SpeciesGroups::Unown,
     SpeciesGroups::Castform,
@@ -48,10 +50,9 @@ static const uint16_t* kSpeciesSharedStats[] = {
     SpeciesGroups::Poltchageist,
     SpeciesGroups::Sinistcha,
     SpeciesGroups::Ogerpon,
-    nullptr,
 };
 
-static const uint16_t* kSpeciesSharedHp[] = {
+static const std::vector<SpeciesSet> kSpeciesSharedHp = {
     SpeciesGroups::Kyogre,
     SpeciesGroups::Groudon,
     SpeciesGroups::Deoxys,
@@ -76,7 +77,6 @@ static const uint16_t* kSpeciesSharedHp[] = {
     SpeciesGroups::Zacian,
     SpeciesGroups::Zamazenta,
     SpeciesGroups::Palafin,
-    nullptr,
 };
 
 static bool genStatsOnce(Random& rng, uint8_t* dst, int count, int bst)
@@ -94,9 +94,9 @@ static bool genStatsOnce(Random& rng, uint8_t* dst, int count, int bst)
     totalWeight = 0;
     for (int i = 0; i < count; ++i)
     {
-        tmp = randInt(rng, 256);
-        weights[i] = tmp;
-        totalWeight += tmp;
+        tmp = randInt(rng, 4096);
+        weights[i] = 1 + tmp;
+        totalWeight += (1 + tmp);
     }
 
     /* Assign stats */
@@ -124,7 +124,9 @@ static bool genStatsOnce(Random& rng, uint8_t* dst, int count, int bst)
     for (int i = 0; i < count; ++i)
     {
         if (stats[i] > 255)
+        {
             return false;
+        }
     }
 
     /* Copy the stats */
@@ -151,21 +153,25 @@ public:
     : _shuffler(shuffler)
     {
         _base = shuffler.rom().sym("gSpeciesInfo");
-        _fixedHp[SPECIES_SHEDINJA] = 1;
     }
 
     void run()
     {
-        const uint16_t* group;
+        const SpeciesSet* group;
 
         /* Index sharing tables */
-        for (int i = 1; i < NUM_SPECIES; ++i)
+        for (auto& g : kSpeciesSharedStats)
         {
-            group = SpeciesGroups::find(kSpeciesSharedStats, i);
-            _speciesSharedStats[i] = group;
+            for (auto s : g)
+            {
+                _speciesSharedStats[s] = &g;
+            }
+        }
 
-            group = SpeciesGroups::find(kSpeciesSharedHp, i);
-            _speciesSharedHP[i] = group;
+        for (auto& g : kSpeciesSharedHp)
+        {
+            for (auto s : g)
+                _speciesSharedHP[s] = &g;
         }
 
         for (int i = 1; i < NUM_SPECIES; ++i)
@@ -185,72 +191,92 @@ private:
 
     void shuffleStats(uint16_t speciesId)
     {
-        const uint16_t* sameStatsGroup;
-        const uint16_t* sameHpGroup;
+        const SpeciesSet* sameStatsGroup;
+        const SpeciesSet* sameHpGroup;
         int bst;
-        uint8_t stats[6];
+        std::array<uint8_t, 6> stats;
+        std::array<uint8_t, 6> inStats;
+        bool hasStats;
+        bool hasHp;
 
-        /* Skip if already shuffled */
-        if (_shuffled.find(speciesId) != _shuffled.end())
-            return;
-
-        /* Get the group */
+        /* Get the groups */
+        hasStats = false;
+        hasHp = false;
         sameStatsGroup = _speciesSharedStats[speciesId];
-        if (sameStatsGroup && sameStatsGroup[0] != speciesId)
-            return;
         sameHpGroup = _speciesSharedHP[speciesId];
 
-        /* Read the stats */
-        readStats(stats, speciesId);
-
-        /* Compute BST */
-        bst = 0;
-        for (int i = 0; i < 6; ++i)
-            bst += stats[i];
-        if (bst == 0)
-            return;
-
-        /* Shuffle */
-        auto it = _fixedHp.find(speciesId);
-        if (it != _fixedHp.end())
+        if (speciesId == SPECIES_SHEDINJA)
         {
-            stats[0] = it->second;
-            bst -= it->second;
-            genStats(_shuffler.random(), stats + 1, 5, bst);
-        }
-        else
-        {
-            genStats(_shuffler.random(), stats, 6, bst);
+            stats[0] = 1;
+            hasHp = true;
         }
 
-        /* Patch the stats */
-        writeStats(speciesId, stats);
-        _shuffled.insert(speciesId);
         if (sameStatsGroup)
         {
-            for (int i = 1; sameStatsGroup[i] != SPECIES_NONE; ++i)
+            /* Try to find a shuffled pokemon with the same stats */
+            for (auto id : *sameStatsGroup)
             {
-                writeStats(sameStatsGroup[i], stats);
-                _shuffled.insert(sameStatsGroup[i]);
+                auto it = _stats.find(id);
+                if (it != _stats.end())
+                {
+                    stats = it->second;
+                    hasStats = true;
+                    break;
+                }
             }
         }
 
-        /* Write hp */
-        if (sameHpGroup)
+        if (!hasStats && sameHpGroup)
         {
-            for (int i = 0; sameHpGroup[i] != SPECIES_NONE; ++i)
+            /* Try to find a shuffled pokemon with the same HP */
+            for (auto id : *sameHpGroup)
             {
-                _fixedHp[sameHpGroup[i]] = stats[0];
+                auto it = _stats.find(id);
+                if (it != _stats.end())
+                {
+                    stats[0] = it->second[0];
+                    hasHp = true;
+                    break;
+                }
             }
         }
+
+        if (!hasStats)
+        {
+            /* Read the stats */
+            readStats(inStats.data(), speciesId);
+
+            /* Compute BST */
+            bst = 0;
+            for (int i = 0; i < 6; ++i)
+                bst += inStats[i];
+            if (bst == 0)
+                return;
+
+            /* Shuffle */
+            if (hasHp)
+            {
+                bst -= stats[0];
+                genStats(_shuffler.random(), stats.data() + 1, 5, bst);
+            }
+            else
+            {
+                genStats(_shuffler.random(), stats.data(), 6, bst);
+            }
+        }
+
+        /* Store the stats */
+        _stats[speciesId] = stats;
+
+        /* Patch the stats */
+        writeStats(speciesId, stats.data());
     }
 
-    Shuffler&                           _shuffler;
-    std::map<uint16_t, const uint16_t*> _speciesSharedStats;
-    std::map<uint16_t, const uint16_t*> _speciesSharedHP;
-    uint32_t                            _base;
-    std::map<uint16_t, uint8_t>         _fixedHp;
-    std::set<uint16_t>                  _shuffled;
+    Shuffler&                                       _shuffler;
+    std::map<uint16_t, const SpeciesSet*>           _speciesSharedStats;
+    std::map<uint16_t, const SpeciesSet*>           _speciesSharedHP;
+    std::map<uint16_t, std::array<uint8_t, 6>>      _stats;
+    uint32_t                                        _base;
 };
 
 void shuffleStats(Shuffler& shuffler)

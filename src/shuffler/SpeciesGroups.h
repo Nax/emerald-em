@@ -1,83 +1,400 @@
 #ifndef GROUPS_H
 #define GROUPS_H
 
+#include <set>
+#include <vector>
 #include <cstdint>
+#include <emerald/include/constants/species.h>
+
+using SpeciesSet = std::set<uint16_t>;
 
 struct SpeciesGroups
 {
-    static const uint16_t TaurosPaldean[];
-    static const uint16_t Unown[];
-    static const uint16_t Castform[];
-    static const uint16_t Kyogre[];
-    static const uint16_t Groudon[];
-    static const uint16_t Deoxys[];
-    static const uint16_t Burmy[];
-    static const uint16_t Wormadam[];
-    static const uint16_t Cherrim[];
-    static const uint16_t Shellos[];
-    static const uint16_t Gastrodon[];
-    static const uint16_t Rotom[];
-    static const uint16_t RotomAppliances[];
-    static const uint16_t Dialga[];
-    static const uint16_t Palkia[];
-    static const uint16_t Giratina[];
-    static const uint16_t Shaymin[];
-    static const uint16_t Arceus[];
-    static const uint16_t Basculin[];
-    static const uint16_t Basculegion[];
-    static const uint16_t DarmanitanNormal[];
-    static const uint16_t DarmanitanGalarian[];
-    static const uint16_t Deerling[];
-    static const uint16_t Sawsbuck[];
-    static const uint16_t Tornadus[];
-    static const uint16_t Thundurus[];
-    static const uint16_t Landorus[];
-    static const uint16_t Enamorus[];
-    static const uint16_t Keldeo[];
-    static const uint16_t Meloetta[];
-    static const uint16_t Genesect[];
-    static const uint16_t Greninja[];
-    static const uint16_t Vivillon[];
-    static const uint16_t Flabebe[];
-    static const uint16_t Floette[];
-    static const uint16_t Florges[];
-    static const uint16_t Furfrou[];
-    static const uint16_t Meowstic[];
-    static const uint16_t Aegislash[];
-    static const uint16_t Pumpkaboo[];
-    static const uint16_t Gourgeist[];
-    static const uint16_t Xerneas[];
-    static const uint16_t Zygarde[];
-    static const uint16_t Hoopa[];
-    static const uint16_t Oricorio[];
-    static const uint16_t Wishiwashi[];
-    static const uint16_t Silvally[];
-    static const uint16_t Minior[];
-    static const uint16_t MiniorCore[];
-    static const uint16_t MiniorMeteor[];
-    static const uint16_t Mimikyu[];
-    static const uint16_t Magearna[];
-    static const uint16_t Cramorant[];
-    static const uint16_t Toxtricity[];
-    static const uint16_t Sinistea[];
-    static const uint16_t Polteageist[];
-    static const uint16_t Alcremie[];
-    static const uint16_t Eiscue[];
-    static const uint16_t Morpeko[];
-    static const uint16_t Zacian[];
-    static const uint16_t Zamazenta[];
-    static const uint16_t Urshifru[];
-    static const uint16_t Zarude[];
-    static const uint16_t Maushold[];
-    static const uint16_t Squawkabilly[];
-    static const uint16_t Palafin[];
-    static const uint16_t Tatsugiri[];
-    static const uint16_t Dudunsparce[];
-    static const uint16_t Poltchageist[];
-    static const uint16_t Sinistcha[];
-    static const uint16_t Ogerpon[];
+    static inline const SpeciesSet TaurosPaldean = {
+        SPECIES_TAUROS_PALDEAN_COMBAT_BREED,
+        SPECIES_TAUROS_PALDEAN_AQUA_BREED,
+        SPECIES_TAUROS_PALDEAN_BLAZE_BREED,
+    };
 
-    static const uint16_t* find(const uint16_t** groups, uint16_t species);
+    static inline const SpeciesSet Unown = {
+        SPECIES_UNOWN_A, SPECIES_UNOWN_B, SPECIES_UNOWN_C, SPECIES_UNOWN_D, SPECIES_UNOWN_E,
+        SPECIES_UNOWN_F, SPECIES_UNOWN_G, SPECIES_UNOWN_H, SPECIES_UNOWN_I, SPECIES_UNOWN_J,
+        SPECIES_UNOWN_K, SPECIES_UNOWN_L, SPECIES_UNOWN_M, SPECIES_UNOWN_N, SPECIES_UNOWN_O,
+        SPECIES_UNOWN_P, SPECIES_UNOWN_Q, SPECIES_UNOWN_R, SPECIES_UNOWN_S, SPECIES_UNOWN_T,
+        SPECIES_UNOWN_U, SPECIES_UNOWN_V, SPECIES_UNOWN_W, SPECIES_UNOWN_X, SPECIES_UNOWN_Y,
+        SPECIES_UNOWN_Z, SPECIES_UNOWN_EMARK, SPECIES_UNOWN_QMARK,
+    };
+
+    static inline const SpeciesSet Castform = {
+        SPECIES_CASTFORM, SPECIES_CASTFORM_SUNNY, SPECIES_CASTFORM_RAINY, SPECIES_CASTFORM_SNOWY,
+    };
+
+    static inline const SpeciesSet Kyogre = {
+        SPECIES_KYOGRE, SPECIES_KYOGRE_PRIMAL,
+    };
+
+    static inline const SpeciesSet Groudon = {
+        SPECIES_GROUDON, SPECIES_GROUDON_PRIMAL,
+    };
+
+    static inline const SpeciesSet Deoxys = {
+        SPECIES_DEOXYS, SPECIES_DEOXYS_ATTACK, SPECIES_DEOXYS_DEFENSE, SPECIES_DEOXYS_SPEED,
+    };
+
+    static inline const SpeciesSet Burmy = {
+        SPECIES_BURMY_PLANT_CLOAK, SPECIES_BURMY_SANDY_CLOAK, SPECIES_BURMY_TRASH_CLOAK,
+    };
+
+    static inline const SpeciesSet Wormadam = {
+        SPECIES_WORMADAM_PLANT_CLOAK, SPECIES_WORMADAM_SANDY_CLOAK, SPECIES_WORMADAM_TRASH_CLOAK,
+    };
+
+    static inline const SpeciesSet Cherrim = {
+        SPECIES_CHERRIM_OVERCAST, SPECIES_CHERRIM_SUNSHINE,
+    };
+
+    static inline const SpeciesSet Shellos = {
+        SPECIES_SHELLOS_WEST_SEA, SPECIES_SHELLOS_EAST_SEA,
+    };
+
+    static inline const SpeciesSet Gastrodon = {
+        SPECIES_GASTRODON_WEST_SEA, SPECIES_GASTRODON_EAST_SEA,
+    };
+
+    static inline const SpeciesSet Rotom = {
+        SPECIES_ROTOM, SPECIES_ROTOM_HEAT, SPECIES_ROTOM_WASH, SPECIES_ROTOM_FROST, SPECIES_ROTOM_FAN, SPECIES_ROTOM_MOW,
+    };
+
+    static inline const SpeciesSet RotomAppliances = {
+        SPECIES_ROTOM_HEAT, SPECIES_ROTOM_WASH, SPECIES_ROTOM_FROST, SPECIES_ROTOM_FAN, SPECIES_ROTOM_MOW,
+    };
+
+    static inline const SpeciesSet Dialga = {
+        SPECIES_DIALGA, SPECIES_DIALGA_ORIGIN,
+    };
+
+    static inline const SpeciesSet Palkia = {
+        SPECIES_PALKIA, SPECIES_PALKIA_ORIGIN,
+    };
+
+    static inline const SpeciesSet Giratina = {
+        SPECIES_GIRATINA_ALTERED, SPECIES_GIRATINA_ORIGIN,
+    };
+
+    static inline const SpeciesSet Shaymin = {
+        SPECIES_SHAYMIN_LAND, SPECIES_SHAYMIN_SKY,
+    };
+
+    static inline const SpeciesSet Arceus = {
+        SPECIES_ARCEUS_NORMAL, SPECIES_ARCEUS_FIRE, SPECIES_ARCEUS_WATER, SPECIES_ARCEUS_ELECTRIC, SPECIES_ARCEUS_GRASS,
+        SPECIES_ARCEUS_ICE, SPECIES_ARCEUS_FIGHTING, SPECIES_ARCEUS_POISON, SPECIES_ARCEUS_GROUND, SPECIES_ARCEUS_FLYING,
+        SPECIES_ARCEUS_PSYCHIC, SPECIES_ARCEUS_BUG, SPECIES_ARCEUS_ROCK, SPECIES_ARCEUS_GHOST, SPECIES_ARCEUS_DRAGON,
+        SPECIES_ARCEUS_DARK, SPECIES_ARCEUS_STEEL, SPECIES_ARCEUS_FAIRY,
+    };
+
+    static inline const SpeciesSet Basculin = {
+        SPECIES_BASCULIN_BLUE_STRIPED, SPECIES_BASCULIN_RED_STRIPED, SPECIES_BASCULIN_WHITE_STRIPED,
+    };
+
+    static inline const SpeciesSet Basculegion = {
+        SPECIES_BASCULEGION_MALE, SPECIES_BASCULEGION_FEMALE,
+    };
+
+    static inline const SpeciesSet DarmanitanNormal = {
+        SPECIES_DARMANITAN_STANDARD_MODE, SPECIES_DARMANITAN_ZEN_MODE,
+    };
+
+    static inline const SpeciesSet DarmanitanGalarian = {
+        SPECIES_DARMANITAN_GALARIAN_STANDARD_MODE, SPECIES_DARMANITAN_GALARIAN_ZEN_MODE,
+    };
+
+    static inline const SpeciesSet Deerling = {
+        SPECIES_DEERLING_SPRING, SPECIES_DEERLING_SUMMER, SPECIES_DEERLING_AUTUMN, SPECIES_DEERLING_WINTER,
+    };
+
+    static inline const SpeciesSet Sawsbuck = {
+        SPECIES_SAWSBUCK_SPRING, SPECIES_SAWSBUCK_SUMMER, SPECIES_SAWSBUCK_AUTUMN, SPECIES_SAWSBUCK_WINTER,
+    };
+
+    static inline const SpeciesSet Tornadus = {
+        SPECIES_TORNADUS_INCARNATE, SPECIES_TORNADUS_THERIAN,
+    };
+
+    static inline const SpeciesSet Thundurus = {
+        SPECIES_THUNDURUS_INCARNATE, SPECIES_THUNDURUS_THERIAN,
+    };
+
+    static inline const SpeciesSet Landorus = {
+        SPECIES_LANDORUS_INCARNATE, SPECIES_LANDORUS_THERIAN,
+    };
+
+    static inline const SpeciesSet Enamorus = {
+        SPECIES_ENAMORUS_INCARNATE, SPECIES_ENAMORUS_THERIAN,
+    };
+
+    static inline const SpeciesSet Keldeo = {
+        SPECIES_KELDEO_ORDINARY, SPECIES_KELDEO_RESOLUTE,
+    };
+
+    static inline const SpeciesSet Meloetta = {
+        SPECIES_MELOETTA_ARIA, SPECIES_MELOETTA_PIROUETTE,
+    };
+
+    static inline const SpeciesSet Genesect = {
+        SPECIES_GENESECT, SPECIES_GENESECT_BURN_DRIVE, SPECIES_GENESECT_CHILL_DRIVE, SPECIES_GENESECT_DOUSE_DRIVE, SPECIES_GENESECT_SHOCK_DRIVE,
+    };
+
+    static inline const SpeciesSet Greninja = {
+        SPECIES_GRENINJA, SPECIES_GRENINJA_ASH,
+    };
+
+    static inline const SpeciesSet Vivillon = {
+        SPECIES_VIVILLON_ICY_SNOW,
+        SPECIES_VIVILLON_POLAR,
+        SPECIES_VIVILLON_TUNDRA,
+        SPECIES_VIVILLON_CONTINENTAL,
+        SPECIES_VIVILLON_GARDEN,
+        SPECIES_VIVILLON_ELEGANT,
+        SPECIES_VIVILLON_MEADOW,
+        SPECIES_VIVILLON_MODERN,
+        SPECIES_VIVILLON_MARINE,
+        SPECIES_VIVILLON_ARCHIPELAGO,
+        SPECIES_VIVILLON_HIGH_PLAINS,
+        SPECIES_VIVILLON_SANDSTORM,
+        SPECIES_VIVILLON_RIVER,
+        SPECIES_VIVILLON_MONSOON,
+        SPECIES_VIVILLON_SAVANNA,
+        SPECIES_VIVILLON_SUN,
+        SPECIES_VIVILLON_OCEAN,
+        SPECIES_VIVILLON_JUNGLE,
+        SPECIES_VIVILLON_FANCY,
+        SPECIES_VIVILLON_POKE_BALL,
+    };
+
+    static inline const SpeciesSet Flabebe = {
+        SPECIES_FLABEBE_RED_FLOWER, SPECIES_FLABEBE_YELLOW_FLOWER, SPECIES_FLABEBE_ORANGE_FLOWER, SPECIES_FLABEBE_BLUE_FLOWER, SPECIES_FLABEBE_WHITE_FLOWER,
+    };
+
+    static inline const SpeciesSet Floette = {
+        SPECIES_FLOETTE_RED_FLOWER, SPECIES_FLOETTE_YELLOW_FLOWER, SPECIES_FLOETTE_ORANGE_FLOWER, SPECIES_FLOETTE_BLUE_FLOWER, SPECIES_FLOETTE_WHITE_FLOWER,
+    };
+
+    static inline const SpeciesSet Florges = {
+        SPECIES_FLORGES_RED_FLOWER, SPECIES_FLORGES_YELLOW_FLOWER, SPECIES_FLORGES_ORANGE_FLOWER, SPECIES_FLORGES_BLUE_FLOWER, SPECIES_FLORGES_WHITE_FLOWER,
+    };
+
+    static inline const SpeciesSet Furfrou = {
+        SPECIES_FURFROU, SPECIES_FURFROU_HEART_TRIM, SPECIES_FURFROU_DIAMOND_TRIM, SPECIES_FURFROU_STAR_TRIM, SPECIES_FURFROU_PHARAOH_TRIM,
+        SPECIES_FURFROU_KABUKI_TRIM, SPECIES_FURFROU_LA_REINE_TRIM, SPECIES_FURFROU_MATRON_TRIM, SPECIES_FURFROU_DANDY_TRIM, SPECIES_FURFROU_DEBUTANTE_TRIM,
+    };
+
+    static inline const SpeciesSet Meowstic = {
+        SPECIES_MEOWSTIC_MALE, SPECIES_MEOWSTIC_FEMALE,
+    };
+
+    static inline const SpeciesSet Aegislash = {
+        SPECIES_AEGISLASH_SHIELD, SPECIES_AEGISLASH_BLADE,
+    };
+
+    static inline const SpeciesSet Pumpkaboo = {
+        SPECIES_PUMPKABOO_AVERAGE, SPECIES_PUMPKABOO_SMALL, SPECIES_PUMPKABOO_LARGE, SPECIES_PUMPKABOO_SUPER,
+    };
+
+    static inline const SpeciesSet Gourgeist = {
+        SPECIES_GOURGEIST_AVERAGE, SPECIES_GOURGEIST_SMALL, SPECIES_GOURGEIST_LARGE, SPECIES_GOURGEIST_SUPER,
+    };
+
+    static inline const SpeciesSet Xerneas = {
+        SPECIES_XERNEAS_NEUTRAL, SPECIES_XERNEAS_ACTIVE,
+    };
+
+    static inline const SpeciesSet Zygarde = {
+        SPECIES_ZYGARDE_50, SPECIES_ZYGARDE_10, SPECIES_ZYGARDE_COMPLETE,
+    };
+
+    static inline const SpeciesSet Hoopa = {
+        SPECIES_HOOPA, SPECIES_HOOPA_UNBOUND,
+    };
+
+    static inline const SpeciesSet Oricorio = {
+        SPECIES_ORICORIO_BAILE, SPECIES_ORICORIO_POM_POM, SPECIES_ORICORIO_PAU, SPECIES_ORICORIO_SENSU,
+    };
+
+    static inline const SpeciesSet Wishiwashi = {
+        SPECIES_WISHIWASHI_SOLO, SPECIES_WISHIWASHI_SCHOOL,
+    };
+
+    static inline const SpeciesSet Silvally = {
+        SPECIES_SILVALLY, SPECIES_SILVALLY_FIGHTING, SPECIES_SILVALLY_FLYING, SPECIES_SILVALLY_POISON, SPECIES_SILVALLY_GROUND,
+        SPECIES_SILVALLY_ROCK, SPECIES_SILVALLY_BUG, SPECIES_SILVALLY_GHOST, SPECIES_SILVALLY_STEEL, SPECIES_SILVALLY_FIRE,
+        SPECIES_SILVALLY_WATER, SPECIES_SILVALLY_GRASS, SPECIES_SILVALLY_ELECTRIC, SPECIES_SILVALLY_PSYCHIC, SPECIES_SILVALLY_ICE,
+        SPECIES_SILVALLY_DRAGON, SPECIES_SILVALLY_DARK, SPECIES_SILVALLY_FAIRY,
+    };
+
+    static inline const SpeciesSet Minior = {
+        SPECIES_MINIOR_CORE_RED, SPECIES_MINIOR_CORE_BLUE, SPECIES_MINIOR_CORE_ORANGE,
+        SPECIES_MINIOR_CORE_YELLOW, SPECIES_MINIOR_CORE_INDIGO, SPECIES_MINIOR_CORE_GREEN, SPECIES_MINIOR_CORE_VIOLET,
+        SPECIES_MINIOR_METEOR_RED, SPECIES_MINIOR_METEOR_BLUE, SPECIES_MINIOR_METEOR_ORANGE,
+        SPECIES_MINIOR_METEOR_YELLOW, SPECIES_MINIOR_METEOR_INDIGO, SPECIES_MINIOR_METEOR_GREEN, SPECIES_MINIOR_METEOR_VIOLET,
+    };
+
+    static inline const SpeciesSet MiniorCore = {
+        SPECIES_MINIOR_CORE_RED, SPECIES_MINIOR_CORE_BLUE, SPECIES_MINIOR_CORE_ORANGE,
+        SPECIES_MINIOR_CORE_YELLOW, SPECIES_MINIOR_CORE_INDIGO, SPECIES_MINIOR_CORE_GREEN, SPECIES_MINIOR_CORE_VIOLET,
+    };
+
+    static inline const SpeciesSet MiniorMeteor = {
+        SPECIES_MINIOR_METEOR_RED, SPECIES_MINIOR_METEOR_BLUE, SPECIES_MINIOR_METEOR_ORANGE,
+        SPECIES_MINIOR_METEOR_YELLOW, SPECIES_MINIOR_METEOR_INDIGO, SPECIES_MINIOR_METEOR_GREEN, SPECIES_MINIOR_METEOR_VIOLET,
+    };
+
+    static inline const SpeciesSet Mimikyu = {
+        SPECIES_MIMIKYU, SPECIES_MIMIKYU_BUSTED,
+    };
+
+    static inline const SpeciesSet Magearna = {
+        SPECIES_MAGEARNA, SPECIES_MAGEARNA_ORIGINAL_COLOR,
+    };
+
+    static inline const SpeciesSet Cramorant = {
+        SPECIES_CRAMORANT, SPECIES_CRAMORANT_GULPING, SPECIES_CRAMORANT_GORGING,
+    };
+
+    static inline const SpeciesSet Toxtricity = {
+        SPECIES_TOXTRICITY_AMPED, SPECIES_TOXTRICITY_LOW_KEY,
+    };
+
+    static inline const SpeciesSet Sinistea = {
+        SPECIES_SINISTEA_PHONY, SPECIES_SINISTEA_ANTIQUE,
+    };
+
+    static inline const SpeciesSet Polteageist = {
+        SPECIES_POLTEAGEIST_PHONY, SPECIES_POLTEAGEIST_ANTIQUE,
+    };
+
+    static inline const SpeciesSet Alcremie = {
+        SPECIES_ALCREMIE_STRAWBERRY_VANILLA_CREAM,
+        SPECIES_ALCREMIE_STRAWBERRY_RUBY_CREAM,
+        SPECIES_ALCREMIE_STRAWBERRY_MATCHA_CREAM,
+        SPECIES_ALCREMIE_STRAWBERRY_MINT_CREAM,
+        SPECIES_ALCREMIE_STRAWBERRY_LEMON_CREAM,
+        SPECIES_ALCREMIE_STRAWBERRY_SALTED_CREAM,
+        SPECIES_ALCREMIE_STRAWBERRY_RUBY_SWIRL,
+        SPECIES_ALCREMIE_STRAWBERRY_CARAMEL_SWIRL,
+        SPECIES_ALCREMIE_STRAWBERRY_RAINBOW_SWIRL,
+        SPECIES_ALCREMIE_BERRY_VANILLA_CREAM,
+        SPECIES_ALCREMIE_BERRY_RUBY_CREAM,
+        SPECIES_ALCREMIE_BERRY_MATCHA_CREAM,
+        SPECIES_ALCREMIE_BERRY_MINT_CREAM,
+        SPECIES_ALCREMIE_BERRY_LEMON_CREAM,
+        SPECIES_ALCREMIE_BERRY_SALTED_CREAM,
+        SPECIES_ALCREMIE_BERRY_RUBY_SWIRL,
+        SPECIES_ALCREMIE_BERRY_CARAMEL_SWIRL,
+        SPECIES_ALCREMIE_BERRY_RAINBOW_SWIRL,
+        SPECIES_ALCREMIE_LOVE_VANILLA_CREAM,
+        SPECIES_ALCREMIE_LOVE_RUBY_CREAM,
+        SPECIES_ALCREMIE_LOVE_MATCHA_CREAM,
+        SPECIES_ALCREMIE_LOVE_MINT_CREAM,
+        SPECIES_ALCREMIE_LOVE_LEMON_CREAM,
+        SPECIES_ALCREMIE_LOVE_SALTED_CREAM,
+        SPECIES_ALCREMIE_LOVE_RUBY_SWIRL,
+        SPECIES_ALCREMIE_LOVE_CARAMEL_SWIRL,
+        SPECIES_ALCREMIE_LOVE_RAINBOW_SWIRL,
+        SPECIES_ALCREMIE_STAR_VANILLA_CREAM,
+        SPECIES_ALCREMIE_STAR_RUBY_CREAM,
+        SPECIES_ALCREMIE_STAR_MATCHA_CREAM,
+        SPECIES_ALCREMIE_STAR_MINT_CREAM,
+        SPECIES_ALCREMIE_STAR_LEMON_CREAM,
+        SPECIES_ALCREMIE_STAR_SALTED_CREAM,
+        SPECIES_ALCREMIE_STAR_RUBY_SWIRL,
+        SPECIES_ALCREMIE_STAR_CARAMEL_SWIRL,
+        SPECIES_ALCREMIE_STAR_RAINBOW_SWIRL,
+        SPECIES_ALCREMIE_CLOVER_VANILLA_CREAM,
+        SPECIES_ALCREMIE_CLOVER_RUBY_CREAM,
+        SPECIES_ALCREMIE_CLOVER_MATCHA_CREAM,
+        SPECIES_ALCREMIE_CLOVER_MINT_CREAM,
+        SPECIES_ALCREMIE_CLOVER_LEMON_CREAM,
+        SPECIES_ALCREMIE_CLOVER_SALTED_CREAM,
+        SPECIES_ALCREMIE_CLOVER_RUBY_SWIRL,
+        SPECIES_ALCREMIE_CLOVER_CARAMEL_SWIRL,
+        SPECIES_ALCREMIE_CLOVER_RAINBOW_SWIRL,
+        SPECIES_ALCREMIE_FLOWER_VANILLA_CREAM,
+        SPECIES_ALCREMIE_FLOWER_RUBY_CREAM,
+        SPECIES_ALCREMIE_FLOWER_MATCHA_CREAM,
+        SPECIES_ALCREMIE_FLOWER_MINT_CREAM,
+        SPECIES_ALCREMIE_FLOWER_LEMON_CREAM,
+        SPECIES_ALCREMIE_FLOWER_SALTED_CREAM,
+        SPECIES_ALCREMIE_FLOWER_RUBY_SWIRL,
+        SPECIES_ALCREMIE_FLOWER_CARAMEL_SWIRL,
+        SPECIES_ALCREMIE_FLOWER_RAINBOW_SWIRL,
+        SPECIES_ALCREMIE_RIBBON_VANILLA_CREAM,
+        SPECIES_ALCREMIE_RIBBON_RUBY_CREAM,
+        SPECIES_ALCREMIE_RIBBON_MATCHA_CREAM,
+        SPECIES_ALCREMIE_RIBBON_MINT_CREAM,
+        SPECIES_ALCREMIE_RIBBON_LEMON_CREAM,
+        SPECIES_ALCREMIE_RIBBON_SALTED_CREAM,
+        SPECIES_ALCREMIE_RIBBON_RUBY_SWIRL,
+        SPECIES_ALCREMIE_RIBBON_CARAMEL_SWIRL,
+        SPECIES_ALCREMIE_RIBBON_RAINBOW_SWIRL,
+    };
+
+    static inline const SpeciesSet Eiscue = {
+        SPECIES_EISCUE_ICE_FACE, SPECIES_EISCUE_NOICE_FACE,
+    };
+
+    static inline const SpeciesSet Morpeko = {
+        SPECIES_MORPEKO, SPECIES_MORPEKO_HANGRY,
+    };
+
+    static inline const SpeciesSet Zacian = {
+        SPECIES_ZACIAN_HERO_OF_MANY_BATTLES, SPECIES_ZACIAN_CROWNED_SWORD,
+    };
+
+    static inline const SpeciesSet Zamazenta = {
+        SPECIES_ZAMAZENTA_HERO_OF_MANY_BATTLES, SPECIES_ZAMAZENTA_CROWNED_SHIELD,
+    };
+
+    static inline const SpeciesSet Urshifru = {
+        SPECIES_URSHIFU_SINGLE_STRIKE_STYLE, SPECIES_URSHIFU_RAPID_STRIKE_STYLE,
+    };
+
+    static inline const SpeciesSet Zarude = {
+        SPECIES_ZARUDE, SPECIES_ZARUDE_DADA,
+    };
+
+    static inline const SpeciesSet Maushold = {
+        SPECIES_MAUSHOLD_FAMILY_OF_THREE, SPECIES_MAUSHOLD_FAMILY_OF_FOUR,
+    };
+
+    static inline const SpeciesSet Squawkabilly = {
+        SPECIES_SQUAWKABILLY_GREEN_PLUMAGE, SPECIES_SQUAWKABILLY_BLUE_PLUMAGE, SPECIES_SQUAWKABILLY_YELLOW_PLUMAGE, SPECIES_SQUAWKABILLY_WHITE_PLUMAGE,
+    };
+
+    static inline const SpeciesSet Palafin = {
+        SPECIES_PALAFIN_ZERO, SPECIES_PALAFIN_HERO,
+    };
+
+    static inline const SpeciesSet Tatsugiri = {
+        SPECIES_TATSUGIRI_CURLY, SPECIES_TATSUGIRI_DROOPY, SPECIES_TATSUGIRI_STRETCHY,
+    };
+
+    static inline const SpeciesSet Dudunsparce = {
+        SPECIES_DUDUNSPARCE_TWO_SEGMENT, SPECIES_DUDUNSPARCE_THREE_SEGMENT,
+    };
+
+    static inline const SpeciesSet Poltchageist = {
+        SPECIES_POLTCHAGEIST_COUNTERFEIT, SPECIES_POLTCHAGEIST_ARTISAN,
+    };
+
+    static inline const SpeciesSet Sinistcha = {
+        SPECIES_SINISTCHA_UNREMARKABLE, SPECIES_SINISTCHA_MASTERPIECE,
+    };
+
+    static inline const SpeciesSet Ogerpon = {
+        SPECIES_OGERPON_TEAL_MASK, SPECIES_OGERPON_WELLSPRING_MASK, SPECIES_OGERPON_HEARTHFLAME_MASK, SPECIES_OGERPON_CORNERSTONE_MASK,
+    };
+
+    static const SpeciesSet* find(const std::vector<SpeciesSet>& groups, uint16_t species);
 };
 
 #endif

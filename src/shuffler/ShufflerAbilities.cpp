@@ -1,9 +1,10 @@
+#include <array>
 #include <shuffler/Shuffler.h>
 #include <shuffler/SpeciesGroups.h>
 #include <emerald/include/constants/abilities.h>
 #include <emerald/include/constants/species.h>
 
-static const uint16_t* kSpeciesSharedAbilities[] = {
+static const std::vector<SpeciesSet> kSpeciesSharedAbilities = {
     SpeciesGroups::Unown,
     SpeciesGroups::Castform,
     SpeciesGroups::Deoxys,
@@ -59,7 +60,6 @@ static const uint16_t* kSpeciesSharedAbilities[] = {
     SpeciesGroups::Dudunsparce,
     SpeciesGroups::Poltchageist,
     SpeciesGroups::Sinistcha,
-    nullptr,
 };
 
 static uint16_t randAbility(Random& rand)
@@ -122,53 +122,74 @@ reroll:
     return ability;
 }
 
-static void shuffleAbilityImpl(Shuffler& shuffler, uint32_t base, uint16_t speciesId, const uint16_t* group)
+class ShufflerAbilities
 {
-    uint16_t abilities[3];
-    int i;
-
-    if (speciesId == SPECIES_SHEDINJA)
-        return;
-
-    /* Get the abilities */
-    abilities[0] = randAssignable(shuffler.random(), speciesId, ABILITY_NONE);
-    if (shuffler.random().next() & 0x80)
-        abilities[1] = randAssignable(shuffler.random(), speciesId, abilities[0]);
-    else
-        abilities[1] = ABILITY_NONE;
-    abilities[2] = ABILITY_NONE;
-
-    /* Patch the specie */
-    shuffler.rom().write(base + 0x94 * speciesId + 0x18, abilities, sizeof(abilities));
-
-    /* Patch the group */
-    if (group)
+public:
+    ShufflerAbilities(Shuffler& shuffler)
+    : _shuffler{shuffler}
     {
-        i = 1;
-        for (;;)
-        {
-            if (group[i] == SPECIES_NONE)
-                break;
-            shuffler.rom().write(base + 0x94 * group[i] + 0x18, abilities, sizeof(abilities));
-            i++;
-        }
+        _base = shuffler.rom().sym("gSpeciesInfo");
     }
-}
 
-static void shuffleAbility(Shuffler& shuffler, uint32_t base, uint16_t speciesId)
-{
-    const uint16_t* group;
+    void run()
+    {
+        for (int i = 1; i < NUM_SPECIES; ++i)
+            shuffleAbility(i);
+    }
 
-    group = SpeciesGroups::find(kSpeciesSharedAbilities, speciesId);
-    if (group == nullptr || (group[0] == speciesId))
-        shuffleAbilityImpl(shuffler, base, speciesId, group);
-}
+private:
+    void shuffleAbility(uint16_t speciesId)
+    {
+        const SpeciesSet* group;
+        std::array<uint16_t, 3> abilities = {ABILITY_NONE, ABILITY_NONE, ABILITY_NONE};
+        int i;
+
+        /* Shedinja is special */
+        if (speciesId == SPECIES_SHEDINJA)
+        {
+            abilities[0] = ABILITY_WONDER_GUARD;
+        }
+        else
+        {
+            /* Get the group */
+            group = SpeciesGroups::find(kSpeciesSharedAbilities, speciesId);
+            if (group)
+            {
+                for (auto s : *group)
+                {
+                    auto it = _abilities.find(s);
+                    if (it != _abilities.end())
+                    {
+                        abilities = it->second;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (abilities[0] == ABILITY_NONE)
+        {
+            /* Shuffle abilities */
+            abilities[0] = randAssignable(_shuffler.random(), speciesId, ABILITY_NONE);
+            if (_shuffler.random().next() & 0x80)
+                abilities[1] = randAssignable(_shuffler.random(), speciesId, abilities[0]);
+        }
+
+        /* Store the abilities */
+        _abilities[speciesId] = abilities;
+
+        /* Patch the specie */
+        _shuffler.rom().write(_base + 0x94 * speciesId + 0x18, abilities.data(), sizeof(abilities));
+    }
+
+    Shuffler&                                   _shuffler;
+    uint32_t                                    _base;
+    std::map<uint16_t, std::array<uint16_t, 3>> _abilities;
+};
 
 void shuffleAbilities(Shuffler& shuffler)
 {
-    uint32_t base;
+    ShufflerAbilities sa{shuffler};
 
-    base = shuffler.rom().sym("gSpeciesInfo");
-    for (int i = 1; i < NUM_SPECIES; ++i)
-        shuffleAbility(shuffler, base, i);
+    sa.run();
 }
