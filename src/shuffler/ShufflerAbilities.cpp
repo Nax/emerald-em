@@ -1,4 +1,5 @@
 #include <array>
+#include <shuffler/Database.h>
 #include <shuffler/Shuffler.h>
 #include <shuffler/SpeciesGroups.h>
 #include <emerald/include/constants/abilities.h>
@@ -125,10 +126,9 @@ reroll:
 class ShufflerAbilities
 {
 public:
-    ShufflerAbilities(Shuffler& shuffler)
-    : _shuffler{shuffler}
+    ShufflerAbilities(Database& db, Random& rand)
+    : _db{db}, _rand{rand}
     {
-        _base = shuffler.rom().sym("gSpeciesInfo");
     }
 
     void run()
@@ -141,7 +141,7 @@ private:
     void shuffleAbility(uint16_t speciesId)
     {
         const SpeciesSet* group;
-        std::array<uint16_t, 3> abilities = {ABILITY_NONE, ABILITY_NONE, ABILITY_NONE};
+        std::array<uint16_t, 3> abilities = { ABILITY_NONE, ABILITY_NONE, ABILITY_NONE };
         int i;
 
         /* Shedinja is special */
@@ -157,10 +157,10 @@ private:
             {
                 for (auto s : *group)
                 {
-                    auto it = _abilities.find(s);
-                    if (it != _abilities.end())
+                    auto it = _shuffled.find(s);
+                    if (it != _shuffled.end())
                     {
-                        abilities = it->second;
+                        abilities = _db.pokemons.abilities[s];
                         break;
                     }
                 }
@@ -170,26 +170,23 @@ private:
         if (abilities[0] == ABILITY_NONE)
         {
             /* Shuffle abilities */
-            abilities[0] = randAssignable(_shuffler.random(), speciesId, ABILITY_NONE);
-            if (_shuffler.random().next() & 0x80)
-                abilities[1] = randAssignable(_shuffler.random(), speciesId, abilities[0]);
+            abilities[0] = randAssignable(_rand, speciesId, ABILITY_NONE);
+            if (_rand.next() & 0x80)
+                abilities[1] = randAssignable(_rand, speciesId, abilities[0]);
         }
 
         /* Store the abilities */
-        _abilities[speciesId] = abilities;
-
-        /* Patch the specie */
-        _shuffler.rom().write(_base + 0x94 * speciesId + 0x18, abilities.data(), sizeof(abilities));
+        _db.pokemons.abilities[speciesId] = abilities;
+        _shuffled.insert(speciesId);
     }
 
-    Shuffler&                                   _shuffler;
-    uint32_t                                    _base;
-    std::map<uint16_t, std::array<uint16_t, 3>> _abilities;
+    Database&           _db;
+    Random&             _rand;
+    std::set<uint16_t>  _shuffled;
 };
 
-void shuffleAbilities(Shuffler& shuffler)
+void shuffleAbilities(Database& db, Random& rand)
 {
-    ShufflerAbilities sa{shuffler};
-
+    ShufflerAbilities sa{db, rand};
     sa.run();
 }

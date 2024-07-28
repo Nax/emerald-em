@@ -5,6 +5,7 @@
 #include <set>
 #include <shuffler/Shuffler.h>
 #include <shuffler/Pokemon.h>
+#include <shuffler/Database.h>
 
 Shuffler::Shuffler()
 {
@@ -278,14 +279,17 @@ void Shuffler::shuffleLearnsets()
         shuffleLearnset(o);
 }
 
-void shuffleAbilities(Shuffler& shuffler);
-void shuffleStats(Shuffler& shuffler);
+void shuffleAbilities(Database& db, Random& rand);
+void shuffleStats(Database& db, Random& rand);
 
 void Shuffler::shuffle()
 {
     bool valid;
     std::uint16_t starters[3];
     std::uint16_t tmp;
+
+    /* Load the database */
+    databaseLoad(_db, _rom);
 
     /* Shuffle starters */
     for (int i = 0; i < 3; i++)
@@ -311,6 +315,9 @@ void Shuffler::shuffle()
     /* Shuffle things */
     shuffleWild();
     shuffleLearnsets();
-    shuffleAbilities(*this);
-    shuffleStats(*this);
+    shuffleAbilities(_db, _random);
+    shuffleStats(_db, _random);
+
+    /* Save the database */
+    databaseSave(_rom, _db);
 }

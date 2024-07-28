@@ -5,6 +5,7 @@
 #include <shuffler/Shuffler.h>
 #include <shuffler/Random.h>
 #include <shuffler/SpeciesGroups.h>
+#include <shuffler/Database.h>
 #include <emerald/include/constants/species.h>
 
 static const std::vector<const SpeciesSet*> kSpeciesSharedStats = {
@@ -149,10 +150,9 @@ static void genStats(Random& rng, uint8_t* dst, int count, int bst)
 class ShufflerStats
 {
 public:
-    ShufflerStats(Shuffler& shuffler)
-    : _shuffler(shuffler)
+    ShufflerStats(Database& db, Random& rand)
+    : _db{db}, _rand{rand}
     {
-        _base = shuffler.rom().sym("gSpeciesInfo");
     }
 
     void run()
@@ -179,16 +179,6 @@ public:
     }
 
 private:
-    void readStats(uint8_t* stats, uint16_t speciesId)
-    {
-        _shuffler.rom().read(stats, _base + 0x94 * speciesId, 6);
-    }
-
-    void writeStats(uint16_t speciesId, const uint8_t* stats)
-    {
-        _shuffler.rom().write(_base + 0x94 * speciesId, stats, 6);
-    }
-
     void shuffleStats(uint16_t speciesId)
     {
         const SpeciesSet* sameStatsGroup;
@@ -198,6 +188,10 @@ private:
         std::array<uint8_t, 6> inStats;
         bool hasStats;
         bool hasHp;
+
+        /* Don't shuffle twice */
+        if (_shuffled.find(speciesId) != _shuffled.end())
+            return;
 
         /* Get the groups */
         hasStats = false;
@@ -216,10 +210,10 @@ private:
             /* Try to find a shuffled pokemon with the same stats */
             for (auto id : *sameStatsGroup)
             {
-                auto it = _stats.find(id);
-                if (it != _stats.end())
+                auto it = _shuffled.find(id);
+                if (it != _shuffled.end())
                 {
-                    stats = it->second;
+                    stats = _db.pokemons.stats[id];
                     hasStats = true;
                     break;
                 }
@@ -231,10 +225,10 @@ private:
             /* Try to find a shuffled pokemon with the same HP */
             for (auto id : *sameHpGroup)
             {
-                auto it = _stats.find(id);
-                if (it != _stats.end())
+                auto it = _shuffled.find(id);
+                if (it != _shuffled.end())
                 {
-                    stats[0] = it->second[0];
+                    stats[0] = _db.pokemons.stats[id][0];
                     hasHp = true;
                     break;
                 }
@@ -243,13 +237,10 @@ private:
 
         if (!hasStats)
         {
-            /* Read the stats */
-            readStats(inStats.data(), speciesId);
-
             /* Compute BST */
             bst = 0;
             for (int i = 0; i < 6; ++i)
-                bst += inStats[i];
+                bst += _db.pokemons.stats[speciesId][i];
             if (bst == 0)
                 return;
 
@@ -257,30 +248,28 @@ private:
             if (hasHp)
             {
                 bst -= stats[0];
-                genStats(_shuffler.random(), stats.data() + 1, 5, bst);
+                genStats(_rand, stats.data() + 1, 5, bst);
             }
             else
             {
-                genStats(_shuffler.random(), stats.data(), 6, bst);
+                genStats(_rand, stats.data(), 6, bst);
             }
         }
 
-        /* Store the stats */
-        _stats[speciesId] = stats;
-
-        /* Patch the stats */
-        writeStats(speciesId, stats.data());
+        /* Store */
+        _db.pokemons.stats[speciesId] = stats;
+        _shuffled.insert(speciesId);
     }
 
-    Shuffler&                                       _shuffler;
+    Database&                                       _db;
+    Random&                                         _rand;
+    std::set<uint16_t>                              _shuffled;
     std::map<uint16_t, const SpeciesSet*>           _speciesSharedStats;
     std::map<uint16_t, const SpeciesSet*>           _speciesSharedHP;
-    std::map<uint16_t, std::array<uint8_t, 6>>      _stats;
-    uint32_t                                        _base;
 };
 
-void shuffleStats(Shuffler& shuffler)
+void shuffleStats(Database& db, Random& rand)
 {
-    ShufflerStats ss(shuffler);
+    ShufflerStats ss(db, rand);
     ss.run();
 }

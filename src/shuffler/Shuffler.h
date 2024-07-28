@@ -3,6 +3,7 @@
 
 #include <shuffler/Random.h>
 #include <shuffler/Rom.h>
+#include <shuffler/Database.h>
 #include <string>
 #include <fstream>
 #include <memory>
@@ -31,6 +32,7 @@ private:
     std::string     _dataDir;
     Random          _random;
     Rom             _rom;
+    Database        _db;
 };
 
 #endif
