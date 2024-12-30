@@ -351,7 +351,7 @@ struct Evolution
     u16 targetSpecies;
 };
 
-struct SpeciesInfo /*0xC4*/
+struct SpeciesInfo /* 0xC8 */
 {
  /* 0x00 */ u8 baseHP;
  /* 0x01 */ u8 baseAttack;
@@ -367,7 +367,7 @@ struct SpeciesInfo /*0xC4*/
             u16 evYield_Attack:2;
             u16 evYield_Defense:2;
             u16 evYield_Speed:2;
- /* 0x0D */ u16 evYield_SpAttack:2;
+            u16 evYield_SpAttack:2;
             u16 evYield_SpDefense:2;
             u16 padding2:4;
  /* 0x0E */ u16 itemCommon;
@@ -413,17 +413,17 @@ struct SpeciesInfo /*0xC4*/
 #endif
             // All Pokémon pics are 64x64, but this data table defines where in this 64x64 frame the sprite's non-transparent pixels actually are.
  /* 0x74 */ u8 frontPicSize; // The dimensions of this drawn pixel area.
- /* 0x74 */ u8 frontPicSizeFemale; // The dimensions of this drawn pixel area.
- /* 0x75 */ u8 frontPicYOffset; // The number of pixels between the drawn pixel area and the bottom edge.
- /* 0x76 */ u8 backPicSize; // The dimensions of this drawn pixel area.
- /* 0x76 */ u8 backPicSizeFemale; // The dimensions of this drawn pixel area.
- /* 0x77 */ u8 backPicYOffset; // The number of pixels between the drawn pixel area and the bottom edge.
- /* 0x78 */ u8 iconPalIndex:3;
+ /* 0x75 */ u8 frontPicSizeFemale; // The dimensions of this drawn pixel area.
+ /* 0x76 */ u8 frontPicYOffset; // The number of pixels between the drawn pixel area and the bottom edge.
+ /* 0x77 */ u8 backPicSize; // The dimensions of this drawn pixel area.
+ /* 0x78 */ u8 backPicSizeFemale; // The dimensions of this drawn pixel area.
+ /* 0x79 */ u8 backPicYOffset; // The number of pixels between the drawn pixel area and the bottom edge.
+ /* 0x7A */ u8 iconPalIndex:3;
             u8 iconPalIndexFemale:3;
             u8 padding3:2;
- /* 0x79 */ u8 enemyMonElevation; // This determines how much higher above the usual position the enemy Pokémon is during battle. Species that float or fly have nonzero values.
+ /* 0x7B */ u8 enemyMonElevation; // This determines how much higher above the usual position the enemy Pokémon is during battle. Species that float or fly have nonzero values.
             // Flags
- /* 0x7A */ u32 isLegendary:1;
+ /* 0x7C */ u32 isLegendary:1;
             u32 isMythical:1;
             u32 isUltraBeast:1;
             u32 isParadox:1;
@@ -442,7 +442,7 @@ struct SpeciesInfo /*0xC4*/
             u32 dexForceRequired:1; // This species will be taken into account for Pokédex ratings even if they have the "isMythical" flag set.
             u32 tmIlliterate:1;     // This species will be unable to learn the universal moves.
             u32 isFrontierBanned:1; // This species is not allowed to participate in Battle Frontier facilities.
-            u32 padding4:14;
+            u32 padding4:13;
             // Move Data
  /* 0x80 */ const struct LevelUpMove *levelUpLearnset;
  /* 0x84 */ const u16 *teachableLearnset;

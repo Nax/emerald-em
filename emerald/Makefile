@@ -545,10 +545,6 @@ check: $(TESTELF)
 $(LIBAGBSYSCALL): FORCE
 	@$(MAKE) -C libagbsyscall TOOLCHAIN=$(TOOLCHAIN) MODERN=$(MODERN)
 
-# Buggy for some reason
-src/data/map_group_count.h:
-	touch $@
-
 FORCE: ;
 
 ###################

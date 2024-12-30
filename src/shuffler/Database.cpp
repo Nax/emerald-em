@@ -1,5 +1,6 @@
 #include "Database.h"
 #include "Rom.h"
+#include "Data.h"
 
 static void databasePokemonsLoad(DatabasePokemons& db, const Rom& rom)
 {
@@ -10,9 +11,9 @@ static void databasePokemonsLoad(DatabasePokemons& db, const Rom& rom)
 
     for (int i = 0; i < NUM_SPECIES; ++i)
     {
-        base = baseSpeciesInfo + 0x94 * i;
-        rom.read(db.stats[i].data(), base + 0x00, 6);
-        rom.read(db.abilities[i].data(), base + 0x18, 6);
+        base = baseSpeciesInfo + DATA_SPECIES_SIZE * i;
+        rom.read(db.stats[i].data(), base + DATA_SPECIES_OFF_STATS, 6);
+        rom.read(db.abilities[i].data(), base + DATA_SPECIES_OFF_ABILITIES, 6);
     }
 }
 
@@ -25,8 +26,8 @@ static void databasePokemonsSave(const DatabasePokemons& db, Rom& rom)
 
     for (int i = 0; i < NUM_SPECIES; ++i)
     {
-        rom.write(baseSpeciesInfo + 0x94 * i, db.stats[i].data(), 6);
-        rom.write(baseSpeciesInfo + 0x94 * i + 0x18, db.abilities[i].data(), 6);
+        rom.write(baseSpeciesInfo + DATA_SPECIES_SIZE * i + DATA_SPECIES_OFF_STATS, db.stats[i].data(), 6);
+        rom.write(baseSpeciesInfo + DATA_SPECIES_SIZE * i + DATA_SPECIES_OFF_ABILITIES, db.abilities[i].data(), 6);
     }
 }
 
@@ -39,4 +40,3 @@ void databaseSave(Rom& rom, const Database& db)
 {
     databasePokemonsSave(db.pokemons, rom);
 }
-

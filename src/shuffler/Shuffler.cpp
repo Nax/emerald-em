@@ -6,6 +6,7 @@
 #include <shuffler/Shuffler.h>
 #include <shuffler/Pokemon.h>
 #include <shuffler/Database.h>
+#include <shuffler/Data.h>
 
 Shuffler::Shuffler()
 {
@@ -41,12 +42,17 @@ int Shuffler::run(const std::string& out)
         return 1;
     }
 
+    printf("Applying French language\n");
     if (!applyLang("fr_FR"))
         return 1;
 
+    printf("Seeding RNG\n");
     _random.seed();
+
+    printf("Shuffling\n");
     shuffle();
 
+    printf("Creating ROM\n");
     outFilename = out;
     outFilename.append("/emerald-em.gba");
     if (!_rom.save(outFilename))
@@ -270,13 +276,15 @@ void Shuffler::shuffleLearnsets()
     base = _rom.sym("gSpeciesInfo");
     for (int i = 1; i < 1524; ++i)
     {
-        tmp = _rom.readU32(base + 0x94 * i + 0x80);
+        tmp = _rom.readU32(base + DATA_SPECIES_SIZE * i + DATA_SPECIES_OFF_LEVELUP_LEARNSET);
         if (tmp)
             offsets.insert(tmp);
     }
 
     for (auto o : offsets)
+    {
         shuffleLearnset(o);
+    }
 }
 
 void shuffleAbilities(Database& db, Random& rand);
@@ -289,9 +297,11 @@ void Shuffler::shuffle()
     std::uint16_t tmp;
 
     /* Load the database */
+    printf("Loading database\n");
     databaseLoad(_db, _rom);
 
     /* Shuffle starters */
+    printf("Shuffling starters\n");
     for (int i = 0; i < 3; i++)
     {
         for (;;)
@@ -313,11 +323,19 @@ void Shuffler::shuffle()
     _rom.writeU16(_rom.sym("kFirstBattlePokemon"), Pokemon::randPokemon(_random));
 
     /* Shuffle things */
+    printf("Shuffling Wild Pokemons\n");
     shuffleWild();
+
+    printf("Shuffling Learnsets\n");
     shuffleLearnsets();
+
+    printf("Shuffling Abilities\n");
     shuffleAbilities(_db, _random);
+
+    printf("Shuffling Stats\n");
     shuffleStats(_db, _random);
 
     /* Save the database */
+    printf("Saving database\n");
     databaseSave(_rom, _db);
 }
