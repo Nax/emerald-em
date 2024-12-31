@@ -92,7 +92,7 @@ static bool isAbilityAssignable(uint16_t ability, uint16_t species)
     {
     case ABILITY_FORECAST: return species == SPECIES_CASTFORM;
     case ABILITY_MULTITYPE: return species == SPECIES_ARCEUS;
-    case ABILITY_ZEN_MODE: return species == SPECIES_DARMANITAN || species == SPECIES_DARMANITAN_GALARIAN;
+    case ABILITY_ZEN_MODE: return species == SPECIES_DARMANITAN || species == SPECIES_DARMANITAN_GALAR;
     case ABILITY_BATTLE_BOND: return species == SPECIES_GRENINJA;
     case ABILITY_STANCE_CHANGE: return species == SPECIES_AEGISLASH;
     case ABILITY_POWER_CONSTRUCT: return species == SPECIES_ZYGARDE_50 || species == SPECIES_ZYGARDE_10;

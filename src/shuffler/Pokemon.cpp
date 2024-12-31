@@ -16,9 +16,9 @@ static T sample(Random& rng, const T* array, std::size_t size)
 }
 
 static const std::uint16_t kFormsTaurosPaldea[] = {
-    SPECIES_TAUROS_PALDEAN_COMBAT_BREED,
-    SPECIES_TAUROS_PALDEAN_BLAZE_BREED,
-    SPECIES_TAUROS_PALDEAN_AQUA_BREED,
+    SPECIES_TAUROS_PALDEA_COMBAT,
+    SPECIES_TAUROS_PALDEA_BLAZE,
+    SPECIES_TAUROS_PALDEA_AQUA,
 };
 
 static const uint16_t kFormsUnown[] = {
@@ -48,8 +48,8 @@ static const uint16_t kFormsUnown[] = {
     SPECIES_UNOWN_X,
     SPECIES_UNOWN_Y,
     SPECIES_UNOWN_Z,
-    SPECIES_UNOWN_EMARK,
-    SPECIES_UNOWN_QMARK,
+    SPECIES_UNOWN_EXCLAMATION,
+    SPECIES_UNOWN_QUESTION,
 };
 
 static const uint16_t kFormsDeoxys[] = {
@@ -60,25 +60,25 @@ static const uint16_t kFormsDeoxys[] = {
 };
 
 static const uint16_t kFormsBurmy[] = {
-    SPECIES_BURMY_PLANT_CLOAK,
-    SPECIES_BURMY_SANDY_CLOAK,
-    SPECIES_BURMY_TRASH_CLOAK,
+    SPECIES_BURMY_PLANT,
+    SPECIES_BURMY_SANDY,
+    SPECIES_BURMY_TRASH,
 };
 
 static const uint16_t kFormsWormadam[] = {
-    SPECIES_WORMADAM_PLANT_CLOAK,
-    SPECIES_WORMADAM_SANDY_CLOAK,
-    SPECIES_WORMADAM_TRASH_CLOAK,
+    SPECIES_WORMADAM_PLANT,
+    SPECIES_WORMADAM_SANDY,
+    SPECIES_WORMADAM_TRASH,
 };
 
 static const uint16_t kFormsShellos[] = {
-    SPECIES_SHELLOS_WEST_SEA,
-    SPECIES_SHELLOS_EAST_SEA,
+    SPECIES_SHELLOS_WEST,
+    SPECIES_SHELLOS_EAST,
 };
 
 static const uint16_t kFormsGastrodon[] = {
-    SPECIES_GASTRODON_WEST_SEA,
-    SPECIES_GASTRODON_EAST_SEA,
+    SPECIES_GASTRODON_WEST,
+    SPECIES_GASTRODON_EAST,
 };
 
 static const uint16_t kFormsRotom[] = {
@@ -102,8 +102,8 @@ static const uint16_t kFormsBasculin[] = {
 };
 
 static const uint16_t kFormsBasculegion[] = {
-    SPECIES_BASCULEGION_MALE,
-    SPECIES_BASCULEGION_FEMALE,
+    SPECIES_BASCULEGION_M,
+    SPECIES_BASCULEGION_F,
 };
 
 static const uint16_t kFormsDeerling[] = {
@@ -159,32 +159,32 @@ static const uint16_t kFormsVivillion[] = {
     SPECIES_VIVILLON_SAVANNA,
     SPECIES_VIVILLON_SUN,
     SPECIES_VIVILLON_TUNDRA,
-    SPECIES_VIVILLON_POKE_BALL,
+    SPECIES_VIVILLON_POKEBALL,
     SPECIES_VIVILLON_FANCY,
 };
 
 static const std::uint16_t kFormsFlabebe[] = {
-    SPECIES_FLABEBE_RED_FLOWER,
-    SPECIES_FLABEBE_YELLOW_FLOWER,
-    SPECIES_FLABEBE_ORANGE_FLOWER,
-    SPECIES_FLABEBE_BLUE_FLOWER,
-    SPECIES_FLABEBE_WHITE_FLOWER,
+    SPECIES_FLABEBE_RED,
+    SPECIES_FLABEBE_YELLOW,
+    SPECIES_FLABEBE_ORANGE,
+    SPECIES_FLABEBE_BLUE,
+    SPECIES_FLABEBE_WHITE,
 };
 
 static const std::uint16_t kFormsFloette[] = {
-    SPECIES_FLOETTE_RED_FLOWER,
-    SPECIES_FLOETTE_YELLOW_FLOWER,
-    SPECIES_FLOETTE_ORANGE_FLOWER,
-    SPECIES_FLOETTE_BLUE_FLOWER,
-    SPECIES_FLOETTE_WHITE_FLOWER,
+    SPECIES_FLOETTE_RED,
+    SPECIES_FLOETTE_YELLOW,
+    SPECIES_FLOETTE_ORANGE,
+    SPECIES_FLOETTE_BLUE,
+    SPECIES_FLOETTE_WHITE,
 };
 
 static const std::uint16_t kFormsFlorges[] = {
-    SPECIES_FLORGES_RED_FLOWER,
-    SPECIES_FLORGES_YELLOW_FLOWER,
-    SPECIES_FLORGES_ORANGE_FLOWER,
-    SPECIES_FLORGES_BLUE_FLOWER,
-    SPECIES_FLORGES_WHITE_FLOWER,
+    SPECIES_FLORGES_RED,
+    SPECIES_FLORGES_YELLOW,
+    SPECIES_FLORGES_ORANGE,
+    SPECIES_FLORGES_BLUE,
+    SPECIES_FLORGES_WHITE,
 };
 
 static const std::uint16_t kFormsFurfrou[] = {
@@ -201,8 +201,8 @@ static const std::uint16_t kFormsFurfrou[] = {
 };
 
 static const std::uint16_t kFormsMeowstic[] = {
-    SPECIES_MEOWSTIC_MALE,
-    SPECIES_MEOWSTIC_FEMALE,
+    SPECIES_MEOWSTIC_M,
+    SPECIES_MEOWSTIC_F,
 };
 
 static const std::uint16_t kFormsPumpkaboo[] = {
@@ -255,7 +255,7 @@ static const std::uint16_t kFormsMinior[] = {
 
 static const std::uint16_t kFormsMagearna[] = {
     SPECIES_MAGEARNA,
-    SPECIES_MAGEARNA_ORIGINAL_COLOR,
+    SPECIES_MAGEARNA_ORIGINAL,
 };
 
 static const std::uint16_t kFormsToxtricity[] = {
@@ -340,13 +340,13 @@ static const std::uint16_t kFormsAlcremie[] = {
 };
 
 static const std::uint16_t kFormsIndeedee[] = {
-    SPECIES_INDEEDEE_MALE,
-    SPECIES_INDEEDEE_FEMALE,
+    SPECIES_INDEEDEE_M,
+    SPECIES_INDEEDEE_F,
 };
 
 static const std::uint16_t kFormsUrshifu[] = {
-    SPECIES_URSHIFU_SINGLE_STRIKE_STYLE,
-    SPECIES_URSHIFU_RAPID_STRIKE_STYLE,
+    SPECIES_URSHIFU_SINGLE_STRIKE,
+    SPECIES_URSHIFU_RAPID_STRIKE,
 };
 
 static const std::uint16_t kFormsZarude[] = {
@@ -360,20 +360,20 @@ static const std::uint16_t kFormsUrsaluna[] = {
 };
 
 static const std::uint16_t kFormsOinkologne[] = {
-    SPECIES_OINKOLOGNE_MALE,
-    SPECIES_OINKOLOGNE_FEMALE,
+    SPECIES_OINKOLOGNE_M,
+    SPECIES_OINKOLOGNE_F,
 };
 
 static const std::uint16_t kFormsMaushold[] = {
-    SPECIES_MAUSHOLD_FAMILY_OF_THREE,
-    SPECIES_MAUSHOLD_FAMILY_OF_FOUR,
+    SPECIES_MAUSHOLD_THREE,
+    SPECIES_MAUSHOLD_FOUR,
 };
 
 static const std::uint16_t kFormsSquawkabily[] = {
-    SPECIES_SQUAWKABILLY_GREEN_PLUMAGE,
-    SPECIES_SQUAWKABILLY_BLUE_PLUMAGE,
-    SPECIES_SQUAWKABILLY_YELLOW_PLUMAGE,
-    SPECIES_SQUAWKABILLY_WHITE_PLUMAGE,
+    SPECIES_SQUAWKABILLY_GREEN,
+    SPECIES_SQUAWKABILLY_BLUE,
+    SPECIES_SQUAWKABILLY_YELLOW,
+    SPECIES_SQUAWKABILLY_WHITE,
 };
 
 static const std::uint16_t kFormsTatsugiri[] = {
@@ -404,278 +404,278 @@ static const std::uint16_t kFormsSinistcha[] = {
 
 static const std::uint16_t kFormsRattata[] = {
     SPECIES_RATTATA,
-    SPECIES_RATTATA_ALOLAN,
+    SPECIES_RATTATA_ALOLA,
 };
 
 static const std::uint16_t kFormsRaticate[] = {
     SPECIES_RATICATE,
-    SPECIES_RATICATE_ALOLAN,
+    SPECIES_RATICATE_ALOLA,
 };
 
 static const std::uint16_t kFormsRaichu[] = {
     SPECIES_RAICHU,
-    SPECIES_RAICHU_ALOLAN,
+    SPECIES_RAICHU_ALOLA,
 };
 
 static const std::uint16_t kFormsSandshrew[] = {
     SPECIES_SANDSHREW,
-    SPECIES_SANDSHREW_ALOLAN,
+    SPECIES_SANDSHREW_ALOLA,
 };
 
 static const std::uint16_t kFormsSandslash[] = {
     SPECIES_SANDSLASH,
-    SPECIES_SANDSLASH_ALOLAN,
+    SPECIES_SANDSLASH_ALOLA,
 };
 
 static const std::uint16_t kFormsVulpix[] = {
     SPECIES_VULPIX,
-    SPECIES_VULPIX_ALOLAN,
+    SPECIES_VULPIX_ALOLA,
 };
 
 static const std::uint16_t kFormsNinetales[] = {
     SPECIES_NINETALES,
-    SPECIES_NINETALES_ALOLAN,
+    SPECIES_NINETALES_ALOLA,
 };
 
 static const std::uint16_t kFormsDiglett[] = {
     SPECIES_DIGLETT,
-    SPECIES_DIGLETT_ALOLAN,
+    SPECIES_DIGLETT_ALOLA,
 };
 
 static const std::uint16_t kFormsDugtrio[] = {
     SPECIES_DUGTRIO,
-    SPECIES_DUGTRIO_ALOLAN,
+    SPECIES_DUGTRIO_ALOLA,
 };
 
 static const std::uint16_t kFormsMeowth[] = {
     SPECIES_MEOWTH,
-    SPECIES_MEOWTH_ALOLAN,
-    SPECIES_MEOWTH_GALARIAN,
+    SPECIES_MEOWTH_ALOLA,
+    SPECIES_MEOWTH_GALAR,
 };
 
 static const std::uint16_t kFormsPersian[] = {
     SPECIES_PERSIAN,
-    SPECIES_PERSIAN_ALOLAN,
+    SPECIES_PERSIAN_ALOLA,
 };
 
 static const std::uint16_t kFormsGrowlithe[] = {
     SPECIES_GROWLITHE,
-    SPECIES_GROWLITHE_HISUIAN,
+    SPECIES_GROWLITHE_HISUI,
 };
 
 static const std::uint16_t kFormsArcanine[] = {
     SPECIES_ARCANINE,
-    SPECIES_ARCANINE_HISUIAN,
+    SPECIES_ARCANINE_HISUI,
 };
 
 static const std::uint16_t kFormsGeodude[] = {
     SPECIES_GEODUDE,
-    SPECIES_GEODUDE_ALOLAN,
+    SPECIES_GEODUDE_ALOLA,
 };
 
 static const std::uint16_t kFormsGraveler[] = {
     SPECIES_GRAVELER,
-    SPECIES_GRAVELER_ALOLAN,
+    SPECIES_GRAVELER_ALOLA,
 };
 
 static const std::uint16_t kFormsGolem[] = {
     SPECIES_GOLEM,
-    SPECIES_GOLEM_ALOLAN,
+    SPECIES_GOLEM_ALOLA,
 };
 
 static const std::uint16_t kFormsPonyta[] = {
     SPECIES_PONYTA,
-    SPECIES_PONYTA_GALARIAN,
+    SPECIES_PONYTA_GALAR,
 };
 
 static const std::uint16_t kFormsRapidash[] = {
     SPECIES_RAPIDASH,
-    SPECIES_RAPIDASH_GALARIAN,
+    SPECIES_RAPIDASH_GALAR,
 };
 
 static const std::uint16_t kFormsSlowpoke[] = {
     SPECIES_SLOWPOKE,
-    SPECIES_SLOWPOKE_GALARIAN,
+    SPECIES_SLOWPOKE_GALAR,
 };
 
 static const std::uint16_t kFormsSlowbro[] = {
     SPECIES_SLOWBRO,
-    SPECIES_SLOWBRO_GALARIAN,
+    SPECIES_SLOWBRO_GALAR,
 };
 
 static const std::uint16_t kFormsfarfetchd[] = {
     SPECIES_FARFETCHD,
-    SPECIES_FARFETCHD_GALARIAN,
+    SPECIES_FARFETCHD_GALAR,
 };
 
 static const std::uint16_t kFormsGrimer[] = {
     SPECIES_GRIMER,
-    SPECIES_GRIMER_ALOLAN,
+    SPECIES_GRIMER_ALOLA,
 };
 
 static const std::uint16_t kFormsMuk[] = {
     SPECIES_MUK,
-    SPECIES_MUK_ALOLAN,
+    SPECIES_MUK_ALOLA,
 };
 
 static const std::uint16_t kFormsVoltorb[] = {
     SPECIES_VOLTORB,
-    SPECIES_VOLTORB_HISUIAN,
+    SPECIES_VOLTORB_HISUI,
 };
 
 static const std::uint16_t kFormsElectrode[] = {
     SPECIES_ELECTRODE,
-    SPECIES_ELECTRODE_HISUIAN,
+    SPECIES_ELECTRODE_HISUI,
 };
 
 static const std::uint16_t kFormsExeggutor[] = {
     SPECIES_EXEGGUTOR,
-    SPECIES_EXEGGUTOR_ALOLAN,
+    SPECIES_EXEGGUTOR_ALOLA,
 };
 
 static const std::uint16_t kFormsMarowak[] = {
     SPECIES_MAROWAK,
-    SPECIES_MAROWAK_ALOLAN,
+    SPECIES_MAROWAK_ALOLA,
 };
 
 static const std::uint16_t kFormsWeezing[] = {
     SPECIES_WEEZING,
-    SPECIES_WEEZING_GALARIAN,
+    SPECIES_WEEZING_GALAR,
 };
 
 static const std::uint16_t kFormsMrMime[] = {
     SPECIES_MR_MIME,
-    SPECIES_MR_MIME_GALARIAN,
+    SPECIES_MR_MIME_GALAR,
 };
 
 static const std::uint16_t kFormsArticuno[] = {
     SPECIES_ARTICUNO,
-    SPECIES_ARTICUNO_GALARIAN,
+    SPECIES_ARTICUNO_GALAR,
 };
 
 static const std::uint16_t kFormsZapdos[] = {
     SPECIES_ZAPDOS,
-    SPECIES_ZAPDOS_GALARIAN,
+    SPECIES_ZAPDOS_GALAR,
 };
 
 static const std::uint16_t kFormsMoltres[] = {
     SPECIES_MOLTRES,
-    SPECIES_MOLTRES_GALARIAN,
+    SPECIES_MOLTRES_GALAR,
 };
 
 static const std::uint16_t kFormsTyphlosion[] = {
     SPECIES_TYPHLOSION,
-    SPECIES_TYPHLOSION_HISUIAN,
+    SPECIES_TYPHLOSION_HISUI,
 };
 
 static const std::uint16_t kFormsWooper[] = {
     SPECIES_WOOPER,
-    SPECIES_WOOPER_PALDEAN,
+    SPECIES_WOOPER_PALDEA,
 };
 
 static const std::uint16_t kFormsSlowking[] = {
     SPECIES_SLOWKING,
-    SPECIES_SLOWKING_GALARIAN,
+    SPECIES_SLOWKING_GALAR,
 };
 
 static const std::uint16_t kFormsQwilfish[] = {
     SPECIES_QWILFISH,
-    SPECIES_QWILFISH_HISUIAN,
+    SPECIES_QWILFISH_HISUI,
 };
 
 static const std::uint16_t kFormsSneasel[] = {
     SPECIES_SNEASEL,
-    SPECIES_SNEASEL_HISUIAN,
+    SPECIES_SNEASEL_HISUI,
 };
 
 static const std::uint16_t kFormsCorsola[] = {
     SPECIES_CORSOLA,
-    SPECIES_CORSOLA_GALARIAN,
+    SPECIES_CORSOLA_GALAR,
 };
 
 static const std::uint16_t kFormsZigzagoon[] = {
     SPECIES_ZIGZAGOON,
-    SPECIES_ZIGZAGOON_GALARIAN,
+    SPECIES_ZIGZAGOON_GALAR,
 };
 
 static const std::uint16_t kFormsLinoone[] = {
     SPECIES_LINOONE,
-    SPECIES_LINOONE_GALARIAN,
+    SPECIES_LINOONE_GALAR,
 };
 
 static const std::uint16_t kFormsSamurott[] = {
     SPECIES_SAMUROTT,
-    SPECIES_SAMUROTT_HISUIAN,
+    SPECIES_SAMUROTT_HISUI,
 };
 
 static const std::uint16_t kFormsLiligant[] = {
     SPECIES_LILLIGANT,
-    SPECIES_LILLIGANT_HISUIAN,
+    SPECIES_LILLIGANT_HISUI,
 };
 
 static const std::uint16_t kFormsDarumaka[] = {
     SPECIES_DARUMAKA,
-    SPECIES_DARUMAKA_GALARIAN,
+    SPECIES_DARUMAKA_GALAR,
 };
 
 static const uint16_t kFormsDarmanitan[] = {
     SPECIES_DARMANITAN,
-    SPECIES_DARMANITAN_GALARIAN,
+    SPECIES_DARMANITAN_GALAR,
 };
 
 static const std::uint16_t kFormsYamask[] = {
     SPECIES_YAMASK,
-    SPECIES_YAMASK_GALARIAN,
+    SPECIES_YAMASK_GALAR,
 };
 
 static const std::uint16_t kFormsZorua[] = {
     SPECIES_ZORUA,
-    SPECIES_ZORUA_HISUIAN,
+    SPECIES_ZORUA_HISUI,
 };
 
 static const std::uint16_t kFormsZoroark[] = {
     SPECIES_ZOROARK,
-    SPECIES_ZOROARK_HISUIAN,
+    SPECIES_ZOROARK_HISUI,
 };
 
 static const std::uint16_t kFormsStunfisk[] = {
     SPECIES_STUNFISK,
-    SPECIES_STUNFISK_GALARIAN,
+    SPECIES_STUNFISK_GALAR,
 };
 
 static const std::uint16_t kFormsBraviary[] = {
     SPECIES_BRAVIARY,
-    SPECIES_BRAVIARY_HISUIAN,
+    SPECIES_BRAVIARY_HISUI,
 };
 
 static const std::uint16_t kFormsSliggoo[] = {
     SPECIES_SLIGGOO,
-    SPECIES_SLIGGOO_HISUIAN,
+    SPECIES_SLIGGOO_HISUI,
 };
 
 static const std::uint16_t kFormsGoodra[] = {
     SPECIES_GOODRA,
-    SPECIES_GOODRA_HISUIAN,
+    SPECIES_GOODRA_HISUI,
 };
 
 static const std::uint16_t kFormsAvalugg[] = {
     SPECIES_AVALUGG,
-    SPECIES_AVALUGG_HISUIAN,
+    SPECIES_AVALUGG_HISUI,
 };
 
 static const std::uint16_t kFormsDecidueye[] = {
     SPECIES_DECIDUEYE,
-    SPECIES_DECIDUEYE_HISUIAN,
+    SPECIES_DECIDUEYE_HISUI,
 };
 
 static const std::uint16_t kLegendaries[] =
 {
     SPECIES_ZAPDOS,
-    SPECIES_ZAPDOS_GALARIAN,
+    SPECIES_ZAPDOS_GALAR,
     SPECIES_MOLTRES,
-    SPECIES_MOLTRES_GALARIAN,
+    SPECIES_MOLTRES_GALAR,
     SPECIES_ARTICUNO,
-    SPECIES_ARTICUNO_GALARIAN,
+    SPECIES_ARTICUNO_GALAR,
     SPECIES_MEWTWO,
     SPECIES_MEW,
     SPECIES_RAIKOU,
@@ -748,7 +748,7 @@ static const std::uint16_t kLegendaries[] =
     SPECIES_LUNALA,
     SPECIES_NECROZMA,
     SPECIES_MAGEARNA,
-    SPECIES_MAGEARNA_ORIGINAL_COLOR,
+    SPECIES_MAGEARNA_ORIGINAL,
     SPECIES_MARSHADOW,
     SPECIES_ZERAORA,
     SPECIES_MELTAN,
@@ -757,8 +757,8 @@ static const std::uint16_t kLegendaries[] =
     SPECIES_ZAMAZENTA,
     SPECIES_ETERNATUS,
     SPECIES_KUBFU,
-    SPECIES_URSHIFU_SINGLE_STRIKE_STYLE,
-    SPECIES_URSHIFU_RAPID_STRIKE_STYLE,
+    SPECIES_URSHIFU_SINGLE_STRIKE,
+    SPECIES_URSHIFU_RAPID_STRIKE,
     SPECIES_REGIELEKI,
     SPECIES_REGIDRAGO,
     SPECIES_GLASTRIER,
