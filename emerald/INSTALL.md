@@ -24,7 +24,7 @@ Unscientific benchmarks suggest **msys2 is 2x slower** than WSL1, and **Cygwin i
 
 All of the Windows instructions assume that the default drive is C:\\. If this differs to your actual drive letter, then replace C with the correct drive letter when reading the instructions.
 
-**A note of caution**: As Windows 7 is officially unsupported by Microsoft and Windows 8 has very little usage, some maintainers are unwilling to maintain the Windows 7/8 instructions. Thus, these instructions may break in the future with fixes taking longer than fixes to the Windows 10 instructions.
+**A note of caution**: As Windows 7 and Windows 8 are officially unsupported by Microsoft, some maintainers are unwilling to maintain the Windows 7/8 instructions. Thus, these instructions may break in the future with fixes taking longer than fixes to the Windows 10/11 instructions.
 
 ## Windows 10/11 (WSL1)
 WSL1 is the preferred terminal to build **pokeemerald Expansion**. The following instructions will explain how to install WSL1 (referred to interchangeably as WSL).
@@ -327,7 +327,7 @@ If this works, then proceed to [Installation](#installation). Otherwise, ask for
     libpng is now installed.
 
     Continue to [Installing pkg-config (macOS)](#installing-pkg-config-macos) if **pkg-config is not installed**. Otherwise, continue to [Installing devkitARM (macOS)](#installing-devkitarm-macos) if **devkitARM is not installed**.
-    
+
     If both pkg-config and devkitARM are already installed, go to [Choosing where to store pokeemerald Expansion (macOS)](#choosing-where-to-store-pokeemerald-expansion-macos).
 
 ### Installing pkg-config (macOS)
@@ -541,7 +541,7 @@ If this works, then proceed to [Installation](#installation). Otherwise, ask for
     >   ```
     >   Where *\<folder where pokeemerald-expansion is to be stored>* is the path of the folder [where you chose to store pokeemerald Expansion](#Choosing-where-to-store-pokeemerald-expansion-WSL1). Then run the `git clone` command again.
     </details>
-    
+
 Now you're ready to build pokeemerald Expansion.
 
 ## Build pokeemerald Expansion
