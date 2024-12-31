@@ -69,7 +69,7 @@ SINGLE_BATTLE_TEST("Sandstorm damage does not hurt Ground, Rock, and Steel-type 
 DOUBLE_BATTLE_TEST("Sandstorm deals damage based on turn order")
 {
     GIVEN {
-        PLAYER(SPECIES_PHANPY);
+        PLAYER(SPECIES_PHANPY) { Speed(4); }
         PLAYER(SPECIES_WYNAUT) { Speed(1); }
         OPPONENT(SPECIES_WOBBUFFET) { Speed(2); }
         OPPONENT(SPECIES_WYNAUT) { Speed(3); }
@@ -81,4 +81,16 @@ DOUBLE_BATTLE_TEST("Sandstorm deals damage based on turn order")
         HP_BAR(opponentLeft);
         HP_BAR(playerRight);
    }
+}
+
+SINGLE_BATTLE_TEST("Sandstorm damage rounds properly when maxHP < 16")
+{
+    GIVEN {
+        PLAYER(SPECIES_MAGIKARP) { Level(1); MaxHP(11); HP(11); }
+        OPPONENT(SPECIES_SANDSLASH);
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_SANDSTORM); }
+    } SCENE {
+        HP_BAR(player, damage: 1);
+    }
 }

@@ -3,8 +3,8 @@
 
 // The number 1103515245 comes from the example implementation of rand and srand
 // in the ISO C standard.
-#define ISO_RANDOMIZE1(val)(1103515245 * (val) + 24691)
-#define ISO_RANDOMIZE2(val)(1103515245 * (val) + 12345)
+#define ISO_RANDOMIZE1(val) (1103515245 * (val) + 24691)
+#define ISO_RANDOMIZE2(val) (1103515245 * (val) + 12345)
 
 /* Some functions have been added to support HQ_RANDOM.
 *
@@ -173,12 +173,14 @@ enum RandomTag
     RNG_G_MAX_BEFUDDLE,
     RNG_G_MAX_REPLENISH,
     RNG_G_MAX_SNOOZE,
+    RNG_HARVEST,
     RNG_HITS,
     RNG_HOLD_EFFECT_FLINCH,
     RNG_INFATUATION,
     RNG_LOADED_DICE,
     RNG_METRONOME,
     RNG_PARALYSIS,
+    RNG_PICKUP,
     RNG_POISON_POINT,
     RNG_POISON_TOUCH,
     RNG_RAMPAGE_TURNS,
@@ -197,6 +199,8 @@ enum RandomTag
     RNG_TRACE,
     RNG_FICKLE_BEAM,
     RNG_AI_ABILITY,
+    RNG_AI_SWITCH_HASBADODDS,
+    RNG_AI_SWITCH_WONDER_GUARD,
     RNG_SHELL_SIDE_ARM,
 };
 

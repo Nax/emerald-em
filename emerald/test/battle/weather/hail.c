@@ -57,7 +57,7 @@ SINGLE_BATTLE_TEST("Hail fails if Desolate Land or Primordial Sea are active")
 DOUBLE_BATTLE_TEST("Hail deals damage based on turn order")
 {
     GIVEN {
-        PLAYER(SPECIES_GLALIE);
+        PLAYER(SPECIES_GLALIE) { Speed(4); }
         PLAYER(SPECIES_WYNAUT) { Speed(1); }
         OPPONENT(SPECIES_WOBBUFFET) { Speed(2); }
         OPPONENT(SPECIES_WYNAUT) { Speed(3); }
@@ -69,4 +69,16 @@ DOUBLE_BATTLE_TEST("Hail deals damage based on turn order")
         HP_BAR(opponentLeft);
         HP_BAR(playerRight);
    }
+}
+
+SINGLE_BATTLE_TEST("Hail damage rounds properly when maxHP < 16")
+{
+    GIVEN {
+        PLAYER(SPECIES_MAGIKARP) { Level(1); MaxHP(11); HP(11); }
+        OPPONENT(SPECIES_GLALIE);
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_HAIL); }
+    } SCENE {
+        HP_BAR(player, damage: 1);
+    }
 }
