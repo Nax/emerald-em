@@ -1,5 +1,5 @@
-#ifndef DATA_H
-#define DATA_H
+#ifndef EMERALD_OFFSETS_H
+#define EMERALD_OFFSETS_H
 
 #define DATA_SPECIES_SIZE                       0xf4
 #define DATA_SPECIES_OFF_STATS                  0x00

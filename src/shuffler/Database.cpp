@@ -1,6 +1,6 @@
+#include <emerald/include/constants/offsets.h>
 #include "Database.h"
 #include "Rom.h"
-#include "Data.h"
 
 static void databasePokemonsLoad(DatabasePokemons& db, const Rom& rom)
 {

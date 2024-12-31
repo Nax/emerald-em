@@ -6,7 +6,7 @@
 #include <shuffler/Shuffler.h>
 #include <shuffler/Pokemon.h>
 #include <shuffler/Database.h>
-#include <shuffler/Data.h>
+#include <emerald/include/constants/offsets.h>
 
 Shuffler::Shuffler()
 {

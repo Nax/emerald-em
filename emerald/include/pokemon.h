@@ -5,6 +5,7 @@
 #include "constants/items.h"
 #include "constants/region_map_sections.h"
 #include "constants/map_groups.h"
+#include "constants/offsets.h"
 #include "contest_effect.h"
 
 #define GET_BASE_SPECIES_ID(speciesId) (GetFormSpeciesId(speciesId, 0))
@@ -477,6 +478,11 @@ struct SpeciesInfo
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 };
+
+_Static_assert(sizeof(struct SpeciesInfo) == DATA_SPECIES_SIZE);
+_Static_assert(offsetof(struct SpeciesInfo, baseHP) == DATA_SPECIES_OFF_STATS);
+_Static_assert(offsetof(struct SpeciesInfo, abilities) == DATA_SPECIES_OFF_ABILITIES);
+_Static_assert(offsetof(struct SpeciesInfo, levelUpLearnset) == DATA_SPECIES_OFF_LEVELUP_LEARNSET);
 
 struct MoveInfo
 {
