@@ -147,6 +147,17 @@ void ResetMenuAndMonGlobals(void)
     ResetPokeblockScrollPositions();
 }
 
+static void RandoGiveStartingItems(void)
+{
+    /* Form-changing items */
+    AddBagItem(ITEM_GRACIDEA, 1);
+    AddBagItem(ITEM_PRISON_BOTTLE, 1);
+    AddBagItem(ITEM_REVEAL_GLASS, 1);
+    AddBagItem(ITEM_ROTOM_CATALOG, 1);
+    AddBagItem(ITEM_SCROLL_OF_DARKNESS, 1);
+    AddBagItem(ITEM_SCROLL_OF_WATERS, 1);
+}
+
 void NewGameInitData(void)
 {
     if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
@@ -206,6 +217,8 @@ void NewGameInitData(void)
     ResetTrainerHillResults();
     ResetContestLinkResults();
     ResetItemFlags();
+
+    RandoGiveStartingItems();
 }
 
 static void ResetMiniGamesRecords(void)
