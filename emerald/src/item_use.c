@@ -919,7 +919,7 @@ static void RemoveUsedItem(void)
 
 void ItemUseOutOfBattle_Repel(u8 taskId)
 {
-    if (REPEL_STEP_COUNT == 0)
+    if (REPEL_STEP_COUNT == 0 || gSpecialVar_ItemId == ITEM_ETERNAL_REPEL)
         gTasks[taskId].func = Task_StartUseRepel;
     else if (!InBattlePyramid())
         DisplayItemMessage(taskId, FONT_NORMAL, gText_RepelEffectsLingered, CloseItemMessage);
@@ -943,11 +943,15 @@ static void Task_UseRepel(u8 taskId)
 {
     if (!IsSEPlaying())
     {
-        VarSet(VAR_REPEL_STEP_COUNT, ItemId_GetHoldEffectParam(gSpecialVar_ItemId));
+        if (VarGet(VAR_REPEL_STEP_COUNT) > 0 && gSpecialVar_ItemId == ITEM_ETERNAL_REPEL)
+            VarSet(VAR_REPEL_STEP_COUNT, 0);
+        else
+            VarSet(VAR_REPEL_STEP_COUNT, ItemId_GetHoldEffectParam(gSpecialVar_ItemId));
     #if VAR_LAST_REPEL_LURE_USED != 0
         VarSet(VAR_LAST_REPEL_LURE_USED, gSpecialVar_ItemId);
     #endif
-        RemoveUsedItem();
+        if (gSpecialVar_ItemId != ITEM_ETERNAL_REPEL)
+            RemoveUsedItem();
         if (!InBattlePyramid())
             DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
         else

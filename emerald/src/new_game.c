@@ -157,6 +157,7 @@ static void RandoGiveStartingItems(void)
     AddBagItem(ITEM_SCROLL_OF_DARKNESS, 1);
     AddBagItem(ITEM_SCROLL_OF_WATERS, 1);
     AddBagItem(ITEM_TOWN_MAP, 1);
+    AddBagItem(ITEM_ETERNAL_REPEL, 1);
 }
 
 void NewGameInitData(void)

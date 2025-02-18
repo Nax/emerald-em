@@ -2191,6 +2191,24 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_MaxRepel,
     },
 
+    [ITEM_ETERNAL_REPEL] =
+    {
+        .name = _("Eternal Repel"),
+        .description = COMPOUND_STRING(
+            "Repels weak wild\n"
+            "Pokémon until it's\n"
+            "disabled."),
+        .price = 0,
+        .holdEffectParam = 250,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Repel,
+        .flingPower = 30,
+        .iconPic = gItemIcon_Repel,
+        .iconPalette = gItemIconPalette_EscapeRope,
+    },
+
     [ITEM_LURE] =
     {
         .name = _("Lure"),
