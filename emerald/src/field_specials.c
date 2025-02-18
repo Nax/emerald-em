@@ -968,7 +968,10 @@ static void CB2_FieldShowRegionMap(void)
 
 void FieldShowRegionMap(void)
 {
-    SetMainCallback2(CB2_FieldShowRegionMap);
+    if (FlagGet(FLAG_BADGE06_GET) == TRUE && Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE)
+        SetMainCallback2(CB2_OpenFlyMap);
+    else
+        SetMainCallback2(CB2_FieldShowRegionMap);
 }
 
 static bool32 IsBuildingPCTile(u32 tileId)
