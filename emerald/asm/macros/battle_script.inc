@@ -478,9 +478,10 @@
 	.byte \battler
 	.endm
 
-	.macro switchinanim battler:req, dontClearSubstitute:req
+	.macro switchinanim battler:req, dontClearTransform:req, dontClearSubstitute:req
 	.byte 0x4e
 	.byte \battler
+	.byte \dontClearTransform
 	.byte \dontClearSubstitute
 	.endm
 
@@ -1425,11 +1426,6 @@
 	callnative BS_TryRevertWeatherForm
 	.endm
 
-	.macro applysaltcure battler:req
-	callnative BS_ApplySaltCure
-	.byte \battler
-	.endm
-
 	.macro trysetoctolock battler:req, failInstr:req
 	callnative BS_TrySetOctolock
 	.byte \battler
@@ -1465,8 +1461,9 @@
 	.endm
 
 	@ Used by effects that may proc Symbiosis but do not call removeitem.
-	.macro trysymbiosis
+	.macro trysymbiosis battler:req
 	callnative BS_TrySymbiosis
+    .byte \battler
 	.endm
 
 	@ returns B_SIDE_x to gBattleCommunication[0]
@@ -2212,11 +2209,6 @@
 	.macro jumpifpranksterblocked battler:req, jumpInstr:req
 	various \battler, VARIOUS_JUMP_IF_PRANKSTER_BLOCKED
 	.4byte \jumpInstr
-	.endm
-
-	.macro eeriespellppreduce failInstr:req
-	various BS_TARGET, VARIOUS_EERIE_SPELL_PP_REDUCE
-	.4byte \failInstr
 	.endm
 
 	.macro jumpifteamhealthy battler:req, jumpInstr:req
