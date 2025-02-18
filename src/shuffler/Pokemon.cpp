@@ -929,11 +929,6 @@ uint16_t Pokemon::randMove(Random& rng)
             case MOVE_NOXIOUS_TORQUE:
             case MOVE_COMBAT_TORQUE:
             case MOVE_MAGICAL_TORQUE:
-            /* Would be valid but not implemented */
-            case MOVE_TERA_BLAST:
-            case MOVE_ORDER_UP:
-            case MOVE_SPICY_EXTRACT:
-            case MOVE_TERA_STARSTORM:
                 valid = false;
                 break;
             }
