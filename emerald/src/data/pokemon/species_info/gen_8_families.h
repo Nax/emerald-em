@@ -2612,7 +2612,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
         .backPic = gMonBackPic_Dipplin,
         .backPicSize = MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = 0,
+        .backPicYOffset = 1,
         //.backAnimId = BACK_ANIM_NONE,
         .palette = gMonPalette_Dipplin,
         .shinyPalette = gMonShinyPalette_Dipplin,
@@ -5892,7 +5892,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .frontPicSize = MON_COORDS_SIZE(56, 64),
         .frontPicYOffset = 0,
         .frontAnimFrames = sAnims_Duraludon,
-        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .frontAnimId = ANIM_SHAKE_FLASH_YELLOW_FAST,
         .backPic = gMonBackPic_Duraludon,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
@@ -7538,7 +7538,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .trainerOffset = 1,
         .frontPic = gMonFrontPic_EnamorusIncarnate,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 1,
+        .frontPicYOffset = 0,
         .frontAnimFrames = sAnims_EnamorusIncarnate,
         //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
         .enemyMonElevation = 7,
@@ -7550,7 +7550,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .shinyPalette = gMonShinyPalette_EnamorusIncarnate,
         .iconSprite = gMonIcon_EnamorusIncarnate,
         .iconPalIndex = 1,
-        SHADOW(0, 17, SHADOW_SIZE_M)
+        SHADOW(-3, 19, SHADOW_SIZE_M)
         FOOTPRINT(Enamorus)
         OVERWORLD(
             sPicTable_EnamorusIncarnate,
@@ -7565,6 +7565,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sEnamorusLevelUpLearnset,
         .teachableLearnset = sEnamorusTeachableLearnset,
         .formSpeciesIdTable = sEnamorusFormSpeciesIdTable,
+        .formChangeTable = sEnamorusFormChangeTable,
     },
 
     [SPECIES_ENAMORUS_THERIAN] =
@@ -7607,7 +7608,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
         .backPic = gMonBackPic_EnamorusTherian,
         .backPicSize = MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = 2,
+        .backPicYOffset = 0,
         //.backAnimId = BACK_ANIM_NONE,
         .palette = gMonPalette_EnamorusTherian,
         .shinyPalette = gMonShinyPalette_EnamorusTherian,
@@ -7628,6 +7629,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sEnamorusLevelUpLearnset,
         .teachableLearnset = sEnamorusTeachableLearnset,
         .formSpeciesIdTable = sEnamorusFormSpeciesIdTable,
+        .formChangeTable = sEnamorusFormChangeTable,
     },
 #endif //P_FAMILY_ENAMORUS
 

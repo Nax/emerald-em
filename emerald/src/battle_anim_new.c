@@ -4380,6 +4380,29 @@ const struct SpriteTemplate gSpriteTemplate_FlipTurnBack = {
     .callback = AnimAbsorptionOrb
 };
 
+// U-Turn
+const struct SpriteTemplate gUTurnBallSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SMALL_BUBBLES,
+    .paletteTag = ANIM_TAG_RAZOR_LEAF,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gAffineAnims_ShadowBall,
+    .callback = AnimShadowBall,
+};
+
+const struct SpriteTemplate gUTurnBallBackSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SMALL_BUBBLES,
+    .paletteTag = ANIM_TAG_RAZOR_LEAF,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gAffineAnims_ShadowBall,
+    .callback = AnimAbsorptionOrb,
+};
+
 // wicked blow
 static const union AffineAnimCmd sSpriteAffineAnim_DrainPunchFist[] = {
     AFFINEANIMCMD_FRAME(256, 256, 0, 1), //Double sprite size
@@ -7821,8 +7844,8 @@ static void SpriteCB_MindBlownBall(struct Sprite *sprite)
     sprite->data[3] = gBattleAnimArgs[2];
     sprite->data[4] = sprite->x << 4;
     sprite->data[5] = sprite->y << 4;
-    sprite->data[6] = ((oldPosX - sprite->x) << 4) / (gBattleAnimArgs[0] << 1);
-    sprite->data[7] = ((oldPosY - sprite->y) << 4) / (gBattleAnimArgs[0] << 1);
+    sprite->data[6] = SAFE_DIV((oldPosX - sprite->x) << 4, gBattleAnimArgs[0] << 1);
+    sprite->data[7] = SAFE_DIV((oldPosY - sprite->y) << 4, gBattleAnimArgs[0] << 1);
     sprite->callback = AnimMindBlownBallStep;
 }
 static void AnimMindBlownBallStep(struct Sprite *sprite)
