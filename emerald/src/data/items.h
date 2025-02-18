@@ -2199,12 +2199,10 @@ const struct Item gItemsInfo[] =
             "Pokémon until it's\n"
             "disabled."),
         .price = 0,
-        .holdEffectParam = 250,
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Repel,
-        .flingPower = 30,
+        .fieldUseFunc = ItemUseOutOfBattle_EternalRepel,
         .iconPic = gItemIcon_Repel,
         .iconPalette = gItemIconPalette_EscapeRope,
     },

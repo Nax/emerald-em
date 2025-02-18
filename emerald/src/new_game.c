@@ -150,14 +150,15 @@ void ResetMenuAndMonGlobals(void)
 static void RandoGiveStartingItems(void)
 {
     /* Form-changing items */
+    AddBagItem(ITEM_TOWN_MAP, 1);
+    AddBagItem(ITEM_ETERNAL_REPEL, 1);
+
     AddBagItem(ITEM_GRACIDEA, 1);
     AddBagItem(ITEM_PRISON_BOTTLE, 1);
     AddBagItem(ITEM_REVEAL_GLASS, 1);
     AddBagItem(ITEM_ROTOM_CATALOG, 1);
     AddBagItem(ITEM_SCROLL_OF_DARKNESS, 1);
     AddBagItem(ITEM_SCROLL_OF_WATERS, 1);
-    AddBagItem(ITEM_TOWN_MAP, 1);
-    AddBagItem(ITEM_ETERNAL_REPEL, 1);
 }
 
 void NewGameInitData(void)

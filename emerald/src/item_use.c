@@ -234,6 +234,21 @@ void ItemUseOutOfBattle_ExpShare(u8 taskId)
 #endif
 }
 
+void ItemUseOutOfBattle_EternalRepel(u8 taskId)
+{
+    PlaySE(SE_REPEL);
+    if (FlagGet(FLAG_ETERNAL_REPEL))
+    {
+        DisplayItemMessage(taskId, FONT_NORMAL, gText_EternalRepelOff, CloseItemMessage);
+    }
+    else
+    {
+        DisplayItemMessage(taskId, FONT_NORMAL, gText_EternalRepelOn, CloseItemMessage);
+    }
+    FlagToggle(FLAG_ETERNAL_REPEL);
+    VarSet(VAR_REPEL_STEP_COUNT, 0);
+}
+
 void ItemUseOutOfBattle_Bike(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -919,7 +934,7 @@ static void RemoveUsedItem(void)
 
 void ItemUseOutOfBattle_Repel(u8 taskId)
 {
-    if (REPEL_STEP_COUNT == 0 || gSpecialVar_ItemId == ITEM_ETERNAL_REPEL)
+    if (REPEL_STEP_COUNT == 0)
         gTasks[taskId].func = Task_StartUseRepel;
     else if (!InBattlePyramid())
         DisplayItemMessage(taskId, FONT_NORMAL, gText_RepelEffectsLingered, CloseItemMessage);
@@ -943,15 +958,11 @@ static void Task_UseRepel(u8 taskId)
 {
     if (!IsSEPlaying())
     {
-        if (VarGet(VAR_REPEL_STEP_COUNT) > 0 && gSpecialVar_ItemId == ITEM_ETERNAL_REPEL)
-            VarSet(VAR_REPEL_STEP_COUNT, 0);
-        else
-            VarSet(VAR_REPEL_STEP_COUNT, ItemId_GetHoldEffectParam(gSpecialVar_ItemId));
+        VarSet(VAR_REPEL_STEP_COUNT, ItemId_GetHoldEffectParam(gSpecialVar_ItemId));
     #if VAR_LAST_REPEL_LURE_USED != 0
         VarSet(VAR_LAST_REPEL_LURE_USED, gSpecialVar_ItemId);
     #endif
-        if (gSpecialVar_ItemId != ITEM_ETERNAL_REPEL)
-            RemoveUsedItem();
+        RemoveUsedItem();
         if (!InBattlePyramid())
             DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
         else

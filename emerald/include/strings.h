@@ -2695,6 +2695,10 @@ extern const u8 gText_TellHimTheWords[];
 extern const u8 gText_ExpShareOn[];
 extern const u8 gText_ExpShareOff[];
 
+// Eternal Repel
+extern const u8 gText_EternalRepelOn[];
+extern const u8 gText_EternalRepelOff[];
+
 extern const u8 gText_BasePointsResetToZero[];
 
 extern const u8 gText_Fertilize[];
