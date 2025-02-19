@@ -10,6 +10,7 @@ namespace Pokemon
 
 std::uint16_t randPokemon(Random& rng);
 std::uint16_t randMove(Random& rng);
+bool          isValidOutOfBattle(std::uint16_t id);
 bool          isLegendary(std::uint16_t pokemon);
 
 }
