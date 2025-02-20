@@ -131,14 +131,133 @@ private:
         }
     }
 
+    void getEvolutionLineWithSubstitutions(std::set<std::uint16_t>& evoLine, std::uint16_t speciesId, const std::map<std::uint16_t, std::uint16_t>& subs)
+    {
+        std::set<uint16_t> groupExpanded;
+        std::set<uint16_t> evoLineCopy;
+        bool changed;
+
+        evoLine.clear();
+        evoLine.insert(speciesId);
+        do
+        {
+            changed = false;
+            evoLineCopy = evoLine;
+
+            /* Perform group expansion */
+            for (auto v : evoLineCopy)
+            {
+                if (groupExpanded.find(v) != groupExpanded.end())
+                    continue;
+                const SpeciesSet* group = SpeciesGroups::find(kSpeciesSharedEvolutions, v);
+                if (group)
+                {
+                    groupExpanded.insert(group->begin(), group->end());
+                    evoLine.insert(group->begin(), group->end());
+                    changed = true;
+                }
+            }
+
+            /* Lookup pokemons */
+            for (uint16_t i = 1; i < NUM_SPECIES; ++i)
+            {
+                const auto& dbEntry = _db.pokemons.evolutions[i];
+
+                /* If the current pokemon is on the evo line, lookup all its evolutions */
+                if (evoLine.find(i) != evoLine.end())
+                {
+                    for (auto evo : dbEntry)
+                    {
+                        if (evo == SPECIES_NONE)
+                            continue;
+                        if (subs.find(evo) == subs.end())
+                            continue;
+                        evo = subs.at(evo);
+
+                        if (evoLine.find(evo) == evoLine.end())
+                        {
+                            evoLine.insert(evo);
+                            changed = true;
+                        }
+                    }
+                }
+
+                /* Lookup all the subs evo to find the evo line */
+                for (auto evo : dbEntry)
+                {
+                    if (evo == SPECIES_NONE)
+                        continue;
+                    if (subs.find(evo) == subs.end())
+                        continue;
+                    evo = subs.at(evo);
+
+                    if (evoLine.find(evo) != evoLine.end())
+                    {
+                        if (evoLine.find(i) == evoLine.end())
+                        {
+                            evoLine.insert(i);
+                            changed = true;
+                        }
+                    }
+                }
+            }
+        } while (changed);
+    }
+
+    int getRecursiveEvoDepth(std::uint16_t speciesId, const std::map<std::uint16_t, std::uint16_t>& subs, int depth)
+    {
+        int maxDepth;
+
+        if (depth >= 10)
+            return 10;
+
+        const auto& dbEntry = _db.pokemons.evolutions[speciesId];
+        maxDepth = depth + 1;
+        for (auto evo : dbEntry)
+        {
+            if (evo == SPECIES_NONE)
+                continue;
+            if (subs.find(evo) == subs.end())
+            {
+                if (maxDepth == depth + 1)
+                    maxDepth++;
+                continue;
+            }
+
+            evo = subs.at(evo);
+            maxDepth = std::max(maxDepth, getRecursiveEvoDepth(evo, subs, depth + 1));
+        }
+
+        return maxDepth;
+    }
+
+    int getEvolutionDepthWithSubstitutions(std::uint16_t speciesId, const std::map<std::uint16_t, std::uint16_t>& subs)
+    {
+        std::set<uint16_t> evoLine;
+        int max;
+        int tmp;
+
+        getEvolutionLineWithSubstitutions(evoLine, speciesId, subs);
+        max = 0;
+        for (auto e : evoLine)
+        {
+            tmp = getRecursiveEvoDepth(e, subs, 0);
+            max = std::max(max, tmp);
+        }
+
+        return max;
+    }
+
     bool makeCandidatesPool(std::vector<std::uint16_t>& pool, const std::set<std::uint16_t>& poolDst, uint16_t src)
     {
         std::vector<std::uint16_t> tmpPool;
         bool typesInCommon;
         int bst;
         int delta;
+        int evoDepth;
         const SpeciesSet* groupSrc;
         const SpeciesSet* groupDst;
+        std::map<uint16_t, uint16_t> subs;
 
         /* Build the temp pool */
         bst = computeBst(_db, src);
@@ -180,10 +299,19 @@ private:
             if (!typesInCommon)
                 continue;
 
+            /* Filter by evo line depth */
+            subs = _substitutions;
+            subs[src] = candidate;
+            evoDepth = getEvolutionDepthWithSubstitutions(src, subs);
+            if (evoDepth > 3)
+            {
+                continue;
+            }
+
             tmpPool.push_back(candidate);
         }
 
-        for (int i = 0; i < 4; ++i)
+        for (int i = 0; i < 5; ++i)
         {
             delta = (i + 1) * 20;
             filterBst(pool, tmpPool, bst - delta, bst + delta);
