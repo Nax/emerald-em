@@ -248,7 +248,7 @@ private:
         return max;
     }
 
-    bool makeCandidatesPool(std::vector<std::uint16_t>& pool, const std::set<std::uint16_t>& poolDst, uint16_t src)
+    bool makeCandidatesPool(std::vector<std::uint16_t>& pool, const std::set<std::uint16_t>& poolDst, uint16_t src, int evoDepthLimit)
     {
         std::vector<std::uint16_t> tmpPool;
         bool typesInCommon;
@@ -303,7 +303,7 @@ private:
             subs = _substitutions;
             subs[src] = candidate;
             evoDepth = getEvolutionDepthWithSubstitutions(src, subs);
-            if (evoDepth > 3)
+            if (evoDepth > evoDepthLimit)
             {
                 continue;
             }
@@ -397,7 +397,7 @@ private:
             if (_substitutions.find(src) != _substitutions.end())
                 continue;
 
-            if (!makeCandidatesPool(currentPoolDst, poolDst, src))
+            if (!makeCandidatesPool(currentPoolDst, poolDst, src, 3) && !makeCandidatesPool(currentPoolDst, poolDst, src, 4))
             {
                 std::printf("No candidates for %d\n", src);
                 return false;
