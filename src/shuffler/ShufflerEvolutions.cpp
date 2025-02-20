@@ -3,7 +3,33 @@
 #include <shuffler/Database.h>
 #include <shuffler/Shuffler.h>
 #include <shuffler/Pokemon.h>
+#include <shuffler/SpeciesGroups.h>
 #include <emerald/include/constants/species.h>
+
+/* Species with shared evolutions, mostly cosmetic forms */
+static const std::vector<const SpeciesSet*> kSpeciesSharedEvolutions = {
+    &SpeciesGroups::Unown,
+    &SpeciesGroups::Shellos,
+    &SpeciesGroups::Gastrodon,
+    &SpeciesGroups::Deerling,
+    &SpeciesGroups::Sawsbuck,
+    &SpeciesGroups::Vivillon,
+    &SpeciesGroups::Flabebe,
+    &SpeciesGroups::Floette,
+    &SpeciesGroups::Florges,
+    &SpeciesGroups::Furfrou,
+    &SpeciesGroups::MiniorCore,
+    &SpeciesGroups::Magearna,
+    &SpeciesGroups::Sinistea,
+    &SpeciesGroups::Polteageist,
+    &SpeciesGroups::Alcremie,
+    &SpeciesGroups::Zarude,
+    &SpeciesGroups::Maushold,
+    &SpeciesGroups::Squawkabilly,
+    &SpeciesGroups::Dudunsparce,
+    &SpeciesGroups::Poltchageist,
+    &SpeciesGroups::Sinistcha
+};
 
 static void shuffle(std::vector<uint16_t>& data, Random& rng)
 {
@@ -111,14 +137,24 @@ private:
         bool typesInCommon;
         int bst;
         int delta;
+        const SpeciesSet* groupSrc;
+        const SpeciesSet* groupDst;
 
         /* Build the temp pool */
         bst = computeBst(_db, src);
+        groupSrc = SpeciesGroups::find(kSpeciesSharedEvolutions, src);
         for (auto candidate : poolDst)
         {
             /* Filter by identity */
             if (candidate == src)
                 continue;
+
+            if (groupSrc)
+            {
+                groupDst = SpeciesGroups::find(kSpeciesSharedEvolutions, candidate);
+                if (groupDst == groupSrc)
+                    continue;
+            }
 
             /* Filter by legendary status */
             if (Pokemon::isLegendary(candidate) != Pokemon::isLegendary(src))
@@ -168,6 +204,54 @@ private:
         return false;
     }
 
+    void assignSubstitution(std::set<uint16_t>& pool, uint16_t src, uint16_t dst)
+    {
+        _substitutions[src] = dst;
+        pool.erase(dst);
+    }
+
+    void assignEvolution(std::set<uint16_t>& pool, uint16_t src, uint16_t dst)
+    {
+        const SpeciesSet* groupSrc;
+        const SpeciesSet* groupDst;
+
+        /* Assign the first substution */
+        assignSubstitution(pool, src, dst);
+        groupSrc = SpeciesGroups::find(kSpeciesSharedEvolutions, src);
+        if (!groupSrc)
+            return;
+
+        /* The pokemon is part of a cosmetic group */
+        /* If the dst is also a cosmetic group, assign through it */
+        /* Otherwise assign the same pokemon to every evo */
+        groupDst = SpeciesGroups::find(kSpeciesSharedEvolutions, dst);
+        if (groupDst)
+        {
+            std::vector<std::uint16_t> groupVec{groupDst->begin(), groupDst->end()};
+            uint16_t tmp;
+
+            shuffle(groupVec, _rand);
+            for (auto s : *groupSrc)
+            {
+                if (src == s)
+                    continue;
+                tmp = groupVec[_rand.next() % groupVec.size()];
+                assignSubstitution(pool, s, tmp);
+            }
+            for (auto d : *groupDst)
+                pool.erase(d);
+        }
+        else
+        {
+            for (auto s : *groupSrc)
+            {
+                if (src == s)
+                    continue;
+                assignSubstitution(pool, s, dst);
+            }
+        }
+    }
+
     bool tryComputeSubstitutions()
     {
         auto poolDst = _pokemonsShuffled;
@@ -181,6 +265,10 @@ private:
         {
             auto src = poolSrc.back();
             poolSrc.pop_back();
+
+            if (_substitutions.find(src) != _substitutions.end())
+                continue;
+
             if (!makeCandidatesPool(currentPoolDst, poolDst, src))
             {
                 std::printf("No candidates for %d\n", src);
@@ -189,8 +277,7 @@ private:
 
             /* Get the subst */
             auto dst = currentPoolDst[_rand.next() % currentPoolDst.size()];
-            _substitutions[src] = dst;
-            poolDst.erase(dst);
+            assignEvolution(poolDst, src, dst);
         }
 
         return true;
