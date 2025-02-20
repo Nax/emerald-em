@@ -106,11 +106,21 @@ bool Shuffler::applyLang(const char* lang)
     return true;
 }
 
+static uint8_t fixLevel(uint8_t level)
+{
+    level += (level / 2);
+    if (level > 100)
+        level = 100;
+    return level;
+}
+
 void Shuffler::shuffleWildList(uint32_t offset, int count)
 {
     std::uint16_t tmp;
     std::uint16_t originalWilds[12];
     std::uint16_t replacedWilds[12];
+    std::uint8_t minLevel;
+    std::uint8_t maxLevel;
     int countOriginal = 0;
     int countReplaced = 0;
     bool match;
@@ -169,6 +179,17 @@ void Shuffler::shuffleWildList(uint32_t offset, int count)
     /* Replace */
     for (int i = 0; i < count; ++i)
     {
+        /* Patch the level */
+        minLevel = _rom.readU8(offset + i * 4 + 0);
+        maxLevel = _rom.readU8(offset + i * 4 + 1);
+
+        minLevel = fixLevel(minLevel);
+        maxLevel = fixLevel(maxLevel);
+
+        _rom.writeU8(offset + i * 4 + 0, minLevel);
+        _rom.writeU8(offset + i * 4 + 1, maxLevel);
+
+        /* Patch the pokemon */
         tmp = _rom.readU16(offset + i * 4 + 2);
         for (int j = 0; j < countOriginal; ++j)
         {
@@ -289,6 +310,7 @@ void Shuffler::shuffleLearnsets()
 
 void shuffleAbilities(Database& db, Random& rand);
 void shuffleStats(Database& db, Random& rand);
+void shuffleEvolutions(Database& db, Random& rand);
 
 void Shuffler::shuffle()
 {
@@ -334,6 +356,9 @@ void Shuffler::shuffle()
 
     printf("Shuffling Stats\n");
     shuffleStats(_db, _random);
+
+    printf("Shuffling Evolutions\n");
+    shuffleEvolutions(_db, _random);
 
     /* Save the database */
     printf("Saving database\n");

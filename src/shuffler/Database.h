@@ -11,8 +11,11 @@ struct DatabasePokemons
 {
     DatabasePokemons() : stats{}, abilities{} {}
 
-    std::array<uint8_t, 6>  stats[NUM_SPECIES];
-    std::array<uint16_t, 3> abilities[NUM_SPECIES];
+    std::array<uint8_t, 6>      stats[NUM_SPECIES];
+    std::array<uint16_t, 3>     abilities[NUM_SPECIES];
+    std::array<uint16_t, 16>    evolutions[NUM_SPECIES];
+    uint8_t                     evolutionsCounts[NUM_SPECIES];
+    std::array<uint8_t, 2>      types[NUM_SPECIES];
 };
 
 struct Database

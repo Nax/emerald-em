@@ -350,6 +350,8 @@ struct Evolution
     u16 targetSpecies;
 };
 
+_Static_assert(sizeof(struct Evolution) == 8, "Evolution struct size is wrong");
+
 struct SpeciesInfo
 {
     u8 baseHP;
@@ -481,7 +483,9 @@ struct SpeciesInfo
 
 _Static_assert(sizeof(struct SpeciesInfo) == DATA_SPECIES_SIZE);
 _Static_assert(offsetof(struct SpeciesInfo, baseHP) == DATA_SPECIES_OFF_STATS);
+_Static_assert(offsetof(struct SpeciesInfo, types) == DATA_SPECIES_OFF_TYPES);
 _Static_assert(offsetof(struct SpeciesInfo, abilities) == DATA_SPECIES_OFF_ABILITIES);
+_Static_assert(offsetof(struct SpeciesInfo, evolutions) == DATA_SPECIES_OFF_EVOLUTIONS);
 _Static_assert(offsetof(struct SpeciesInfo, levelUpLearnset) == DATA_SPECIES_OFF_LEVELUP_LEARNSET);
 
 struct MoveInfo
