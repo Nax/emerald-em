@@ -5,6 +5,7 @@ SYMBOLS = [
   'kFirstBattlePokemon',
   'gWildMonHeaders',
   'gSpeciesInfo',
+  'gTrainers',
 ]
 
 class OffsetsBuilder:

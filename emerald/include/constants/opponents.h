@@ -1,7 +1,7 @@
 #ifndef GUARD_CONSTANTS_OPPONENTS_H
 #define GUARD_CONSTANTS_OPPONENTS_H
 
-#include "constants/battle_partner.h"
+#include "battle_partner.h"
 
 #define TRAINER_NONE                          0
 #define TRAINER_SAWYER_1                      1

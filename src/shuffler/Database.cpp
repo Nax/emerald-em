@@ -67,6 +67,57 @@ static void databasePokemonsSave(const DatabasePokemons& db, Rom& rom)
     }
 }
 
+static void databaseTrainersLoad(DatabaseTrainers& db, const Rom& rom)
+{
+    uint32_t baseTrainers;
+    uint32_t baseTrainerMons;
+    uint32_t base;
+    uint8_t teamSize;
+
+    baseTrainers = rom.sym("gTrainers");
+    for (int i = 0; i < TRAINERS_COUNT; ++i)
+    {
+        base = baseTrainers + DATA_TRAINERS_SIZE * i;
+        teamSize = rom.readU8(base + DATA_TRAINERS_OFF_POKEMONS_COUNT);
+        db.teamSize[i] = teamSize;
+        db.levels[i].fill(0);
+        db.pokemons[i].fill(SPECIES_NONE);
+
+        baseTrainerMons = rom.readU32(base + DATA_TRAINERS_OFF_POKEMONS);
+        for (int j = 0; j < teamSize; ++j)
+        {
+            base = baseTrainerMons + j * DATA_TRAINERMON_SIZE;
+            db.pokemons[i][j] = rom.readU16(base + DATA_TRAINERMON_OFF_SPECIES);
+            db.levels[i][j] = rom.readU8(base + DATA_TRAINERMON_OFF_LEVEL);
+        }
+
+        printf("Trainer %d has %d pokemons\n", i, teamSize);
+    }
+}
+
+static void databaseTrainersSave(const DatabaseTrainers& db, Rom& rom)
+{
+    uint32_t baseTrainers;
+    uint32_t baseTrainerMons;
+    uint32_t base;
+    uint8_t teamSize;
+
+    baseTrainers = rom.sym("gTrainers");
+    for (int i = 0; i < TRAINERS_COUNT; ++i)
+    {
+        base = baseTrainers + DATA_TRAINERS_SIZE * i;
+        teamSize = db.teamSize[i];
+        rom.writeU8(base + DATA_TRAINERS_OFF_POKEMONS_COUNT, teamSize);
+        baseTrainerMons = rom.readU32(base + DATA_TRAINERS_OFF_POKEMONS);
+        for (int j = 0; j < teamSize; ++j)
+        {
+            base = baseTrainerMons + j * DATA_TRAINERMON_SIZE;
+            rom.writeU16(base + DATA_TRAINERMON_OFF_SPECIES, db.pokemons[i][j]);
+            rom.writeU8(base + DATA_TRAINERMON_OFF_LEVEL, db.levels[i][j]);
+        }
+    }
+}
+
 static void databaseMiscLoad(DatabaseMisc& db, const Rom& rom)
 {
     (void)rom;
@@ -97,11 +148,13 @@ static void databaseMiscSave(const DatabaseMisc& db, Rom& rom)
 void databaseLoad(Database& db, const Rom& rom)
 {
     databasePokemonsLoad(db.pokemons, rom);
+    databaseTrainersLoad(db.trainers, rom);
     databaseMiscLoad(db.misc, rom);
 }
 
 void databaseSave(Rom& rom, const Database& db)
 {
     databasePokemonsSave(db.pokemons, rom);
+    databaseTrainersSave(db.trainers, rom);
     databaseMiscSave(db.misc, rom);
 }

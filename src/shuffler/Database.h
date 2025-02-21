@@ -2,8 +2,7 @@
 #define DATABASE_H
 
 #include <emerald/include/constants/species.h>
-
-#include <emerald/include/constants/species.h>
+#include <emerald/include/constants/opponents.h>
 #include <cstdint>
 #include <array>
 
@@ -21,6 +20,15 @@ struct DatabasePokemons
     uint8_t                     growthRate[NUM_SPECIES];
 };
 
+struct DatabaseTrainers
+{
+    DatabaseTrainers() {}
+
+    uint8_t                     teamSize[TRAINERS_COUNT];
+    std::array<uint16_t, 6>     pokemons[TRAINERS_COUNT];
+    std::array<uint8_t, 6>      levels[TRAINERS_COUNT];
+};
+
 struct DatabaseMisc
 {
     DatabaseMisc() {}
@@ -31,6 +39,7 @@ struct DatabaseMisc
 struct Database
 {
     DatabasePokemons pokemons;
+    DatabaseTrainers trainers;
     DatabaseMisc     misc;
 };
 

@@ -1,6 +1,7 @@
 #ifndef GUARD_DATA_H
 #define GUARD_DATA_H
 
+#include "constants/offsets.h"
 #include "constants/moves.h"
 #include "constants/trainers.h"
 
@@ -76,6 +77,10 @@ struct TrainerMon
     u8 padding2:4;
 };
 
+_Static_assert(sizeof(struct TrainerMon) == DATA_TRAINERMON_SIZE, "TrainerMon struct size is wrong");
+_Static_assert(offsetof(struct TrainerMon, species) == DATA_TRAINERMON_OFF_SPECIES, "TrainerMon species offset is wrong");
+_Static_assert(offsetof(struct TrainerMon, lvl) == DATA_TRAINERMON_OFF_LEVEL, "TrainerMon lvl offset is wrong");
+
 #define TRAINER_PARTY(partyArray) partyArray, .partySize = ARRAY_COUNT(partyArray)
 
 struct Trainer
@@ -93,6 +98,10 @@ struct Trainer
     /*0x1F*/ u8 mugshotColor;
     /*0x20*/ u8 partySize;
 };
+
+_Static_assert(sizeof(struct Trainer) == DATA_TRAINERS_SIZE, "Trainer struct size is wrong");
+_Static_assert(offsetof(struct Trainer, party) == DATA_TRAINERS_OFF_POKEMONS, "Trainer party offset is wrong");
+_Static_assert(offsetof(struct Trainer, partySize) == DATA_TRAINERS_OFF_POKEMONS_COUNT, "Trainer partySize offset is wrong");
 
 struct TrainerClass
 {
