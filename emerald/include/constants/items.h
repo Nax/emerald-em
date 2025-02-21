@@ -314,7 +314,6 @@
 #define ITEM_FLOWER_SWEET 242
 #define ITEM_STAR_SWEET 243
 #define ITEM_RIBBON_SWEET 244
-
 #define ITEM_EVERSTONE 245
 
 // Nectars
