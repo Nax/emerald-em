@@ -149,10 +149,15 @@ void ResetMenuAndMonGlobals(void)
 
 static void RandoGiveStartingItems(void)
 {
-    /* Form-changing items */
+    /* Functional items */
     AddBagItem(ITEM_TOWN_MAP, 1);
     AddBagItem(ITEM_ETERNAL_REPEL, 1);
 
+    /* Battle mechanics */
+    AddBagItem(ITEM_MEGA_RING, 1);
+    AddBagItem(ITEM_Z_POWER_RING, 1);
+
+    /* Form-changing items */
     AddBagItem(ITEM_GRACIDEA, 1);
     AddBagItem(ITEM_PRISON_BOTTLE, 1);
     AddBagItem(ITEM_REVEAL_GLASS, 1);
