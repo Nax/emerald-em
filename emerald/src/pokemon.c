@@ -3590,6 +3590,9 @@ const struct LevelUpMove *GetSpeciesLevelUpLearnset(u16 species)
 
 const u16 *GetSpeciesTeachableLearnset(u16 species)
 {
+    /* RANDO */
+    return gSpeciesInfo[SPECIES_NONE].teachableLearnset;
+
     const u16 *learnset = gSpeciesInfo[SanitizeSpeciesId(species)].teachableLearnset;
     if (learnset == NULL)
         return gSpeciesInfo[SPECIES_NONE].teachableLearnset;
@@ -5513,75 +5516,41 @@ static const u16 sUniversalMoves[] =
     MOVE_TERA_BLAST,
 };
 
+static u32 hash32(u32 data)
+{
+    data = (data ^ 61) ^ (data >> 16);
+    data *= 9;
+    data = data ^ (data >> 4);
+    data *= 0x27d4eb2d;
+    data = data ^ (data >> 15);
+    return data;
+}
+
 u8 CanLearnTeachableMove(u16 species, u16 move)
 {
-    if (species == SPECIES_EGG)
-    {
+    u32 hash;
+
+    if (species == SPECIES_EGG || species == SPECIES_NONE)
         return FALSE;
-    }
-    else if (species == SPECIES_MEW)
+    if (move == MOVE_NONE)
+        return FALSE;
+
+    /* Check level-up moves */
+    const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
+    for (int j = 0; j < MAX_LEVEL_UP_MOVES && learnset[j].move != LEVEL_UP_MOVE_END; j++)
     {
-        switch (move)
-        {
-        case MOVE_BADDY_BAD:
-        case MOVE_BOUNCY_BUBBLE:
-        case MOVE_BUZZY_BUZZ:
-        case MOVE_DRAGON_ASCENT:
-        case MOVE_FLOATY_FALL:
-        case MOVE_FREEZY_FROST:
-        case MOVE_GLITZY_GLOW:
-        case MOVE_RELIC_SONG:
-        case MOVE_SAPPY_SEED:
-        case MOVE_SECRET_SWORD:
-        case MOVE_SIZZLY_SLIDE:
-        case MOVE_SPARKLY_SWIRL:
-        case MOVE_SPLISHY_SPLASH:
-        case MOVE_VOLT_TACKLE:
-        case MOVE_ZIPPY_ZAP:
-            return FALSE;
-        default:
+        if (learnset[j].move == move)
             return TRUE;
-        }
     }
-    else
-    {
-        u32 i, j;
-        const u16 *teachableLearnset = GetSpeciesTeachableLearnset(species);
-        for (i = 0; i < ARRAY_COUNT(sUniversalMoves); i++)
-        {
-            if (sUniversalMoves[i] == move)
-            {
-                if (!gSpeciesInfo[species].tmIlliterate)
-                {
-                    if (move == MOVE_TERA_BLAST && GET_BASE_SPECIES_ID(species) == SPECIES_TERAPAGOS)
-                        return FALSE;
-                    if (GET_BASE_SPECIES_ID(species) == SPECIES_PYUKUMUKU && (move == MOVE_HIDDEN_POWER || move == MOVE_RETURN || move == MOVE_FRUSTRATION))
-                        return FALSE;
-                    return TRUE;
-                }
-                else
-                {
-                    const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
 
-                    if (P_TM_LITERACY < GEN_6)
-                        return FALSE;
-
-                    for (j = 0; j < MAX_LEVEL_UP_MOVES && learnset[j].move != LEVEL_UP_MOVE_END; j++)
-                    {
-                        if (learnset[j].move == move)
-                            return TRUE;
-                    }
-                    return FALSE;
-                }
-            }
-        }
-        for (i = 0; teachableLearnset[i] != MOVE_UNAVAILABLE; i++)
-        {
-            if (teachableLearnset[i] == move)
-                return TRUE;
-        }
-        return FALSE;
-    }
+    /* Other moves have a 50% chance */
+    species = SanitizeSpeciesId(species);
+    species = gSpeciesInfo[species].natDexNum;
+    hash = hash32(species);
+    hash = hash32(hash ^ move);
+    hash = hash32(hash ^ kItemMovesKey);
+    hash = (hash ^ (hash >> 16)) & 0xffff;
+    return (hash < 0x8000);
 }
 
 u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
