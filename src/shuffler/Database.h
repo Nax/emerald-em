@@ -31,9 +31,12 @@ struct DatabaseTrainers
 
 struct DatabaseMisc
 {
-    DatabaseMisc() {}
+    DatabaseMisc() : tmMoves{}, hmMoves{} {}
 
-    std::array<uint16_t, 3>   starters[3];
+    std::array<uint16_t, 3>     starters[3];
+    uint16_t                    tmMoves[100];
+    uint16_t                    hmMoves[8];
+    uint32_t                    tmHmKey;
 };
 
 struct Database

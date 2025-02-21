@@ -6,6 +6,8 @@ SYMBOLS = [
   'gWildMonHeaders',
   'gSpeciesInfo',
   'gTrainers',
+  'kItemMoves',
+  'kItemMovesKey',
 ]
 
 class OffsetsBuilder:

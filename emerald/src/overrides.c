@@ -17,3 +17,7 @@ const u8 kAbilitiesNamesBuffer[8192] = { 0xff };
 
 const u16 kFirstBattlePokemon = SPECIES_ZIGZAGOON;
 const u16 kStarterMons[] = { SPECIES_TREECKO, SPECIES_TORCHIC, SPECIES_MUDKIP };
+
+/* TM/HM moves */
+const u16 kItemMoves[108] = { MOVE_NONE };
+const u32 kItemMovesKey = 0xdeadbeef;

@@ -314,6 +314,7 @@ void shuffleAbilities(Database& db, Random& rand);
 void shuffleStats(Database& db, Random& rand);
 void shuffleEvolutions(Database& db, Random& rand);
 void shuffleTrainers(Database& db, Random& rand);
+void shuffleTmHm(Database& db, Random& rand);
 
 void Shuffler::shuffle()
 {
@@ -321,6 +322,7 @@ void Shuffler::shuffle()
     printf("Loading database\n");
     databaseLoad(_db, _rom);
 
+    shuffleTmHm(_db, _random);
     shuffleGrowthRates(_db, _random);
 
     printf("Shuffling Stats\n");

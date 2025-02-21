@@ -90,8 +90,6 @@ static void databaseTrainersLoad(DatabaseTrainers& db, const Rom& rom)
             db.pokemons[i][j] = rom.readU16(base + DATA_TRAINERMON_OFF_SPECIES);
             db.levels[i][j] = rom.readU8(base + DATA_TRAINERMON_OFF_LEVEL);
         }
-
-        printf("Trainer %d has %d pokemons\n", i, teamSize);
     }
 }
 
@@ -132,17 +130,27 @@ static void databaseMiscLoad(DatabaseMisc& db, const Rom& rom)
     db.starters[2][0] = SPECIES_MUDKIP;
     db.starters[2][1] = SPECIES_MARSHTOMP;
     db.starters[2][2] = SPECIES_SWAMPERT;
+
+    db.tmHmKey = 0;
 }
 
 static void databaseMiscSave(const DatabaseMisc& db, Rom& rom)
 {
     uint16_t starters[3];
+    uint32_t base;
 
     starters[0] = db.starters[0][0];
     starters[1] = db.starters[1][0];
     starters[2] = db.starters[2][0];
 
     rom.write(rom.sym("kStarterMons"), starters, sizeof(starters));
+    base = rom.sym("kItemMoves");
+    rom.write(base, db.tmMoves, sizeof(db.tmMoves));
+    base += sizeof(db.tmMoves);
+    rom.write(base, db.hmMoves, sizeof(db.hmMoves));
+
+    base = rom.sym("kItemMovesKey");
+    rom.writeU32(base, db.tmHmKey);
 }
 
 void databaseLoad(Database& db, const Rom& rom)
