@@ -157,8 +157,6 @@ public:
 
     void run()
     {
-        const SpeciesSet* group;
-
         /* Index sharing tables */
         for (auto& g : kSpeciesSharedStats)
         {
@@ -185,7 +183,6 @@ private:
         const SpeciesSet* sameHpGroup;
         int bst;
         std::array<uint8_t, 6> stats;
-        std::array<uint8_t, 6> inStats;
         bool hasStats;
         bool hasHp;
 

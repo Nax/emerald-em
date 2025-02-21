@@ -308,6 +308,7 @@ void Shuffler::shuffleLearnsets()
     }
 }
 
+void shuffleGrowthRates(Database& db, Random& rand);
 void shuffleStarters(Database& db, Random& rand);
 void shuffleAbilities(Database& db, Random& rand);
 void shuffleStats(Database& db, Random& rand);
@@ -318,6 +319,8 @@ void Shuffler::shuffle()
     /* Load the database */
     printf("Loading database\n");
     databaseLoad(_db, _rom);
+
+    shuffleGrowthRates(_db, _random);
 
     printf("Shuffling Stats\n");
     shuffleStats(_db, _random);

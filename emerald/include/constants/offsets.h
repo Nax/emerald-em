@@ -4,6 +4,7 @@
 #define DATA_SPECIES_SIZE                       0xf4
 #define DATA_SPECIES_OFF_STATS                  0x00
 #define DATA_SPECIES_OFF_TYPES                  0x06
+#define DATA_SPECIES_OFF_GROWTH_RATE            0x15
 #define DATA_SPECIES_OFF_ABILITIES              0x18
 #define DATA_SPECIES_OFF_LEVELUP_LEARNSET       0x84
 #define DATA_SPECIES_OFF_EVOLUTIONS             0x90

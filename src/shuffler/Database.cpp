@@ -20,6 +20,7 @@ static void databasePokemonsLoad(DatabasePokemons& db, const Rom& rom)
         rom.read(db.types[i].data(), base + DATA_SPECIES_OFF_TYPES, 2);
         rom.read(db.abilities[i].data(), base + DATA_SPECIES_OFF_ABILITIES, 6);
         evolutionsPtr = rom.readU32(base + DATA_SPECIES_OFF_EVOLUTIONS);
+        db.growthRate[i] = rom.readU8(base + DATA_SPECIES_OFF_GROWTH_RATE);
 
         if (evolutionsPtr)
         {
@@ -54,6 +55,7 @@ static void databasePokemonsSave(const DatabasePokemons& db, Rom& rom)
         base = baseSpeciesInfo + DATA_SPECIES_SIZE * i;
         rom.write(base + DATA_SPECIES_OFF_STATS, db.stats[i].data(), 6);
         rom.write(base + DATA_SPECIES_OFF_ABILITIES, db.abilities[i].data(), 6);
+        rom.writeU8(base + DATA_SPECIES_OFF_GROWTH_RATE, db.growthRate[i]);
         evolutionsPtr = rom.readU32(base + DATA_SPECIES_OFF_EVOLUTIONS);
         if (evolutionsPtr)
         {
@@ -67,6 +69,8 @@ static void databasePokemonsSave(const DatabasePokemons& db, Rom& rom)
 
 static void databaseMiscLoad(DatabaseMisc& db, const Rom& rom)
 {
+    (void)rom;
+
     /* Hardcoded starters */
     db.starters[0][0] = SPECIES_TREECKO;
     db.starters[0][1] = SPECIES_GROVYLE;

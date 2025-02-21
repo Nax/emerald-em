@@ -142,7 +142,6 @@ private:
     {
         const SpeciesSet* group;
         std::array<uint16_t, 3> abilities = { ABILITY_NONE, ABILITY_NONE, ABILITY_NONE };
-        int i;
 
         /* Shedinja is special */
         if (speciesId == SPECIES_SHEDINJA)

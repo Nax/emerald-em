@@ -18,6 +18,7 @@ struct DatabasePokemons
     std::array<uint16_t, 16>    evolutions[NUM_SPECIES];
     uint8_t                     evolutionsCounts[NUM_SPECIES];
     std::array<uint8_t, 2>      types[NUM_SPECIES];
+    uint8_t                     growthRate[NUM_SPECIES];
 };
 
 struct DatabaseMisc
