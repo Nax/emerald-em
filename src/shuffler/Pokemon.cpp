@@ -1,5 +1,6 @@
 #include <shuffler/Random.h>
 #include <shuffler/Pokemon.h>
+#include <shuffler/Database.h>
 #include <emerald/include/constants/species.h>
 #include <emerald/include/constants/moves.h>
 
@@ -1264,7 +1265,7 @@ bool Pokemon::isValidOutOfBattle(std::uint16_t id)
 
 bool Pokemon::isLegendary(std::uint16_t pokemon)
 {
-    for (int i = 0; i < ARRAY_SIZE(kLegendaries); i++)
+    for (unsigned i = 0; i < ARRAY_SIZE(kLegendaries); i++)
     {
         if (pokemon == kLegendaries[i])
             return true;
@@ -1305,4 +1306,29 @@ uint16_t Pokemon::randMove(Random& rng)
         if (valid)
             return move;
     }
+}
+
+std::uint16_t Pokemon::evolution(const Database& db, Random& rand, std::uint16_t speciesId, int depth)
+{
+    int index;
+
+    while (depth--)
+    {
+        auto evoCount = db.pokemons.evolutionsCounts[speciesId];
+        if (evoCount == 0)
+            return speciesId;
+        if (evoCount == 1)
+        {
+            index = 0;
+        }
+        else
+        {
+            index = rand.next() % evoCount;
+        }
+
+        const auto& dbEntry = db.pokemons.evolutions[speciesId];
+        speciesId = dbEntry[index];
+    }
+
+    return speciesId;
 }

@@ -2,6 +2,8 @@
 #define DATABASE_H
 
 #include <emerald/include/constants/species.h>
+
+#include <emerald/include/constants/species.h>
 #include <cstdint>
 #include <array>
 
@@ -18,9 +20,17 @@ struct DatabasePokemons
     std::array<uint8_t, 2>      types[NUM_SPECIES];
 };
 
+struct DatabaseMisc
+{
+    DatabaseMisc() {}
+
+    std::array<uint16_t, 3>   starters[3];
+};
+
 struct Database
 {
     DatabasePokemons pokemons;
+    DatabaseMisc     misc;
 };
 
 void databaseLoad(Database& db, const Rom& rom);

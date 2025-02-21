@@ -308,57 +308,39 @@ void Shuffler::shuffleLearnsets()
     }
 }
 
+void shuffleStarters(Database& db, Random& rand);
 void shuffleAbilities(Database& db, Random& rand);
 void shuffleStats(Database& db, Random& rand);
 void shuffleEvolutions(Database& db, Random& rand);
 
 void Shuffler::shuffle()
 {
-    bool valid;
-    std::uint16_t starters[3];
-    std::uint16_t tmp;
-
     /* Load the database */
     printf("Loading database\n");
     databaseLoad(_db, _rom);
 
-    /* Shuffle starters */
-    printf("Shuffling starters\n");
-    for (int i = 0; i < 3; i++)
-    {
-        for (;;)
-        {
-            valid = true;
-            tmp = Pokemon::randPokemon(_random);
-            for (int j = 0; j < i; ++j)
-            {
-                if (starters[j] == tmp)
-                    valid = false;
-            }
-            if (valid)
-                break;
-        }
-        starters[i] = tmp;
-    }
-    _rom.write(_rom.sym("kStarterMons"), starters, sizeof(starters));
+    printf("Shuffling Stats\n");
+    shuffleStats(_db, _random);
 
-    _rom.writeU16(_rom.sym("kFirstBattlePokemon"), Pokemon::randPokemon(_random));
+    printf("Shuffling Abilities\n");
+    shuffleAbilities(_db, _random);
+
+    printf("Shuffling Learnsets\n");
+    shuffleLearnsets();
+
+    printf("Shuffling Evolutions\n");
+    shuffleEvolutions(_db, _random);
+
+    /* Shuffle starters */
+    printf("Shuffling Starters\n");
+    shuffleStarters(_db, _random);
 
     /* Shuffle things */
     printf("Shuffling Wild Pokemons\n");
     shuffleWild();
 
-    printf("Shuffling Learnsets\n");
-    shuffleLearnsets();
-
-    printf("Shuffling Abilities\n");
-    shuffleAbilities(_db, _random);
-
-    printf("Shuffling Stats\n");
-    shuffleStats(_db, _random);
-
-    printf("Shuffling Evolutions\n");
-    shuffleEvolutions(_db, _random);
+    /* Shuffle the random encounter */
+    _rom.writeU16(_rom.sym("kFirstBattlePokemon"), Pokemon::randPokemon(_random));
 
     /* Save the database */
     printf("Saving database\n");

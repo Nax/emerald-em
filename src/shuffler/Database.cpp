@@ -65,12 +65,39 @@ static void databasePokemonsSave(const DatabasePokemons& db, Rom& rom)
     }
 }
 
+static void databaseMiscLoad(DatabaseMisc& db, const Rom& rom)
+{
+    /* Hardcoded starters */
+    db.starters[0][0] = SPECIES_TREECKO;
+    db.starters[0][1] = SPECIES_GROVYLE;
+    db.starters[0][2] = SPECIES_SCEPTILE;
+    db.starters[1][0] = SPECIES_TORCHIC;
+    db.starters[1][1] = SPECIES_COMBUSKEN;
+    db.starters[1][2] = SPECIES_BLAZIKEN;
+    db.starters[2][0] = SPECIES_MUDKIP;
+    db.starters[2][1] = SPECIES_MARSHTOMP;
+    db.starters[2][2] = SPECIES_SWAMPERT;
+}
+
+static void databaseMiscSave(const DatabaseMisc& db, Rom& rom)
+{
+    uint16_t starters[3];
+
+    starters[0] = db.starters[0][0];
+    starters[1] = db.starters[1][0];
+    starters[2] = db.starters[2][0];
+
+    rom.write(rom.sym("kStarterMons"), starters, sizeof(starters));
+}
+
 void databaseLoad(Database& db, const Rom& rom)
 {
     databasePokemonsLoad(db.pokemons, rom);
+    databaseMiscLoad(db.misc, rom);
 }
 
 void databaseSave(Rom& rom, const Database& db)
 {
     databasePokemonsSave(db.pokemons, rom);
+    databaseMiscSave(db.misc, rom);
 }
