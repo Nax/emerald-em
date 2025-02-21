@@ -806,6 +806,11 @@ static void Cmd_delay(void)
 {
     sBattleAnimScriptPtr++;
     sAnimFramesToWait = sBattleAnimScriptPtr[0];
+
+    /* Speedup animations */
+    if (sAnimFramesToWait > 1)
+        sAnimFramesToWait /= 2;
+
     if (sAnimFramesToWait == 0)
         sAnimFramesToWait = -1;
     sBattleAnimScriptPtr++;
