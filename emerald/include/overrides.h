@@ -19,5 +19,6 @@ extern const u16 kItemMoves[];
 extern const u32 kItemMovesKey;
 
 extern const u16 kItemsGiven[];
+extern const u16 kItemsBall[];
 
 #endif

@@ -10,6 +10,19 @@ static bool isItemTMHM(uint16_t itemId)
     return itemId >= ITEM_TM01 && itemId <= ITEM_HM08;
 }
 
+static bool isItemUnshufflable(uint16_t itemId)
+{
+    switch (itemId)
+    {
+    case ITEM_NONE:
+    case ITEM_SCANNER:
+    case ITEM_STORAGE_KEY:
+        return true;
+    }
+
+    return false;
+}
+
 static bool isItemSingle(uint16_t itemId)
 {
     if (isItemTMHM(itemId))
@@ -128,6 +141,9 @@ static void shuffleOneItem(uint16_t* inOut, std::set<std::uint16_t>& list, Rando
     uint16_t tmp;
 
     itemId = *inOut;
+    if (isItemUnshufflable(itemId))
+        return;
+
 retry:
     if (isItemTMHM(itemId))
         tmp = Pokemon::randItemTmHm(rng);
@@ -143,11 +159,17 @@ retry:
     *inOut = tmp;
 }
 
+static void shuffleItemVector(std::vector<uint16_t>& vec, Random& rng, std::set<std::uint16_t>& list)
+{
+    for (auto& item : vec)
+        shuffleOneItem(&item, list, rng);
+}
+
 void shuffleItems(Database& db, Random& rand)
 {
     std::set<std::uint16_t> list;
 
-    /* TODO: Not super good for probabilities, order should be randomized */
-    for (int i = 0; i < 64; ++i)
-        shuffleOneItem(&db.misc.itemsGiven[i], list, rand);
+    /* TODO - randomize the iteration order */
+    shuffleItemVector(db.misc.itemsBalls, rand, list);
+    shuffleItemVector(db.misc.itemsGiven, rand, list);
 }

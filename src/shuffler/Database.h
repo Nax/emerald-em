@@ -5,6 +5,7 @@
 #include <emerald/include/constants/opponents.h>
 #include <cstdint>
 #include <array>
+#include <vector>
 
 class Rom;
 
@@ -37,7 +38,8 @@ struct DatabaseMisc
     uint16_t                    tmMoves[100];
     uint16_t                    hmMoves[8];
     uint32_t                    tmHmKey;
-    uint16_t                    itemsGiven[64];
+    std::vector<uint16_t>       itemsGiven;
+    std::vector<uint16_t>       itemsBalls;
 };
 
 struct Database

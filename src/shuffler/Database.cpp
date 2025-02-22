@@ -117,6 +117,22 @@ static void databaseTrainersSave(const DatabaseTrainers& db, Rom& rom)
     }
 }
 
+static void loadItemVector(std::vector<uint16_t>& vec, const Rom& rom, const char* sym)
+{
+    uint32_t addr;
+    uint16_t item;
+
+    addr = rom.sym(sym);
+    for (;;)
+    {
+        item = rom.readU16(addr);
+        if (item == 0xffff)
+            break;
+        vec.push_back(item);
+        addr += 2;
+    }
+}
+
 static void databaseMiscLoad(DatabaseMisc& db, const Rom& rom)
 {
     (void)rom;
@@ -135,7 +151,20 @@ static void databaseMiscLoad(DatabaseMisc& db, const Rom& rom)
     db.tmHmKey = 0;
 
     /* Read items given */
-    rom.read(db.itemsGiven, rom.sym("kItemsGiven"), sizeof(db.itemsGiven));
+    loadItemVector(db.itemsGiven, rom, "kItemsGiven");
+    loadItemVector(db.itemsBalls, rom, "kItemsBalls");
+}
+
+static void writeItemVector(const std::vector<uint16_t>& vec, Rom& rom, const char* sym)
+{
+    uint32_t addr;
+
+    addr = rom.sym(sym);
+    for (uint16_t item : vec)
+    {
+        rom.writeU16(addr, item);
+        addr += 2;
+    }
 }
 
 static void databaseMiscSave(const DatabaseMisc& db, Rom& rom)
@@ -156,7 +185,8 @@ static void databaseMiscSave(const DatabaseMisc& db, Rom& rom)
     base = rom.sym("kItemMovesKey");
     rom.writeU32(base, db.tmHmKey);
 
-    rom.write(rom.sym("kItemsGiven"), db.itemsGiven, sizeof(db.itemsGiven));
+    writeItemVector(db.itemsGiven, rom, "kItemsGiven");
+    writeItemVector(db.itemsBalls, rom, "kItemsBalls");
 }
 
 void databaseLoad(Database& db, const Rom& rom)
