@@ -40,6 +40,7 @@ struct DatabaseMisc
     uint32_t                    tmHmKey;
     std::vector<uint16_t>       itemsGiven;
     std::vector<uint16_t>       itemsBalls;
+    std::vector<uint16_t>       itemsHidden;
 };
 
 struct Database

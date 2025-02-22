@@ -38,6 +38,7 @@
 #include "constants/metatile_behaviors.h"
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
+#include "overrides.h"
 
 static EWRAM_DATA u8 sWildEncounterImmunitySteps = 0;
 static EWRAM_DATA u16 sPrevMetatileBehavior = 0;
@@ -426,7 +427,7 @@ static const u8 *GetInteractedBackgroundEventScript(struct MapPosition *position
     case 6:
     case BG_EVENT_HIDDEN_ITEM:
         gSpecialVar_0x8004 = ((u32)bgEvent->bgUnion.script >> 16) + FLAG_HIDDEN_ITEMS_START;
-        gSpecialVar_0x8005 = (u32)bgEvent->bgUnion.script;
+        gSpecialVar_0x8005 = kItemsHidden[((u32)bgEvent->bgUnion.script >> 16)];
         if (FlagGet(gSpecialVar_0x8004) == TRUE)
             return NULL;
         return EventScript_HiddenItemScript;

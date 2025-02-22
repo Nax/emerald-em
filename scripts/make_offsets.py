@@ -10,6 +10,7 @@ SYMBOLS = [
   'kItemMovesKey',
   'kItemsGiven',
   'kItemsBalls',
+  'kItemsHidden',
 ]
 
 class OffsetsBuilder:

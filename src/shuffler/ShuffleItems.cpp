@@ -17,6 +17,10 @@ static bool isItemUnshufflable(uint16_t itemId)
     case ITEM_NONE:
     case ITEM_SCANNER:
     case ITEM_STORAGE_KEY:
+    case ITEM_KEY_TO_ROOM_1:
+    case ITEM_KEY_TO_ROOM_2:
+    case ITEM_KEY_TO_ROOM_4:
+    case ITEM_KEY_TO_ROOM_6:
         return true;
     }
 
@@ -171,5 +175,6 @@ void shuffleItems(Database& db, Random& rand)
 
     /* TODO - randomize the iteration order */
     shuffleItemVector(db.misc.itemsBalls, rand, list);
+    shuffleItemVector(db.misc.itemsHidden, rand, list);
     shuffleItemVector(db.misc.itemsGiven, rand, list);
 }

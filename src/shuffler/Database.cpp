@@ -153,6 +153,7 @@ static void databaseMiscLoad(DatabaseMisc& db, const Rom& rom)
     /* Read items given */
     loadItemVector(db.itemsGiven, rom, "kItemsGiven");
     loadItemVector(db.itemsBalls, rom, "kItemsBalls");
+    loadItemVector(db.itemsHidden, rom, "kItemsHidden");
 }
 
 static void writeItemVector(const std::vector<uint16_t>& vec, Rom& rom, const char* sym)
@@ -187,6 +188,7 @@ static void databaseMiscSave(const DatabaseMisc& db, Rom& rom)
 
     writeItemVector(db.itemsGiven, rom, "kItemsGiven");
     writeItemVector(db.itemsBalls, rom, "kItemsBalls");
+    writeItemVector(db.itemsHidden, rom, "kItemsHidden");
 }
 
 void databaseLoad(Database& db, const Rom& rom)
