@@ -1734,11 +1734,15 @@ static void CB2_HandleStartMultiBattle(void)
 
 void BattleMainCB2(void)
 {
-    AnimateSprites();
-    BuildOamBuffer();
-    RunTextPrinters();
-    UpdatePaletteFade();
-    RunTasks();
+    for (int i = 0; i < 2; ++i)
+    {
+        AnimateSprites();
+        BuildOamBuffer();
+        RunTextPrinters();
+        if (i == 1)
+            UpdatePaletteFade();
+        RunTasks();
+    }
 
     if (JOY_HELD(B_BUTTON) && gBattleTypeFlags & BATTLE_TYPE_RECORDED && RecordedBattle_CanStopPlayback())
     {
