@@ -18,4 +18,6 @@ extern const u8 kAbilitiesNamesBuffer[];
 extern const u16 kItemMoves[];
 extern const u32 kItemMovesKey;
 
+extern const u16 kItemsGiven[];
+
 #endif

@@ -20,6 +20,7 @@
 #include "constants/moves.h"
 #include "constants/item_effects.h"
 #include "constants/hold_effects.h"
+#include "overrides.h"
 
 static bool8 CheckPyramidBagHasItem(u16 itemId, u16 count);
 static bool8 CheckPyramidBagHasSpace(u16 itemId, u16 count);
@@ -1012,4 +1013,9 @@ u32 GetItemStatus2Mask(u16 itemId)
         return STATUS2_CONFUSION;
     else
         return 0;
+}
+
+void RandoGiveItemOverride(void)
+{
+    VarSet(VAR_0x8000, kItemsGiven[VarGet(VAR_0x8000)]);
 }

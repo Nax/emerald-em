@@ -1,6 +1,11 @@
 .set ITEMID, VAR_0x8000
 .set AMOUNT, VAR_0x8001
 
+Std_RandoObtainItem::
+  callnative RandoGiveItemOverride
+  setvar AMOUNT, 1
+  goto Std_ObtainItem
+
 Std_ObtainItem::
 	copyvar VAR_0x8006, ITEMID
 	additem ITEMID, AMOUNT

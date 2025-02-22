@@ -58,6 +58,7 @@
 	STD_FIND_ITEM = 1
 	STD_OBTAIN_DECORATION = 7
 	STD_REGISTER_MATCH_CALL = 8
+  STD_RANDO_OBTAIN_ITEM = 11
 
 	@ Calls the script in gStdScripts at index function.
 	.macro callstd function:req
@@ -2058,6 +2059,12 @@
 	setorcopyvar VAR_0x8000, \item
 	setorcopyvar VAR_0x8001, \amount
 	callstd STD_OBTAIN_ITEM
+	.endm
+
+  @ Gives a rando item
+	.macro randogiveitem slot:req
+	setorcopyvar VAR_0x8000, \slot
+	callstd STD_RANDO_OBTAIN_ITEM
 	.endm
 
 	@ For picking up items in the overworld. Similar to giveitem, but with different language and

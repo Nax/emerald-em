@@ -338,7 +338,7 @@ Route110_TrickHouseEntrance_EventScript_GiveReward::
 	end
 
 Route110_TrickHouseEntrance_EventScript_GivePuzzle1Reward::
-	giveitem ITEM_RARE_CANDY
+	randogiveitem 31
 	goto_if_eq VAR_RESULT, TRUE, Route110_TrickHouseEntrance_EventScript_GotReward
 	call_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	msgbox Route110_TrickHouseEntrance_Text_DidYouNotComeToClaimReward, MSGBOX_DEFAULT
@@ -346,7 +346,7 @@ Route110_TrickHouseEntrance_EventScript_GivePuzzle1Reward::
 	end
 
 Route110_TrickHouseEntrance_EventScript_GivePuzzle2Reward::
-	giveitem ITEM_TIMER_BALL
+	randogiveitem 32
 	goto_if_eq VAR_RESULT, TRUE, Route110_TrickHouseEntrance_EventScript_GotReward
 	call_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	msgbox Route110_TrickHouseEntrance_Text_DidYouNotComeToClaimReward, MSGBOX_DEFAULT
@@ -354,7 +354,7 @@ Route110_TrickHouseEntrance_EventScript_GivePuzzle2Reward::
 	end
 
 Route110_TrickHouseEntrance_EventScript_GivePuzzle3Reward::
-	giveitem ITEM_HARD_STONE
+	randogiveitem 33
 	goto_if_eq VAR_RESULT, TRUE, Route110_TrickHouseEntrance_EventScript_GotReward
 	call_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	msgbox Route110_TrickHouseEntrance_Text_DidYouNotComeToClaimReward, MSGBOX_DEFAULT
@@ -362,7 +362,7 @@ Route110_TrickHouseEntrance_EventScript_GivePuzzle3Reward::
 	end
 
 Route110_TrickHouseEntrance_EventScript_GivePuzzle4Reward::
-	giveitem ITEM_SMOKE_BALL
+	randogiveitem 34
 	goto_if_eq VAR_RESULT, TRUE, Route110_TrickHouseEntrance_EventScript_GotReward
 	call_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	msgbox Route110_TrickHouseEntrance_Text_DidYouNotComeToClaimReward, MSGBOX_DEFAULT
@@ -370,7 +370,7 @@ Route110_TrickHouseEntrance_EventScript_GivePuzzle4Reward::
 	end
 
 Route110_TrickHouseEntrance_EventScript_GivePuzzle5Reward::
-	giveitem ITEM_TM_TAUNT
+	randogiveitem 35
 	goto_if_eq VAR_RESULT, TRUE, Route110_TrickHouseEntrance_EventScript_GotReward
 	call_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	msgbox Route110_TrickHouseEntrance_Text_DidYouNotComeToClaimReward, MSGBOX_DEFAULT
@@ -378,7 +378,7 @@ Route110_TrickHouseEntrance_EventScript_GivePuzzle5Reward::
 	end
 
 Route110_TrickHouseEntrance_EventScript_GivePuzzle6Reward::
-	giveitem ITEM_MAGNET
+	randogiveitem 36
 	goto_if_eq VAR_RESULT, TRUE, Route110_TrickHouseEntrance_EventScript_GotReward
 	call_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	msgbox Route110_TrickHouseEntrance_Text_DidYouNotComeToClaimReward, MSGBOX_DEFAULT
@@ -386,7 +386,7 @@ Route110_TrickHouseEntrance_EventScript_GivePuzzle6Reward::
 	end
 
 Route110_TrickHouseEntrance_EventScript_GivePuzzle7Reward::
-	giveitem ITEM_PP_MAX
+	randogiveitem 37
 	goto_if_eq VAR_RESULT, TRUE, Route110_TrickHouseEntrance_EventScript_GotReward
 	call_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	msgbox Route110_TrickHouseEntrance_Text_DidYouNotComeToClaimReward, MSGBOX_DEFAULT
