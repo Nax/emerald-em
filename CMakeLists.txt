@@ -20,6 +20,7 @@ else()
 endif()
 
 option(USE_DOCKER "" "${USE_DOCKER_DEFAULT}")
+option(ORIGINAL_ROM "Path to the original ROM" "")
 
 set(BASEROM_STAMP "${CMAKE_BINARY_DIR}/baserom.stamp")
 set(EMERALD_ROM "${CMAKE_SOURCE_DIR}/emerald/pokeemerald.gba")
@@ -87,6 +88,18 @@ add_custom_command(
   VERBATIM
 )
 list(APPEND DATA_FILES ${OFFSETS_FILE})
+
+# Delta
+set(DELTA_FILE "${CMAKE_BINARY_DIR}/data/delta.bin")
+add_custom_command(
+  OUTPUT ${DELTA_FILE}
+  COMMAND "${Python3_EXECUTABLE}" ${CMAKE_SOURCE_DIR}/scripts/make_delta.py "${ORIGINAL_ROM}" "${EMERALD_ROM}" "${DELTA_FILE}"
+  DEPENDS emerald ${CMAKE_SOURCE_DIR}/scripts/make_delta.py
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+  COMMENT "Building delta"
+  VERBATIM
+)
+list(APPEND DATA_FILES ${DELTA_FILE})
 
 include_directories(src)
 add_subdirectory(src)
