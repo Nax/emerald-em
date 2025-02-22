@@ -1,7 +1,7 @@
 #include <array>
-#include <shuffler/Database.h>
-#include <shuffler/Shuffler.h>
-#include <shuffler/SpeciesGroups.h>
+#include <libemerald/Database.h>
+#include <libemerald/Shuffler.h>
+#include <libemerald/SpeciesGroups.h>
 #include <emerald/include/constants/abilities.h>
 #include <emerald/include/constants/species.h>
 

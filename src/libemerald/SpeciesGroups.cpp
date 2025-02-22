@@ -1,4 +1,4 @@
-#include <shuffler/SpeciesGroups.h>
+#include <libemerald/SpeciesGroups.h>
 
 const SpeciesSet* SpeciesGroups::find(const std::vector<const SpeciesSet*>& groups, uint16_t species)
 {

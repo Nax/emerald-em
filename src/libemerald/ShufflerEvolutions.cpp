@@ -1,9 +1,9 @@
 #include <set>
 #include <vector>
-#include <shuffler/Database.h>
-#include <shuffler/Shuffler.h>
-#include <shuffler/Pokemon.h>
-#include <shuffler/SpeciesGroups.h>
+#include <libemerald/Database.h>
+#include <libemerald/Shuffler.h>
+#include <libemerald/Pokemon.h>
+#include <libemerald/SpeciesGroups.h>
 #include <emerald/include/constants/species.h>
 
 /* Species with shared evolutions, mostly cosmetic forms */
@@ -33,7 +33,7 @@ static const std::vector<const SpeciesSet*> kSpeciesSharedEvolutions = {
 
 static void shuffle(std::vector<uint16_t>& data, Random& rng)
 {
-    for (int i = data.size() - 1; i > 0; --i)
+    for (std::size_t i = data.size() - 1; i > 0; --i)
     {
         int j = rng.next() % (i + 1);
         std::swap(data[i], data[j]);

@@ -1,6 +1,6 @@
-#include <shuffler/Random.h>
-#include <shuffler/Pokemon.h>
-#include <shuffler/Database.h>
+#include <libemerald/Random.h>
+#include <libemerald/Pokemon.h>
+#include <libemerald/Database.h>
 #include <emerald/include/constants/species.h>
 #include <emerald/include/constants/moves.h>
 #include <emerald/include/constants/items.h>
@@ -13,7 +13,7 @@ static T sample(Random& rng, const T* array, std::size_t size)
 {
     std::size_t index;
 
-    index = randInt(rng, size);
+    index = randInt(rng, (uint32_t)size);
     return array[index];
 }
 

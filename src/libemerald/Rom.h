@@ -6,14 +6,16 @@
 #include <map>
 #include <memory>
 
+struct Context;
 class Rom
 {
 public:
+    Rom(Context& ctx);
+
     uint32_t sym(const std::string& name) const;
 
-    bool open(const std::string& path);
-    bool loadSymbols(const std::string& path);
-    bool save(const std::string& path) const;
+    bool open();
+    bool save(std::ofstream& file) const;
 
     void* ptr(uint32_t offset);
 
@@ -28,6 +30,10 @@ public:
     void writeU32(uint32_t offset, uint32_t value);
 
 private:
+    bool openDelta();
+    bool loadSymbols();
+
+    Context&                                _ctx;
     std::unique_ptr<std::uint8_t[]>         _data;
     std::map<std::string, std::uint32_t>    _symbols;
 };

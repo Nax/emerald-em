@@ -2,10 +2,10 @@
 #include <map>
 #include <array>
 #include <cstring>
-#include <shuffler/Shuffler.h>
-#include <shuffler/Random.h>
-#include <shuffler/SpeciesGroups.h>
-#include <shuffler/Database.h>
+#include <libemerald/Shuffler.h>
+#include <libemerald/Random.h>
+#include <libemerald/SpeciesGroups.h>
+#include <libemerald/Database.h>
 #include <emerald/include/constants/species.h>
 
 static const std::vector<const SpeciesSet*> kSpeciesSharedStats = {

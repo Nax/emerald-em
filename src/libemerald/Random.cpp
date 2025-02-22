@@ -4,7 +4,7 @@
 
 #include <cstdlib>
 #include <fstream>
-#include <shuffler/Random.h>
+#include <libemerald/Random.h>
 
 Random::Random()
 : _state{}

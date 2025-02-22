@@ -1,0 +1,5 @@
+file(GLOB_RECURSE SOURCES "*.cpp")
+add_library(libemerald SHARED ${SOURCES})
+set_target_properties(libemerald PROPERTIES OUTPUT_NAME emerald-em)
+target_include_directories(libemerald PRIVATE "${CMAKE_SOURCE_DIR}" PUBLIC "${CMAKE_SOURCE_DIR}/include")
+target_compile_definitions(libemerald PRIVATE -DEMERALDEM_EXPORT_DLL)

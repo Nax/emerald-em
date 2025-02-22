@@ -1,93 +1,24 @@
-#if defined(_WIN32)
-# define WIN32_LEAN_AND_MEAN 1
-# include <windows.h>
-#else
-# include <unistd.h>
-#endif
-
 #include <cstdint>
 #include <cstring>
 #include <vector>
 #include <set>
-#include <shuffler/Shuffler.h>
-#include <shuffler/Pokemon.h>
-#include <shuffler/Database.h>
+#include <libemerald/Log.h>
+#include <libemerald/Shuffler.h>
+#include <libemerald/Pokemon.h>
+#include <libemerald/Database.h>
+#include <libemerald/Context.h>
 #include <emerald/include/constants/offsets.h>
 
-Shuffler::Shuffler()
+bool Shuffler::run()
 {
-    char tmp[2048];
-
-#if defined(WIN32)
-    /* Load the data dir name */
-    if (GetModuleFileName(NULL, tmp, sizeof(tmp)) > 0)
-    {
-        _dataDir = std::string(tmp);
-        _dataDir = _dataDir.substr(0, _dataDir.find_last_of('\\'));
-    }
-#else
-    /* Load the data dir name */
-    if (readlink("/proc/self/exe", tmp, sizeof(tmp)) > 0)
-    {
-        _dataDir = std::string(tmp);
-        _dataDir = _dataDir.substr(0, _dataDir.find_last_of('/'));
-    }
-#endif
-    _dataDir.append("/data");
-}
-
-Shuffler::~Shuffler()
-{
-}
-
-int Shuffler::run(const std::string& out)
-{
-    std::string outFilename;
-    std::fstream outFile;
-
-    if (!_rom.open(dataPath("emerald-em.gba")))
-    {
-        std::fprintf(stderr, "Failed to open ROM\n");
-        return 1;
-    }
-
-    if (!_rom.loadSymbols(dataPath("offsets.bin")))
-    {
-        std::fprintf(stderr, "Failed to open offsets.bin\n");
-        return 1;
-    }
-
-    printf("Applying French language\n");
+    Log::info(_ctx, "Applying French language");
     if (!applyLang("fr_FR"))
-        return 1;
+        return false;
 
-    printf("Seeding RNG\n");
-    _random.seed();
-
-    printf("Shuffling\n");
+    Log::info(_ctx, "Shuffling");
     shuffle();
 
-    printf("Creating ROM\n");
-    outFilename = out;
-    outFilename.append("/emerald-em.gba");
-    if (!_rom.save(outFilename))
-    {
-        std::fprintf(stderr, "Failed to save ROM\n");
-        return 1;
-    }
-
-    return 0;
-}
-
-std::string Shuffler::dataPath(const char* name)
-{
-    std::string fname;
-
-    fname = _dataDir;
-    fname.append("/");
-    fname.append(name);
-
-    return fname;
+    return true;
 }
 
 bool Shuffler::applyLang(const char* lang)
@@ -101,10 +32,10 @@ bool Shuffler::applyLang(const char* lang)
 
     langFileName = lang;
     langFileName.append(".bin");
-    file.open(dataPath(langFileName.c_str()), std::ios::in | std::ios::binary);
+    file.open(_ctx.dataPath + "/" + langFileName, std::ios::in | std::ios::binary);
     if (!file.good())
     {
-        std::fprintf(stderr, "Failed to open language file: %s\n", langFileName.c_str());
+        Log::error(_ctx, "Failed to open language file: %s", langFileName.c_str());
         return false;
     }
 
@@ -115,7 +46,7 @@ bool Shuffler::applyLang(const char* lang)
         /* Apply */
         file.read(reinterpret_cast<char*>(&offset), sizeof(offset));
         file.read(reinterpret_cast<char*>(&size), sizeof(size));
-        file.read((char*)_rom.ptr(offset), size);
+        file.read((char*)_ctx.rom.ptr(offset), size);
     }
 
     return true;
@@ -143,7 +74,7 @@ void Shuffler::shuffleWildList(uint32_t offset, int count)
     /* Deref */
     if (!offset)
         return;
-    offset = _rom.readU32(offset + 4);
+    offset = _ctx.rom.readU32(offset + 4);
     if (!offset)
         return;
 
@@ -151,7 +82,7 @@ void Shuffler::shuffleWildList(uint32_t offset, int count)
     for (int i = 0; i < count; ++i)
     {
         match = false;
-        tmp = _rom.readU16(offset + i * 4 + 2);
+        tmp = _ctx.rom.readU16(offset + i * 4 + 2);
         for (int j = 0; j < countOriginal; ++j)
         {
             if (originalWilds[j] == tmp)
@@ -171,7 +102,7 @@ void Shuffler::shuffleWildList(uint32_t offset, int count)
     {
         for (;;)
         {
-            tmp = Pokemon::randPokemon(_random);
+            tmp = Pokemon::randPokemon(_ctx.rng);
             if (Pokemon::isLegendary(tmp))
                 continue;
             match = false;
@@ -195,22 +126,22 @@ void Shuffler::shuffleWildList(uint32_t offset, int count)
     for (int i = 0; i < count; ++i)
     {
         /* Patch the level */
-        minLevel = _rom.readU8(offset + i * 4 + 0);
-        maxLevel = _rom.readU8(offset + i * 4 + 1);
+        minLevel = _ctx.rom.readU8(offset + i * 4 + 0);
+        maxLevel = _ctx.rom.readU8(offset + i * 4 + 1);
 
         minLevel = fixLevel(minLevel);
         maxLevel = fixLevel(maxLevel);
 
-        _rom.writeU8(offset + i * 4 + 0, minLevel);
-        _rom.writeU8(offset + i * 4 + 1, maxLevel);
+        _ctx.rom.writeU8(offset + i * 4 + 0, minLevel);
+        _ctx.rom.writeU8(offset + i * 4 + 1, maxLevel);
 
         /* Patch the pokemon */
-        tmp = _rom.readU16(offset + i * 4 + 2);
+        tmp = _ctx.rom.readU16(offset + i * 4 + 2);
         for (int j = 0; j < countOriginal; ++j)
         {
             if (originalWilds[j] == tmp)
             {
-                _rom.writeU16(offset + i * 4 + 2, replacedWilds[j]);
+                _ctx.rom.writeU16(offset + i * 4 + 2, replacedWilds[j]);
                 break;
             }
         }
@@ -225,13 +156,13 @@ void Shuffler::shuffleWild()
     uint32_t rock;
     uint32_t fish;
 
-    offset = _rom.sym("gWildMonHeaders");
+    offset = _ctx.rom.sym("gWildMonHeaders");
     for (int i = 0; i < 125; ++i)
     {
-        land = _rom.readU32(offset + i * 20 + 4);
-        water = _rom.readU32(offset + i * 20 + 8);
-        rock = _rom.readU32(offset + i * 20 + 12);
-        fish = _rom.readU32(offset + i * 20 + 16);
+        land = _ctx.rom.readU32(offset + i * 20 + 4);
+        water = _ctx.rom.readU32(offset + i * 20 + 8);
+        rock = _ctx.rom.readU32(offset + i * 20 + 12);
+        fish = _ctx.rom.readU32(offset + i * 20 + 16);
 
         shuffleWildList(land, 12);
         shuffleWildList(water, 5);
@@ -254,8 +185,8 @@ void Shuffler::shuffleLearnset(uint32_t offset)
     count = 0;
     for (;;)
     {
-        move = _rom.readU16(offset + count * 4 + 0);
-        level = _rom.readU16(offset + count * 4 + 2);
+        move = _ctx.rom.readU16(offset + count * 4 + 0);
+        level = _ctx.rom.readU16(offset + count * 4 + 2);
 
         if (move == 0xffff)
             break;
@@ -286,7 +217,7 @@ void Shuffler::shuffleLearnset(uint32_t offset)
 
         for (;;)
         {
-            move = Pokemon::randMove(_random);
+            move = Pokemon::randMove(_ctx.rng);
             if (uniqueMoves.find(move) == uniqueMoves.end())
                 break;
         }
@@ -300,7 +231,7 @@ void Shuffler::shuffleLearnset(uint32_t offset)
 
     /* Write */
     for (int i = 0; i < count; ++i)
-        _rom.writeU16(offset + i * 4 + 0, moves[i]);
+        _ctx.rom.writeU16(offset + i * 4 + 0, moves[i]);
 }
 
 void Shuffler::shuffleLearnsets()
@@ -309,10 +240,10 @@ void Shuffler::shuffleLearnsets()
     uint32_t base;
     uint32_t tmp;
 
-    base = _rom.sym("gSpeciesInfo");
+    base = _ctx.rom.sym("gSpeciesInfo");
     for (int i = 1; i < 1524; ++i)
     {
-        tmp = _rom.readU32(base + DATA_SPECIES_SIZE * i + DATA_SPECIES_OFF_LEVELUP_LEARNSET);
+        tmp = _ctx.rom.readU32(base + DATA_SPECIES_SIZE * i + DATA_SPECIES_OFF_LEVELUP_LEARNSET);
         if (tmp)
             offsets.insert(tmp);
     }
@@ -336,41 +267,41 @@ void Shuffler::shuffle()
 {
     /* Load the database */
     printf("Loading database\n");
-    databaseLoad(_db, _rom);
+    databaseLoad(_ctx.db, _ctx.rom);
 
-    shuffleTmHm(_db, _random);
-    shuffleGrowthRates(_db, _random);
+    shuffleTmHm(_ctx.db, _ctx.rng);
+    shuffleGrowthRates(_ctx.db, _ctx.rng);
 
     printf("Shuffling Stats\n");
-    shuffleStats(_db, _random);
+    shuffleStats(_ctx.db, _ctx.rng);
 
     printf("Shuffling Abilities\n");
-    shuffleAbilities(_db, _random);
+    shuffleAbilities(_ctx.db, _ctx.rng);
 
     printf("Shuffling Learnsets\n");
     shuffleLearnsets();
 
     printf("Shuffling Evolutions\n");
-    shuffleEvolutions(_db, _random);
+    shuffleEvolutions(_ctx.db, _ctx.rng);
 
     /* Shuffle starters */
     printf("Shuffling Starters\n");
-    shuffleStarters(_db, _random);
+    shuffleStarters(_ctx.db, _ctx.rng);
 
     /* Shuffle things */
     printf("Shuffling Wild Pokemons\n");
     shuffleWild();
 
     printf("Shuffling Trainers\n");
-    shuffleTrainers(_db, _random);
+    shuffleTrainers(_ctx.db, _ctx.rng);
 
     /* Shuffle the random encounter */
-    _rom.writeU16(_rom.sym("kFirstBattlePokemon"), Pokemon::randPokemon(_random));
+    _ctx.rom.writeU16(_ctx.rom.sym("kFirstBattlePokemon"), Pokemon::randPokemon(_ctx.rng));
 
     /* Shuffle items */
-    shuffleItems(_db, _random);
+    shuffleItems(_ctx.db, _ctx.rng);
 
     /* Save the database */
     printf("Saving database\n");
-    databaseSave(_rom, _db);
+    databaseSave(_ctx.rom, _ctx.db);
 }
