@@ -3,7 +3,9 @@
 #include "event_data.h"
 #include "constants/event_objects.h"
 #include "constants/items.h"
+#include "overrides.h"
 
+#if 0
 static u32 GetItemBallAmountFromTemplate(u32);
 static u32 GetItemBallIdFromTemplate(u32);
 
@@ -23,10 +25,11 @@ static u32 GetItemBallIdFromTemplate(u32 itemBallId)
 
     return (itemId >= ITEMS_COUNT) ? (ITEM_NONE + 1) : itemId;
 }
+    #endif
 
 void GetItemBallIdAndAmountFromTemplate(void)
 {
     u32 itemBallId = (gSpecialVar_LastTalked - 1);
-    gSpecialVar_Result = GetItemBallIdFromTemplate(itemBallId);
-    gSpecialVar_0x8009 = GetItemBallAmountFromTemplate(itemBallId);
+    gSpecialVar_Result = kItemsBalls[gMapHeader.events->objectEvents[itemBallId].flagId - FLAG_ITEM_ROUTE_102_POTION];
+    gSpecialVar_0x8009 = 1;
 }
