@@ -132,6 +132,9 @@ static void databaseMiscLoad(DatabaseMisc& db, const Rom& rom)
     db.starters[2][2] = SPECIES_SWAMPERT;
 
     db.tmHmKey = 0;
+
+    /* Read items given */
+    rom.read(db.itemsGiven, rom.sym("kItemsGiven"), sizeof(db.itemsGiven));
 }
 
 static void databaseMiscSave(const DatabaseMisc& db, Rom& rom)
@@ -151,6 +154,8 @@ static void databaseMiscSave(const DatabaseMisc& db, Rom& rom)
 
     base = rom.sym("kItemMovesKey");
     rom.writeU32(base, db.tmHmKey);
+
+    rom.write(rom.sym("kItemsGiven"), db.itemsGiven, sizeof(db.itemsGiven));
 }
 
 void databaseLoad(Database& db, const Rom& rom)

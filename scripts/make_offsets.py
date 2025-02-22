@@ -8,6 +8,7 @@ SYMBOLS = [
   'gTrainers',
   'kItemMoves',
   'kItemMovesKey',
+  'kItemsGiven',
 ]
 
 class OffsetsBuilder:

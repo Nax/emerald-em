@@ -315,6 +315,7 @@ void shuffleStats(Database& db, Random& rand);
 void shuffleEvolutions(Database& db, Random& rand);
 void shuffleTrainers(Database& db, Random& rand);
 void shuffleTmHm(Database& db, Random& rand);
+void shuffleItems(Database& db, Random& rand);
 
 void Shuffler::shuffle()
 {
@@ -350,6 +351,9 @@ void Shuffler::shuffle()
 
     /* Shuffle the random encounter */
     _rom.writeU16(_rom.sym("kFirstBattlePokemon"), Pokemon::randPokemon(_random));
+
+    /* Shuffle items */
+    shuffleItems(_db, _random);
 
     /* Save the database */
     printf("Saving database\n");
