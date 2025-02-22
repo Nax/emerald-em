@@ -61,7 +61,7 @@ add_custom_target(
   data ALL
   DEPENDS ${DATA_FILES} ${EMERALD_ROM}
   COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_BINARY_DIR}/data ${CMAKE_BINARY_DIR}/bin/data
-  COMMAND ${CMAKE_COMMAND} -E copy ${EMERALD_ROM} ${CMAKE_BINARY_DIR}/bin/data/rom.gba
+  COMMAND ${CMAKE_COMMAND} -E copy ${EMERALD_ROM} ${CMAKE_BINARY_DIR}/bin/emerald-em.gba
   COMMENT "Copying data files"
   VERBATIM
 )

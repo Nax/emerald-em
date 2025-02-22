@@ -30,7 +30,7 @@ int Shuffler::run(const std::string& out)
     std::string outFilename;
     std::fstream outFile;
 
-    if (!_rom.open(dataPath("rom.gba")))
+    if (!_rom.open(dataPath("emerald-em")))
     {
         std::fprintf(stderr, "Failed to open ROM\n");
         return 1;
