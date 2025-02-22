@@ -130,11 +130,11 @@ static const std::uint16_t kItems[] = {
 
     /* Candies */
     ITEM_RARE_CANDY,
-    ITEM_EXP_CANDY_XS,
-    ITEM_EXP_CANDY_S,
-    ITEM_EXP_CANDY_M,
-    ITEM_EXP_CANDY_L,
-    ITEM_EXP_CANDY_XL,
+    //ITEM_EXP_CANDY_XS,
+    //ITEM_EXP_CANDY_S,
+    //ITEM_EXP_CANDY_M,
+    //ITEM_EXP_CANDY_L,
+    //ITEM_EXP_CANDY_XL,
 
     /* Flutes */
     ITEM_BLUE_FLUTE,
