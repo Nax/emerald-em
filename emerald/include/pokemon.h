@@ -484,6 +484,7 @@ struct SpeciesInfo
 _Static_assert(sizeof(struct SpeciesInfo) == DATA_SPECIES_SIZE);
 _Static_assert(offsetof(struct SpeciesInfo, baseHP) == DATA_SPECIES_OFF_STATS);
 _Static_assert(offsetof(struct SpeciesInfo, types) == DATA_SPECIES_OFF_TYPES);
+_Static_assert(offsetof(struct SpeciesInfo, catchRate) == DATA_SPECIES_OFF_CATCH_RATE);
 _Static_assert(offsetof(struct SpeciesInfo, abilities) == DATA_SPECIES_OFF_ABILITIES);
 _Static_assert(offsetof(struct SpeciesInfo, evolutions) == DATA_SPECIES_OFF_EVOLUTIONS);
 _Static_assert(offsetof(struct SpeciesInfo, growthRate) == DATA_SPECIES_OFF_GROWTH_RATE);
