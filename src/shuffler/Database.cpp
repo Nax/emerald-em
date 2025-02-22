@@ -56,7 +56,7 @@ static void databasePokemonsSave(const DatabasePokemons& db, Rom& rom)
         rom.write(base + DATA_SPECIES_OFF_STATS, db.stats[i].data(), 6);
         rom.write(base + DATA_SPECIES_OFF_ABILITIES, db.abilities[i].data(), 6);
         rom.writeU8(base + DATA_SPECIES_OFF_GROWTH_RATE, db.growthRate[i]);
-        rom.writeU8(base + DATA_SPECIES_OFF_CATCH_RATE, 150); /* Forced */
+        rom.writeU8(base + DATA_SPECIES_OFF_CATCH_RATE, 255); /* Forced */
         evolutionsPtr = rom.readU32(base + DATA_SPECIES_OFF_EVOLUTIONS);
         if (evolutionsPtr)
         {

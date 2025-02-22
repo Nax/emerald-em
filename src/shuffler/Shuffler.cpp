@@ -1,4 +1,10 @@
-#include <unistd.h>
+#if defined(_WIN32)
+# define WIN32_LEAN_AND_MEAN 1
+# include <windows.h>
+#else
+# include <unistd.h>
+#endif
+
 #include <cstdint>
 #include <cstring>
 #include <vector>
@@ -12,12 +18,21 @@ Shuffler::Shuffler()
 {
     char tmp[2048];
 
+#if defined(WIN32)
+    /* Load the data dir name */
+    if (GetModuleFileName(NULL, tmp, sizeof(tmp)) > 0)
+    {
+        _dataDir = std::string(tmp);
+        _dataDir = _dataDir.substr(0, _dataDir.find_last_of('\\'));
+    }
+#else
     /* Load the data dir name */
     if (readlink("/proc/self/exe", tmp, sizeof(tmp)) > 0)
     {
         _dataDir = std::string(tmp);
         _dataDir = _dataDir.substr(0, _dataDir.find_last_of('/'));
     }
+#endif
     _dataDir.append("/data");
 }
 
@@ -30,7 +45,7 @@ int Shuffler::run(const std::string& out)
     std::string outFilename;
     std::fstream outFile;
 
-    if (!_rom.open(dataPath("emerald-em")))
+    if (!_rom.open(dataPath("emerald-em.gba")))
     {
         std::fprintf(stderr, "Failed to open ROM\n");
         return 1;

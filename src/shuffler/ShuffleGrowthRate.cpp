@@ -15,7 +15,7 @@ void shuffleGrowthRates(Database& db, Random& rand)
         if (Pokemon::isLegendary(j))
             rate = 5;
         else
-            rate = 4;
+            rate = 2;
 
         db.pokemons.growthRate[j] = rate;
     }

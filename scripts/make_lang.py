@@ -10,7 +10,7 @@ class LangBuilder:
     self.entries = []
 
   def parse_charmap(self):
-    with open(os.path.join(os.path.dirname(__file__), '..', 'emerald', 'charmap.txt'), 'r') as f:
+    with open(os.path.join(os.path.dirname(__file__), '..', 'emerald', 'charmap.txt'), encoding='utf-8', mode='r') as f:
       for line in f:
         # Skip comments
         line = line.split('@')[0].strip()
@@ -32,7 +32,7 @@ class LangBuilder:
         self.chars[char] = data_num
 
   def parse_symbols(self):
-    with open(os.path.join(os.path.dirname(__file__), '..', 'emerald', 'pokeemerald.sym'), 'r') as f:
+    with open(os.path.join(os.path.dirname(__file__), '..', 'emerald', 'pokeemerald.sym'), encoding='utf-8', mode='r') as f:
       for line in f:
         splits = line.split(' ')
         if len(splits) < 3:
@@ -70,7 +70,7 @@ class LangBuilder:
     off_buffer = self.symbol(sym_buffer)
     if not os.path.exists(filename):
       raise ValueError('File not found: ' + filename)
-    with open(filename, 'r') as f:
+    with open(filename, encoding='utf-8', mode='r') as f:
       for line in f:
         splits = line.split('|')
         if len(splits) < 2:

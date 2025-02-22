@@ -1,3 +1,8 @@
+#if defined(_WIN32)
+# define _CRT_RAND_S
+#endif
+
+#include <cstdlib>
 #include <fstream>
 #include <shuffler/Random.h>
 
@@ -11,6 +16,25 @@ Random::~Random()
 {
 }
 
+#if defined(_WIN32)
+void Random::seed()
+{
+    std::uint32_t seed;
+
+    if (rand_s(&seed) != 0)
+    {
+        std::fprintf(stderr, "Failed to seed RNG\n");
+        return;
+    }
+
+    _state[0] = seed;
+    _state[1] = seed;
+    _state[2] = seed;
+    _state[3] = seed;
+    _state[4] = seed;
+    _counter = 0;
+}
+#else
 void Random::seed()
 {
     std::fstream file;
@@ -25,6 +49,7 @@ void Random::seed()
     file.read(reinterpret_cast<char*>(_state), sizeof(_state));
     _counter = 0;
 }
+#endif
 
 std::uint32_t Random::next()
 {

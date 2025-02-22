@@ -3,7 +3,7 @@
 
 #include <cstdint>
 
-class Database;
+struct Database;
 class Random;
 
 namespace Pokemon

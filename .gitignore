@@ -1,1 +1,5 @@
 /build
+/baserom/*.sym
+/baserom/*.gba
+/baserom/*.xdelta
+/.vscode/settings.json
