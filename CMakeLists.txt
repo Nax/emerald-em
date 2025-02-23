@@ -66,7 +66,7 @@ macro(build_lang lang)
   add_custom_command(
     OUTPUT ${_lang_output}
     COMMAND "${Python3_EXECUTABLE}" ${CMAKE_SOURCE_DIR}/scripts/make_lang.py ${lang}
-    DEPENDS emerald ${_lang_sources} ${CMAKE_SOURCE_DIR}/scripts/make_lang.py
+    DEPENDS emerald ${EMERALD_ROM} ${EMERALD_SYM} ${_lang_sources} ${CMAKE_SOURCE_DIR}/scripts/make_lang.py
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     COMMENT "Building ${lang} data"
     VERBATIM
@@ -82,7 +82,7 @@ set(OFFSETS_FILE "${CMAKE_BINARY_DIR}/data/offsets.bin")
 add_custom_command(
   OUTPUT ${OFFSETS_FILE}
   COMMAND "${Python3_EXECUTABLE}" ${CMAKE_SOURCE_DIR}/scripts/make_offsets.py
-  DEPENDS emerald ${CMAKE_SOURCE_DIR}/scripts/make_offsets.py
+  DEPENDS emerald ${EMERALD_ROM} ${EMERALD_SYM} ${CMAKE_SOURCE_DIR}/scripts/make_offsets.py
   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   COMMENT "Building offsets"
   VERBATIM
@@ -94,7 +94,7 @@ set(DELTA_FILE "${CMAKE_BINARY_DIR}/data/delta.bin")
 add_custom_command(
   OUTPUT ${DELTA_FILE}
   COMMAND "${Python3_EXECUTABLE}" ${CMAKE_SOURCE_DIR}/scripts/make_delta.py "${ORIGINAL_ROM}" "${EMERALD_ROM}" "${DELTA_FILE}"
-  DEPENDS emerald ${CMAKE_SOURCE_DIR}/scripts/make_delta.py
+  DEPENDS emerald ${EMERALD_ROM} ${CMAKE_SOURCE_DIR}/scripts/make_delta.py
   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   COMMENT "Building delta"
   VERBATIM

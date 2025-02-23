@@ -118,3 +118,4 @@ class LangBuilder:
 
 builder = LangBuilder(sys.argv[1])
 builder.build()
+
