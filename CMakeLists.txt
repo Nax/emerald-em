@@ -121,8 +121,12 @@ add_custom_target(
   VERBATIM
 )
 
-#install(TARGETS shuffler DESTINATION .)
-#install(FILES $<TARGET_RUNTIME_DLLS:shuffler> DESTINATION .)
-#install(DIRECTORY ${CMAKE_BINARY_DIR}/data DESTINATION .)
-#set(CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION .)
-#include(InstallRequiredSystemLibraries)
+if (WIN32)
+  install(TARGETS shuffler-cli DESTINATION .)
+  install(TARGETS shuffler-gui DESTINATION .)
+  install(FILES $<TARGET_RUNTIME_DLLS:shuffler-cli> DESTINATION .)
+  install(FILES $<TARGET_RUNTIME_DLLS:shuffler-gui> DESTINATION .)
+  install(DIRECTORY ${CMAKE_BINARY_DIR}/data DESTINATION .)
+  set(CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION .)
+  include(InstallRequiredSystemLibraries)
+endif()

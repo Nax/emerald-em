@@ -17,4 +17,7 @@ if (MSVC)
   set(QT6_WINDEPLOYQT_EXECUTABLE "${QT6_BIN_DIR}/windeployqt.exe")
 
   add_custom_command(TARGET shuffler-gui POST_BUILD COMMAND ${QT6_WINDEPLOYQT_EXECUTABLE} --no-compiler-runtime --no-opengl-sw --no-translations --no-network --no-svg --no-system-d3d-compiler --release $<TARGET_FILE_DIR:shuffler-gui>)
+
+  # Also run it on install
+  install(FILES $<TARGET_FILE_DIR:shuffler-gui>/ DESTINATION .)
 endif()
