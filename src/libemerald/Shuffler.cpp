@@ -272,10 +272,6 @@ void shuffleItems(Database& db, Random& rand);
 
 void Shuffler::shuffle()
 {
-    /* Load the database */
-    Log::info(_ctx, "Loading database");
-    databaseLoad(_ctx.db, _ctx.rom);
-
     shuffleTmHm(_ctx.db, _ctx.rng);
     shuffleGrowthRates(_ctx.db, _ctx.rng);
 
@@ -307,8 +303,4 @@ void Shuffler::shuffle()
 
     /* Shuffle items */
     shuffleItems(_ctx.db, _ctx.rng);
-
-    /* Save the database */
-    Log::info(_ctx, "Saving database");
-    databaseSave(_ctx.rom, _ctx.db);
 }

@@ -12,15 +12,18 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(USE_DOCKER_DEFAULT OFF)
+set(BUILD_GUI_DEFAULT OFF)
 
 if (NOT MSVC)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -std=c++17")
 else()
   set(USE_DOCKER_DEFAULT ON)
+  set(BUILD_GUI_DEFAULT ON)
 endif()
 
 option(USE_DOCKER "" "${USE_DOCKER_DEFAULT}")
 option(ORIGINAL_ROM "Path to the original ROM" "")
+option(BUILD_GUI "Build the GUI" "${BUILD_GUI_DEFAULT}")
 
 set(BASEROM_STAMP "${CMAKE_BINARY_DIR}/baserom.stamp")
 set(EMERALD_ROM "${CMAKE_SOURCE_DIR}/emerald/pokeemerald.gba")
@@ -28,6 +31,8 @@ set(EMERALD_SYM "${CMAKE_SOURCE_DIR}/emerald/pokeemerald.sym")
 
 if (USE_DOCKER)
   file(GLOB_RECURSE BASEROM_SOURCES "${CMAKE_SOURCE_DIR}/emerald/*")
+  list(REMOVE_ITEM BASEROM_SOURCES "${EMERALD_ROM}")
+  list(REMOVE_ITEM BASEROM_SOURCES "${EMERALD_SYM}")
   add_custom_command(
     OUTPUT "${BASEROM_STAMP}"
     COMMAND docker build . -t emerald-em-builder
@@ -43,6 +48,8 @@ if (USE_DOCKER)
   add_custom_target(emerald DEPENDS "${BASEROM_STAMP}")
 else()
   file(GLOB_RECURSE BASEROM_SOURCES "${CMAKE_SOURCE_DIR}/emerald/*")
+  list(REMOVE_ITEM BASEROM_SOURCES "${EMERALD_ROM}")
+  list(REMOVE_ITEM BASEROM_SOURCES "${EMERALD_SYM}")
   add_custom_command(
     OUTPUT "${BASEROM_STAMP}"
     COMMAND make -j32 rom
@@ -50,6 +57,7 @@ else()
     BYPRODUCTS ${EMERALD_ROM} ${EMERALD_SYM}
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/emerald
     COMMENT "Building the ROM"
+    DEPENDS ${BASEROM_SOURCES}
     USES_TERMINAL
     VERBATIM
   )

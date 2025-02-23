@@ -25,7 +25,7 @@ EMERALDEM_API void EmDestroy(EmeraldGenerator* emerald)
     delete emerald;
 }
 
-EMERALDEM_API void  EmSetLang(EmeraldGenerator* emerald, int lang)
+EMERALDEM_API void EmSetLang(EmeraldGenerator* emerald, int lang)
 {
     emerald->cfg.lang = lang;
 }

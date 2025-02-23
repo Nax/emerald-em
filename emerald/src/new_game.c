@@ -166,8 +166,8 @@ static void RandoGiveStartingItems(void)
     AddBagItem(ITEM_SCROLL_OF_WATERS, 1);
 
     /* Set flags */
-    //FlagSet(FLAG_SYS_B_DASH);
-    //FlagSet(FLAG_SYS_NATIONAL_DEX);
+    FlagSet(FLAG_SYS_B_DASH);
+    FlagSet(FLAG_SYS_NATIONAL_DEX);
 }
 
 void NewGameInitData(void)
