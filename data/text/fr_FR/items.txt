@@ -1,68 +1,68 @@
 NONE                     |-
-POKE_BALL                |
-GREAT_BALL               |
-ULTRA_BALL               |
-MASTER_BALL              |
-PREMIER_BALL             |
-HEAL_BALL                |
-NET_BALL                 |
-NEST_BALL                |
-DIVE_BALL                |
-DUSK_BALL                |
-TIMER_BALL               |
-QUICK_BALL               |
-REPEAT_BALL              |
-LUXURY_BALL              |
-LEVEL_BALL               |
-LURE_BALL                |
-MOON_BALL                |
-FRIEND_BALL              |
-LOVE_BALL                |
-FAST_BALL                |
-HEAVY_BALL               |
-DREAM_BALL               |
-SAFARI_BALL              |
-SPORT_BALL               |
-PARK_BALL                |
-BEAST_BALL               |
-CHERISH_BALL             |
-POTION                   |
-SUPER_POTION             |
-HYPER_POTION             |
-MAX_POTION               |
-FULL_RESTORE             |
-REVIVE                   |
-MAX_REVIVE               |
-FRESH_WATER              |
-SODA_POP                 |
-LEMONADE                 |
-MOOMOO_MILK              |
-ENERGY_POWDER            |
-ENERGY_ROOT              |
-HEAL_POWDER              |
-REVIVAL_HERB             |
-ANTIDOTE                 |
-PARALYZE_HEAL            |
-BURN_HEAL                |
-ICE_HEAL                 |
-AWAKENING                |
-FULL_HEAL                |
-ETHER                    |
-MAX_ETHER                |
-ELIXIR                   |
-MAX_ELIXIR               |
-BERRY_JUICE              |
-SACRED_ASH               |
-SWEET_HEART              |
-MAX_HONEY                |
-PEWTER_CRUNCHIES         |
-RAGE_CANDY_BAR           |
-LAVA_COOKIE              |
-OLD_GATEAU               |
-CASTELIACONE             |
-LUMIOSE_GALETTE          |
-SHALOUR_SABLE            |
-BIG_MALASADA             |
+POKE_BALL                |Poké Ball
+GREAT_BALL               |Super Ball
+ULTRA_BALL               |Hyper Ball
+MASTER_BALL              |Master Ball
+PREMIER_BALL             |Honor Ball
+HEAL_BALL                |Soin Ball
+NET_BALL                 |Filet Ball
+NEST_BALL                |Faiblo Ball
+DIVE_BALL                |Scuba Ball
+DUSK_BALL                |Sombre Ball
+TIMER_BALL               |Chrono Ball
+QUICK_BALL               |Rapide Ball
+REPEAT_BALL              |Bis Ball
+LUXURY_BALL              |Luxe Ball
+LEVEL_BALL               |Niveau Ball
+LURE_BALL                |Appât Ball
+MOON_BALL                |Lune Ball
+FRIEND_BALL              |Copain Ball
+LOVE_BALL                |Love Ball
+FAST_BALL                |Speed Ball
+HEAVY_BALL               |Masse Ball
+DREAM_BALL               |Rêve Ball
+SAFARI_BALL              |Safari Ball
+SPORT_BALL               |Compét' Ball
+PARK_BALL                |Parc Ball
+BEAST_BALL               |Ultra Ball
+CHERISH_BALL             |Mémoire Ball
+POTION                   |Potion
+SUPER_POTION             |Super Potion
+HYPER_POTION             |Hyper Potion
+MAX_POTION               |Potion Max
+FULL_RESTORE             |Guérison
+REVIVE                   |Rappel
+MAX_REVIVE               |Rappel Max
+FRESH_WATER              |Eau Fraîche
+SODA_POP                 |Soda Cool
+LEMONADE                 |Limonade
+MOOMOO_MILK              |Lait Meumeu
+ENERGY_POWDER            |Poudre Énergie
+ENERGY_ROOT              |Racine Énergie
+HEAL_POWDER              |Poudre Soin
+REVIVAL_HERB             |Herbe Rappel
+ANTIDOTE                 |Antidote
+PARALYZE_HEAL            |Anti-Para
+BURN_HEAL                |Anti-Brûle
+ICE_HEAL                 |Antigel
+AWAKENING                |Réveil
+FULL_HEAL                |Total Soin
+ETHER                    |Huile
+MAX_ETHER                |Huile Max
+ELIXIR                   |Élixir
+MAX_ELIXIR               |Élixir Max
+BERRY_JUICE              |Jus de Baie
+SACRED_ASH               |Cendres Sacrées
+SWEET_HEART              |Chococœur
+MAX_HONEY                |Maxi Miel
+PEWTER_CRUNCHIES         |Crok'Argenta
+RAGE_CANDY_BAR           |Bonbon Rage
+LAVA_COOKIE              |Lava Cookie
+OLD_GATEAU               |Vieux Gâteau
+CASTELIACONE             |Glace Volute
+LUMIOSE_GALETTE          |Galette Illumis
+SHALOUR_SABLE            |Sablé Yantreizh
+BIG_MALASADA             |Malasada Maxi
 HP_UP                    |
 PROTEIN                  |
 IRON                     |
@@ -580,140 +580,140 @@ ROWAP_BERRY              |
 KEE_BERRY                |
 MARANGA_BERRY            |
 ENIGMA_BERRY_E_READER    |
-TM01                     |
-TM02                     |
-TM03                     |
-TM04                     |
-TM05                     |
-TM06                     |
-TM07                     |
-TM08                     |
-TM09                     |
-TM10                     |
-TM11                     |
-TM12                     |
-TM13                     |
-TM14                     |
-TM15                     |
-TM16                     |
-TM17                     |
-TM18                     |
-TM19                     |
-TM20                     |
-TM21                     |
-TM22                     |
-TM23                     |
-TM24                     |
-TM25                     |
-TM26                     |
-TM27                     |
-TM28                     |
-TM29                     |
-TM30                     |
-TM31                     |
-TM32                     |
-TM33                     |
-TM34                     |
-TM35                     |
-TM36                     |
-TM37                     |
-TM38                     |
-TM39                     |
-TM40                     |
-TM41                     |
-TM42                     |
-TM43                     |
-TM44                     |
-TM45                     |
-TM46                     |
-TM47                     |
-TM48                     |
-TM49                     |
-TM50                     |
-TM51                     |
-TM52                     |
-TM53                     |
-TM54                     |
-TM55                     |
-TM56                     |
-TM57                     |
-TM58                     |
-TM59                     |
-TM60                     |
-TM61                     |
-TM62                     |
-TM63                     |
-TM64                     |
-TM65                     |
-TM66                     |
-TM67                     |
-TM68                     |
-TM69                     |
-TM70                     |
-TM71                     |
-TM72                     |
-TM73                     |
-TM74                     |
-TM75                     |
-TM76                     |
-TM77                     |
-TM78                     |
-TM79                     |
-TM80                     |
-TM81                     |
-TM82                     |
-TM83                     |
-TM84                     |
-TM85                     |
-TM86                     |
-TM87                     |
-TM88                     |
-TM89                     |
-TM90                     |
-TM91                     |
-TM92                     |
-TM93                     |
-TM94                     |
-TM95                     |
-TM96                     |
-TM97                     |
-TM98                     |
-TM99                     |
-TM100                    |
-HM01                     |
-HM02                     |
-HM03                     |
-HM04                     |
-HM05                     |
-HM06                     |
-HM07                     |
-HM08                     |
-OVAL_CHARM               |
-SHINY_CHARM              |
-CATCHING_CHARM           |
-EXP_CHARM                |
-ROTOM_CATALOG            |
+TM01                     |CT01
+TM02                     |CT02
+TM03                     |CT03
+TM04                     |CT04
+TM05                     |CT05
+TM06                     |CT06
+TM07                     |CT07
+TM08                     |CT08
+TM09                     |CT09
+TM10                     |CT10
+TM11                     |CT11
+TM12                     |CT12
+TM13                     |CT13
+TM14                     |CT14
+TM15                     |CT15
+TM16                     |CT16
+TM17                     |CT17
+TM18                     |CT18
+TM19                     |CT19
+TM20                     |CT20
+TM21                     |CT21
+TM22                     |CT22
+TM23                     |CT23
+TM24                     |CT24
+TM25                     |CT25
+TM26                     |CT26
+TM27                     |CT27
+TM28                     |CT28
+TM29                     |CT29
+TM30                     |CT30
+TM31                     |CT31
+TM32                     |CT32
+TM33                     |CT33
+TM34                     |CT34
+TM35                     |CT35
+TM36                     |CT36
+TM37                     |CT37
+TM38                     |CT38
+TM39                     |CT39
+TM40                     |CT40
+TM41                     |CT41
+TM42                     |CT42
+TM43                     |CT43
+TM44                     |CT44
+TM45                     |CT45
+TM46                     |CT46
+TM47                     |CT47
+TM48                     |CT48
+TM49                     |CT49
+TM50                     |CT50
+TM51                     |CT51
+TM52                     |CT52
+TM53                     |CT53
+TM54                     |CT54
+TM55                     |CT55
+TM56                     |CT56
+TM57                     |CT57
+TM58                     |CT58
+TM59                     |CT59
+TM60                     |CT60
+TM61                     |CT61
+TM62                     |CT62
+TM63                     |CT63
+TM64                     |CT64
+TM65                     |CT65
+TM66                     |CT66
+TM67                     |CT67
+TM68                     |CT68
+TM69                     |CT69
+TM70                     |CT70
+TM71                     |CT71
+TM72                     |CT72
+TM73                     |CT73
+TM74                     |CT74
+TM75                     |CT75
+TM76                     |CT76
+TM77                     |CT77
+TM78                     |CT78
+TM79                     |CT79
+TM80                     |CT80
+TM81                     |CT81
+TM82                     |CT82
+TM83                     |CT83
+TM84                     |CT84
+TM85                     |CT85
+TM86                     |CT86
+TM87                     |CT87
+TM88                     |CT88
+TM89                     |CT89
+TM90                     |CT90
+TM91                     |CT91
+TM92                     |CT92
+TM93                     |CT93
+TM94                     |CT94
+TM95                     |CT95
+TM96                     |CT96
+TM97                     |CT97
+TM98                     |CT98
+TM99                     |CT99
+TM100                    |CT100
+HM01                     |CS01
+HM02                     |CS02
+HM03                     |CS03
+HM04                     |CS04
+HM05                     |CS05
+HM06                     |CS06
+HM07                     |CS07
+HM08                     |CS08
+OVAL_CHARM               |Charme Ovale
+SHINY_CHARM              |Charme Chroma
+CATCHING_CHARM           |Charme Stabilité
+EXP_CHARM                |Charme Exp
+ROTOM_CATALOG            |Moti-Catalogue
 GRACIDEA                 |Gracidée
-REVEAL_GLASS             |
-DNA_SPLICERS             |
-ZYGARDE_CUBE             |
-PRISON_BOTTLE            |
-N_SOLARIZER              |
-N_LUNARIZER              |
-REINS_OF_UNITY           |
-MEGA_RING                |
-Z_POWER_RING             |
-DYNAMAX_BAND             |
+REVEAL_GLASS             |Miroir Sacré
+DNA_SPLICERS             |Pointeau ADN
+ZYGARDE_CUBE             |Boîte Zygarde
+PRISON_BOTTLE            |Vase Scellé
+N_SOLARIZER              |Necrosol
+N_LUNARIZER              |Necroluna
+REINS_OF_UNITY           |Rênes de l'Unité
+MEGA_RING                |Méga-Anneau
+Z_POWER_RING             |Super Bracelet Z
+DYNAMAX_BAND             |Poignet Dynamax
 BICYCLE                  |Bicyclette
 MACH_BIKE                |Vélo Course
 ACRO_BIKE                |Vélo Cross
-OLD_ROD                  |
-GOOD_ROD                 |
-SUPER_ROD                |
-DOWSING_MACHINE          |
+OLD_ROD                  |Canne
+GOOD_ROD                 |Super Canne
+SUPER_ROD                |Méga Canne
+DOWSING_MACHINE          |Cherch'Objet
 TOWN_MAP                 |Carte Ville
-VS_SEEKER                |
-TM_CASE                  |
+VS_SEEKER                |Cherch'Combat
+TM_CASE                  |Boîte CT
 BERRY_POUCH              |
 POKEMON_BOX_LINK         |
 COIN_CASE                |
@@ -826,5 +826,5 @@ CHOICE_DUMPLING          |
 SWAP_SNACK               |
 TWICE_SPICED_RADISH      |
 POKESHI_DOLL             |
-STRANGE_BALL             |
+STRANGE_BALL             |Étrange Ball
 ETERNAL_REPEL            |Repousse Éternel
