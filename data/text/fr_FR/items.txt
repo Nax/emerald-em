@@ -79,27 +79,27 @@ CLEVER_FEATHER           |Plume Mental
 SWIFT_FEATHER            |Plume Sprint
 ABILITY_CAPSULE          |Pilule Talent
 ABILITY_PATCH            |Patch Talent
-LONELY_MINT              |
-ADAMANT_MINT             |
-NAUGHTY_MINT             |
-BRAVE_MINT               |
-BOLD_MINT                |
-IMPISH_MINT              |
-LAX_MINT                 |
-RELAXED_MINT             |
-MODEST_MINT              |
-MILD_MINT                |
-RASH_MINT                |
-QUIET_MINT               |
-CALM_MINT                |
-GENTLE_MINT              |
-CAREFUL_MINT             |
-SASSY_MINT               |
-TIMID_MINT               |
-HASTY_MINT               |
-JOLLY_MINT               |
-NAIVE_MINT               |
-SERIOUS_MINT             |
+LONELY_MINT              |Aromate Solo
+ADAMANT_MINT             |Aromate Rigide
+NAUGHTY_MINT             |Aromate Mauvais
+BRAVE_MINT               |Aromate Brave
+BOLD_MINT                |Aromate Assuré
+IMPISH_MINT              |Aromate Malin
+LAX_MINT                 |Aromate Lâche
+RELAXED_MINT             |Aromate Relax
+MODEST_MINT              |Aromate Modeste
+MILD_MINT                |Aromate Doux
+RASH_MINT                |Aromate Foufou
+QUIET_MINT               |Aromate Discret
+CALM_MINT                |Aromate Calme
+GENTLE_MINT              |Aromate Gentil
+CAREFUL_MINT             |Aromate Prudent
+SASSY_MINT               |Aromate Malpoli
+TIMID_MINT               |Aromate Timide
+HASTY_MINT               |Aromate Pressé
+JOLLY_MINT               |Aromate Jovial
+NAIVE_MINT               |Aromate Naïf
+SERIOUS_MINT             |Aromate Sérieux
 RARE_CANDY               |Super Bonbon
 EXP_CANDY_XS             |Bonbon Exp. XS
 EXP_CANDY_S              |Bonbon Exp. S
@@ -128,87 +128,87 @@ X_ACCURACY               |Précision+
 DIRE_HIT                 |Muscle+
 GUARD_SPEC               |Garde-Stats
 POKE_DOLL                |Poké Poupée
-FLUFFY_TAIL              |
-POKE_TOY                 |
-MAX_MUSHROOMS            |
-BOTTLE_CAP               |
-GOLD_BOTTLE_CAP          |
-NUGGET                   |
-BIG_NUGGET               |
-TINY_MUSHROOM            |
-BIG_MUSHROOM             |
-BALM_MUSHROOM            |
-PEARL                    |
-BIG_PEARL                |
-PEARL_STRING             |
-STARDUST                 |
-STAR_PIECE               |
-COMET_SHARD              |
-SHOAL_SALT               |
-SHOAL_SHELL              |
-RED_SHARD                |
-BLUE_SHARD               |
-YELLOW_SHARD             |
-GREEN_SHARD              |
-HEART_SCALE              |
-HONEY                    |
-RARE_BONE                |
-ODD_KEYSTONE             |
-PRETTY_FEATHER           |
-RELIC_COPPER             |
-RELIC_SILVER             |
-RELIC_GOLD               |
-RELIC_VASE               |
-RELIC_BAND               |
-RELIC_STATUE             |
-RELIC_CROWN              |
-STRANGE_SOUVENIR         |
-HELIX_FOSSIL             |
-DOME_FOSSIL              |
-OLD_AMBER                |
-ROOT_FOSSIL              |
-CLAW_FOSSIL              |
-ARMOR_FOSSIL             |
-SKULL_FOSSIL             |
-COVER_FOSSIL             |
-PLUME_FOSSIL             |
-JAW_FOSSIL               |
-SAIL_FOSSIL              |
-FOSSILIZED_BIRD          |
-FOSSILIZED_FISH          |
-FOSSILIZED_DRAKE         |
-FOSSILIZED_DINO          |
-GROWTH_MULCH             |
-DAMP_MULCH               |
-STABLE_MULCH             |
-GOOEY_MULCH              |
-RICH_MULCH               |
-SURPRISE_MULCH           |
-BOOST_MULCH              |
-AMAZE_MULCH              |
-RED_APRICORN             |
-BLUE_APRICORN            |
-YELLOW_APRICORN          |
-GREEN_APRICORN           |
-PINK_APRICORN            |
-WHITE_APRICORN           |
-BLACK_APRICORN           |
-WISHING_PIECE            |
-GALARICA_TWIG            |
-ARMORITE_ORE             |
-DYNITE_ORE               |
-ORANGE_MAIL              |
-HARBOR_MAIL              |
-GLITTER_MAIL             |
-MECH_MAIL                |
-WOOD_MAIL                |
-WAVE_MAIL                |
-BEAD_MAIL                |
-SHADOW_MAIL              |
-TROPIC_MAIL              |
-DREAM_MAIL               |
-FAB_MAIL                 |
-RETRO_MAIL               |
+FLUFFY_TAIL              |Queue Skitty
+POKE_TOY                 |Poké Plumet
+MAX_MUSHROOMS            |Maxi Champi
+BOTTLE_CAP               |Capsule d'Argent
+GOLD_BOTTLE_CAP          |Capsule d'Or
+NUGGET                   |Pépite
+BIG_NUGGET               |Maxi Pépite
+TINY_MUSHROOM            |Tiny Mushroom
+BIG_MUSHROOM             |Gros Champi
+BALM_MUSHROOM            |Champi Suave
+PEARL                    |Perle
+BIG_PEARL                |Grande Perle
+PEARL_STRING             |Perle Triple
+STARDUST                 |Poussière Étoile
+STAR_PIECE               |Morceau d'Étoile
+COMET_SHARD              |Morceau Comète
+SHOAL_SALT               |Sel Tréfonds
+SHOAL_SHELL              |CoquilleTréfonds
+RED_SHARD                |Tesson Rouge
+BLUE_SHARD               |Tesson Bleu
+YELLOW_SHARD             |Tesson jaune
+GREEN_SHARD              |Tesson Vert
+HEART_SCALE              |Écaille Cœur
+HONEY                    |Miel
+RARE_BONE                |Os Rare
+ODD_KEYSTONE             |Clé de Voûte
+PRETTY_FEATHER           |Jolie Plume
+RELIC_COPPER             |Vieux Sou
+RELIC_SILVER             |Vieil Écu
+RELIC_GOLD               |Vieux Ducat
+RELIC_VASE               |Vieux Vase
+RELIC_BAND               |Vieux Bijou
+RELIC_STATUE             |Vieux Santon
+RELIC_CROWN              |Vieux Tortil
+STRANGE_SOUVENIR         |Bibelot Bizarre
+HELIX_FOSSIL             |Nautile
+DOME_FOSSIL              |Fossile Dôme
+OLD_AMBER                |Vieil Ambre
+ROOT_FOSSIL              |Fossile Racine
+CLAW_FOSSIL              |Fossile Griffe
+ARMOR_FOSSIL             |Fossile Armure
+SKULL_FOSSIL             |Fossile Crâne
+COVER_FOSSIL             |Fossile Plaque
+PLUME_FOSSIL             |Fossile Plume
+JAW_FOSSIL               |Fossile Mâchoire
+SAIL_FOSSIL              |Fossile Nageoire
+FOSSILIZED_BIRD          |Fossile Oiseau
+FOSSILIZED_FISH          |Fossile Poisson
+FOSSILIZED_DRAKE         |Fossile Dragon
+FOSSILIZED_DINO          |Fossile Aileron
+GROWTH_MULCH             |Fertipousse
+DAMP_MULCH               |Engrais
+STABLE_MULCH             |Fertistable
+GOOEY_MULCH              |Fertiglu
+RICH_MULCH               |Fertibondance
+SURPRISE_MULCH           |Fertistantané
+BOOST_MULCH              |Fertibérance
+AMAZE_MULCH              |Fertiprodige
+RED_APRICORN             |Noigrume Rouge
+BLUE_APRICORN            |Noigrume Bleu
+YELLOW_APRICORN          |Noigrume Jaune
+GREEN_APRICORN           |Noigrume Vert
+PINK_APRICORN            |Noigrume Rose
+WHITE_APRICORN           |Noigrume Blanc
+BLACK_APRICORN           |Noigrume Noir
+WISHING_PIECE            |Morceau Vœu
+GALARICA_TWIG            |Branche Galanoa
+ARMORITE_ORE             |Armurium
+DYNITE_ORE               |Dynamaxium
+ORANGE_MAIL              |Lettre Oranj
+HARBOR_MAIL              |Lettre Port
+GLITTER_MAIL             |Lettre Brill
+MECH_MAIL                |Lettre Meca
+WOOD_MAIL                |Lettre Bois
+WAVE_MAIL                |Lettre Vague
+BEAD_MAIL                |Lettre Bulle
+SHADOW_MAIL              |Lettre Ombre
+TROPIC_MAIL              |Lettre Tropi
+DREAM_MAIL               |Lettre Songe
+FAB_MAIL                 |Lettre Cool
+RETRO_MAIL               |Lettre Retro
 FIRE_STONE               |Pierre Feu
 WATER_STONE              |Pierre Eau
 THUNDER_STONE            |Pierre Foudre
@@ -236,18 +236,18 @@ PRISM_SCALE              |Bel'Écaille
 WHIPPED_DREAM            |Chantibonbon
 SACHET                   |Sachet Senteur
 OVAL_STONE               |Pierre Ovale
-STRAWBERRY_SWEET         |
-LOVE_SWEET               |
-BERRY_SWEET              |
-CLOVER_SWEET             |
-FLOWER_SWEET             |
-STAR_SWEET               |
-RIBBON_SWEET             |
-EVERSTONE                |
-RED_NECTAR               |
-YELLOW_NECTAR            |
-PINK_NECTAR              |
-PURPLE_NECTAR            |
+STRAWBERRY_SWEET         |Fraise en Sucre
+LOVE_SWEET               |Cœur en Sucre
+BERRY_SWEET              |Baie en Sucre
+CLOVER_SWEET             |Trèfle en Sucre
+FLOWER_SWEET             |Fleur en Sucre
+STAR_SWEET               |Étoile en Sucre
+RIBBON_SWEET             |Ruban en Sucre
+EVERSTONE                |Pierre Stase
+RED_NECTAR               |Nectar Rouge
+YELLOW_NECTAR            |Nectar Jaune
+PINK_NECTAR              |Nectar Rose
+PURPLE_NECTAR            |Nectar Mauve
 FLAME_PLATE              |Plaque Flamme
 SPLASH_PLATE             |Plaque Hydro
 ZAP_PLATE                |Plaque Volt
@@ -265,321 +265,321 @@ DRACO_PLATE              |Plaque Draco
 DREAD_PLATE              |Plaque Ombre
 IRON_PLATE               |Plaque Fer
 PIXIE_PLATE              |Plaque Pixie
-DOUSE_DRIVE              |
-SHOCK_DRIVE              |
-BURN_DRIVE               |
-CHILL_DRIVE              |
-FIRE_MEMORY              |
-WATER_MEMORY             |
-ELECTRIC_MEMORY          |
-GRASS_MEMORY             |
-ICE_MEMORY               |
-FIGHTING_MEMORY          |
-POISON_MEMORY            |
-GROUND_MEMORY            |
-FLYING_MEMORY            |
-PSYCHIC_MEMORY           |
-BUG_MEMORY               |
-ROCK_MEMORY              |
-GHOST_MEMORY             |
-DRAGON_MEMORY            |
-DARK_MEMORY              |
-STEEL_MEMORY             |
-FAIRY_MEMORY             |
-RUSTED_SWORD             |
-RUSTED_SHIELD            |
-RED_ORB                  |
-BLUE_ORB                 |
-VENUSAURITE              |
-CHARIZARDITE_X           |
-CHARIZARDITE_Y           |
-BLASTOISINITE            |
-BEEDRILLITE              |
-PIDGEOTITE               |
-ALAKAZITE                |
-SLOWBRONITE              |
-GENGARITE                |
-KANGASKHANITE            |
-PINSIRITE                |
-GYARADOSITE              |
-AERODACTYLITE            |
-MEWTWONITE_X             |
-MEWTWONITE_Y             |
-AMPHAROSITE              |
-STEELIXITE               |
-SCIZORITE                |
-HERACRONITE              |
-HOUNDOOMINITE            |
-TYRANITARITE             |
-SCEPTILITE               |
-BLAZIKENITE              |
-SWAMPERTITE              |
-GARDEVOIRITE             |
-SABLENITE                |
-MAWILITE                 |
-AGGRONITE                |
-MEDICHAMITE              |
-MANECTITE                |
-SHARPEDONITE             |
-CAMERUPTITE              |
-ALTARIANITE              |
-BANETTITE                |
-ABSOLITE                 |
-GLALITITE                |
-SALAMENCITE              |
-METAGROSSITE             |
-LATIASITE                |
-LATIOSITE                |
-LOPUNNITE                |
-GARCHOMPITE              |
-LUCARIONITE              |
-ABOMASITE                |
-GALLADITE                |
-AUDINITE                 |
-DIANCITE                 |
-NORMAL_GEM               |
-FIRE_GEM                 |
-WATER_GEM                |
-ELECTRIC_GEM             |
-GRASS_GEM                |
-ICE_GEM                  |
-FIGHTING_GEM             |
-POISON_GEM               |
-GROUND_GEM               |
-FLYING_GEM               |
-PSYCHIC_GEM              |
-BUG_GEM                  |
-ROCK_GEM                 |
-GHOST_GEM                |
-DRAGON_GEM               |
-DARK_GEM                 |
-STEEL_GEM                |
-FAIRY_GEM                |
-NORMALIUM_Z              |
-FIRIUM_Z                 |
-WATERIUM_Z               |
-ELECTRIUM_Z              |
-GRASSIUM_Z               |
-ICIUM_Z                  |
-FIGHTINIUM_Z             |
-POISONIUM_Z              |
-GROUNDIUM_Z              |
-FLYINIUM_Z               |
-PSYCHIUM_Z               |
-BUGINIUM_Z               |
-ROCKIUM_Z                |
-GHOSTIUM_Z               |
-DRAGONIUM_Z              |
-DARKINIUM_Z              |
-STEELIUM_Z               |
-FAIRIUM_Z                |
-PIKANIUM_Z               |
-EEVIUM_Z                 |
-SNORLIUM_Z               |
-MEWNIUM_Z                |
-DECIDIUM_Z               |
-INCINIUM_Z               |
-PRIMARIUM_Z              |
-LYCANIUM_Z               |
-MIMIKIUM_Z               |
-KOMMONIUM_Z              |
-TAPUNIUM_Z               |
-SOLGANIUM_Z              |
-LUNALIUM_Z               |
-MARSHADIUM_Z             |
-ALORAICHIUM_Z            |
-PIKASHUNIUM_Z            |
-ULTRANECROZIUM_Z         |
-LIGHT_BALL               |
-LEEK                     |
-THICK_CLUB               |
-LUCKY_PUNCH              |
-METAL_POWDER             |
-QUICK_POWDER             |
-DEEP_SEA_SCALE           |
-DEEP_SEA_TOOTH           |
-SOUL_DEW                 |
-ADAMANT_ORB              |
-LUSTROUS_ORB             |
-GRISEOUS_ORB             |
-SEA_INCENSE              |
-LAX_INCENSE              |
-ODD_INCENSE              |
-ROCK_INCENSE             |
-FULL_INCENSE             |
-WAVE_INCENSE             |
-ROSE_INCENSE             |
-LUCK_INCENSE             |
-PURE_INCENSE             |
-RED_SCARF                |
-BLUE_SCARF               |
-PINK_SCARF               |
-GREEN_SCARF              |
-YELLOW_SCARF             |
-MACHO_BRACE              |
-POWER_WEIGHT             |
-POWER_BRACER             |
-POWER_BELT               |
-POWER_LENS               |
-POWER_BAND               |
-POWER_ANKLET             |
-SILK_SCARF               |
-CHARCOAL                 |
-MYSTIC_WATER             |
-MAGNET                   |
-MIRACLE_SEED             |
-NEVER_MELT_ICE           |
-BLACK_BELT               |
-POISON_BARB              |
-SOFT_SAND                |
-SHARP_BEAK               |
-TWISTED_SPOON            |
-SILVER_POWDER            |
-HARD_STONE               |
-SPELL_TAG                |
-DRAGON_FANG              |
-BLACK_GLASSES            |
-METAL_COAT               |
-CHOICE_BAND              |
-CHOICE_SPECS             |
-CHOICE_SCARF             |
-FLAME_ORB                |
-TOXIC_ORB                |
-DAMP_ROCK                |
-HEAT_ROCK                |
-SMOOTH_ROCK              |
-ICY_ROCK                 |
-ELECTRIC_SEED            |
-PSYCHIC_SEED             |
-MISTY_SEED               |
-GRASSY_SEED              |
-ABSORB_BULB              |
-CELL_BATTERY             |
-LUMINOUS_MOSS            |
-SNOWBALL                 |
-BRIGHT_POWDER            |
-WHITE_HERB               |
-EXP_SHARE                |
-QUICK_CLAW               |
-SOOTHE_BELL              |
-MENTAL_HERB              |
-KINGS_ROCK               |
-AMULET_COIN              |
-CLEANSE_TAG              |
-SMOKE_BALL               |
-FOCUS_BAND               |
-LUCKY_EGG                |
-SCOPE_LENS               |
-LEFTOVERS                |
-SHELL_BELL               |
-WIDE_LENS                |
-MUSCLE_BAND              |
-WISE_GLASSES             |
-EXPERT_BELT              |
-LIGHT_CLAY               |
-LIFE_ORB                 |
-POWER_HERB               |
-FOCUS_SASH               |
-ZOOM_LENS                |
-METRONOME                |
-IRON_BALL                |
-LAGGING_TAIL             |
-DESTINY_KNOT             |
-BLACK_SLUDGE             |
-GRIP_CLAW                |
-STICKY_BARB              |
-SHED_SHELL               |
-BIG_ROOT                 |
-RAZOR_CLAW               |
-RAZOR_FANG               |
-EVIOLITE                 |
-FLOAT_STONE              |
-ROCKY_HELMET             |
-AIR_BALLOON              |
-RED_CARD                 |
-RING_TARGET              |
-BINDING_BAND             |
-EJECT_BUTTON             |
-WEAKNESS_POLICY          |
-ASSAULT_VEST             |
-SAFETY_GOGGLES           |
-ADRENALINE_ORB           |
-TERRAIN_EXTENDER         |
-PROTECTIVE_PADS          |
-THROAT_SPRAY             |
-EJECT_PACK               |
-HEAVY_DUTY_BOOTS         |
-BLUNDER_POLICY           |
-ROOM_SERVICE             |
-UTILITY_UMBRELLA         |
-CHERI_BERRY              |
-CHESTO_BERRY             |
-PECHA_BERRY              |
-RAWST_BERRY              |
-ASPEAR_BERRY             |
-LEPPA_BERRY              |
-ORAN_BERRY               |
-PERSIM_BERRY             |
-LUM_BERRY                |
-SITRUS_BERRY             |
-FIGY_BERRY               |
-WIKI_BERRY               |
-MAGO_BERRY               |
-AGUAV_BERRY              |
-IAPAPA_BERRY             |
-RAZZ_BERRY               |
-BLUK_BERRY               |
-NANAB_BERRY              |
-WEPEAR_BERRY             |
-PINAP_BERRY              |
-POMEG_BERRY              |
-KELPSY_BERRY             |
-QUALOT_BERRY             |
-HONDEW_BERRY             |
-GREPA_BERRY              |
-TAMATO_BERRY             |
-CORNN_BERRY              |
-MAGOST_BERRY             |
-RABUTA_BERRY             |
-NOMEL_BERRY              |
-SPELON_BERRY             |
-PAMTRE_BERRY             |
-WATMEL_BERRY             |
-DURIN_BERRY              |
-BELUE_BERRY              |
-CHILAN_BERRY             |
-OCCA_BERRY               |
-PASSHO_BERRY             |
-WACAN_BERRY              |
-RINDO_BERRY              |
-YACHE_BERRY              |
-CHOPLE_BERRY             |
-KEBIA_BERRY              |
-SHUCA_BERRY              |
-COBA_BERRY               |
-PAYAPA_BERRY             |
-TANGA_BERRY              |
-CHARTI_BERRY             |
-KASIB_BERRY              |
-HABAN_BERRY              |
-COLBUR_BERRY             |
-BABIRI_BERRY             |
-ROSELI_BERRY             |
-LIECHI_BERRY             |
-GANLON_BERRY             |
-SALAC_BERRY              |
-PETAYA_BERRY             |
-APICOT_BERRY             |
-LANSAT_BERRY             |
-STARF_BERRY              |
-ENIGMA_BERRY             |
-MICLE_BERRY              |
-CUSTAP_BERRY             |
-JABOCA_BERRY             |
-ROWAP_BERRY              |
-KEE_BERRY                |
-MARANGA_BERRY            |
-ENIGMA_BERRY_E_READER    |
+DOUSE_DRIVE              |Module Aqua
+SHOCK_DRIVE              |Module Choc
+BURN_DRIVE               |Module Pyro
+CHILL_DRIVE              |Module Cryo
+FIRE_MEMORY              |ROM Feu
+WATER_MEMORY             |ROM Eau
+ELECTRIC_MEMORY          |ROM Électrik
+GRASS_MEMORY             |ROM Plante
+ICE_MEMORY               |ROM Glace
+FIGHTING_MEMORY          |ROM Combat
+POISON_MEMORY            |ROM Poison
+GROUND_MEMORY            |ROM Sol
+FLYING_MEMORY            |ROM Vol
+PSYCHIC_MEMORY           |ROM Psy
+BUG_MEMORY               |ROM Insecte
+ROCK_MEMORY              |ROM Roche
+GHOST_MEMORY             |ROM Spectre
+DRAGON_MEMORY            |ROM Dragon
+DARK_MEMORY              |ROM Ténèbres
+STEEL_MEMORY             |ROM Acier
+FAIRY_MEMORY             |ROM Fée
+RUSTED_SWORD             |Épée Rouillée
+RUSTED_SHIELD            |Bouclier Rouillé
+RED_ORB                  |Gemme Rouge
+BLUE_ORB                 |Gemme Bleue
+VENUSAURITE              |Florizarrite
+CHARIZARDITE_X           |Dracaufite X
+CHARIZARDITE_Y           |Dracaufite Y
+BLASTOISINITE            |Tortankite
+BEEDRILLITE              |Dardargnite
+PIDGEOTITE               |Roucarnagite
+ALAKAZITE                |Alakazamite
+SLOWBRONITE              |Flagadossite
+GENGARITE                |Ectoplasmite
+KANGASKHANITE            |Kangourexite
+PINSIRITE                |Scarabruite
+GYARADOSITE              |Léviatorite
+AERODACTYLITE            |Ptéraïte
+MEWTWONITE_X             |Mewtwoïte X
+MEWTWONITE_Y             |Mewtwoïte Y
+AMPHAROSITE              |Pharampite
+STEELIXITE               |Steelixite
+SCIZORITE                |Cizayoxite
+HERACRONITE              |Scarhinoïte
+HOUNDOOMINITE            |Démolossite
+TYRANITARITE             |Tyranocivite
+SCEPTILITE               |Jungkite
+BLAZIKENITE              |Braségalite
+SWAMPERTITE              |Laggronite
+GARDEVOIRITE             |Gardevoirite
+SABLENITE                |Ténéfixite
+MAWILITE                 |Mysdibulite
+AGGRONITE                |Galekingite
+MEDICHAMITE              |Charminite
+MANECTITE                |Élecsprintite
+SHARPEDONITE             |Sharpedite
+CAMERUPTITE              |Caméruptite
+ALTARIANITE              |Altarite
+BANETTITE                |Branettite
+ABSOLITE                 |Absolite
+GLALITITE                |Oniglalite
+SALAMENCITE              |Drattakite
+METAGROSSITE             |Métalossite
+LATIASITE                |Latiasite
+LATIOSITE                |Latiosite
+LOPUNNITE                |Lockpinite
+GARCHOMPITE              |Carchacrokite
+LUCARIONITE              |Lucarite
+ABOMASITE                |Blizzarite
+GALLADITE                |Gallamite
+AUDINITE                 |Nanméouïte
+DIANCITE                 |Diancite
+NORMAL_GEM               |Joyau Normal
+FIRE_GEM                 |Joyau Feu
+WATER_GEM                |Joyau Eau
+ELECTRIC_GEM             |Joyau Électrik
+GRASS_GEM                |Joyau Plante
+ICE_GEM                  |Joyau Glace
+FIGHTING_GEM             |Joyau Combat
+POISON_GEM               |Joyau Poison
+GROUND_GEM               |Joyau Sol
+FLYING_GEM               |Joyau Vol
+PSYCHIC_GEM              |Joyau Psy
+BUG_GEM                  |Joyau Insecte
+ROCK_GEM                 |Joyau Roche
+GHOST_GEM                |Joyau Spectre
+DRAGON_GEM               |Joyau Dragon
+DARK_GEM                 |Joyau Ténèbres
+STEEL_GEM                |Joyau Acier
+FAIRY_GEM                |Joyau Fée
+NORMALIUM_Z              |Normazélite
+FIRIUM_Z                 |Pyrozélite
+WATERIUM_Z               |Aquazélite
+ELECTRIUM_Z              |Voltazélite
+GRASSIUM_Z               |Florazélite
+ICIUM_Z                  |Cryozélite
+FIGHTINIUM_Z             |Combazélite
+POISONIUM_Z              |Toxizélite
+GROUNDIUM_Z              |Terrazélite
+FLYINIUM_Z               |Aérozélite
+PSYCHIUM_Z               |Psychézélite
+BUGINIUM_Z               |Insectozélite
+ROCKIUM_Z                |Rocazélite
+GHOSTIUM_Z               |Spectrozélite
+DRAGONIUM_Z              |Dracozélite
+DARKINIUM_Z              |Ténébrozélite
+STEELIUM_Z               |Métallozélite
+FAIRIUM_Z                |Nymphézélite
+PIKANIUM_Z               |Pikazélite
+EEVIUM_Z                 |Évolizélite
+SNORLIUM_Z               |Normazélite
+MEWNIUM_Z                |Mewzélite
+DECIDIUM_Z               |Archézélite
+INCINIUM_Z               |Félinozélite
+PRIMARIUM_Z              |Oratozélite
+LYCANIUM_Z               |Lougarozélite
+MIMIKIUM_Z               |Mimiquizélite
+KOMMONIUM_Z              |Ékaïzélite
+TAPUNIUM_Z               |Tokozélite
+SOLGANIUM_Z              |Solgazélite
+LUNALIUM_Z               |Lunazélite
+MARSHADIUM_Z             |Marshadozélite
+ALORAICHIUM_Z            |Aloraïzélite
+PIKASHUNIUM_Z            |Pikachazélite
+ULTRANECROZIUM_Z         |Ultranécrozélite
+LIGHT_BALL               |Balle Lumière
+LEEK                     |Poireau
+THICK_CLUB               |Masse Os
+LUCKY_PUNCH              |Poing Chance
+METAL_POWDER             |Poudre Métal
+QUICK_POWDER             |Poudre Vite
+DEEP_SEA_SCALE           |Écaille Océan
+DEEP_SEA_TOOTH           |Dent Océan
+SOUL_DEW                 |Rosée Âme
+ADAMANT_ORB              |Orbe Adamant
+LUSTROUS_ORB             |Orbe Perlé
+GRISEOUS_ORB             |Orbe Platiné
+SEA_INCENSE              |Encens Mer
+LAX_INCENSE              |Encens Doux
+ODD_INCENSE              |Encens Bizarre
+ROCK_INCENSE             |Encens Roc
+FULL_INCENSE             |Encens Plein
+WAVE_INCENSE             |Encens Vague
+ROSE_INCENSE             |Encens Fleur
+LUCK_INCENSE             |Encens Veine
+PURE_INCENSE             |Encens Pur
+RED_SCARF                |Foulard Rouge
+BLUE_SCARF               |Foulard Bleu
+PINK_SCARF               |Foulard Rose
+GREEN_SCARF              |Foulard Vert
+YELLOW_SCARF             |Foulard Jaune
+MACHO_BRACE              |Bracelet Macho
+POWER_WEIGHT             |Poids Pouvoir
+POWER_BRACER             |Poignet Pouvoir
+POWER_BELT               |Ceinture Pouvoir
+POWER_LENS               |Lentille Pouvoir
+POWER_BAND               |Bandeau Pouvoir
+POWER_ANKLET             |Chaîne Pouvoir
+SILK_SCARF               |Mouchoir Soie
+CHARCOAL                 |Charbon
+MYSTIC_WATER             |Eau Mystique
+MAGNET                   |Aimant
+MIRACLE_SEED             |Graine Miracle
+NEVER_MELT_ICE           |Glace Éternelle
+BLACK_BELT               |Ceinture Noire
+POISON_BARB              |Pic Venin
+SOFT_SAND                |Sable Doux
+SHARP_BEAK               |Bec Pointu
+TWISTED_SPOON            |Cuillère Tordue
+SILVER_POWDER            |Poudre Argentée
+HARD_STONE               |Pierre Dure
+SPELL_TAG                |Rune Sort
+DRAGON_FANG              |Croc Dragon
+BLACK_GLASSES            |Lunettes Noires
+METAL_COAT               |Peau Métal
+CHOICE_BAND              |Bandeau Choix
+CHOICE_SPECS             |Lunettes Choix
+CHOICE_SCARF             |Mouchoir Choix
+FLAME_ORB                |Orbe Flamme
+TOXIC_ORB                |Orbe Toxique
+DAMP_ROCK                |Roche Humide
+HEAT_ROCK                |Roche Chaude
+SMOOTH_ROCK              |Roche Lisse
+ICY_ROCK                 |Roche Glace
+ELECTRIC_SEED            |Graine Électrik
+PSYCHIC_SEED             |Graine Psychique
+MISTY_SEED               |Graine Brume
+GRASSY_SEED              |Graine Herbe
+ABSORB_BULB              |Bulbe
+CELL_BATTERY             |Pile
+LUMINOUS_MOSS            |Lichen Lumineux
+SNOWBALL                 |Boule de Neige
+BRIGHT_POWDER            |Poudre Claire
+WHITE_HERB               |Herbe Blanche
+EXP_SHARE                |Multi Exp
+QUICK_CLAW               |Vive Griffe
+SOOTHE_BELL              |Grelot Zen
+MENTAL_HERB              |Herbe Mental
+KINGS_ROCK               |Roche Royale
+AMULET_COIN              |Pièce Rune
+CLEANSE_TAG              |Rune Purifiante
+SMOKE_BALL               |Boule Fumée
+FOCUS_BAND               |Bandeau
+LUCKY_EGG                |Oeuf Chance
+SCOPE_LENS               |Lentilscope
+LEFTOVERS                |Restes
+SHELL_BELL               |Grelot Coque
+WIDE_LENS                |Loupe
+MUSCLE_BAND              |Bandeau Muscle
+WISE_GLASSES             |Lunettes Sages
+EXPERT_BELT              |Ceinture Pro
+LIGHT_CLAY               |Lumargile
+LIFE_ORB                 |Orbe Vie
+POWER_HERB               |Herbe Pouvoir
+FOCUS_SASH               |Ceinture Force
+ZOOM_LENS                |Lentille Zoom
+METRONOME                |Métronome
+IRON_BALL                |Balle Fer
+LAGGING_TAIL             |Ralentiqueue
+DESTINY_KNOT             |Noeud Destin
+BLACK_SLUDGE             |Boue Noire
+GRIP_CLAW                |Accro Griffe
+STICKY_BARB              |Piquants
+SHED_SHELL               |Carapace Mue
+BIG_ROOT                 |Grosse Racine
+RAZOR_CLAW               |Griffe Rasoir
+RAZOR_FANG               |Croc Rasoir
+EVIOLITE                 |Évoluroc
+FLOAT_STONE              |Pierrallégée
+ROCKY_HELMET             |Casque Brut
+AIR_BALLOON              |Ballon
+RED_CARD                 |Carton Rouge
+RING_TARGET              |Point de Mire
+BINDING_BAND             |Bande Étreinte
+EJECT_BUTTON             |Bouton Fuite
+WEAKNESS_POLICY          |Vulné-Assurance
+ASSAULT_VEST             |Veste de Combat
+SAFETY_GOGGLES           |Lunettes Filtre
+ADRENALINE_ORB           |Orbe Frousse
+TERRAIN_EXTENDER         |Champ’Duit
+PROTECTIVE_PADS          |Pare-Effet
+THROAT_SPRAY             |Spray Gorge
+EJECT_PACK               |Sac Fuite
+HEAVY_DUTY_BOOTS         |Grosses Bottes
+BLUNDER_POLICY           |Assurance Échec
+ROOM_SERVICE             |Chariot Distordu
+UTILITY_UMBRELLA         |Parapluie Solide
+CHERI_BERRY              |Baie Ceriz
+CHESTO_BERRY             |Baie Maron
+PECHA_BERRY              |Baie Pêcha
+RAWST_BERRY              |Baie Fraive
+ASPEAR_BERRY             |Baie Willia
+LEPPA_BERRY              |Baie Mepo
+ORAN_BERRY               |Baie Oran
+PERSIM_BERRY             |Baie Kika
+LUM_BERRY                |Baie Prine
+SITRUS_BERRY             |Baie Sitrus
+FIGY_BERRY               |Baie Figuy
+WIKI_BERRY               |Baie Wiki
+MAGO_BERRY               |Baie Mago
+AGUAV_BERRY              |Baie Gowav
+IAPAPA_BERRY             |Baie Papaya
+RAZZ_BERRY               |Baie Framby
+BLUK_BERRY               |Baie Remu
+NANAB_BERRY              |Baie Nanab
+WEPEAR_BERRY             |Baie Repoi
+PINAP_BERRY              |Baie Nanana
+POMEG_BERRY              |Baie Grena
+KELPSY_BERRY             |Baie Alga
+QUALOT_BERRY             |Baie Qualot
+HONDEW_BERRY             |Baie Lonme
+GREPA_BERRY              |Baie Resin
+TAMATO_BERRY             |Baie Tamato
+CORNN_BERRY              |Baie Siam
+MAGOST_BERRY             |Baie Mangou
+RABUTA_BERRY             |Baie Rabuta
+NOMEL_BERRY              |Baie Tronci
+SPELON_BERRY             |Baie Kiwan
+PAMTRE_BERRY             |Baie Palma
+WATMEL_BERRY             |Baie Stekpa
+DURIN_BERRY              |Baie Durin
+BELUE_BERRY              |Baie Myrte
+CHILAN_BERRY             |Baie Zalis
+OCCA_BERRY               |Baie Chocco
+PASSHO_BERRY             |Baie Pocpoc
+WACAN_BERRY              |Baie Parma
+RINDO_BERRY              |Baie Ratam
+YACHE_BERRY              |Baie Nanone
+CHOPLE_BERRY             |Baie Pomroz
+KEBIA_BERRY              |Baie Kébia
+SHUCA_BERRY              |Baie Jouca
+COBA_BERRY               |Baie Cobaba
+PAYAPA_BERRY             |Baie Yapap
+TANGA_BERRY              |Baie Panga
+CHARTI_BERRY             |Baie Charti
+KASIB_BERRY              |Baie Sédra
+HABAN_BERRY              |Baie Fraigo
+COLBUR_BERRY             |Baie Lampou
+BABIRI_BERRY             |Baie Babiri
+ROSELI_BERRY             |Baie Selro
+LIECHI_BERRY             |Baie Lichii
+GANLON_BERRY             |Baie Lingan
+SALAC_BERRY              |Baie Lingan
+PETAYA_BERRY             |Baie Sailak
+APICOT_BERRY             |Baie Abriko
+LANSAT_BERRY             |Baie Lansat
+STARF_BERRY              |Baie Frista
+ENIGMA_BERRY             |Baie Enigma
+MICLE_BERRY              |Baie Micle
+CUSTAP_BERRY             |Baie Chérim
+JABOCA_BERRY             |Baie Jaboca
+ROWAP_BERRY              |Baie Pommo
+KEE_BERRY                |Baie Rangma
+MARANGA_BERRY            |Baie Éka
+ENIGMA_BERRY_E_READER    |Baie Enigma
 TM01                     |CT01
 TM02                     |CT02
 TM03                     |CT03
@@ -714,117 +714,117 @@ DOWSING_MACHINE          |Cherch'Objet
 TOWN_MAP                 |Carte Ville
 VS_SEEKER                |Cherch'Combat
 TM_CASE                  |Boîte CT
-BERRY_POUCH              |
-POKEMON_BOX_LINK         |
-COIN_CASE                |
-POWDER_JAR               |
-WAILMER_PAIL             |
-POKE_RADAR               |
-POKEBLOCK_CASE           |
-SOOT_SACK                |
-POKE_FLUTE               |
-FAME_CHECKER             |
-TEACHY_TV                |
-SS_TICKET                |
-EON_TICKET               |
-MYSTIC_TICKET            |
-AURORA_TICKET            |
-OLD_SEA_MAP              |
-LETTER                   |
-DEVON_PARTS              |
-GO_GOGGLES               |
-DEVON_SCOPE              |
-BASEMENT_KEY             |
-SCANNER                  |
-STORAGE_KEY              |
-KEY_TO_ROOM_1            |
-KEY_TO_ROOM_2            |
-KEY_TO_ROOM_4            |
-KEY_TO_ROOM_6            |
-METEORITE                |
-MAGMA_EMBLEM             |
-CONTEST_PASS             |
-PARCEL                   |
-SECRET_KEY               |
-BIKE_VOUCHER             |
-GOLD_TEETH               |
-CARD_KEY                 |
-LIFT_KEY                 |
-SILPH_SCOPE              |
-TRI_PASS                 |
-RAINBOW_PASS             |
-TEA                      |
-RUBY                     |
-SAPPHIRE                 |
-ABILITY_SHIELD           |
-CLEAR_AMULET             |
-PUNCHING_GLOVE           |
-COVERT_CLOAK             |
-LOADED_DICE              |
-AUSPICIOUS_ARMOR         |
-BOOSTER_ENERGY           |
-BIG_BAMBOO_SHOOT         |
-GIMMIGHOUL_COIN          |
-LEADERS_CREST            |
-MALICIOUS_ARMOR          |
-MIRROR_HERB              |
-SCROLL_OF_DARKNESS       |
-SCROLL_OF_WATERS         |
-TERA_ORB                 |
-TINY_BAMBOO_SHOOT        |
-BUG_TERA_SHARD           |
-DARK_TERA_SHARD          |
-DRAGON_TERA_SHARD        |
-ELECTRIC_TERA_SHARD      |
-FAIRY_TERA_SHARD         |
-FIGHTING_TERA_SHARD      |
-FIRE_TERA_SHARD          |
-FLYING_TERA_SHARD        |
-GHOST_TERA_SHARD         |
-GRASS_TERA_SHARD         |
-GROUND_TERA_SHARD        |
-ICE_TERA_SHARD           |
-NORMAL_TERA_SHARD        |
-POISON_TERA_SHARD        |
-PSYCHIC_TERA_SHARD       |
-ROCK_TERA_SHARD          |
-STEEL_TERA_SHARD         |
-WATER_TERA_SHARD         |
-ADAMANT_CRYSTAL          |
-GRISEOUS_CORE            |
-LUSTROUS_GLOBE           |
-BLACK_AUGURITE           |
-LINKING_CORD             |
-PEAT_BLOCK               |
-BERSERK_GENE             |
-FAIRY_FEATHER            |
-SYRUPY_APPLE             |
-UNREMARKABLE_TEACUP      |
-MASTERPIECE_TEACUP       |
-CORNERSTONE_MASK         |
-WELLSPRING_MASK          |
-HEARTHFLAME_MASK         |
-HEALTH_MOCHI             |
-MUSCLE_MOCHI             |
-RESIST_MOCHI             |
-GENIUS_MOCHI             |
-CLEVER_MOCHI             |
-SWIFT_MOCHI              |
-FRESH_START_MOCHI        |
-GLIMMERING_CHARM         |
-METAL_ALLOY              |
-STELLAR_TERA_SHARD       |
-JUBILIFE_MUFFIN          |
-REMEDY                   |
-FINE_REMEDY              |
-SUPERB_REMEDY            |
-AUX_EVASION              |
-AUX_GUARD                |
-AUX_POWER                |
-AUX_POWERGUARD           |
-CHOICE_DUMPLING          |
-SWAP_SNACK               |
-TWICE_SPICED_RADISH      |
-POKESHI_DOLL             |
+BERRY_POUCH              |Sac à Baies
+POKEMON_BOX_LINK         |Boîte Pokémon
+COIN_CASE                |Boîte Jetons
+POWDER_JAR               |Pot Poudre
+WAILMER_PAIL             |Wailmerrosoir
+POKE_RADAR               |Poké Radar
+POKEBLOCK_CASE           |Boîte Pokéblocs
+SOOT_SACK                |Sac à Suie
+POKE_FLUTE               |Poké Flûte
+FAME_CHECKER             |Memorydex
+TEACHY_TV                |TV ABC
+SS_TICKET                |Passe Bateau
+EON_TICKET               |Passe Éon
+MYSTIC_TICKET            |Ticketmystik
+AURORA_TICKET            |Ticketaurora
+OLD_SEA_MAP              |Vieillecarte
+LETTER                   |Lettre
+DEVON_PARTS              |Pack Devon
+GO_GOGGLES               |Lunettes Sable
+DEVON_SCOPE              |Devon Scope
+BASEMENT_KEY             |Clé Sous-Sol
+SCANNER                  |Scanner
+STORAGE_KEY              |Clé Stockage
+KEY_TO_ROOM_1            |Clé Salle 1
+KEY_TO_ROOM_2            |Clé Salle 2
+KEY_TO_ROOM_4            |Clé Salle 4
+KEY_TO_ROOM_6            |Clé Salle 6
+METEORITE                |Météorite
+MAGMA_EMBLEM             |Sceau Magma
+CONTEST_PASS             |Passe Concours
+PARCEL                   |Colis
+SECRET_KEY               |Clé Secrète
+BIKE_VOUCHER             |Bon Commande
+GOLD_TEETH               |Dentier en Or
+CARD_KEY                 |Carte Magnétique
+LIFT_KEY                 |Clé Ascenseur
+SILPH_SCOPE              |Scope Sylphe
+TRI_PASS                 |Tri-Passe
+RAINBOW_PASS             |Passe Prisme
+TEA                      |Thé
+RUBY                     |Rubis
+SAPPHIRE                 |Saphir
+ABILITY_SHIELD           |Garde-Talent
+CLEAR_AMULET             |Talisman Sain
+PUNCHING_GLOVE           |Gant de Boxe
+COVERT_CLOAK             |Cape Obscure
+LOADED_DICE              |Dé Pipé
+AUSPICIOUS_ARMOR         |Armure de la Fortune
+BOOSTER_ENERGY           |Énergie Booster
+BIG_BAMBOO_SHOOT         |Gros Bambou
+GIMMIGHOUL_COIN          |Pièces de Gimmighoul
+LEADERS_CREST            |Emblème du Général
+MALICIOUS_ARMOR          |Armure de la Rancune
+MIRROR_HERB              |Feuille Copieuse
+SCROLL_OF_DARKNESS       |Rouleau des Ténèbres
+SCROLL_OF_WATERS         |Rouleau de l'Eau
+TERA_ORB                 |Orbe Téracristal
+TINY_BAMBOO_SHOOT        |Petit Bambou
+BUG_TERA_SHARD           |Téra-Éclat Insecte
+DARK_TERA_SHARD          |Téra-Éclat Ténèbres
+DRAGON_TERA_SHARD        |Téra-Éclat Dragon
+ELECTRIC_TERA_SHARD      |Téra-Éclat Électrik
+FAIRY_TERA_SHARD         |Téra-Éclat Fée
+FIGHTING_TERA_SHARD      |Téra-Éclat Combat
+FIRE_TERA_SHARD          |Téra-Éclat Feu
+FLYING_TERA_SHARD        |Téra-Éclat Vol
+GHOST_TERA_SHARD         |Téra-Éclat Spectre
+GRASS_TERA_SHARD         |Téra-Éclat Plante
+GROUND_TERA_SHARD        |Téra-Éclat Sol
+ICE_TERA_SHARD           |Téra-Éclat Glace
+NORMAL_TERA_SHARD        |Téra-Éclat Normal
+POISON_TERA_SHARD        |Téra-Éclat Poison
+PSYCHIC_TERA_SHARD       |Téra-Éclat Psy
+ROCK_TERA_SHARD          |Téra-Éclat Roche
+STEEL_TERA_SHARD         |Téra-Éclat Acier
+WATER_TERA_SHARD         |Téra-Éclat Eau
+ADAMANT_CRYSTAL          |Globe Adamant
+GRISEOUS_CORE            |Globe Platiné
+LUSTROUS_GLOBE           |Globe Perlé
+BLACK_AUGURITE           |Obsidienne
+LINKING_CORD             |Fil de Liaison
+PEAT_BLOCK               |Bloc de Tourbe
+BERSERK_GENE             |ADN Berzerk
+FAIRY_FEATHER            |Plume Enchantée
+SYRUPY_APPLE             |Pomme Nectar
+UNREMARKABLE_TEACUP      |Bol Médiocre
+MASTERPIECE_TEACUP       |Bol Exceptionnel
+CORNERSTONE_MASK         |Masque de la Pierre
+WELLSPRING_MASK          |Masque du Puits
+HEARTHFLAME_MASK         |Masque du Fourneau
+HEALTH_MOCHI             |Mochi Santé
+MUSCLE_MOCHI             |Mochi Force
+RESIST_MOCHI             |Mochi Armure
+GENIUS_MOCHI             |Mochi Esprit
+CLEVER_MOCHI             |Mochi Mental
+SWIFT_MOCHI              |Mochi Sprint
+FRESH_START_MOCHI        |Mochi Renouveau
+GLIMMERING_CHARM         |Charme Éclatant
+METAL_ALLOY              |Métal Composite
+STELLAR_TERA_SHARD       |Téra-Éclat Stellaire
+JUBILIFE_MUFFIN          |Rusti-Muffin
+REMEDY                   |Remède
+FINE_REMEDY              |Super Remède
+SUPERB_REMEDY            |Hyper Remède
+AUX_EVASION              |Esquive Extra
+AUX_GUARD                |Défense Extra
+AUX_POWER                |Offensive Extra
+AUX_POWERGUARD           |Double Extra
+CHOICE_DUMPLING          |Papillote Choix
+SWAP_SNACK               |En-cas Contraire
+TWICE_SPICED_RADISH      |Bouchée Double
+POKESHI_DOLL             |Poupée Pokéshi
 STRANGE_BALL             |Étrange Ball
 ETERNAL_REPEL            |Repousse Éternel
