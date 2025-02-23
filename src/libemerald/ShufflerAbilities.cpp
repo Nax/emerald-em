@@ -71,55 +71,35 @@ reroll:
     ability = randInt(rand, ABILITIES_COUNT);
     switch (ability)
     {
+    /* Trap */
     case ABILITY_NONE:
     case ABILITY_ARENA_TRAP:
     case ABILITY_MAGNET_PULL:
     case ABILITY_SHADOW_TAG:
+
+    /* Shedinja-only */
     case ABILITY_WONDER_GUARD:
-    case ABILITY_COMMANDER: /* Not implemented yet */
-    case ABILITY_POISON_PUPPETEER: /* Not implemented yet */
-    case ABILITY_TERAFORM_ZERO: /* Not implemented yet */
-    case ABILITY_TERA_SHELL: /* Not implemented yet */
-    case ABILITY_TERA_SHIFT: /* Not implemented yet */
+
+    /* Form changes/single pokemon */
+    case ABILITY_FORECAST:
+    case ABILITY_MULTITYPE:
+    case ABILITY_ZEN_MODE:
+    case ABILITY_BATTLE_BOND:
+    case ABILITY_STANCE_CHANGE:
+    case ABILITY_POWER_CONSTRUCT:
+    case ABILITY_SCHOOLING:
+    case ABILITY_RKS_SYSTEM:
+    case ABILITY_SHIELDS_DOWN:
+    case ABILITY_DISGUISE:
+    case ABILITY_GULP_MISSILE:
+    case ABILITY_ICE_FACE:
+    case ABILITY_HUNGER_SWITCH:
+    case ABILITY_ZERO_TO_HERO:
+    case ABILITY_COMMANDER:
+    case ABILITY_TERA_SHELL:
+    case ABILITY_TERA_SHIFT:
         goto reroll;
     }
-    return ability;
-}
-
-static bool isAbilityAssignable(uint16_t ability, uint16_t species)
-{
-    switch (ability)
-    {
-    case ABILITY_FORECAST: return species == SPECIES_CASTFORM;
-    case ABILITY_MULTITYPE: return species == SPECIES_ARCEUS;
-    case ABILITY_ZEN_MODE: return species == SPECIES_DARMANITAN || species == SPECIES_DARMANITAN_GALAR;
-    case ABILITY_BATTLE_BOND: return species == SPECIES_GRENINJA;
-    case ABILITY_STANCE_CHANGE: return species == SPECIES_AEGISLASH;
-    case ABILITY_POWER_CONSTRUCT: return species == SPECIES_ZYGARDE_50 || species == SPECIES_ZYGARDE_10;
-    case ABILITY_SCHOOLING: return species == SPECIES_WISHIWASHI;
-    case ABILITY_RKS_SYSTEM: return species == SPECIES_SILVALLY;
-    case ABILITY_SHIELDS_DOWN: return species == SPECIES_MINIOR;
-    case ABILITY_DISGUISE: return species == SPECIES_MIMIKYU;
-    case ABILITY_GULP_MISSILE: return species == SPECIES_CRAMORANT;
-    case ABILITY_ICE_FACE: return species == SPECIES_EISCUE;
-    case ABILITY_HUNGER_SWITCH: return species == SPECIES_MORPEKO;
-    case ABILITY_ZERO_TO_HERO: return species == SPECIES_PALAFIN;
-    case ABILITY_COMMANDER: return species == SPECIES_TATSUGIRI_CURLY || species == SPECIES_TATSUGIRI_DROOPY || species == SPECIES_TATSUGIRI_STRETCHY;
-    default: return true;
-    }
-}
-
-static uint16_t randAssignable(Random& rand, uint16_t species, uint16_t other)
-{
-    uint16_t ability;
-
-reroll:
-    ability = randAbility(rand);
-    if (ability == other)
-        goto reroll;
-    if (!isAbilityAssignable(ability, species))
-        goto reroll;
-
     return ability;
 }
 
@@ -142,6 +122,7 @@ private:
     {
         const SpeciesSet* group;
         std::array<uint16_t, 3> abilities = { ABILITY_NONE, ABILITY_NONE, ABILITY_NONE };
+        std::uint16_t ability;
 
         /* Shedinja is special */
         if (speciesId == SPECIES_SHEDINJA)
@@ -168,10 +149,96 @@ private:
 
         if (abilities[0] == ABILITY_NONE)
         {
-            /* Shuffle abilities */
-            abilities[0] = randAssignable(_rand, speciesId, ABILITY_NONE);
+            /* Assign abilities */
+            for (int i = 0; i < 3; ++i)
+            {
+                for (;;)
+                {
+                    bool valid = true;
+                    ability = randAbility(_rand);
+                    for (int j = 0; j < i; ++j)
+                    {
+                        if (abilities[j] == ability)
+                        {
+                            valid = false;
+                            break;
+                        }
+                    }
+                    if (valid)
+                    {
+                        abilities[i] = ability;
+                        break;
+                    }
+                }
+            }
+
+            /* Species-specific ability */
+            ability = ABILITY_NONE;
+            switch (speciesId)
+            {
+            case SPECIES_CASTFORM:
+                ability = ABILITY_FORECAST;
+                break;
+            case SPECIES_ARCEUS:
+                ability = ABILITY_MULTITYPE;
+                break;
+            case SPECIES_DARMANITAN:
+            case SPECIES_DARMANITAN_GALAR:
+                ability = ABILITY_ZEN_MODE;
+                break;
+            case SPECIES_GRENINJA:
+                ability = ABILITY_BATTLE_BOND;
+                break;
+            case SPECIES_AEGISLASH:
+                ability = ABILITY_STANCE_CHANGE;
+                break;
+            case SPECIES_ZYGARDE_50:
+            case SPECIES_ZYGARDE_10:
+                ability = ABILITY_POWER_CONSTRUCT;
+                break;
+            case SPECIES_WISHIWASHI:
+                ability = ABILITY_SCHOOLING;
+                break;
+            case SPECIES_SILVALLY:
+                ability = ABILITY_RKS_SYSTEM;
+                break;
+            case SPECIES_MINIOR:
+                ability = ABILITY_SHIELDS_DOWN;
+                break;
+            case SPECIES_MIMIKYU:
+                ability = ABILITY_DISGUISE;
+                break;
+            case SPECIES_CRAMORANT:
+                ability = ABILITY_GULP_MISSILE;
+                break;
+            case SPECIES_EISCUE:
+                ability = ABILITY_ICE_FACE;
+                break;
+            case SPECIES_MORPEKO:
+                ability = ABILITY_HUNGER_SWITCH;
+                break;
+            case SPECIES_PALAFIN:
+                ability = ABILITY_ZERO_TO_HERO;
+                break;
+            case SPECIES_TATSUGIRI_CURLY:
+            case SPECIES_TATSUGIRI_DROOPY:
+            case SPECIES_TATSUGIRI_STRETCHY:
+                ability = ABILITY_COMMANDER;
+                break;
+            case SPECIES_TERAPAGOS_NORMAL:
+                ability = ABILITY_TERA_SHIFT;
+                break;
+            case SPECIES_TERAPAGOS_TERASTAL:
+                ability = ABILITY_TERA_SHELL;
+                break;
+            }
+            if (ability) {
+                abilities[randInt(_rand, 3)] = ability;
+            }
+
+            /* 50% to not have ability 2 */
             if (_rand.next() & 0x80)
-                abilities[1] = randAssignable(_rand, speciesId, abilities[0]);
+                abilities[1] = ABILITY_NONE;
         }
 
         /* Store the abilities */
