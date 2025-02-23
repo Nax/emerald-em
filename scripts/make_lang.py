@@ -1,12 +1,14 @@
 import sys
 import os
 import unicodedata
+import re
 
 class LangBuilder:
   def __init__(self, lang):
     self.lang = lang
     self.chars = {}
     self.symbols = {}
+    self.defines = {}
     self.entries = []
 
   def parse_charmap(self):
@@ -41,6 +43,26 @@ class LangBuilder:
         name = splits[2].strip()
         self.symbols[name] = addr
 
+  def parse_defines(self, file, prefix):
+    define_prefix = "#define " + prefix + "_"
+    file = os.path.join(os.path.dirname(__file__), '..', 'emerald', 'include', 'constants', file)
+    with open(file, encoding='utf-8', mode='r') as f:
+      for line in f:
+        if line.startswith(define_prefix):
+          line = line[len(define_prefix):].strip()
+          splits = line.split(' ')
+          if len(splits) < 2:
+            continue
+          name = splits[0]
+          value_str = splits[1]
+          if re.match('0x[0-9a-fA-F]+', value_str):
+            value = int(value_str, 16)
+          elif re.match('[0-9]+', value_str):
+            value = int(value_str)
+          else:
+            continue
+          self.defines[prefix + '_' + name] = value
+
   def transform_string(self, str):
     chars = []
     for c in str:
@@ -63,29 +85,53 @@ class LangBuilder:
     addr = base + id * size
     self.entries.append({ 'addr': addr, 'data': d })
 
-  def entries_table(self, sym_oftable, sym_buffer, filename, buffer_size):
-    filename = os.path.join(os.path.dirname(__file__), '..', 'data', 'text', self.lang, filename)
-    total_size = 0
-    off_oftable = self.symbol(sym_oftable)
-    off_buffer = self.symbol(sym_buffer)
+  def entries_dict(self, lang, filename, prefix):
+    filename = os.path.join(os.path.dirname(__file__), '..', 'data', 'text', lang, filename)
     if not os.path.exists(filename):
       raise ValueError('File not found: ' + filename)
+    d = {}
     with open(filename, encoding='utf-8', mode='r') as f:
       for line in f:
         splits = line.split('|')
         if len(splits) < 2:
           continue
-        id = int(splits[0])
+        id = splits[0].strip()
+        if re.match('[0-9]+', id):
+          id = int(id)
+        else:
+          if prefix is None:
+            raise ValueError('Invalid ID: ' + id)
+          id = self.defines[prefix + '_' + id]
+          if id is None:
+            raise ValueError('Unknown ID: ' + id)
         str = unicodedata.normalize('NFC', splits[1]).strip()
-        str_transformed = self.transform_string(str)
-        str_transformed_size = len(str_transformed)
-        new_offset = total_size
-        total_size += str_transformed_size
-        if total_size > buffer_size:
-          raise ValueError('Buffer overflow: ' + filename)
-        # Append data
-        self.entries.append({ 'addr': off_buffer + new_offset, 'data': str_transformed })
-        self.entries.append({ 'addr': off_oftable + id * 4, 'data': new_offset.to_bytes(4, byteorder='little') })
+        if str == '':
+          continue
+        d[id] = str
+    return d
+
+  def entries_table(self, sym_oftable, sym_buffer, filename, prefix, buffer_size):
+    # Compute the dict
+    lang_dict = self.entries_dict('en_US', filename, prefix)
+    if self.lang != 'en_US':
+      lang_dict_override = self.entries_dict(self.lang, filename, prefix)
+      for id in lang_dict_override:
+        lang_dict[id] = lang_dict_override[id]
+
+    total_size = 0
+    off_oftable = self.symbol(sym_oftable)
+    off_buffer = self.symbol(sym_buffer)
+    for id in lang_dict:
+      str = lang_dict[id]
+      str_transformed = self.transform_string(str)
+      str_transformed_size = len(str_transformed)
+      new_offset = total_size
+      total_size += str_transformed_size
+      if total_size > buffer_size:
+        raise ValueError('Buffer overflow: ' + filename)
+      # Append data
+      self.entries.append({ 'addr': off_buffer + new_offset, 'data': str_transformed })
+      self.entries.append({ 'addr': off_oftable + id * 4, 'data': new_offset.to_bytes(4, byteorder='little') })
 
   def output_data(self):
     dir = os.path.join(os.path.dirname(__file__), '..', 'build', 'data')
@@ -111,9 +157,11 @@ class LangBuilder:
   def build(self):
     self.parse_charmap()
     self.parse_symbols()
-    self.entries_table('kMovesNamesOffsets', 'kMovesNamesBuffer', 'moves.txt', 16384)
-    self.entries_table('kAbilitiesNamesOffsets', 'kAbilitiesNamesBuffer', 'abilities.txt', 8192)
-    self.entries_table('kSpeciesNamesOffsets', 'kSpeciesNamesBuffer', 'pokemons.txt', 16384)
+    self.parse_defines('items.h', 'ITEM')
+    self.entries_table('kMovesNamesOffsets', 'kMovesNamesBuffer', 'moves.txt', None, 16384)
+    self.entries_table('kAbilitiesNamesOffsets', 'kAbilitiesNamesBuffer', 'abilities.txt', None, 8192)
+    self.entries_table('kSpeciesNamesOffsets', 'kSpeciesNamesBuffer', 'pokemons.txt', None, 16384)
+    self.entries_table('kItemsNamesOffsets', 'kItemsNamesBuffer', 'items.txt', 'ITEM', 16384)
     self.output_data()
 
 builder = LangBuilder(sys.argv[1])

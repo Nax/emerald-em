@@ -2,6 +2,7 @@
 #include "overrides.h"
 #include "constants/moves.h"
 #include "constants/abilities.h"
+#include "constants/items.h"
 
 /* Moves */
 const u32 kMovesNamesOffsets[MOVES_COUNT_ALL];
@@ -14,6 +15,10 @@ const u8 kSpeciesNamesBuffer[16384] = { 0xff };
 /* Abilities */
 const u32 kAbilitiesNamesOffsets[ABILITIES_COUNT];
 const u8 kAbilitiesNamesBuffer[8192] = { 0xff };
+
+/* Items */
+const u32 kItemsNamesOffsets[ITEMS_COUNT];
+const u8 kItemsNamesBuffer[16384] = { 0xff };
 
 const u16 kFirstBattlePokemon = SPECIES_ZIGZAGOON;
 const u16 kStarterMons[] = { SPECIES_TREECKO, SPECIES_TORCHIC, SPECIES_MUDKIP };
