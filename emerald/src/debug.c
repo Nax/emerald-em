@@ -3388,7 +3388,7 @@ static void DebugAction_Give_Pokemon_SelectShiny(u8 taskId)
         StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].tDigit]);
         ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, 2);
         StringCopyPadded(gStringVar3, gStringVar3, CHAR_SPACE, 15);
-        StringCopy(gStringVar1, gNaturesInfo[0].name);
+        StringCopy(gStringVar1, GetNatureName(0));
         StringExpandPlaceholders(gStringVar4, sDebugText_PokemonNature);
         AddTextPrinterParameterized(gTasks[taskId].tSubWindowId, DEBUG_MENU_FONT, gStringVar4, 0, 0, 0, NULL);
 
@@ -3424,7 +3424,7 @@ static void DebugAction_Give_Pokemon_SelectNature(u8 taskId)
         StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].tDigit]);
         ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, 2);
         StringCopyPadded(gStringVar3, gStringVar3, CHAR_SPACE, 15);
-        StringCopy(gStringVar1, gNaturesInfo[gTasks[taskId].tInput].name);
+        StringCopy(gStringVar1, GetNatureName(gTasks[taskId].tInput));
         StringExpandPlaceholders(gStringVar4, sDebugText_PokemonNature);
         AddTextPrinterParameterized(gTasks[taskId].tSubWindowId, DEBUG_MENU_FONT, gStringVar4, 0, 0, 0, NULL);
     }

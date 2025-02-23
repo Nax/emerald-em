@@ -375,7 +375,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
 {
     [NATURE_HARDY] =
     {
-        .name = COMPOUND_STRING("Hardy"),
         .statUp = STAT_ATK,
         .statDown = STAT_ATK,
         .backAnim = 0,
@@ -387,7 +386,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_LONELY] =
     {
-        .name = COMPOUND_STRING("Lonely"),
         .statUp = STAT_ATK,
         .statDown = STAT_DEF,
         .backAnim = 2,
@@ -399,7 +397,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_BRAVE] =
     {
-        .name = COMPOUND_STRING("Brave"),
         .statUp = STAT_ATK,
         .statDown = STAT_SPEED,
         .backAnim = 0,
@@ -411,7 +408,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_ADAMANT] =
     {
-        .name = COMPOUND_STRING("Adamant"),
         .statUp = STAT_ATK,
         .statDown = STAT_SPATK,
         .backAnim = 0,
@@ -423,7 +419,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_NAUGHTY] =
     {
-        .name = COMPOUND_STRING("Naughty"),
         .statUp = STAT_ATK,
         .statDown = STAT_SPDEF,
         .backAnim = 0,
@@ -435,7 +430,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_BOLD] =
     {
-        .name = COMPOUND_STRING("Bold"),
         .statUp = STAT_DEF,
         .statDown = STAT_ATK,
         .backAnim = 1,
@@ -447,7 +441,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_DOCILE] =
     {
-        .name = COMPOUND_STRING("Docile"),
         .statUp = STAT_DEF,
         .statDown = STAT_DEF,
         .backAnim = 1,
@@ -459,7 +452,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_RELAXED] =
     {
-        .name = COMPOUND_STRING("Relaxed"),
         .statUp = STAT_DEF,
         .statDown = STAT_SPEED,
         .backAnim = 1,
@@ -471,7 +463,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_IMPISH] =
     {
-        .name = COMPOUND_STRING("Impish"),
         .statUp = STAT_DEF,
         .statDown = STAT_SPATK,
         .backAnim = 0,
@@ -483,7 +474,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_LAX] =
     {
-        .name = COMPOUND_STRING("Lax"),
         .statUp = STAT_DEF,
         .statDown = STAT_SPDEF,
         .backAnim = 1,
@@ -495,7 +485,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_TIMID] =
     {
-        .name = COMPOUND_STRING("Timid"),
         .statUp = STAT_SPEED,
         .statDown = STAT_ATK,
         .backAnim = 2,
@@ -507,7 +496,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_HASTY] =
     {
-        .name = COMPOUND_STRING("Hasty"),
         .statUp = STAT_SPEED,
         .statDown = STAT_DEF,
         .backAnim = 0,
@@ -519,7 +507,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_SERIOUS] =
     {
-        .name = COMPOUND_STRING("Serious"),
         .statUp = STAT_SPEED,
         .statDown = STAT_SPEED,
         .backAnim = 1,
@@ -531,7 +518,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_JOLLY] =
     {
-        .name = COMPOUND_STRING("Jolly"),
         .statUp = STAT_SPEED,
         .statDown = STAT_SPATK,
         .backAnim = 0,
@@ -543,7 +529,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_NAIVE] =
     {
-        .name = COMPOUND_STRING("Naive"),
         .statUp = STAT_SPEED,
         .statDown = STAT_SPDEF,
         .backAnim = 0,
@@ -555,7 +540,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_MODEST] =
     {
-        .name = COMPOUND_STRING("Modest"),
         .statUp = STAT_SPATK,
         .statDown = STAT_ATK,
         .backAnim = 2,
@@ -567,7 +551,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_MILD] =
     {
-        .name = COMPOUND_STRING("Mild"),
         .statUp = STAT_SPATK,
         .statDown = STAT_DEF,
         .backAnim = 2,
@@ -579,7 +562,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_QUIET] =
     {
-        .name = COMPOUND_STRING("Quiet"),
         .statUp = STAT_SPATK,
         .statDown = STAT_SPEED,
         .backAnim = 2,
@@ -591,7 +573,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_BASHFUL] =
     {
-        .name = COMPOUND_STRING("Bashful"),
         .statUp = STAT_SPATK,
         .statDown = STAT_SPATK,
         .backAnim = 2,
@@ -603,7 +584,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_RASH] =
     {
-        .name = COMPOUND_STRING("Rash"),
         .statUp = STAT_SPATK,
         .statDown = STAT_SPDEF,
         .backAnim = 1,
@@ -615,7 +595,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_CALM] =
     {
-        .name = COMPOUND_STRING("Calm"),
         .statUp = STAT_SPDEF,
         .statDown = STAT_ATK,
         .backAnim = 1,
@@ -627,7 +606,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_GENTLE] =
     {
-        .name = COMPOUND_STRING("Gentle"),
         .statUp = STAT_SPDEF,
         .statDown = STAT_DEF,
         .backAnim = 2,
@@ -639,7 +617,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_SASSY] =
     {
-        .name = COMPOUND_STRING("Sassy"),
         .statUp = STAT_SPDEF,
         .statDown = STAT_SPEED,
         .backAnim = 1,
@@ -651,7 +628,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_CAREFUL] =
     {
-        .name = COMPOUND_STRING("Careful"),
         .statUp = STAT_SPDEF,
         .statDown = STAT_SPATK,
         .backAnim = 2,
@@ -663,7 +639,6 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
     },
     [NATURE_QUIRKY] =
     {
-        .name = COMPOUND_STRING("Quirky"),
         .statUp = STAT_SPDEF,
         .statDown = STAT_SPDEF,
         .backAnim = 1,
@@ -6960,4 +6935,9 @@ uq4_12_t GetDynamaxLevelHPMultiplier(u32 dynamaxLevel, bool32 inverseMultiplier)
     if (inverseMultiplier)
         return UQ_4_12(1.0/(1.5 + 0.05 * dynamaxLevel));
     return UQ_4_12(1.5 + 0.05 * dynamaxLevel);
+}
+
+const u8* GetNatureName(u8 natureId)
+{
+    return kNaturesNamesBuffer + kNaturesNamesOffsets[natureId];
 }

@@ -654,7 +654,6 @@ enum {
 
 struct NatureInfo
 {
-    const u8 *name;
     u8 statUp;
     u8 statDown;
     u8 backAnim;
@@ -922,5 +921,6 @@ void UpdateDaysPassedSinceFormChange(u16 days);
 void TrySetDayLimitToFormChange(struct Pokemon *mon);
 u32 CheckDynamicMoveType(struct Pokemon *mon, u32 move, u32 battler);
 uq4_12_t GetDynamaxLevelHPMultiplier(u32 dynamaxLevel, bool32 inverseMultiplier);
+const u8* GetNatureName(u8 natureId);
 
 #endif // GUARD_POKEMON_H

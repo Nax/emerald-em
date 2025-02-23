@@ -50,7 +50,9 @@ class LangBuilder:
       for line in f:
         if line.startswith(define_prefix):
           line = line[len(define_prefix):].strip()
-          splits = line.split(' ')
+          # Remove C++-style comments
+          line = line.split('//')[0].strip()
+          splits = line.split()
           if len(splits) < 2:
             continue
           name = splits[0]
@@ -158,10 +160,12 @@ class LangBuilder:
     self.parse_charmap()
     self.parse_symbols()
     self.parse_defines('items.h', 'ITEM')
+    self.parse_defines('pokemon.h', 'NATURE')
     self.entries_table('kMovesNamesOffsets', 'kMovesNamesBuffer', 'moves.txt', None, 16384)
     self.entries_table('kAbilitiesNamesOffsets', 'kAbilitiesNamesBuffer', 'abilities.txt', None, 8192)
     self.entries_table('kSpeciesNamesOffsets', 'kSpeciesNamesBuffer', 'pokemons.txt', None, 16384)
     self.entries_table('kItemsNamesOffsets', 'kItemsNamesBuffer', 'items.txt', 'ITEM', 16384)
+    self.entries_table('kNaturesNamesOffsets', 'kNaturesNamesBuffer', 'natures.txt', 'NATURE', 256)
     self.output_data()
 
 builder = LangBuilder(sys.argv[1])

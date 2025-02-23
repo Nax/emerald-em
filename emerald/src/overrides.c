@@ -20,6 +20,10 @@ const u8 kAbilitiesNamesBuffer[8192] = { 0xff };
 const u32 kItemsNamesOffsets[ITEMS_COUNT];
 const u8 kItemsNamesBuffer[16384] = { 0xff };
 
+/* Natures */
+const u32 kNaturesNamesOffsets[NUM_NATURES];
+const u8 kNaturesNamesBuffer[256] = { 0xff };
+
 const u16 kFirstBattlePokemon = SPECIES_ZIGZAGOON;
 const u16 kStarterMons[] = { SPECIES_TREECKO, SPECIES_TORCHIC, SPECIES_MUDKIP };
 
