@@ -19,10 +19,14 @@
 
 #define EMERALDEM_API EMERALDEM_EXTERN_C EMERALDEM_EXPORT
 
+#define EMERALDEM_LANG_EN_US 0
+#define EMERALDEM_LANG_FR_FR 1
+
 typedef struct EmeraldGenerator EmeraldGenerator;
 
 EMERALDEM_API EmeraldGenerator* EmCreate(void);
 EMERALDEM_API void              EmDestroy(EmeraldGenerator* emerald);
+EMERALDEM_API void              EmSetLang(EmeraldGenerator* emerald, int lang);
 EMERALDEM_API void              EmSetCallbackLog(EmeraldGenerator* emerald, void (*cb)(void*, const char*), void* arg);
 EMERALDEM_API void              EmSetCallbackError(EmeraldGenerator* emerald, void (*cb)(void*, const char*), void* arg);
 EMERALDEM_API int               EmRun(EmeraldGenerator* emerald, const char* originalRom, const char* outputRom);

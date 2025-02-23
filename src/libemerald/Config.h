@@ -9,6 +9,7 @@ struct Config
 {
     Config();
 
+    int                 lang;
     std::string         pathOriginalRom;
     std::string         pathOutputRom;
     ConfigLogCallback   cbLog;

@@ -2,6 +2,7 @@
 #include <cstring>
 #include <vector>
 #include <set>
+#include <emerald-em.h>
 #include <libemerald/Log.h>
 #include <libemerald/Shuffler.h>
 #include <libemerald/Pokemon.h>
@@ -9,10 +10,16 @@
 #include <libemerald/Context.h>
 #include <emerald/include/constants/offsets.h>
 
+static const char* kLangs[] = {
+    "en_US",
+    "fr_FR",
+};
+
 bool Shuffler::run()
 {
-    Log::info(_ctx, "Applying French language");
-    if (!applyLang("fr_FR"))
+    const char* lang = kLangs[_ctx.cfg.lang];
+    Log::info(_ctx, "Applying language %s", lang);
+    if (!applyLang(lang))
         return false;
 
     Log::info(_ctx, "Shuffling");

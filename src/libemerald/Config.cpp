@@ -1,3 +1,4 @@
+#include <emerald-em.h>
 #include <libemerald/Config.h>
 
 static void defaultLogCallback(void*, const char* msg)
@@ -12,6 +13,7 @@ static void defaultErrorCallback(void*, const char* msg)
 
 Config::Config()
 {
+    lang = EMERALDEM_LANG_EN_US;
     cbLog = defaultLogCallback;
     cbLogArg = nullptr;
     cbError = defaultErrorCallback;

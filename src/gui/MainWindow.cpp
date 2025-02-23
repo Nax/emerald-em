@@ -3,6 +3,7 @@
 #include "GenerateTask.h"
 #include "MainWindow.h"
 #include "PathSelector.h"
+#include "LangSelector.h"
 
 MainWindow::MainWindow(QWidget* parent)
 : QMainWindow(parent)
@@ -13,6 +14,10 @@ MainWindow::MainWindow(QWidget* parent)
     /* Create the layout */
     QVBoxLayout* layout = new QVBoxLayout;
     centralWidget->setLayout(layout);
+
+    LangSelector* selLang = new LangSelector("Language");
+    layout->addWidget(selLang);
+    connect(selLang, &LangSelector::selected, this, [this](int lang) { EmSetLang(_em, lang); });
 
     PathSelector* selOriginalRom = new PathSelector("Original ROM", PathSelector::Mode::File, "Gameboy Advance ROM (*.gba)");
     layout->addWidget(selOriginalRom);
