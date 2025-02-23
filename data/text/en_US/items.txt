@@ -1,0 +1,830 @@
+NONE                     |-
+POKE_BALL                |Poké Ball
+GREAT_BALL               |Great Ball
+ULTRA_BALL               |Ultra Ball
+MASTER_BALL              |Master Ball
+PREMIER_BALL             |Premier Ball
+HEAL_BALL                |Heal Ball
+NET_BALL                 |Net Ball
+NEST_BALL                |Nest Ball
+DIVE_BALL                |Dive Ball
+DUSK_BALL                |Dusk Ball
+TIMER_BALL               |Timer Ball
+QUICK_BALL               |Quick Ball
+REPEAT_BALL              |Repeat Ball
+LUXURY_BALL              |Luxury Ball
+LEVEL_BALL               |Level Ball
+LURE_BALL                |Lure Ball
+MOON_BALL                |Moon Ball
+FRIEND_BALL              |Friend Ball
+LOVE_BALL                |Love Ball
+FAST_BALL                |Fast Ball
+HEAVY_BALL               |Heavy Ball
+DREAM_BALL               |Dream Ball
+SAFARI_BALL              |Safari Ball
+SPORT_BALL               |Sport Ball
+PARK_BALL                |Park Ball
+BEAST_BALL               |Beast Ball
+CHERISH_BALL             |Cherish Ball
+POTION                   |Potion
+SUPER_POTION             |Super Potion
+HYPER_POTION             |Hyper Potion
+MAX_POTION               |Max Potion
+FULL_RESTORE             |Full Restore
+REVIVE                   |Revive
+MAX_REVIVE               |Max Revive
+FRESH_WATER              |Fresh Water
+SODA_POP                 |Soda Pop
+LEMONADE                 |Lemonade
+MOOMOO_MILK              |Moomoo Milk
+ENERGY_POWDER            |Energy Powder
+ENERGY_ROOT              |Energy Root
+HEAL_POWDER              |Heal Powder
+REVIVAL_HERB             |Revival Herb
+ANTIDOTE                 |Antidote
+PARALYZE_HEAL            |Paralyze Heal
+BURN_HEAL                |Burn Heal
+ICE_HEAL                 |Ice Heal
+AWAKENING                |Awakening
+FULL_HEAL                |Full Heal
+ETHER                    |Ether
+MAX_ETHER                |Max Ether
+ELIXIR                   |Elixir
+MAX_ELIXIR               |Max Elixir
+BERRY_JUICE              |Berry Juice
+SACRED_ASH               |Sacred Ash
+SWEET_HEART              |Sweet Heart
+MAX_HONEY                |Max Honey
+PEWTER_CRUNCHIES         |Pewter Crunchies
+RAGE_CANDY_BAR           |Rage Candy Bar
+LAVA_COOKIE              |Lava Cookie
+OLD_GATEAU               |Old Gateau
+CASTELIACONE             |Casteliacone
+LUMIOSE_GALETTE          |Lumiose Galette
+SHALOUR_SABLE            |Shalour Sable
+BIG_MALASADA             |Big Masalada
+HP_UP                    |HP Up
+PROTEIN                  |Protein
+IRON                     |Iron
+CALCIUM                  |Calcium
+ZINC                     |Zinc
+CARBOS                   |Carbos
+PP_UP                    |PP Up
+PP_MAX                   |PP Max
+HEALTH_FEATHER           |Health Feather
+MUSCLE_FEATHER           |Muscle Feather
+RESIST_FEATHER           |Resist Feather
+GENIUS_FEATHER           |Genius Feather
+CLEVER_FEATHER           |Clever Feather
+SWIFT_FEATHER            |Swift Feather
+ABILITY_CAPSULE          |Ability Capsule
+ABILITY_PATCH            |Ability Patch
+LONELY_MINT              |Lonely Mint
+ADAMANT_MINT             |Adamant Mint
+NAUGHTY_MINT             |Naughty Mint
+BRAVE_MINT               |Brave Mint
+BOLD_MINT                |Bold Mint
+IMPISH_MINT              |Impish Mint
+LAX_MINT                 |Lax Mint
+RELAXED_MINT             |Relaxed Mint
+MODEST_MINT              |Modest Mint
+MILD_MINT                |Mild Mint
+RASH_MINT                |Rash Mint
+QUIET_MINT               |Quiet Mint
+CALM_MINT                |Calm Mint
+GENTLE_MINT              |Gentle Mint
+CAREFUL_MINT             |Careful Mint
+SASSY_MINT               |Sassy Mint
+TIMID_MINT               |Timid Mint
+HASTY_MINT               |Hasty Mint
+JOLLY_MINT               |Jolly Mint
+NAIVE_MINT               |Naive Mint
+SERIOUS_MINT             |Serious Mint
+RARE_CANDY               |Rare Candy
+EXP_CANDY_XS             |Exp. Candy XS
+EXP_CANDY_S              |Exp. Candy S
+EXP_CANDY_M              |Exp. Candy M
+EXP_CANDY_L              |Exp. Candy L
+EXP_CANDY_XL             |Exp. Candy XL
+DYNAMAX_CANDY            |Dynamax Candy
+BLUE_FLUTE               |Blue Flute
+YELLOW_FLUTE             |Yellow Flute
+RED_FLUTE                |Red Flute
+BLACK_FLUTE              |Black Flute
+WHITE_FLUTE              |White Flute
+REPEL                    |Repel
+SUPER_REPEL              |Super Repel
+MAX_REPEL                |Max Repel
+LURE                     |Lure
+SUPER_LURE               |Super Lure
+MAX_LURE                 |Max Lure
+ESCAPE_ROPE              |Escape Rope
+X_ATTACK                 |X-Attack
+X_DEFENSE                |X-Defense
+X_SP_ATK                 |X-Sp.Atk
+X_SP_DEF                 |X-Sp.Def
+X_SPEED                  |X-Speed
+X_ACCURACY               |X-Accuracy
+DIRE_HIT                 |Dire Hit
+GUARD_SPEC               |Guard Spec
+POKE_DOLL                |Poké Doll
+FLUFFY_TAIL              |Fluffy Tail
+POKE_TOY                 |Poké Toy
+MAX_MUSHROOMS            |Max Mushrooms
+BOTTLE_CAP               |Bottle Cap
+GOLD_BOTTLE_CAP          |Gold Bottle Cap
+NUGGET                   |Nugget
+BIG_NUGGET               |Big Nugget
+TINY_MUSHROOM            |Tiny Mushroom
+BIG_MUSHROOM             |Big Mushroom
+BALM_MUSHROOM            |Balm Mushroom
+PEARL                    |Pearl
+BIG_PEARL                |Big Pearl
+PEARL_STRING             |Pearl String
+STARDUST                 |Stardust
+STAR_PIECE               |Star Piece
+COMET_SHARD              |Comet Shard
+SHOAL_SALT               |Shoal Salt
+SHOAL_SHELL              |Shoal Shell
+RED_SHARD                |Red Shard
+BLUE_SHARD               |Blue Shard
+YELLOW_SHARD             |Yellow Shard
+GREEN_SHARD              |Green Shard
+HEART_SCALE              |Heart Scale
+HONEY                    |Honey
+RARE_BONE                |Rare Bone
+ODD_KEYSTONE             |Odd Keystone
+PRETTY_FEATHER           |Pretty Feather
+RELIC_COPPER             |Relic Copper
+RELIC_SILVER             |Relic Silver
+RELIC_GOLD               |Relic Gold
+RELIC_VASE               |Relic Vase
+RELIC_BAND               |Relic Band
+RELIC_STATUE             |Relic Statue
+RELIC_CROWN              |Relic Crown
+STRANGE_SOUVENIR         |Strange Souvenir
+HELIX_FOSSIL             |Helix Fossil
+DOME_FOSSIL              |Dome Fossil
+OLD_AMBER                |Old Amber
+ROOT_FOSSIL              |Root Fossil
+CLAW_FOSSIL              |Claw Fossil
+ARMOR_FOSSIL             |Armor Fossil
+SKULL_FOSSIL             |Skull Fossil
+COVER_FOSSIL             |Cover Fossil
+PLUME_FOSSIL             |Plume Fossil
+JAW_FOSSIL               |Jaw Fossil
+SAIL_FOSSIL              |Sail Fossil
+FOSSILIZED_BIRD          |Fossilized Bird
+FOSSILIZED_FISH          |Fossilized Fish
+FOSSILIZED_DRAKE         |Fossilized Drake
+FOSSILIZED_DINO          |Fossilized Dino
+GROWTH_MULCH             |Growth Mulch
+DAMP_MULCH               |Damp Mulch
+STABLE_MULCH             |Stable Mulch
+GOOEY_MULCH              |Gooey Mulch
+RICH_MULCH               |Rich Mulch
+SURPRISE_MULCH           |Surprise Mulch
+BOOST_MULCH              |Boost Mulch
+AMAZE_MULCH              |Amaze Mulch
+RED_APRICORN             |Red Apricorn
+BLUE_APRICORN            |Blue Apricorn
+YELLOW_APRICORN          |Yellow Apricorn
+GREEN_APRICORN           |Green Apricorn
+PINK_APRICORN            |Pink Apricorn
+WHITE_APRICORN           |White Apricorn
+BLACK_APRICORN           |Black Apricorn
+WISHING_PIECE            |Wishing Piece
+GALARICA_TWIG            |Galarica Twig
+ARMORITE_ORE             |Armorite Ore
+DYNITE_ORE               |Dynite Ore
+ORANGE_MAIL              |Orange Mail
+HARBOR_MAIL              |Harbor Mail
+GLITTER_MAIL             |Glitter Mail
+MECH_MAIL                |Mech Mail
+WOOD_MAIL                |Wood Mail
+WAVE_MAIL                |Wave Mail
+BEAD_MAIL                |Bead Mail
+SHADOW_MAIL              |Shadow Mail
+TROPIC_MAIL              |Tropic Mail
+DREAM_MAIL               |Dream Mail
+FAB_MAIL                 |Fab Mail
+RETRO_MAIL               |Retro Mail
+FIRE_STONE               |Fire Stone
+WATER_STONE              |Water Stone
+THUNDER_STONE            |Thunder Stone
+LEAF_STONE               |Leaf Stone
+ICE_STONE                |Ice Stone
+SUN_STONE                |Sun Stone
+MOON_STONE               |Moon Stone
+SHINY_STONE              |Shiny Stone
+DUSK_STONE               |Dusk Stone
+DAWN_STONE               |Dawn Stone
+SWEET_APPLE              |Sweet Apple
+TART_APPLE               |Tart Apple
+CRACKED_POT              |Cracked Pot
+CHIPPED_POT              |Chipped Pot
+GALARICA_CUFF            |Galarica Cuff
+GALARICA_WREATH          |Galarica Wreath
+DRAGON_SCALE             |Dragon Scale
+UPGRADE                  |Upgrade
+PROTECTOR                |Protector
+ELECTIRIZER              |Electirizer
+MAGMARIZER               |Magmarizer
+DUBIOUS_DISC             |Dubious Disc
+REAPER_CLOTH             |Reaper Cloth
+PRISM_SCALE              |Prism Scale
+WHIPPED_DREAM            |Whipped Dream
+SACHET                   |Sachet
+OVAL_STONE               |Oval Stone
+STRAWBERRY_SWEET         |Strawberry Sweet
+LOVE_SWEET               |Love Sweet
+BERRY_SWEET              |Berry Sweet
+CLOVER_SWEET             |Clover Sweet
+FLOWER_SWEET             |Flower Sweet
+STAR_SWEET               |Star Sweet
+RIBBON_SWEET             |Ribbon Sweet
+EVERSTONE                |Everstone
+RED_NECTAR               |Red Nectar
+YELLOW_NECTAR            |Yellow Nectar
+PINK_NECTAR              |Pink Nectar
+PURPLE_NECTAR            |Purple Nectar
+FLAME_PLATE              |Flame Plate
+SPLASH_PLATE             |Splash Plate
+ZAP_PLATE                |Zap Plate
+MEADOW_PLATE             |Meadow Plate
+ICICLE_PLATE             |Icicle Plate
+FIST_PLATE               |Fist Plate
+TOXIC_PLATE              |Toxic Plate
+EARTH_PLATE              |Earth Plate
+SKY_PLATE                |Sky Plate
+MIND_PLATE               |Mind Plate
+INSECT_PLATE             |Insect Plate
+STONE_PLATE              |Stone Plate
+SPOOKY_PLATE             |Spooky Plate
+DRACO_PLATE              |Draco Plate
+DREAD_PLATE              |Dread Plate
+IRON_PLATE               |Iron Plate
+PIXIE_PLATE              |Pixie Plate
+DOUSE_DRIVE              |Douse Drive
+SHOCK_DRIVE              |Shock Drive
+BURN_DRIVE               |Burn Drive
+CHILL_DRIVE              |Chill Drive
+FIRE_MEMORY              |Fire Memory
+WATER_MEMORY             |Water Memory
+ELECTRIC_MEMORY          |Electric Memory
+GRASS_MEMORY             |Grass Memory
+ICE_MEMORY               |Ice Memory
+FIGHTING_MEMORY          |Fighting Memory
+POISON_MEMORY            |Poison Memory
+GROUND_MEMORY            |Ground Memory
+FLYING_MEMORY            |Flying Memory
+PSYCHIC_MEMORY           |Psychic Memory
+BUG_MEMORY               |Bug Memory
+ROCK_MEMORY              |Rock Memory
+GHOST_MEMORY             |Ghost Memory
+DRAGON_MEMORY            |Dragon Memory
+DARK_MEMORY              |Dark Memory
+STEEL_MEMORY             |Steel Memory
+FAIRY_MEMORY             |Fairy Memory
+RUSTED_SWORD             |Rusted Sword
+RUSTED_SHIELD            |Rusted Shield
+RED_ORB                  |Red Orb
+BLUE_ORB                 |Blue Orb
+VENUSAURITE              |Venusaurite
+CHARIZARDITE_X           |Charizardite X
+CHARIZARDITE_Y           |Charizardite Y
+BLASTOISINITE            |Blastoisinite
+BEEDRILLITE              |Beedrillite
+PIDGEOTITE               |Pidgeotite
+ALAKAZITE                |Alakazite
+SLOWBRONITE              |Slowbronite
+GENGARITE                |Gengarite
+KANGASKHANITE            |Kangaskhanite
+PINSIRITE                |Pinsirite
+GYARADOSITE              |Gyaradosite
+AERODACTYLITE            |Aerodactylite
+MEWTWONITE_X             |Mewtwonite X
+MEWTWONITE_Y             |Mewtwonite Y
+AMPHAROSITE              |Ampharosite
+STEELIXITE               |Steelixite
+SCIZORITE                |Scizorite
+HERACRONITE              |Heracronite
+HOUNDOOMINITE            |Houndoominite
+TYRANITARITE             |Tyranitarite
+SCEPTILITE               |Sceptilite
+BLAZIKENITE              |Blazikenite
+SWAMPERTITE              |Swampertite
+GARDEVOIRITE             |Gardevoirite
+SABLENITE                |Sablenite
+MAWILITE                 |Mawilite
+AGGRONITE                |Aggronite
+MEDICHAMITE              |Medichamite
+MANECTITE                |Manectite
+SHARPEDONITE             |Sharpedonite
+CAMERUPTITE              |Cameruptite
+ALTARIANITE              |Altarianite
+BANETTITE                |Banettite
+ABSOLITE                 |Absolite
+GLALITITE                |Glalitite
+SALAMENCITE              |Salamencite
+METAGROSSITE             |Metagrossite
+LATIASITE                |Latiasite
+LATIOSITE                |Latiosite
+LOPUNNITE                |Lopunnite
+GARCHOMPITE              |Garchompite
+LUCARIONITE              |Lucarionite
+ABOMASITE                |Abomasite
+GALLADITE                |Galladite
+AUDINITE                 |Audinite
+DIANCITE                 |Diancite
+NORMAL_GEM               |Normal Gem
+FIRE_GEM                 |Fire Gem
+WATER_GEM                |Water Gem
+ELECTRIC_GEM             |Electric Gem
+GRASS_GEM                |Grass Gem
+ICE_GEM                  |Ice Gem
+FIGHTING_GEM             |Fighting Gem
+POISON_GEM               |Poison Gem
+GROUND_GEM               |Ground Gem
+FLYING_GEM               |Flying Gem
+PSYCHIC_GEM              |Psychic Gem
+BUG_GEM                  |Bug Gem
+ROCK_GEM                 |Rock Gem
+GHOST_GEM                |Ghost Gem
+DRAGON_GEM               |Dragon Gem
+DARK_GEM                 |Dark Gem
+STEEL_GEM                |Steel Gem
+FAIRY_GEM                |Fairy Gem
+NORMALIUM_Z              |Normalium Z
+FIRIUM_Z                 |Firium Z
+WATERIUM_Z               |Waterium Z
+ELECTRIUM_Z              |Electrium Z
+GRASSIUM_Z               |Grassium Z
+ICIUM_Z                  |Icium Z
+FIGHTINIUM_Z             |Fightinium Z
+POISONIUM_Z              |Poisonium Z
+GROUNDIUM_Z              |Groundium Z
+FLYINIUM_Z               |Flyinium Z
+PSYCHIUM_Z               |Psychium Z
+BUGINIUM_Z               |Buginium Z
+ROCKIUM_Z                |Rockium Z
+GHOSTIUM_Z               |Ghostium Z
+DRAGONIUM_Z              |Dragonium Z
+DARKINIUM_Z              |Darkinium Z
+STEELIUM_Z               |Steelium Z
+FAIRIUM_Z                |Fairium Z
+PIKANIUM_Z               |Pikanium Z
+EEVIUM_Z                 |Eevium Z
+SNORLIUM_Z               |Snorlium Z
+MEWNIUM_Z                |Mewnium Z
+DECIDIUM_Z               |Decidium Z
+INCINIUM_Z               |Incinium Z
+PRIMARIUM_Z              |Primarium Z
+LYCANIUM_Z               |Lycanium Z
+MIMIKIUM_Z               |Mimikium Z
+KOMMONIUM_Z              |Kommonium Z
+TAPUNIUM_Z               |Tapunium Z
+SOLGANIUM_Z              |Solganium Z
+LUNALIUM_Z               |Lunalium Z
+MARSHADIUM_Z             |Marshadium Z
+ALORAICHIUM_Z            |Aloraichium Z
+PIKASHUNIUM_Z            |Pikashunium Z
+ULTRANECROZIUM_Z         |Ultranecrozium Z
+LIGHT_BALL               |Light Ball
+LEEK                     |Leek
+THICK_CLUB               |Thick Club
+LUCKY_PUNCH              |Lucky Punch
+METAL_POWDER             |Metal Powder
+QUICK_POWDER             |Quick Powder
+DEEP_SEA_SCALE           |Deep Sea Scale
+DEEP_SEA_TOOTH           |Deep Sea Tooth
+SOUL_DEW                 |Soul Dew
+ADAMANT_ORB              |Adamant Orb
+LUSTROUS_ORB             |Lustrous Orb
+GRISEOUS_ORB             |Griseous Orb
+SEA_INCENSE              |Sea Incense
+LAX_INCENSE              |Lax Incense
+ODD_INCENSE              |Odd Incense
+ROCK_INCENSE             |Rock Incense
+FULL_INCENSE             |Full Incense
+WAVE_INCENSE             |Wave Incense
+ROSE_INCENSE             |Rose Incense
+LUCK_INCENSE             |Luck Incense
+PURE_INCENSE             |Pure Incense
+RED_SCARF                |Red Scarf
+BLUE_SCARF               |Blue Scarf
+PINK_SCARF               |Pink Scarf
+GREEN_SCARF              |Green Scarf
+YELLOW_SCARF             |Yellow Scarf
+MACHO_BRACE              |Macho Brace
+POWER_WEIGHT             |Power Weight
+POWER_BRACER             |Power Bracer
+POWER_BELT               |Power Belt
+POWER_LENS               |Power Lens
+POWER_BAND               |Power Band
+POWER_ANKLET             |Power Anklet
+SILK_SCARF               |Silk Scarf
+CHARCOAL                 |Charcoal
+MYSTIC_WATER             |Mystic Water
+MAGNET                   |Magnet
+MIRACLE_SEED             |Miracle Seed
+NEVER_MELT_ICE           |Never-Melt Ice
+BLACK_BELT               |Black Belt
+POISON_BARB              |Poison Barb
+SOFT_SAND                |Soft Sand
+SHARP_BEAK               |Sharp Beak
+TWISTED_SPOON            |Twisted Spoon
+SILVER_POWDER            |Silver Powder
+HARD_STONE               |Hard Stone
+SPELL_TAG                |Spell Tag
+DRAGON_FANG              |Dragon Fang
+BLACK_GLASSES            |Black Glasses
+METAL_COAT               |Metal Coat
+CHOICE_BAND              |Choice Band
+CHOICE_SPECS             |Choice Specs
+CHOICE_SCARF             |Choice Scarf
+FLAME_ORB                |Flame Orb
+TOXIC_ORB                |Toxic Orb
+DAMP_ROCK                |Damp Rock
+HEAT_ROCK                |Heat Rock
+SMOOTH_ROCK              |Smooth Rock
+ICY_ROCK                 |Icy Rock
+ELECTRIC_SEED            |Electric Seed
+PSYCHIC_SEED             |Psychic Seed
+MISTY_SEED               |Misty Seed
+GRASSY_SEED              |Grassy Seed
+ABSORB_BULB              |Absorb Bulb
+CELL_BATTERY             |Cell Battery
+LUMINOUS_MOSS            |Luminous Moss
+SNOWBALL                 |Snowball
+BRIGHT_POWDER            |Bright Powder
+WHITE_HERB               |White Herb
+EXP_SHARE                |Exp. Share
+QUICK_CLAW               |Quick Claw
+SOOTHE_BELL              |Soothe Bell
+MENTAL_HERB              |Mental Herb
+KINGS_ROCK               |King's Rock
+AMULET_COIN              |Amulet Coin
+CLEANSE_TAG              |Cleanse Tag
+SMOKE_BALL               |Smoke Ball
+FOCUS_BAND               |Focus Band
+LUCKY_EGG                |Lucky Egg
+SCOPE_LENS               |Scope Lens
+LEFTOVERS                |Leftovers
+SHELL_BELL               |Shell Bell
+WIDE_LENS                |Wide Lens
+MUSCLE_BAND              |Muscle Band
+WISE_GLASSES             |Wise Glasses
+EXPERT_BELT              |Expert Belt
+LIGHT_CLAY               |Light Clay
+LIFE_ORB                 |Life Orb
+POWER_HERB               |Power Herb
+FOCUS_SASH               |Focus Sash
+ZOOM_LENS                |Zoom Lens
+METRONOME                |Metronome
+IRON_BALL                |Iron Ball
+LAGGING_TAIL             |Lagging Tail
+DESTINY_KNOT             |Destiny Knot
+BLACK_SLUDGE             |Black Sludge
+GRIP_CLAW                |Grip Claw
+STICKY_BARB              |Sticky Barb
+SHED_SHELL               |Shed Shell
+BIG_ROOT                 |Big Root
+RAZOR_CLAW               |Razor Claw
+RAZOR_FANG               |Razor Fang
+EVIOLITE                 |Eviolite
+FLOAT_STONE              |Float Stone
+ROCKY_HELMET             |Rocky Helmet
+AIR_BALLOON              |Air Balloon
+RED_CARD                 |Red Card
+RING_TARGET              |Ring Target
+BINDING_BAND             |Binding Band
+EJECT_BUTTON             |Eject Button
+WEAKNESS_POLICY          |Weakness Policy
+ASSAULT_VEST             |Assault Vest
+SAFETY_GOGGLES           |Safety Goggles
+ADRENALINE_ORB           |Adrenaline Orb
+TERRAIN_EXTENDER         |Terrain Extender
+PROTECTIVE_PADS          |Protective Pads
+THROAT_SPRAY             |Throat Spray
+EJECT_PACK               |Eject Pack
+HEAVY_DUTY_BOOTS         |Heavy-Duty Boots
+BLUNDER_POLICY           |Blunder Policy
+ROOM_SERVICE             |Room Service
+UTILITY_UMBRELLA         |Utility Umbrella
+CHERI_BERRY              |Cheri Berry
+CHESTO_BERRY             |Chesto Berry
+PECHA_BERRY              |Pecha Berry
+RAWST_BERRY              |Rawst Berry
+ASPEAR_BERRY             |Aspear Berry
+LEPPA_BERRY              |Leppa Berry
+ORAN_BERRY               |Oran Berry
+PERSIM_BERRY             |Persim Berry
+LUM_BERRY                |Lum Berry
+SITRUS_BERRY             |Sitrus Berry
+FIGY_BERRY               |Figy Berry
+WIKI_BERRY               |Wiki Berry
+MAGO_BERRY               |Mago Berry
+AGUAV_BERRY              |Aguav Berry
+IAPAPA_BERRY             |Iapapa Berry
+RAZZ_BERRY               |Razz Berry
+BLUK_BERRY               |Bluk Berry
+NANAB_BERRY              |Nanab Berry
+WEPEAR_BERRY             |Wepear Berry
+PINAP_BERRY              |Pinap Berry
+POMEG_BERRY              |Pomeg Berry
+KELPSY_BERRY             |Kelpsy Berry
+QUALOT_BERRY             |Qualot Berry
+HONDEW_BERRY             |Hondew Berry
+GREPA_BERRY              |Grepa Berry
+TAMATO_BERRY             |Tamato Berry
+CORNN_BERRY              |Cornn Berry
+MAGOST_BERRY             |Magost Berry
+RABUTA_BERRY             |Rabuta Berry
+NOMEL_BERRY              |Nomel Berry
+SPELON_BERRY             |Spelon Berry
+PAMTRE_BERRY             |Pamtre Berry
+WATMEL_BERRY             |Watmel Berry
+DURIN_BERRY              |Durin Berry
+BELUE_BERRY              |Belue Berry
+CHILAN_BERRY             |Chilan Berry
+OCCA_BERRY               |Occa Berry
+PASSHO_BERRY             |Passho Berry
+WACAN_BERRY              |Wacan Berry
+RINDO_BERRY              |Rindo Berry
+YACHE_BERRY              |Yache Berry
+CHOPLE_BERRY             |Chople Berry
+KEBIA_BERRY              |Kebia Berry
+SHUCA_BERRY              |Shuca Berry
+COBA_BERRY               |Coba Berry
+PAYAPA_BERRY             |Payapa Berry
+TANGA_BERRY              |Tanga Berry
+CHARTI_BERRY             |Charti Berry
+KASIB_BERRY              |Kasib Berry
+HABAN_BERRY              |Haban Berry
+COLBUR_BERRY             |Colbur Berry
+BABIRI_BERRY             |Babiri Berry
+ROSELI_BERRY             |Roseli Berry
+LIECHI_BERRY             |Liechi Berry
+GANLON_BERRY             |Ganlon Berry
+SALAC_BERRY              |Salac Berry
+PETAYA_BERRY             |Petaya Berry
+APICOT_BERRY             |Apicot Berry
+LANSAT_BERRY             |Lansat Berry
+STARF_BERRY              |Starf Berry
+ENIGMA_BERRY             |Enigma Berry
+MICLE_BERRY              |Micle Berry
+CUSTAP_BERRY             |Custap Berry
+JABOCA_BERRY             |Jaboca Berry
+ROWAP_BERRY              |Rowap Berry
+KEE_BERRY                |Kee Berry
+MARANGA_BERRY            |Maranga Berry
+ENIGMA_BERRY_E_READER    |Enigma Berry
+TM01                     |TM01
+TM02                     |TM02
+TM03                     |TM03
+TM04                     |TM04
+TM05                     |TM05
+TM06                     |TM06
+TM07                     |TM07
+TM08                     |TM08
+TM09                     |TM09
+TM10                     |TM10
+TM11                     |TM11
+TM12                     |TM12
+TM13                     |TM13
+TM14                     |TM14
+TM15                     |TM15
+TM16                     |TM16
+TM17                     |TM17
+TM18                     |TM18
+TM19                     |TM19
+TM20                     |TM20
+TM21                     |TM21
+TM22                     |TM22
+TM23                     |TM23
+TM24                     |TM24
+TM25                     |TM25
+TM26                     |TM26
+TM27                     |TM27
+TM28                     |TM28
+TM29                     |TM29
+TM30                     |TM30
+TM31                     |TM31
+TM32                     |TM32
+TM33                     |TM33
+TM34                     |TM34
+TM35                     |TM35
+TM36                     |TM36
+TM37                     |TM37
+TM38                     |TM38
+TM39                     |TM39
+TM40                     |TM40
+TM41                     |TM41
+TM42                     |TM42
+TM43                     |TM43
+TM44                     |TM44
+TM45                     |TM45
+TM46                     |TM46
+TM47                     |TM47
+TM48                     |TM48
+TM49                     |TM49
+TM50                     |TM50
+TM51                     |TM51
+TM52                     |TM52
+TM53                     |TM53
+TM54                     |TM54
+TM55                     |TM55
+TM56                     |TM56
+TM57                     |TM57
+TM58                     |TM58
+TM59                     |TM59
+TM60                     |TM60
+TM61                     |TM61
+TM62                     |TM62
+TM63                     |TM63
+TM64                     |TM64
+TM65                     |TM65
+TM66                     |TM66
+TM67                     |TM67
+TM68                     |TM68
+TM69                     |TM69
+TM70                     |TM70
+TM71                     |TM71
+TM72                     |TM72
+TM73                     |TM73
+TM74                     |TM74
+TM75                     |TM75
+TM76                     |TM76
+TM77                     |TM77
+TM78                     |TM78
+TM79                     |TM79
+TM80                     |TM80
+TM81                     |TM81
+TM82                     |TM82
+TM83                     |TM83
+TM84                     |TM84
+TM85                     |TM85
+TM86                     |TM86
+TM87                     |TM87
+TM88                     |TM88
+TM89                     |TM89
+TM90                     |TM90
+TM91                     |TM91
+TM92                     |TM92
+TM93                     |TM93
+TM94                     |TM94
+TM95                     |TM95
+TM96                     |TM96
+TM97                     |TM97
+TM98                     |TM98
+TM99                     |TM99
+TM100                    |TM100
+HM01                     |HM01
+HM02                     |HM02
+HM03                     |HM03
+HM04                     |HM04
+HM05                     |HM05
+HM06                     |HM06
+HM07                     |HM07
+HM08                     |HM08
+OVAL_CHARM               |Oval Charm
+SHINY_CHARM              |Shiny Charm
+CATCHING_CHARM           |Catching Charm
+EXP_CHARM                |Exp. Charm
+ROTOM_CATALOG            |Rotom Catalog
+GRACIDEA                 |Gracidea
+REVEAL_GLASS             |Reveal Glass
+DNA_SPLICERS             |DNA Splicers
+ZYGARDE_CUBE             |Zygarde Cube
+PRISON_BOTTLE            |Prison Bottle
+N_SOLARIZER              |N-Solarizer
+N_LUNARIZER              |N-Lunarizer
+REINS_OF_UNITY           |Reins of Unity
+MEGA_RING                |Mega Ring
+Z_POWER_RING             |Z-Power Ring
+DYNAMAX_BAND             |Dynamax Band
+BICYCLE                  |Bicycle
+MACH_BIKE                |Mach Bike
+ACRO_BIKE                |Acro Bike
+OLD_ROD                  |Old Rod
+GOOD_ROD                 |Good Rod
+SUPER_ROD                |Super Rod
+DOWSING_MACHINE          |Dowsing Machine
+TOWN_MAP                 |Town Map
+VS_SEEKER                |VS Seeker
+TM_CASE                  |TM Case
+BERRY_POUCH              |Berry Pouch
+POKEMON_BOX_LINK         |Pokémon Box Link
+COIN_CASE                |Coin Case
+POWDER_JAR               |Powder Jar
+WAILMER_PAIL             |Wailmer Pail
+POKE_RADAR               |Poké Radar
+POKEBLOCK_CASE           |Pokéblock Case
+SOOT_SACK                |Soot Sack
+POKE_FLUTE               |Poké Flute
+FAME_CHECKER             |Fame Checker
+TEACHY_TV                |Teachy TV
+SS_TICKET                |S.S. Ticket
+EON_TICKET               |Eon Ticket
+MYSTIC_TICKET            |Mystic Ticket
+AURORA_TICKET            |Aurora Ticket
+OLD_SEA_MAP              |Old Sea Map
+LETTER                   |Letter
+DEVON_PARTS              |Devon Parts
+GO_GOGGLES               |Go-Goggles
+DEVON_SCOPE              |Devon Scope
+BASEMENT_KEY             |Basement Key
+SCANNER                  |Scanner
+STORAGE_KEY              |Storage Key
+KEY_TO_ROOM_1            |Key to Room 1
+KEY_TO_ROOM_2            |Key to Room 2
+KEY_TO_ROOM_4            |Key to Room 4
+KEY_TO_ROOM_6            |Key to Room 6
+METEORITE                |Meteorite
+MAGMA_EMBLEM             |Magma Emblem
+CONTEST_PASS             |Contest Pass
+PARCEL                   |Parcel
+SECRET_KEY               |Secret Key
+BIKE_VOUCHER             |Bike Voucher
+GOLD_TEETH               |Gold Teeth
+CARD_KEY                 |Card Key
+LIFT_KEY                 |Lift Key
+SILPH_SCOPE              |Silph Scope
+TRI_PASS                 |Tri-Pass
+RAINBOW_PASS             |Rainbow Pass
+TEA                      |Tea
+RUBY                     |Ruby
+SAPPHIRE                 |Sapphire
+ABILITY_SHIELD           |Ability Shield
+CLEAR_AMULET             |Clear Amulet
+PUNCHING_GLOVE           |Punching Glove
+COVERT_CLOAK             |Covert Cloak
+LOADED_DICE              |Loaded Dice
+AUSPICIOUS_ARMOR         |Auspicious Armor
+BOOSTER_ENERGY           |Booster Energy
+BIG_BAMBOO_SHOOT         |Big Bamboo Shoot
+GIMMIGHOUL_COIN          |Gimmighoul Coin
+LEADERS_CREST            |Leader's Crest
+MALICIOUS_ARMOR          |Malicious Armor
+MIRROR_HERB              |Mirror Herb
+SCROLL_OF_DARKNESS       |Scroll of Darkness
+SCROLL_OF_WATERS         |Scroll of Waters
+TERA_ORB                 |Tera Orb
+TINY_BAMBOO_SHOOT        |Tiny Bamboo Shoot
+BUG_TERA_SHARD           |Bug Tera Shard
+DARK_TERA_SHARD          |Dark Tera Shard
+DRAGON_TERA_SHARD        |Dragon Tera Shard
+ELECTRIC_TERA_SHARD      |Electric Tera Shard
+FAIRY_TERA_SHARD         |Fairy Tera Shard
+FIGHTING_TERA_SHARD      |Fighting Tera Shard
+FIRE_TERA_SHARD          |Fire Tera Shard
+FLYING_TERA_SHARD        |Flying Tera Shard
+GHOST_TERA_SHARD         |Ghost Tera Shard
+GRASS_TERA_SHARD         |Grass Tera Shard
+GROUND_TERA_SHARD        |Ground Tera Shard
+ICE_TERA_SHARD           |Ice Tera Shard
+NORMAL_TERA_SHARD        |Normal Tera Shard
+POISON_TERA_SHARD        |Poison Tera Shard
+PSYCHIC_TERA_SHARD       |Psychic Tera Shard
+ROCK_TERA_SHARD          |Rock Tera Shard
+STEEL_TERA_SHARD         |Steel Tera Shard
+WATER_TERA_SHARD         |Water Tera Shard
+ADAMANT_CRYSTAL          |Adamant Crystal
+GRISEOUS_CORE            |Griseous Core
+LUSTROUS_GLOBE           |Lustrous Globe
+BLACK_AUGURITE           |Black Augurite
+LINKING_CORD             |Linking Cord
+PEAT_BLOCK               |Peat Block
+BERSERK_GENE             |Berserk Gene
+FAIRY_FEATHER            |Fairy Feather
+SYRUPY_APPLE             |Syrupy Apple
+UNREMARKABLE_TEACUP      |Unremarkable Teacup
+MASTERPIECE_TEACUP       |Masterpiece Teacup
+CORNERSTONE_MASK         |Cornerstone Mask
+WELLSPRING_MASK          |Wellspring Mask
+HEARTHFLAME_MASK         |Hearthflame Mask
+HEALTH_MOCHI             |Health Mochi
+MUSCLE_MOCHI             |Muscle Mochi
+RESIST_MOCHI             |Resist Mochi
+GENIUS_MOCHI             |Genius Mochi
+CLEVER_MOCHI             |Clever Mochi
+SWIFT_MOCHI              |Swift Mochi
+FRESH_START_MOCHI        |Fresh Start Mochi
+GLIMMERING_CHARM         |Glimmering Charm
+METAL_ALLOY              |Metal Alloy
+STELLAR_TERA_SHARD       |Stellar Tera Shard
+JUBILIFE_MUFFIN          |Jubilife Muffin
+REMEDY                   |Remedy
+FINE_REMEDY              |Fine Remedy
+SUPERB_REMEDY            |Superb Remedy
+AUX_EVASION              |Aux. Evasion
+AUX_GUARD                |Aux. Guard
+AUX_POWER                |Aux. Power
+AUX_POWERGUARD           |Aux. Powerguard
+CHOICE_DUMPLING          |Choice Dumpling
+SWAP_SNACK               |Swap Snack
+TWICE_SPICED_RADISH      |Twice-Spiced Radish
+POKESHI_DOLL             |Pokéshi Doll
+STRANGE_BALL             |Strange Ball
+ETERNAL_REPEL            |Eternal Repel
