@@ -63,22 +63,22 @@ CASTELIACONE             |Glace Volute
 LUMIOSE_GALETTE          |Galette Illumis
 SHALOUR_SABLE            |Sablé Yantreizh
 BIG_MALASADA             |Malasada Maxi
-HP_UP                    |
-PROTEIN                  |
-IRON                     |
-CALCIUM                  |
-ZINC                     |
-CARBOS                   |
-PP_UP                    |
-PP_MAX                   |
-HEALTH_FEATHER           |
-MUSCLE_FEATHER           |
-RESIST_FEATHER           |
-GENIUS_FEATHER           |
-CLEVER_FEATHER           |
-SWIFT_FEATHER            |
-ABILITY_CAPSULE          |
-ABILITY_PATCH            |
+HP_UP                    |PV Plus
+PROTEIN                  |Protéine
+IRON                     |Fer
+CALCIUM                  |Calcium
+ZINC                     |Zinc
+CARBOS                   |Carbone
+PP_UP                    |PP Plus
+PP_MAX                   |PP Max
+HEALTH_FEATHER           |Plume Santé
+MUSCLE_FEATHER           |Plume Force
+RESIST_FEATHER           |Plume Armure
+GENIUS_FEATHER           |Plume Esprit
+CLEVER_FEATHER           |Plume Mental
+SWIFT_FEATHER            |Plume Sprint
+ABILITY_CAPSULE          |Pilule Talent
+ABILITY_PATCH            |Patch Talent
 LONELY_MINT              |
 ADAMANT_MINT             |
 NAUGHTY_MINT             |
@@ -100,34 +100,34 @@ HASTY_MINT               |
 JOLLY_MINT               |
 NAIVE_MINT               |
 SERIOUS_MINT             |
-RARE_CANDY               |
-EXP_CANDY_XS             |
-EXP_CANDY_S              |
-EXP_CANDY_M              |
-EXP_CANDY_L              |
-EXP_CANDY_XL             |
-DYNAMAX_CANDY            |
-BLUE_FLUTE               |
-YELLOW_FLUTE             |
-RED_FLUTE                |
-BLACK_FLUTE              |
-WHITE_FLUTE              |
-REPEL                    |
-SUPER_REPEL              |
-MAX_REPEL                |
-LURE                     |
-SUPER_LURE               |
-MAX_LURE                 |
-ESCAPE_ROPE              |
-X_ATTACK                 |
-X_DEFENSE                |
-X_SP_ATK                 |
-X_SP_DEF                 |
-X_SPEED                  |
-X_ACCURACY               |
-DIRE_HIT                 |
-GUARD_SPEC               |
-POKE_DOLL                |
+RARE_CANDY               |Super Bonbon
+EXP_CANDY_XS             |Bonbon Exp. XS
+EXP_CANDY_S              |Bonbon Exp. S
+EXP_CANDY_M              |Bonbon Exp. M
+EXP_CANDY_L              |Bonbon Exp. L
+EXP_CANDY_XL             |Bonbon Exp. XL
+DYNAMAX_CANDY            |Bonbon Dynamax
+BLUE_FLUTE               |Flûte Bleue
+YELLOW_FLUTE             |Flûte Jaune
+RED_FLUTE                |Flûte Rouge
+BLACK_FLUTE              |Flûte Noire
+WHITE_FLUTE              |Flûte Blanche
+REPEL                    |Repousse
+SUPER_REPEL              |Super Repousse
+MAX_REPEL                |Max Repousse
+LURE                     |Parfum
+SUPER_LURE               |Super Parfum
+MAX_LURE                 |Max Parfum
+ESCAPE_ROPE              |Corde Sortie
+X_ATTACK                 |Attaque+
+X_DEFENSE                |Défense+
+X_SP_ATK                 |Atq. Spé+
+X_SP_DEF                 |Déf. Spé+
+X_SPEED                  |Vitesse+
+X_ACCURACY               |Précision+
+DIRE_HIT                 |Muscle+
+GUARD_SPEC               |Garde-Stats
+POKE_DOLL                |Poké Poupée
 FLUFFY_TAIL              |
 POKE_TOY                 |
 MAX_MUSHROOMS            |
@@ -209,33 +209,33 @@ TROPIC_MAIL              |
 DREAM_MAIL               |
 FAB_MAIL                 |
 RETRO_MAIL               |
-FIRE_STONE               |
-WATER_STONE              |
-THUNDER_STONE            |
-LEAF_STONE               |
-ICE_STONE                |
-SUN_STONE                |
-MOON_STONE               |
-SHINY_STONE              |
-DUSK_STONE               |
-DAWN_STONE               |
-SWEET_APPLE              |
-TART_APPLE               |
-CRACKED_POT              |
-CHIPPED_POT              |
-GALARICA_CUFF            |
-GALARICA_WREATH          |
-DRAGON_SCALE             |
-UPGRADE                  |
-PROTECTOR                |
-ELECTIRIZER              |
-MAGMARIZER               |
-DUBIOUS_DISC             |
-REAPER_CLOTH             |
-PRISM_SCALE              |
-WHIPPED_DREAM            |
-SACHET                   |
-OVAL_STONE               |
+FIRE_STONE               |Pierre Feu
+WATER_STONE              |Pierre Eau
+THUNDER_STONE            |Pierre Foudre
+LEAF_STONE               |Pierre Plante
+ICE_STONE                |Pierre Glace
+SUN_STONE                |Pierre Soleil
+MOON_STONE               |Pierre Lune
+SHINY_STONE              |Pierre Éclat
+DUSK_STONE               |Pierre Nuit
+DAWN_STONE               |Pierre Aube
+SWEET_APPLE              |Pomme Sucrée
+TART_APPLE               |Pomme Acidulée
+CRACKED_POT              |Théière Fêlée
+CHIPPED_POT              |Théière Ébréchée
+GALARICA_CUFF            |Bracelet Galanoa
+GALARICA_WREATH          |Couronne Galanoa
+DRAGON_SCALE             |Écaille Draco
+UPGRADE                  |Améliorator
+PROTECTOR                |Protecteur
+ELECTIRIZER              |Électiriseur
+MAGMARIZER               |Magmariseur
+DUBIOUS_DISC             |CD Douteux
+REAPER_CLOTH             |Tissu Fauche
+PRISM_SCALE              |Bel'Écaille
+WHIPPED_DREAM            |Chantibonbon
+SACHET                   |Sachet Senteur
+OVAL_STONE               |Pierre Ovale
 STRAWBERRY_SWEET         |
 LOVE_SWEET               |
 BERRY_SWEET              |
@@ -248,23 +248,23 @@ RED_NECTAR               |
 YELLOW_NECTAR            |
 PINK_NECTAR              |
 PURPLE_NECTAR            |
-FLAME_PLATE              |
-SPLASH_PLATE             |
-ZAP_PLATE                |
-MEADOW_PLATE             |
-ICICLE_PLATE             |
-FIST_PLATE               |
-TOXIC_PLATE              |
-EARTH_PLATE              |
-SKY_PLATE                |
-MIND_PLATE               |
-INSECT_PLATE             |
-STONE_PLATE              |
-SPOOKY_PLATE             |
-DRACO_PLATE              |
-DREAD_PLATE              |
-IRON_PLATE               |
-PIXIE_PLATE              |
+FLAME_PLATE              |Plaque Flamme
+SPLASH_PLATE             |Plaque Hydro
+ZAP_PLATE                |Plaque Volt
+MEADOW_PLATE             |Plaque Herbe
+ICICLE_PLATE             |Plaque Glace
+FIST_PLATE               |Plaque Poing
+TOXIC_PLATE              |Plaque Toxicité
+EARTH_PLATE              |Plaque Terre
+SKY_PLATE                |Plaque Ciel
+MIND_PLATE               |Plaque Esprit
+INSECT_PLATE             |Plaque Insecte
+STONE_PLATE              |Plaque Roc
+SPOOKY_PLATE             |Plaque Fantôme
+DRACO_PLATE              |Plaque Draco
+DREAD_PLATE              |Plaque Ombre
+IRON_PLATE               |Plaque Fer
+PIXIE_PLATE              |Plaque Pixie
 DOUSE_DRIVE              |
 SHOCK_DRIVE              |
 BURN_DRIVE               |
