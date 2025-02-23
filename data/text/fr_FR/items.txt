@@ -693,7 +693,7 @@ SHINY_CHARM              |
 CATCHING_CHARM           |
 EXP_CHARM                |
 ROTOM_CATALOG            |
-GRACIDEA                 |
+GRACIDEA                 |Gracidée
 REVEAL_GLASS             |
 DNA_SPLICERS             |
 ZYGARDE_CUBE             |
@@ -704,14 +704,14 @@ REINS_OF_UNITY           |
 MEGA_RING                |
 Z_POWER_RING             |
 DYNAMAX_BAND             |
-BICYCLE                  |
-MACH_BIKE                |
-ACRO_BIKE                |
+BICYCLE                  |Bicyclette
+MACH_BIKE                |Vélo Course
+ACRO_BIKE                |Vélo Cross
 OLD_ROD                  |
 GOOD_ROD                 |
 SUPER_ROD                |
 DOWSING_MACHINE          |
-TOWN_MAP                 |
+TOWN_MAP                 |Carte Ville
 VS_SEEKER                |
 TM_CASE                  |
 BERRY_POUCH              |
@@ -827,4 +827,4 @@ SWAP_SNACK               |
 TWICE_SPICED_RADISH      |
 POKESHI_DOLL             |
 STRANGE_BALL             |
-ETERNAL_REPEL            |
+ETERNAL_REPEL            |Repousse Éternel
