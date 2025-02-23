@@ -1,0 +1,6 @@
+file(GLOB_RECURSE SOURCES "*.cpp")
+add_executable(shuffler-cli ${SOURCES})
+add_dependencies(shuffler-cli emerald)
+target_include_directories(shuffler-cli PRIVATE "${CMAKE_SOURCE_DIR}")
+set_target_properties(shuffler-cli PROPERTIES OUTPUT_NAME shuffler)
+target_link_libraries(shuffler-cli libemerald)

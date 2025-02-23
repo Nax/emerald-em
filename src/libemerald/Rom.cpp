@@ -4,6 +4,20 @@
 #include <libemerald/Context.h>
 #include <libemerald/Log.h>
 
+uint32_t crc32(const void *data, size_t len)
+{
+    int k;
+    uint32_t crc;
+    const uint8_t* data8 = static_cast<const uint8_t*>(data);
+
+    crc = 0xffffffff;
+    while (len--) {
+        crc ^= *data8++;
+        for (k = 0; k < 8; k++)
+            crc = crc & 1 ? (crc >> 1) ^ 0xedb88320 : crc >> 1;
+    }
+    return ~crc;
+}
 static uint32_t romAddr(uint32_t offset)
 {
     return offset & 0x1ffffff;
@@ -107,6 +121,7 @@ void Rom::writeU32(uint32_t offset, uint32_t value)
 
 bool Rom::openDelta()
 {
+    uint32_t crc;
     auto originalData = std::make_unique<std::uint8_t[]>(16 * 1024 * 1024);
     auto newData = std::make_unique<std::uint8_t[]>(32 * 1024 * 1024);
 
@@ -118,6 +133,12 @@ bool Rom::openDelta()
     if (!file.good())
         return false;
     file.close();
+    crc = crc32(originalData.get(), 16 * 1024 * 1024);
+    if (crc != 0x1F1C08FB)
+    {
+        Log::error(_ctx, "Invalid CRC-32 for original ROM: 0x%08X", crc);
+        return false;
+    }
 
     file.open(_ctx.dataPath + "/delta.bin", std::ios::in | std::ios::binary);
     if (!file.good())
@@ -128,7 +149,7 @@ bool Rom::openDelta()
     file.close();
 
     for (std::uint32_t i = 0; i < 32 * 1024 * 1024; i++)
-        newData[i] = originalData[i % 16 * 1024 * 1024] ^ newData[i];
+        newData[i] ^= originalData[i % (16 * 1024 * 1024)];
 
     _data = std::move(newData);
     return true;

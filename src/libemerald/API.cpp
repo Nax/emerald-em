@@ -60,6 +60,7 @@ static std::string dataPath()
     }
 #endif
     dataDir.append("/data");
+    return dataDir;
 }
 
 EMERALDEM_API int EmRun(EmeraldGenerator* emerald, const char* originalRom, const char* outputRom)

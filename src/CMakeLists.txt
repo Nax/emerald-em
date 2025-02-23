@@ -1,2 +1,2 @@
-#add_subdirectory(shuffler)
+add_subdirectory(cli)
 add_subdirectory(libemerald)

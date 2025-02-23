@@ -399,7 +399,6 @@ private:
 
             if (!makeCandidatesPool(currentPoolDst, poolDst, src, 3) && !makeCandidatesPool(currentPoolDst, poolDst, src, 4))
             {
-                std::printf("No candidates for %d\n", src);
                 return false;
             }
 

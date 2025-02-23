@@ -108,8 +108,7 @@ add_subdirectory(src)
 add_custom_target(
   data ALL
   DEPENDS emerald ${DATA_FILES}
-  COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_BINARY_DIR}/data ${CMAKE_BINARY_DIR}/bin/data
-  COMMAND ${CMAKE_COMMAND} -E copy ${EMERALD_ROM} ${CMAKE_BINARY_DIR}/bin/emerald-em.gba
+  COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_BINARY_DIR}/data $<TARGET_FILE_DIR:shuffler-cli>/data
   COMMENT "Copying data files"
   VERBATIM
 )

@@ -266,33 +266,33 @@ void shuffleItems(Database& db, Random& rand);
 void Shuffler::shuffle()
 {
     /* Load the database */
-    printf("Loading database\n");
+    Log::info(_ctx, "Loading database");
     databaseLoad(_ctx.db, _ctx.rom);
 
     shuffleTmHm(_ctx.db, _ctx.rng);
     shuffleGrowthRates(_ctx.db, _ctx.rng);
 
-    printf("Shuffling Stats\n");
+    Log::info(_ctx, "Shuffling Stats");
     shuffleStats(_ctx.db, _ctx.rng);
 
-    printf("Shuffling Abilities\n");
+    Log::info(_ctx, "Shuffling Abilities");
     shuffleAbilities(_ctx.db, _ctx.rng);
 
-    printf("Shuffling Learnsets\n");
+    Log::info(_ctx, "Shuffling Learnsets");
     shuffleLearnsets();
 
-    printf("Shuffling Evolutions\n");
+    Log::info(_ctx, "Shuffling Evolutions");
     shuffleEvolutions(_ctx.db, _ctx.rng);
 
     /* Shuffle starters */
-    printf("Shuffling Starters\n");
+    Log::info(_ctx, "Shuffling Starters");
     shuffleStarters(_ctx.db, _ctx.rng);
 
     /* Shuffle things */
-    printf("Shuffling Wild Pokemons\n");
+    Log::info(_ctx, "Shuffling Wild Pokemons");
     shuffleWild();
 
-    printf("Shuffling Trainers\n");
+    Log::info(_ctx, "Shuffling Trainers");
     shuffleTrainers(_ctx.db, _ctx.rng);
 
     /* Shuffle the random encounter */
@@ -302,6 +302,6 @@ void Shuffler::shuffle()
     shuffleItems(_ctx.db, _ctx.rng);
 
     /* Save the database */
-    printf("Saving database\n");
+    Log::info(_ctx, "Saving database");
     databaseSave(_ctx.rom, _ctx.db);
 }
