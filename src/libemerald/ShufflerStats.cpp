@@ -88,8 +88,8 @@ static bool genStatsOnce(Random& rng, uint8_t* dst, int count, int bst)
     int totalWeight;
     int stats[6];
 
-    /* Because of 1 in every stat */
-    bst -= count;
+    /* Because of 11 in every stat */
+    bst -= count * 11;
 
     /* Assign weights */
     totalWeight = 0;
@@ -105,7 +105,7 @@ static bool genStatsOnce(Random& rng, uint8_t* dst, int count, int bst)
     for (int i = 0; i < count; ++i)
     {
         tmp = ((bstCopy * weights[i]) / totalWeight);
-        stats[i] = 1 + tmp;
+        stats[i] = 11 + tmp;
         bst -= tmp;
     }
 
