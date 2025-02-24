@@ -6773,6 +6773,9 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_QUARK_DRIVE, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_GREEN,
+        .cryId = CRY_IRON_LEAVES,
+        .natDexNum = NATIONAL_DEX_IRON_LEAVES,
+        .categoryName = _("Paradox"),
         .weight = 1250,
         .description = COMPOUND_STRING(
             "According to the few eyewitness accounts\n"
