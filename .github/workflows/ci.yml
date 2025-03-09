@@ -62,5 +62,36 @@ jobs:
         run: |
           cmake .. -A x64 -DEXTERNAL_DATA=${{ github.workspace }}/data_prebuilt -DBUILD_GUI=ON
           cmake --build . --config Release
-          cmake --install . --config Release --prefix ${{ github.workspace }}\tree
         working-directory: ./build
+
+      - name: Package
+        run: |
+          cmake --build . --config Release --target package
+          cmake -E remove_directory ./pkg/_CPack_Packages
+        working-directory: ./build
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pkg-win64
+          path: build/pkg
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: [gui-win64]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download win64
+        uses: actions/download-artifact@v4
+        with:
+          name: pkg-win64
+          path: pkg
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: "pkg/*"
+          draft: true
+          prerelease: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
