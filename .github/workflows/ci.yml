@@ -1,0 +1,34 @@
+name: Continuous Integration Workflow
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install system dependencies
+        run: sudo apt-get install cmake ninja-build gcc-arm-none-eabi
+
+      - name: Fetch ENC
+        run: |
+          curl -# -L -o emerald.enc "${{secrets.ENC_URL}}"
+          gpg --quiet --batch --yes --decrypt --passphrase="${{secrets.ENC_KEY}}" --output emerald.gba emerald.enc
+          rm -f emerald.enc
+
+      - name: Build Data
+        run: |
+          original_rom="${PWD}/emerald.gba"
+          mkdir -p build
+          cd build
+          cmake .. -DORIGINAL_ROM=${original_rom} -G Ninja
+          ninja data
+
+      - name: Upload Data
+        uses: actions/upload-artifact@v4
+        with:
+          name: data
+          path: build/data
