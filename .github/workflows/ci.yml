@@ -60,7 +60,7 @@ jobs:
 
       - name: Build GUI
         run: |
-          cmake .. -A x64 -DEXTERNAL_DATA=${{ github.workspace }}/data_prebuilt
+          cmake .. -A x64 -DEXTERNAL_DATA=${{ github.workspace }}\data_prebuilt -DBUILD_GUI=ON
           cmake --build . --config Release
-          cmake --install . --config Release --prefix ${{ github.workspace }}/tree
+          cmake --install . --config Release --prefix ${{ github.workspace }}\tree
         working-directory: ./build
