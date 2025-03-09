@@ -115,6 +115,18 @@ if (NOT EXTERNAL_DATA)
   )
   list(APPEND DATA_FILES ${DELTA_FILE})
 
+  # Meta
+  set(META_FILE "${CMAKE_BINARY_DIR}/data/meta.json")
+  add_custom_command(
+    OUTPUT ${META_FILE}
+    COMMAND "${Python3_EXECUTABLE}" ${CMAKE_SOURCE_DIR}/scripts/make_meta.py
+    DEPENDS emerald ${EMERALD_ROM} ${CMAKE_SOURCE_DIR}/scripts/make_meta.py
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    COMMENT "Building meta.json"
+    VERBATIM
+  )
+  list(APPEND DATA_FILES ${META_FILE})
+
   # Copy data
   add_custom_target(
     data ALL
