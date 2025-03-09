@@ -77,7 +77,7 @@ class MetaBuilder:
     self.emit_meta_sym_array('SpeciesTypes',      'u8[2]',  'gSpeciesInfo', 'SPECIES', 'TYPES')
     self.emit_meta_sym_array('SpeciesCatchRate',  'u8',     'gSpeciesInfo', 'SPECIES', 'CATCH_RATE')
     self.emit_meta_sym_array('SpeciesGrowthRate', 'u8',     'gSpeciesInfo', 'SPECIES', 'GROWTH_RATE')
-    self.emit_meta_sym_array('SpeciesAbilities',  'u16',    'gSpeciesInfo', 'SPECIES', 'ABILITIES')
+    self.emit_meta_sym_array('SpeciesAbilities',  'u16[3]', 'gSpeciesInfo', 'SPECIES', 'ABILITIES')
     self.output_data()
 
 builder = MetaBuilder()

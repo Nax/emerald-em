@@ -2,6 +2,9 @@ name: Continuous Integration Workflow
 
 on: [push, pull_request, workflow_dispatch]
 
+permissions:
+  contents: write
+
 jobs:
   data:
     runs-on: ubuntu-latest
