@@ -3,7 +3,7 @@ name: Continuous Integration Workflow
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  ci:
+  data:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,3 +32,34 @@ jobs:
         with:
           name: data
           path: build/data
+  gui-win64:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: 6.8.*
+          arch: win64_msvc2022_64
+          cache: true
+
+      - name: Download data
+        uses: actions/download-artifact@v4
+        with:
+          name: data
+          path: $GITHUB_WORKSPACE/data_prebuilt
+
+      - name: Setup build
+        run: |
+          mkdir -p build
+          mkdir -p tree
+
+      - name: Build GUI
+        run: |
+          cmake .. -A x64 -DEXTERNAL_DATA=${GITHUB_WORKSPACE}/data_prebuilt
+          cmake --build . --config Release
+          cmake --install . --config Release --prefix $GITHUB_WORKSPACE/tree
+        working-directory: ./build
