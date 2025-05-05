@@ -128,10 +128,16 @@ bool Rom::openDelta()
     std::fstream file;
     file.open(_ctx.cfg.pathOriginalRom, std::ios::in | std::ios::binary);
     if (!file.good())
+    {
+        Log::error(_ctx, "Failed to open original ROM: %s", _ctx.cfg.pathOriginalRom.c_str());
         return false;
+    }
     file.read(reinterpret_cast<char*>(originalData.get()), 16 * 1024 * 1024);
     if (!file.good())
+    {
+        Log::error(_ctx, "Failed to read original ROM");
         return false;
+    }
     file.close();
     crc = crc32(originalData.get(), 16 * 1024 * 1024);
     if (crc != 0x1F1C08FB)

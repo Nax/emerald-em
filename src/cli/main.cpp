@@ -52,7 +52,7 @@ int main(int argc, char** argv)
         }
     }
 
-    res = EmRun(emerald, argv[1], argv[2]);
+    res = EmRun(emerald, pathOriginal, pathOutput);
     EmDestroy(emerald);
 
     if (!res)
