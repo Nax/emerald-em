@@ -109,7 +109,7 @@ void Shuffler::shuffleWildList(uint32_t offset, int count)
     {
         for (;;)
         {
-            tmp = Pokemon::randPokemon(_ctx.rng);
+            tmp = _ctx.pkmnGenerator.randPokemon(_ctx.rng);
             if (Pokemon::isLegendary(tmp))
                 continue;
             match = false;
@@ -262,11 +262,11 @@ void Shuffler::shuffleLearnsets()
 }
 
 void shuffleGrowthRates(Database& db, Random& rand);
-void shuffleStarters(Database& db, Random& rand);
+void shuffleStarters(Context& ctx);
 void shuffleAbilities(Database& db, Random& rand);
 void shuffleStats(Database& db, Random& rand);
-void shuffleEvolutions(Database& db, Random& rand);
-void shuffleTrainers(Database& db, Random& rand);
+void shuffleEvolutions(Context& ctx);
+void shuffleTrainers(Context& ctx);
 void shuffleTmHm(Database& db, Random& rand);
 void shuffleItems(Database& db, Random& rand);
 
@@ -285,21 +285,21 @@ void Shuffler::shuffle()
     shuffleLearnsets();
 
     Log::info(_ctx, "Shuffling Evolutions");
-    shuffleEvolutions(_ctx.db, _ctx.rng);
+    shuffleEvolutions(_ctx);
 
     /* Shuffle starters */
     Log::info(_ctx, "Shuffling Starters");
-    shuffleStarters(_ctx.db, _ctx.rng);
+    shuffleStarters(_ctx);
 
     /* Shuffle things */
     Log::info(_ctx, "Shuffling Wild Pokemons");
     shuffleWild();
 
     Log::info(_ctx, "Shuffling Trainers");
-    shuffleTrainers(_ctx.db, _ctx.rng);
+    shuffleTrainers(_ctx);
 
     /* Shuffle the random encounter */
-    _ctx.rom.writeU16(_ctx.rom.sym("kFirstBattlePokemon"), Pokemon::randPokemon(_ctx.rng));
+    _ctx.rom.writeU16(_ctx.rom.sym("kFirstBattlePokemon"), _ctx.pkmnGenerator.randPokemon(_ctx.rng));
 
     /* Shuffle items */
     shuffleItems(_ctx.db, _ctx.rng);

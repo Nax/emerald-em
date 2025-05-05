@@ -92,6 +92,10 @@ struct SpeciesGroups
         SPECIES_ARCEUS_DARK, SPECIES_ARCEUS_STEEL, SPECIES_ARCEUS_FAIRY,
     };
 
+    static inline const SpeciesSet BasculinRedBlue = {
+        SPECIES_BASCULIN_BLUE_STRIPED, SPECIES_BASCULIN_RED_STRIPED,
+    };
+
     static inline const SpeciesSet Basculin = {
         SPECIES_BASCULIN_BLUE_STRIPED, SPECIES_BASCULIN_RED_STRIPED, SPECIES_BASCULIN_WHITE_STRIPED,
     };

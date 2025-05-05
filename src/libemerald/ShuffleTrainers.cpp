@@ -1,7 +1,5 @@
 #include <emerald/include/constants/opponents.h>
-#include "Database.h"
-#include "Rom.h"
-#include "Random.h"
+#include "Context.h"
 #include "Pokemon.h"
 
 static uint8_t fixupLevel(uint8_t level)
@@ -12,15 +10,15 @@ static uint8_t fixupLevel(uint8_t level)
     return level;
 }
 
-void shuffleTrainers(Database& db, Random& rand)
+void shuffleTrainers(Context& ctx)
 {
     for (int i = 0; i < TRAINERS_COUNT; ++i)
     {
-        uint8_t teamSize = db.trainers.teamSize[i];
+        uint8_t teamSize = ctx.db.trainers.teamSize[i];
         for (int j = 0; j < teamSize; ++j)
         {
-            uint16_t species = db.trainers.pokemons[i][j];
-            uint8_t level = db.trainers.levels[i][j];
+            uint16_t species = ctx.db.trainers.pokemons[i][j];
+            uint8_t level = ctx.db.trainers.levels[i][j];
             level = fixupLevel(level);
 
             switch (species)
@@ -30,11 +28,11 @@ void shuffleTrainers(Database& db, Random& rand)
             case SPECIES_SCEPTILE:
                 if (level >= 30)
                 {
-                    species = db.misc.starters[0][2];
+                    species = ctx.db.misc.starters[0][2];
                 }
                 else
                 {
-                    species = db.misc.starters[0][species - SPECIES_TREECKO];
+                    species = ctx.db.misc.starters[0][species - SPECIES_TREECKO];
                 }
                 break;
             case SPECIES_TORCHIC:
@@ -42,11 +40,11 @@ void shuffleTrainers(Database& db, Random& rand)
             case SPECIES_BLAZIKEN:
                 if (level >= 30)
                 {
-                    species = db.misc.starters[1][2];
+                    species = ctx.db.misc.starters[1][2];
                 }
                 else
                 {
-                    species = db.misc.starters[1][species - SPECIES_TORCHIC];
+                    species = ctx.db.misc.starters[1][species - SPECIES_TORCHIC];
                 }
                 break;
             case SPECIES_MUDKIP:
@@ -54,21 +52,21 @@ void shuffleTrainers(Database& db, Random& rand)
             case SPECIES_SWAMPERT:
                 if (level >= 30)
                 {
-                    species = db.misc.starters[2][2];
+                    species = ctx.db.misc.starters[2][2];
                 }
                 else
                 {
-                    species = db.misc.starters[2][species - SPECIES_MUDKIP];
+                    species = ctx.db.misc.starters[2][species - SPECIES_MUDKIP];
                 }
                 break;
             default:
-                species = Pokemon::randPokemon(rand);
+                species = ctx.pkmnGenerator.randPokemon(ctx.rng);
                 if (level >= 30)
-                    species = Pokemon::evolution(db, rand, species, 99);
+                    species = Pokemon::evolution(ctx.db, ctx.rng, species, 99);
             }
 
-            db.trainers.pokemons[i][j] = species;
-            db.trainers.levels[i][j] = level;
+            ctx.db.trainers.pokemons[i][j] = species;
+            ctx.db.trainers.levels[i][j] = level;
         }
     }
 }

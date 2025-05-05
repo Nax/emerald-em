@@ -6,6 +6,7 @@
 #include <libemerald/Random.h>
 #include <libemerald/Rom.h>
 #include <libemerald/Database.h>
+#include <libemerald/PokemonGenerator.h>
 
 struct Context
 {
@@ -15,6 +16,7 @@ struct Context
     Random rng;
     Rom rom;
     Database db;
+    PokemonGenerator pkmnGenerator;
     std::string dataPath;
     std::ofstream outRom;
 };

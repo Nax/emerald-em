@@ -1,10 +1,8 @@
 #include <emerald/include/constants/offsets.h>
-#include "Database.h"
-#include "Rom.h"
-#include "Random.h"
+#include "Context.h"
 #include "Pokemon.h"
 
-void shuffleStarters(Database& db, Random& rand)
+void shuffleStarters(Context& ctx)
 {
     bool valid;
     std::uint16_t starters[3];
@@ -19,7 +17,7 @@ void shuffleStarters(Database& db, Random& rand)
         for (;;)
         {
             valid = true;
-            tmp = Pokemon::randPokemon(rand);
+            tmp = ctx.pkmnGenerator.randPokemon(ctx.rng);
             for (int j = 0; j < i; ++j)
             {
                 if (starters[j] == tmp)
@@ -35,11 +33,11 @@ void shuffleStarters(Database& db, Random& rand)
     for (int i = 0; i < 3; ++i)
     {
         starterEvo1 = starters[i];
-        starterEvo2 = Pokemon::evolution(db, rand, starterEvo1);
-        starterEvoMax = Pokemon::evolution(db, rand, starterEvo2, 999);
+        starterEvo2 = Pokemon::evolution(ctx.db, ctx.rng, starterEvo1);
+        starterEvoMax = Pokemon::evolution(ctx.db, ctx.rng, starterEvo2, 999);
 
-        db.misc.starters[i][0] = starterEvo1;
-        db.misc.starters[i][1] = starterEvo2;
-        db.misc.starters[i][2] = starterEvoMax;
+        ctx.db.misc.starters[i][0] = starterEvo1;
+        ctx.db.misc.starters[i][1] = starterEvo2;
+        ctx.db.misc.starters[i][2] = starterEvoMax;
     }
 }

@@ -1,6 +1,6 @@
 #include <set>
 #include <vector>
-#include <libemerald/Database.h>
+#include <libemerald/Context.h>
 #include <libemerald/Shuffler.h>
 #include <libemerald/Pokemon.h>
 #include <libemerald/SpeciesGroups.h>
@@ -55,8 +55,8 @@ static int computeBst(Database& db, int index)
 class ShuffleEvolutions
 {
 public:
-    ShuffleEvolutions(Database& db, Random& rand)
-    : _db{db}, _rand{rand}
+    ShuffleEvolutions(Context& ctx)
+    : _ctx{ctx}
     {
     }
 
@@ -74,20 +74,19 @@ public:
         /* We need to apply the substitutions to the database */
         for (int speciesId = 1; speciesId < NUM_SPECIES; ++speciesId)
         {
-            for (unsigned i = 0; i < _db.pokemons.evolutions[speciesId].size(); ++i)
+            for (unsigned i = 0; i < _ctx.db.pokemons.evolutions[speciesId].size(); ++i)
             {
-                auto targetId = _db.pokemons.evolutions[speciesId][i];
+                auto targetId = _ctx.db.pokemons.evolutions[speciesId][i];
                 if (_substitutions.find(targetId) == _substitutions.end())
                     continue;
                 targetId = _substitutions[targetId];
-                _db.pokemons.evolutions[speciesId][i] = targetId;
+                _ctx.db.pokemons.evolutions[speciesId][i] = targetId;
             }
         }
     }
 
 private:
-    Database&                       _db;
-    Random&                         _rand;
+    Context&                        _ctx;
     std::set<uint16_t>              _pokemonsShuffled;
     std::set<uint16_t>              _pokemonsEvolved;
     std::map<uint16_t, uint16_t>    _substitutions;
@@ -96,7 +95,7 @@ private:
     {
         for (int i = 1; i < NUM_SPECIES; ++i)
         {
-            if (!Pokemon::isValidOutOfBattle(i))
+            if (!_ctx.pkmnGenerator.isValid(i))
                 continue;
 
             _pokemonsShuffled.insert(i);
@@ -107,12 +106,12 @@ private:
     {
         for (int i = 1; i < NUM_SPECIES; ++i)
         {
-            if (!Pokemon::isValidOutOfBattle(i))
+            if (!_ctx.pkmnGenerator.isValid(i))
                 continue;
 
-            for (auto evo : _db.pokemons.evolutions[i])
+            for (auto evo : _ctx.db.pokemons.evolutions[i])
             {
-                if (evo != SPECIES_NONE && Pokemon::isValidOutOfBattle(evo))
+                if (evo != SPECIES_NONE && _ctx.pkmnGenerator.isValid(evo))
                 {
                     _pokemonsEvolved.insert(evo);
                 }
@@ -125,7 +124,7 @@ private:
         pool.clear();
         for (auto p : src)
         {
-            int bst = computeBst(_db, p);
+            int bst = computeBst(_ctx.db, p);
             if (bst >= min && bst <= max)
                 pool.push_back(p);
         }
@@ -161,7 +160,7 @@ private:
             /* Lookup pokemons */
             for (uint16_t i = 1; i < NUM_SPECIES; ++i)
             {
-                const auto& dbEntry = _db.pokemons.evolutions[i];
+                const auto& dbEntry = _ctx.db.pokemons.evolutions[i];
 
                 /* If the current pokemon is on the evo line, lookup all its evolutions */
                 if (evoLine.find(i) != evoLine.end())
@@ -211,7 +210,7 @@ private:
         if (depth >= 10)
             return 10;
 
-        const auto& dbEntry = _db.pokemons.evolutions[speciesId];
+        const auto& dbEntry = _ctx.db.pokemons.evolutions[speciesId];
         maxDepth = depth + 1;
         for (auto evo : dbEntry)
         {
@@ -260,7 +259,7 @@ private:
         std::map<uint16_t, uint16_t> subs;
 
         /* Build the temp pool */
-        bst = computeBst(_db, src);
+        bst = computeBst(_ctx.db, src);
         groupSrc = SpeciesGroups::find(kSpeciesSharedEvolutions, src);
         for (auto candidate : poolDst)
         {
@@ -285,8 +284,8 @@ private:
             {
                 for (int j = 0; j < 2; ++j)
                 {
-                    uint8_t typeSrc = _db.pokemons.types[src][i];
-                    uint8_t typeCandidate = _db.pokemons.types[candidate][j];
+                    uint8_t typeSrc = _ctx.db.pokemons.types[src][i];
+                    uint8_t typeCandidate = _ctx.db.pokemons.types[candidate][j];
 
                     //printf("Types: %d / %d\n", typeSrc, typeCandidate);
 
@@ -358,12 +357,12 @@ private:
             std::vector<std::uint16_t> groupVec{groupDst->begin(), groupDst->end()};
             uint16_t tmp;
 
-            shuffle(groupVec, _rand);
+            shuffle(groupVec, _ctx.rng);
             for (auto s : *groupSrc)
             {
                 if (src == s)
                     continue;
-                tmp = groupVec[_rand.next() % groupVec.size()];
+                tmp = groupVec[_ctx.rng.next() % groupVec.size()];
                 assignSubstitution(pool, s, tmp);
             }
             for (auto d : *groupDst)
@@ -387,7 +386,7 @@ private:
         std::vector<uint16_t> currentPoolDst;
 
         _substitutions.clear();
-        shuffle(poolSrc, _rand);
+        shuffle(poolSrc, _ctx.rng);
 
         while (poolSrc.size())
         {
@@ -403,7 +402,7 @@ private:
             }
 
             /* Get the subst */
-            auto dst = currentPoolDst[_rand.next() % currentPoolDst.size()];
+            auto dst = currentPoolDst[_ctx.rng.next() % currentPoolDst.size()];
             assignEvolution(poolDst, src, dst);
         }
 
@@ -411,8 +410,8 @@ private:
     }
 };
 
-void shuffleEvolutions(Database& db, Random& rand)
+void shuffleEvolutions(Context& ctx)
 {
-    ShuffleEvolutions s{db, rand};
+    ShuffleEvolutions s{ctx};
     s.run();
 }
