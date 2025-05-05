@@ -161,19 +161,22 @@ void Shuffler::shuffleWild()
     uint32_t land;
     uint32_t water;
     uint32_t rock;
+    uint32_t hidden;
     uint32_t fish;
 
     offset = _ctx.rom.sym("gWildMonHeaders");
     for (int i = 0; i < 125; ++i)
     {
-        land = _ctx.rom.readU32(offset + i * 20 + 4);
-        water = _ctx.rom.readU32(offset + i * 20 + 8);
-        rock = _ctx.rom.readU32(offset + i * 20 + 12);
-        fish = _ctx.rom.readU32(offset + i * 20 + 16);
+        land = _ctx.rom.readU32(offset + i * 24 + 4);
+        water = _ctx.rom.readU32(offset + i * 24 + 8);
+        rock = _ctx.rom.readU32(offset + i * 24 + 12);
+        hidden = _ctx.rom.readU32(offset + i * 24 + 16);
+        fish = _ctx.rom.readU32(offset + i * 24 + 20);
 
         shuffleWildList(land, 12);
         shuffleWildList(water, 5);
         shuffleWildList(rock, 5);
+        shuffleWildList(hidden, 3);
         shuffleWildList(fish, 10);
     }
 }
@@ -248,7 +251,7 @@ void Shuffler::shuffleLearnsets()
     uint32_t tmp;
 
     base = _ctx.rom.sym("gSpeciesInfo");
-    for (int i = 1; i < 1524; ++i)
+    for (int i = 1; i < NUM_SPECIES; ++i)
     {
         tmp = _ctx.rom.readU32(base + DATA_SPECIES_SIZE * i + DATA_SPECIES_OFF_LEVELUP_LEARNSET);
         if (tmp)
