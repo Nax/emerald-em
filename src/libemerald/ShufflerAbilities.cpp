@@ -77,6 +77,10 @@ reroll:
     case ABILITY_MAGNET_PULL:
     case ABILITY_SHADOW_TAG:
 
+    /* Too strong/disrupting */
+    case ABILITY_IMPOSTER:
+    case ABILITY_INNARDS_OUT:
+
     /* Shedinja-only */
     case ABILITY_WONDER_GUARD:
 
