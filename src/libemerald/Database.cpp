@@ -75,7 +75,7 @@ static void databaseTrainersLoad(DatabaseTrainers& db, const Rom& rom)
     uint32_t base;
     uint8_t teamSize;
 
-    baseTrainers = rom.sym("gTrainers");
+    baseTrainers = rom.sym("gTrainers") + TRAINERS_COUNT * DATA_TRAINERS_SIZE;
     for (int i = 0; i < TRAINERS_COUNT; ++i)
     {
         base = baseTrainers + DATA_TRAINERS_SIZE * i;
@@ -101,7 +101,7 @@ static void databaseTrainersSave(const DatabaseTrainers& db, Rom& rom)
     uint32_t base;
     uint8_t teamSize;
 
-    baseTrainers = rom.sym("gTrainers");
+    baseTrainers = rom.sym("gTrainers") + TRAINERS_COUNT * DATA_TRAINERS_SIZE;
     for (int i = 0; i < TRAINERS_COUNT; ++i)
     {
         base = baseTrainers + DATA_TRAINERS_SIZE * i;
