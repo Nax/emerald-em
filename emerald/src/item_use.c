@@ -249,19 +249,45 @@ void ItemUseOutOfBattle_ExpShare(u8 taskId)
 #endif
 }
 
+static void Task_UseEternalRepel(u8 taskId)
+{
+    const u8* msg;
+
+    if (!IsSEPlaying())
+    {
+        if (FlagGet(FLAG_ETERNAL_REPEL))
+        {
+            msg = gText_EternalRepelOff;
+        }
+        else
+        {
+            msg = gText_EternalRepelOn;
+        }
+        VarSet(VAR_REPEL_STEP_COUNT, 0);
+        FlagToggle(FLAG_ETERNAL_REPEL);
+
+        if (!gTasks[taskId].data[2])
+            DisplayItemMessageOnField(taskId, msg, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, FONT_NORMAL, msg, CloseItemMessage);
+    }
+}
+
+static void Task_StartUseEternalRepel(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    if (++data[8] > 7)
+    {
+        data[8] = 0;
+        PlaySE(SE_REPEL);
+        gTasks[taskId].func = Task_UseEternalRepel;
+    }
+}
+
 void ItemUseOutOfBattle_EternalRepel(u8 taskId)
 {
-    PlaySE(SE_REPEL);
-    if (FlagGet(FLAG_ETERNAL_REPEL))
-    {
-        DisplayItemMessage(taskId, FONT_NORMAL, gText_EternalRepelOff, CloseItemMessage);
-    }
-    else
-    {
-        DisplayItemMessage(taskId, FONT_NORMAL, gText_EternalRepelOn, CloseItemMessage);
-    }
-    FlagToggle(FLAG_ETERNAL_REPEL);
-    VarSet(VAR_REPEL_STEP_COUNT, 0);
+    gTasks[taskId].func = Task_StartUseEternalRepel;
 }
 
 void ItemUseOutOfBattle_Bike(u8 taskId)
